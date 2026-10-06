@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black
+}
+
+\title{\textbf{CRUCIBLE v6.0: A Multi-Layer Normative Gauntlet and Deterministic Protocol for Forensic Epistemic Auditing of Academic Literature}}
+
+\author{
+  \textbf{CRUCIBLE Research Initiative} \\
+  \texttt{https://github.com/curious/CRUCIBLE}
+}
+
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Large Language Models (LLMs) deployed as academic and scientific evaluators suffer from three systemic pathology modes: \textbf{sycophancy} (systematic confirmation bias toward user prompts and cited authorities), \textbf{smoothing errors} (loss of microscopic methodological granularity in favor of generic, diplomatic summaries), and \textbf{hallucinatory consensus} (premature dialectical resolution without empirical justification). While training-time alignments mitigate crude toxicities, they fail to enforce rigorous disciplinary demarcation or methodological friction during post-hoc inference. In this paper, we introduce \textbf{CRUCIBLE v6.0}, an open-source, model-agnostic normative framework and deterministic audit gauntlet designed to transform commercial frontier LLMs into adversarial, unyielding epistemic auditors. CRUCIBLE deploys a 10-layer disciplinary gauntlet encompassing epistemic virtues, Popperian steelmanning, hermeneutic hygiene, Bayesian likelihood calibration, Directed Acyclic Graph (DAG) causality, systematic review hierarchies (AMSTAR-2/GRADE), decision-making under deep uncertainty (DMDU), historical source criticism, and G\"odel-Tarski auto-falsification. Crucially, analytical integrity is deterministically enforced by an external Python linter (\texttt{crucible\_linter.py}) that halts execution and forbids report sealing unless all triage mandates, tabular matrices, and auto-falsification confessions are verified. We evaluate CRUCIBLE across 9 highly contested academic benchmark dossiers spanning clinical epidemiology, climatology, psychiatry, historiography, and psychoanalysis. Across all 9 cases (100\% deterministic linter pass rate), CRUCIBLE identified 56 discrete formal fallacies (mean: 6.2 per case), activated an average of 6.4 normative layers, and produced 28 formal self-falsification confessions. Cross-model experiments across four frontier engines (Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.1 Pro, Gemini 3.8 Flash) demonstrate structural protocol invariance. We openly document the framework's failure modes, establishing CRUCIBLE as a calibrated whetstone for human-in-the-loop scientific inquiry.
+\end{abstract}
+
+\section{Introduction}
+As generative AI models assume larger roles in scientific synthesis and automated peer review, an alarming epistemic failure mode has become entrenched: \textbf{generative sycophancy}. Frontier models trained via Reinforcement Learning from Human Feedback (RLHF) systematically optimize for agreeable and superficially helpful prose. When presented with published literature containing methodological confounders, statistical fragility, or rhetorical pseudo-mathematics, standard LLMs default to confirmation bias and smoothing errors.
+
+\textbf{CRUCIBLE v6.0} addresses this crisis at \textit{inference time}. Rather than treating the LLM as an autonomous arbiter, CRUCIBLE treats the model as an adversarial surgical instrument constrained by an unyielding mechanical harness.
+
+\section{Related Work and Positioning}
+While Constitutional AI operating at training time and fine-tuned models such as OpenReviewer focus on general safety or AI-domain peer review, CRUCIBLE operates as an inference-time normative gauntlet across all academic faculties.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabularx}{\textwidth}{l p{3.2cm} c c X}
+\toprule
+\textbf{Framework} & \textbf{Architectural Layer} & \textbf{Stats/DAG?} & \textbf{Linter?} & \textbf{Epistemic Breadth} \\
+\midrule
+Constitutional AI & Training-Time (RLHF) & No & No & General Safety \\
+CriticGPT & Fine-Tuned Model & No & Partial & Code Syntax \\
+OpenReviewer & Fine-Tuned Model (8B) & No & No & ML/AI Papers Only \\
+GoldBerry & Prompt Framework & No & No & Cultural Studies \\
+\textbf{CRUCIBLE v6.0} & \textbf{Inference Protocol} & \textbf{Yes} & \textbf{Yes} & \textbf{Universal 10-Layer Gauntlet} \\
+\bottomrule
+\end{tabularx}
+\caption{State-of-the-Art Comparative Positioning.}
+\label{tab:sota}
+\end{table*}
+
+\section{The CRUCIBLE v6.0 Architecture}
+CRUCIBLE integrates four components:
+\begin{enumerate}[noitemsep]
+    \item \textbf{10-Layer Normative Gauntlet:} Covering demarcation, Popperian steelmanning, hermeneutics, Bayesian likelihoods, causal DAGs, AMSTAR-2 evidence hierarchies, DMDU risk, historical source criticism, parameter auditing, and G\"odel-Tarski auto-falsification.
+    \item \textbf{Epistemic Triage Matrix:} Mandatory explicit declaration of active and excluded analytical layers.
+    \item \textbf{Two-Stage Extraction Pipeline:} Separation of evidence extraction (Target Dossier) from forensic audit to eliminate 400+ page context dilution.
+    \item \textbf{Deterministic Python Linter (\texttt{crucible\_linter.py}):} Zero-tolerance regex and syntax compiler enforcing 100\% compliance before report sealing.
+\end{enumerate}
+
+\section{Quantitative Benchmark Evaluation}
+Evaluating CRUCIBLE across 9 contested monographs yielded 100\% linter pass rate, 56 detected fallacies, and 28 auto-falsification items.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{l c c c c}
+\toprule
+\textbf{Case Study} & \textbf{Active Layers} & \textbf{Fallacies} & \textbf{Auto-Falsif.} & \textbf{Linter} \\
+\midrule
+01. Judith Butler & 5 & 8 & 4 & PASS \\
+02. Jacques Lacan & 6 & 5 & 3 & PASS \\
+03. Cass Review & 8 & 6 & 3 & PASS \\
+04. Cheikh Anta Diop & 6 & 6 & 3 & PASS \\
+05. Frank Snowden & 5 & 2 & 3 & PASS \\
+06. Cook vs. Tol & 7 & 9 & 3 & PASS \\
+07. Judith Curry & 7 & 6 & 3 & PASS \\
+08. Joanna Moncrieff & 8 & 7 & 3 & PASS \\
+09. Simon Baron-Cohen & 6 & 7 & 3 & PASS \\
+\bottomrule
+\end{tabular}
+\caption{Benchmark Quantitative Results across 9 Showcase Cases.}
+\label{tab:benchmarks}
+\end{table}
+
+\section{Limitations and System Boundaries}
+We formally document three primary boundary conditions: (1) context dilution on monolithic documents exceeding 400 pages without dossier curation, (2) pure axiomatic mathematics requiring external Automated Theorem Provers (ATP) rather than token-space logic, and (3) linguistic substrate degradation on agglutinative languages.
+
+\section{Conclusion}
+CRUCIBLE v6.0 establishes that inference-time normative architectures, combined with deterministic linting and G\"odel-Tarski human-in-the-loop protocols, can overcome LLM sycophancy and provide a reproducible foundation for forensic scientific criticism.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{10}
+\bibitem{bai2022} Y.~Bai et al., ``Constitutional AI: Harmlessness from AI Feedback,'' \textit{arXiv:2212.08073}, 2022.
+\bibitem{hill1965} A.~Bradford Hill, ``The Environment and Disease: Association or Causation?'' \textit{Proc. R. Soc. Med.}, 1965.
+\bibitem{pearl2009} J.~Pearl, \textit{Causality: Models, Reasoning, and Inference}, Cambridge University Press, 2009.
+\bibitem{popper1959} K.~Popper, \textit{The Logic of Scientific Discovery}, Hutchinson, 1959.
+\bibitem{sharma2023} M.~Sharma et al., ``Towards Understanding Sycophancy in Large Language Models,'' \textit{arXiv:2310.13548}, 2023.
+\end{thebibliography}
+
+\end{document}

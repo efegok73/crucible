@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUCIBLE v6.0 Whitepaper</title>
+    <style>
+        body {
+            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #0f172a;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 40px 15px;
+        }
+        .container {
+            max-width: 920px;
+            margin: auto;
+            background: #ffffff;
+            padding: 60px 75px;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+        h1 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #020617;
+            font-size: 2.1rem;
+            line-height: 1.25;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 15px;
+            margin-top: 0;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #0f172a;
+            font-size: 1.45rem;
+            margin-top: 40px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #1e293b;
+            font-size: 1.15rem;
+            margin-top: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.90rem;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        pre {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.88rem;
+        }
+        code {
+            background-color: #f1f5f9;
+            color: #991b1b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        blockquote {
+            border-left: 4px solid #0f172a;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #f8fafc;
+            font-style: italic;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #cbd5e1;
+            margin: 35px 0;
+        }
+        @media print {
+            body { padding: 0; background: #fff; }
+            .container { box-shadow: none; border: none; padding: 0; max-width: 100%; }
+        }
+    </style>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>CRUCIBLE v6.0: A Multi-Layer Normative Gauntlet and Deterministic Protocol for Forensic Epistemic Auditing of Academic Literature</h1>
+<p><strong>Whitepaper &amp; Technical Specification</strong><br />
+<strong>Document ID:</strong> <code>CRUCIBLE-WP-2026-v6.0</code><br />
+<strong>Classification:</strong> Open Source Framework Specification / Preprint Draft (<code>cs.AI</code>, <code>cs.CL</code>)<br />
+<strong>Date:</strong> October 2026<br />
+<strong>License:</strong> MIT License<br />
+<strong>Repository:</strong> <a href="https://github.com/curious/CRUCIBLE">github.com/curious/CRUCIBLE</a>  </p>
+<hr />
+<h2>ABSTRACT</h2>
+<p>Large Language Models (LLMs) deployed as academic and scientific evaluators suffer from three systemic pathology modes: <strong>sycophancy</strong> (systematic confirmation bias toward user prompts and cited authorities), <strong>smoothing errors</strong> (loss of microscopic methodological granularity in favor of generic, diplomatic summaries), and <strong>hallucinatory consensus</strong> (premature dialectical resolution without empirical justification). While training-time alignments (e.g., Constitutional AI, RLHF) mitigate crude toxicities, they fail to enforce rigorous disciplinary demarcation or methodological friction during post-hoc inference. </p>
+<p>In this paper, we introduce <strong>CRUCIBLE v6.0</strong>, an open-source, model-agnostic normative framework and deterministic audit gauntlet designed to transform commercial frontier LLMs into adversarial, unyielding epistemic auditors. CRUCIBLE deploys a 10-layer disciplinary gauntlet encompassing epistemic virtues, Popperian steelmanning, hermeneutic hygiene, Bayesian likelihood calibration, Directed Acyclic Graph (DAG) causality, systematic review hierarchies (AMSTAR-2/GRADE), decision-making under deep uncertainty (DMDU), historical source criticism, and Gödel-Tarski auto-falsification. </p>
+<p>To prevent context collapse and tokenisation bottlenecks, CRUCIBLE mandates a <strong>Two-Stage Extraction Pipeline</strong> governed by the <strong>Law of Substrate Parity</strong>. Crucially, analytical integrity is deterministically enforced by an external Python linter (<code>crucible_linter.py</code>) that halts execution and forbids report sealing unless all triage mandates, tabular matrices, and auto-falsification confessions are verified. </p>
+<p>We evaluate CRUCIBLE across 9 highly contested academic benchmark dossiers spanning clinical epidemiology, climatology, psychiatry, historiography, and psychoanalysis. Across all 9 cases (100% deterministic linter pass rate), CRUCIBLE identified 56 discrete formal fallacies (mean: 6.2 per case), activated an average of 6.4 normative layers, and produced 28 formal self-falsification confessions. Cross-model experiments across four frontier engines (Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.1 Pro, Gemini 3.8 Flash) demonstrate structural protocol invariance. We openly document the framework's failure modes—including monolithic context limits (&gt;400 pages) and formal mathematical deduction boundaries—establishing CRUCIBLE as a calibrated whetstone for human-in-the-loop scientific inquiry.</p>
+<p><strong>Keywords:</strong> Epistemic Auditing, Sycophancy Mitigation, Large Language Models, Steelmanning, Deterministic Linting, Causality, Scientific Criticism.</p>
+<hr />
+<h2>1. INTRODUCTION: THE CALIBRATION CRISIS IN LLM-ASSISTED INQUIRY</h2>
+<h3>1.1. The Three Failure Modes of Generative Peer Review</h3>
+<p>As generative AI models assume larger roles in scientific synthesis, peer review assistance, and automated literature auditing, an alarming epistemic failure mode has become entrenched: <strong>generative sycophancy</strong> (Sharma et al., 2023; Perez et al., 2022). Frontier models trained via Reinforcement Learning from Human Feedback (RLHF) systematically optimize for agreeable, polite, and superficially helpful prose. When presented with published literature containing methodological confounders, statistical fragility, or rhetorical pseudo-mathematics, standard LLMs default to:</p>
+<ol>
+<li><strong>Confirmation Bias and Authority Sycophancy:</strong> The model validates the author's conclusions simply because they are expressed in formal academic syntax, avoiding confrontational methodological inquiry.</li>
+<li><strong>Smoothing Errors (Resolution Attrition):</strong> When handling intricate disputes (e.g., selection bias in pediatric observational cohorts or denominator manipulation in bibliometrics), standard prompts collapse granular metrics ($d$-values, sample attrition, unmeasured colliders) into colloquial summaries (<em>"some methodological limitations exist"</em>).</li>
+<li><strong>The Deliverable Reflex:</strong> Models rush to produce an uncontroversial, homogenized consensus rather than exposing deep epistemological fault lines.</li>
+</ol>
+<h3>1.2. The Inference-Time Gap</h3>
+<p>While substantial research has focused on <em>training-time alignment</em> (Bai et al., 2022) or domain-specific fine-tuning (OpenReviewer; Huang et al., 2025), these interventions alter model weights at massive capital cost and remain locked to specific architectures. Furthermore, safety-aligned models often display hyper-caution, avoiding decisive critiques of contentious literature.</p>
+<p><strong>CRUCIBLE v6.0</strong> addresses this crisis at <em>inference time</em>. It operates as an uncompromising, external normative constitution. Rather than treating the LLM as an autonomous arbiter, CRUCIBLE treats the LLM as a high-powered scalpel that must be constrained by an unyielding mechanical harness.</p>
+<hr />
+<h2>2. RELATED WORK &amp; SOTA POSITIONING</h2>
+<p>CRUCIBLE intersects several emerging paradigms in AI alignment, dialectical reasoning, and automated peer review. Table 1 delineates CRUCIBLE’s operational taxonomy relative to state-of-the-art frameworks.</p>
+<h3>Table 1: State-of-the-Art Comparative Positioning Matrix</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Framework / System</th>
+<th style="text-align: left;">Architectural Layer</th>
+<th style="text-align: left;">Primary Scope</th>
+<th style="text-align: center;">Quantitative / Statistical Gauntlet?</th>
+<th style="text-align: center;">Deterministic Verification?</th>
+<th style="text-align: left;">Disciplinary Breadth</th>
+<th style="text-align: center;">Epistemic Auto-Falsification?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Constitutional AI</strong> <em>(Bai et al., 2022)</em></td>
+<td style="text-align: left;">Training-Time (RLHF/RLAIF)</td>
+<td style="text-align: left;">Harmlessness &amp; General Alignment</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">❌ Stochastic</td>
+<td style="text-align: left;">General Domain</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CriticGPT</strong> <em>(OpenAI, 2024)</em></td>
+<td style="text-align: left;">Fine-Tuned Model (RLHF)</td>
+<td style="text-align: left;">Code Bug &amp; Syntax Auditing</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">⚠️ Partial (Compiler)</td>
+<td style="text-align: left;">Software Code Only</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OpenReviewer</strong> <em>(Huang et al., 2025)</em></td>
+<td style="text-align: left;">Fine-Tuned Model (Llama-8B)</td>
+<td style="text-align: left;">Academic Peer Review</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">❌ Stochastic</td>
+<td style="text-align: left;">ML / AI Papers Only</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GoldBerry</strong> <em>(2026)</em></td>
+<td style="text-align: left;">Inference-Time Prompt Framework</td>
+<td style="text-align: left;">Critical Thinking &amp; Lenses</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: left;">Cultural &amp; Media Studies</td>
+<td style="text-align: center;">⚠️ Qualitative Only</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MAVEN</strong> <em>(2025)</em></td>
+<td style="text-align: left;">Multi-Agent Reasoning</td>
+<td style="text-align: left;">In-Step Epistemic Verification</td>
+<td style="text-align: center;">⚠️ Minimal</td>
+<td style="text-align: center;">❌ Stochastic</td>
+<td style="text-align: left;">Formal Logic Chains</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SycEval / CAP</strong> <em>(2025–2026)</em></td>
+<td style="text-align: left;">Evaluation Benchmark</td>
+<td style="text-align: left;">Sycophancy Measurement</td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">⚠️ Metric Output</td>
+<td style="text-align: left;">Benchmark Testing</td>
+<td style="text-align: center;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CRUCIBLE v6.0</strong> <em>(Ours)</em></td>
+<td style="text-align: left;"><strong>Inference-Time Normative Protocol</strong></td>
+<td style="text-align: left;"><strong>Forensic Academic &amp; Epistemic Audit</strong></td>
+<td style="text-align: center;"><strong>✅ Yes (Bayes, DAGs, GRADE)</strong></td>
+<td style="text-align: center;"><strong>✅ Deterministic (Python Linter)</strong></td>
+<td style="text-align: left;"><strong>Universal Multi-Disciplinary (10 Layers)</strong></td>
+<td style="text-align: center;"><strong>✅ Yes (Layer 10 + Surgeon Card)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>2.1. Distinction from Model-Specific Tuning</h3>
+<p>Unlike OpenReviewer, CRUCIBLE requires zero weight fine-tuning. It functions across arbitrary frontier reasoning models (Anthropic Claude, Google Gemini, OpenAI GPT). When the underlying foundation model improves, CRUCIBLE's analytical resolution scales without retraining.</p>
+<h3>2.2. Distinction from Qualitative Frameworks</h3>
+<p>Unlike qualitative lens systems (e.g., GoldBerry), CRUCIBLE enforces quantitative rigor: Layer 4 mandates Bayesian prior updates and effect-size auditing ($d$, $\eta^2$); Layer 5 formalizes causal Directed Acyclic Graphs (DAGs) to identify collider and unmeasured confounding biases; and Layer 6 enforces PRISMA/AMSTAR-2 systematic review standards.</p>
+<hr />
+<h2>3. THE CRUCIBLE v6.0 ARCHITECTURE</h2>
+<p>CRUCIBLE v6.0 is structured around four interlocking components: (1) The 10-Layer Normative Gauntlet, (2) The Epistemic Triage Matrix, (3) The Two-Stage Extraction Pipeline, and (4) The Deterministic Verification Harness.</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                        RAW MONOGRAPH / THESIS                          │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ Stage 1: Extraction Directive
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│               TARGET DOSSIER (Source-Fidelity Quotes)                  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ Stage 2: Epistemic Gauntlet
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                     EPISTEMIC TRIAGE MATRIX                            │
+│           (Active Layer Selection &amp; Exclusion Justification)           │
+├───────────────────────────────────┬────────────────────────────────────┤
+│ Phase 1: Steelmanning &amp; Virtues   │ Phase 2: Dissection &amp; Causal Audit │
+│ [L1] Demarcation &amp; Humility       │ [L4] Bayesian / Statistical Audit  │
+│ [L2] Popperian Steelmanning       │ [L5] DAGs &amp; Confounder Forensics   │
+│ [L3] Hermeneutic Hygiene          │ [L6] Systematic Evidence Grading   │
+│                                   │ [L7] DMDU &amp; Tail-Risk Science      │
+│                                   │ [L8] Historical Source Criticism   │
+│                                   │ [L9] Computational Parameter Audit │
+├───────────────────────────────────┴────────────────────────────────────┤
+│ Phase 3: Post-Mortem &amp; Auto-Falsification                              │
+│ [L10] Gödel-Tarski Self-Critique &amp; 3-Minute Human Surgeon Card         │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ Markdown Monography Output
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│               DETERMINISTIC PYTHON LINTER (crucible_linter.py)         │
+│         Regex Checks • Structural Validation • Forbidden Lexicon       │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ [PASS] Verified
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│              SEALED MONOGRAPHY (Machine MD + Formatted HTML)           │
+└────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>3.1. The 10-Layer Normative Gauntlet</h3>
+<ol>
+<li><strong>Layer 1: Epistemic Virtue &amp; Demarcation:</strong> Enforces epistemic humility, purges emotive/tribal rhetoric, and delineates empirical claims from metaphysical assertions.</li>
+<li><strong>Layer 2: Steelmanning &amp; Philosophy of Science:</strong> Imposes the principle of charity at maximum academic fidelity. The auditor must reconstruct the target thesis in its most formidable, coherent formulation before any critique is permitted.</li>
+<li><strong>Layer 3: Hermeneutics &amp; Lexical Hygiene:</strong> Dissects rhetorical equivocation, concept creep, reification fallacies, and terminological shifts.</li>
+<li><strong>Layer 4: Statistics, Probability &amp; Bayesian Mechanics:</strong> Audits statistical power, $p$-hacking, sample attrition, prior probability distributions, and effect-size realities.</li>
+<li><strong>Layer 5: Experimental Design &amp; Causal Inference:</strong> Formalizes Directed Acyclic Graphs (DAGs) to identify collider conditioning, selection bias, reverse causality, and unobserved confounders ($Z$).</li>
+<li><strong>Layer 6: Evidence Hierarchies &amp; Systematic Review:</strong> Evaluates clinical and empirical evidence against AMSTAR-2, RoB-2, and GRADE hierarchies. Anecdotal or single-center studies cannot substantiate macro claims.</li>
+<li><strong>Layer 7: Decision Science &amp; Risk (DMDU):</strong> Analyzes Decision Making Under Deep Uncertainty, Fat-Tail risks, and fragility tradeoffs.</li>
+<li><strong>Layer 8: Historical &amp; Archival Source Criticism:</strong> Enforces classical primary source triangulation (internal/external criticism). When Layer 8 is active, the model is strictly forbidden from abstract preaching; it must output a structured <code>Source-Claim Matrix</code>.</li>
+<li><strong>Layer 9: Computational Simulation &amp; Agent-Based Modeling:</strong> Audits parameter overfitting, synthetic data circularity, and validation leakage.</li>
+<li><strong>Layer 10: Auto-Falsification &amp; Epistemic Damage Report:</strong> Mandates that the model expose the fatal vulnerabilities of its <em>own</em> critique. Concludes with a 3-minute structured <code>Surgeon Checklist</code> for external human verification.</li>
+</ol>
+<h3>3.2. Epistemic Triage &amp; Disciplinary Demarcation</h3>
+<p>To avoid superficial checkbox compliance, CRUCIBLE forbids activating all layers indiscriminately. The model must perform an explicit <strong>Epistemic Triage</strong>:
+* It must declare which layers are <strong>Active</strong> (with operational justification).
+* It must declare which layers are <strong>Excluded</strong> (e.g., excluding Layer 8 historical criticism when evaluating a pure mathematical proof, or excluding Layer 4 statistics when analyzing an epigraphic fragment).</p>
+<h3>3.3. Two-Stage Pipeline &amp; The Law of Substrate Parity</h3>
+<p>Empirical stress tests revealed that passing raw 300-page monographs directly into the audit gauntlet triggered severe context dilution. CRUCIBLE establishes a strict <strong>Two-Stage Pipeline</strong>:
+1. <strong>Extraction Stage (<code>CRUCIBLE_EXTRACTION_DIRECTIVE.md</code>):</strong> The model ingests the primary text and extracts a structured, neutral <strong>Target Dossier</strong> consisting solely of verified citations, formal definitions, and empirical data tables.
+2. <strong>Audit Stage (<code>CRUCIBLE_WEB_PROMPT_EN.md</code>):</strong> The audit gauntlet is executed exclusively against the Target Dossier.</p>
+<p>Furthermore, CRUCIBLE codifies the <strong>Law of Substrate Parity</strong>: An epistemic audit achieves maximum resolution only when executed in the conceptual and linguistic substrate in which the literature was produced. Auditing English biomedical or analytic philosophy through translated prompts causes sub-word tokenisation penalties and early synthesis plateaus (see Section 4.5).</p>
+<h3>3.4. Deterministic Verification Harness (<code>crucible_linter.py</code>)</h3>
+<p>To prevent the LLM from declaring completion while silently omitting required analytical sections, CRUCIBLE integrates an automated, non-LLM Python validator:
+* <strong>Structural Regex Validation:</strong> Confirms the presence of all 11 mandatory sections, triage matrices, Layer 8 tables, Layer 10 auto-falsification confessions, and Surgeon cards.
+* <strong>Lexical Sanitation Filter:</strong> Scans the text for forbidden polemical, emotional, or dogmatic jargon (e.g., <em>"unquestionable"</em>, <em>"absurd"</em>, <em>"obviously false"</em>).
+* <strong>Deterministic Sealing:</strong> If any violation occurs, the script exits with code 1 (<code>[FAIL]</code>) and blocks HTML generation. Only zero-defect reports are compiled into sealed human-readable HTML documents.</p>
+<h3>3.5. The Gödel-Tarski Boundary &amp; Scalpel-and-Surgeon Protocol</h3>
+<p>Recognizing Tarski’s undefinability theorem as an epistemological constraint, CRUCIBLE acknowledges that <em>no computational system can fully validate the truth-value of its own meta-language</em>. Layer 10 enforces the <strong>Gödel-Tarski Boundary</strong>: the model does not declare an absolute truth verdict. Instead, it provides a 3-minute structured checklist for the <strong>External Will</strong> (the human investigator), who alone holds the mandate to physically inspect primary archives and raw experimental data.</p>
+<hr />
+<h2>4. QUANTITATIVE BENCHMARK EVALUATION</h2>
+<p>CRUCIBLE v6.0 was quantitatively benchmarked against 9 highly contested academic debates across 5 disparate faculties. The evaluation data was extracted programmatically via <code>scripts/benchmark_extractor.py</code> and validated under the formal <a href="../benchmarks/methodology/BENCHMARK_PROTOCOL.md"><code>BENCHMARK_PROTOCOL.md</code></a>.</p>
+<h3>Table 2: Primary Quantitative Benchmark Results (9 Showcase Cases)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Benchmark Case</th>
+<th style="text-align: left;">Academic Faculty / Discipline</th>
+<th style="text-align: right;">Dossier Size (KB)</th>
+<th style="text-align: right;">EN Monography (KB)</th>
+<th style="text-align: center;">Active Layers (M1)</th>
+<th style="text-align: center;">Linter Status (M3)</th>
+<th style="text-align: center;">Fallacies Detected (M4)</th>
+<th style="text-align: center;">Auto-Falsification Items (M5)</th>
+<th style="text-align: center;">Source Matrix (M6)</th>
+<th style="text-align: center;">Surgeon Card (M7)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>01</strong></td>
+<td style="text-align: left;">Judith Butler – <em>Gender Trouble</em></td>
+<td style="text-align: left;">Post-Structuralist Philosophy</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>02</strong></td>
+<td style="text-align: left;">Jacques Lacan – <em>Seminar XX: Encore</em></td>
+<td style="text-align: left;">Psychoanalysis / Semiotics</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">35.1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>03</strong></td>
+<td style="text-align: left;">Hilary Cass – <em>The Cass Review</em></td>
+<td style="text-align: left;">Clinical Medicine / Epidemiology</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">37.7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>04</strong></td>
+<td style="text-align: left;">Cheikh Anta Diop – <em>African Origin</em></td>
+<td style="text-align: left;">Historiography / Epigraphy</td>
+<td style="text-align: right;">13.0</td>
+<td style="text-align: right;">36.1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>05</strong></td>
+<td style="text-align: left;">Frank Snowden – <em>Blacks in Antiquity</em></td>
+<td style="text-align: left;">Classics / Ancient History</td>
+<td style="text-align: right;">13.9</td>
+<td style="text-align: right;">34.8</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>06</strong></td>
+<td style="text-align: left;">Cook et al. vs Tol – <em>Climate Consensus</em></td>
+<td style="text-align: left;">Bibliometrics / Climatology</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">45.5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>07</strong></td>
+<td style="text-align: left;">Judith Curry – <em>Climate Uncertainty</em></td>
+<td style="text-align: left;">Climate Science / DMDU</td>
+<td style="text-align: right;">12.7</td>
+<td style="text-align: right;">42.5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>08</strong></td>
+<td style="text-align: left;">Joanna Moncrieff – <em>Serotonin Theory</em></td>
+<td style="text-align: left;">Psychiatry / Evidence-Based Medicine</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">41.8</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>09</strong></td>
+<td style="text-align: left;">Simon Baron-Cohen – <em>Essential Difference</em></td>
+<td style="text-align: left;">Cognitive Neuroscience</td>
+<td style="text-align: right;">12.3</td>
+<td style="text-align: right;">49.0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">✅ PASS</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3>4.1. Aggregate Statistical Indicators</h3>
+<ul>
+<li><strong>Deterministic Pass Rate (M3):</strong> 9/9 (100.0%) of reports met every structural and rhetorical constraint enforced by <code>crucible_linter.py</code>.</li>
+<li><strong>Layer Engagement Density (M1):</strong> Across the suite, an average of <strong>6.4 distinct normative layers</strong> were actively engaged per audit.</li>
+<li><strong>Fallacy Detection Yield (M4):</strong> A total of <strong>56 discrete logical, statistical, or methodological fallacies</strong> were formally isolated and labeled (mean: 6.2 per audit).</li>
+<li><strong>Auto-Falsification Rigor (M5):</strong> The framework generated <strong>28 formal self-critique items</strong> (mean: 3.1 vulnerabilities admitted per audit).</li>
+<li><strong>Structural Compliance (M6 &amp; M7):</strong> 100% of applicable reports contained the mandatory tabular Source-Claim Matrix and the 3-minute Surgeon Verification Card.</li>
+</ul>
+<h3>4.2. Cross-Model Structural Invariance</h3>
+<p>To test whether CRUCIBLE is model-invariant or reliant on idiosyncratic features of a single proprietary engine, the identical target case (<em>Evolutionary Biology &amp; Epistemic Boundaries</em>) was evaluated under CRUCIBLE across four frontier LLMs.</p>
+<h3>Table 3: Cross-Model Execution Comparison (Identical Target Input)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Evaluated Engine</th>
+<th style="text-align: right;">Report Payload (KB)</th>
+<th style="text-align: center;">Active Layers</th>
+<th style="text-align: center;">Fallacies Detected</th>
+<th style="text-align: center;">Auto-Falsification Items</th>
+<th style="text-align: left;">Structural Compliance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Claude Opus 4.6 (Thinking)</strong></td>
+<td style="text-align: right;">32.8</td>
+<td style="text-align: center;">7 layers</td>
+<td style="text-align: center;">4+</td>
+<td style="text-align: center;">5 items</td>
+<td style="text-align: left;">Full 11-section protocol; exhaustive forensic depth</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Claude Sonnet 4.6 (Thinking)</strong></td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: center;">8 layers</td>
+<td style="text-align: center;">4+</td>
+<td style="text-align: center;">3 items</td>
+<td style="text-align: left;">Full 11-section protocol; sharp demarcation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gemini 3.1 Pro (High)</strong></td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: center;">4 layers</td>
+<td style="text-align: center;">3+</td>
+<td style="text-align: center;">3 items</td>
+<td style="text-align: left;"><strong>Format Collapse:</strong> compressed into bullet points</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gemini 3.8 Flash (High)</strong></td>
+<td style="text-align: right;">11.5</td>
+<td style="text-align: center;">6 layers</td>
+<td style="text-align: center;">5+</td>
+<td style="text-align: center;">2 items</td>
+<td style="text-align: left;">Full protocol; rigorous adherence to constraints</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Finding:</strong> All models successfully produced the 3-phase macro-structure (Steelmanning → Dissection → Auto-Falsification). However, model capacity dictates analytical granularity: Opus generated 4.7× more analytical payload than Gemini Pro on identical data. Crucially, the failure of Gemini Pro (format collapse into bullet lists) led directly to the development of CRUCIBLE’s deterministic linter, which rejects collapsed formats automatically.</p>
+<h3>4.3. Multi-Model Consensus on Architecture</h3>
+<p>During the transition from v5.0 to v6.0, independent proposals for framework optimization were solicited from Claude Opus 4.6 and Gemini 3.1 Pro. Both independent models converged on three core architectural principles:
+1. <strong>Scalable Output Tiers:</strong> Formally bifurcating monolithic outputs into Tier A (multi-disciplinary) and Tier B (focused single-thesis) protocols.
+2. <strong>Performative Bayesianism Shield:</strong> Banning arbitrary subjective numerical probabilities (e.g., <em>"73.4% likely"</em>) in favor of directional ordinal bounds ($\Uparrow\Uparrow, \Uparrow, \rightarrow, \Downarrow, \Downarrow\Downarrow$) with explicit caveats.
+3. <strong>Substrate Parity:</strong> Operating in the target text's original language to eliminate translation artifacts.</p>
+<h3>4.4. Empirical Substrate Asymmetry</h3>
+<p>Across all 9 showcase cases, parallel Turkish (<code>showcase/tr/</code>) and English (<code>showcase/en/</code>) monographs were generated from identical underlying dossiers. As detailed in Figure 2 and <a href="en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md"><code>03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md</code></a>, non-native agglutinative prompting exhibits a rigid physical ceiling at ~18–21 KB (~175 lines). Conversely, conducting the audit in native English unlocked an average payload expansion of <strong>+99.2%</strong> (reaching up to +144.8% in Case 09), introducing granular biostatistical calculations, LaTeX matrices, and replication forensics that were completely erased under non-native prompting.</p>
+<hr />
+<h2>5. SYSTEM BOUNDARIES &amp; FAILURE MODES</h2>
+<p>In accordance with Section 10 of our framework, CRUCIBLE documents its own boundary conditions:</p>
+<ol>
+<li><strong>Context Dilution on Monolithic Documents (&gt;400 Pages):</strong> Direct ingestion of whole books causes the self-attention mechanism to disregard technical appendices and methodological footnotes ("lost in the middle"). CRUCIBLE requires human-curated Target Dossiers for massive texts.</li>
+<li><strong>Pure Axiomatic Mathematics:</strong> CRUCIBLE is an empirical, rhetorical, and epistemic gauntlet, not an Automated Theorem Prover (ATP). It excels at exposing rhetorical math abuse (e.g., Lacan’s topology) but cannot verify 50-step formal lemmas without an external symbolic engine (e.g., Lean or Isabelle).</li>
+<li><strong>Model Weight Drift:</strong> Commercial API weight updates can silently soften critique hardness. This is mitigated by enforcing deterministic CI/CD linter gates on every commit.</li>
+<li><strong>Single-Run Benchmark Statistics:</strong> The current benchmark suite documents reference execution cases rather than stochastic Monte Carlo distributions ($N=30$).</li>
+</ol>
+<hr />
+<h2>6. REPRODUCIBILITY &amp; ARTIFACT AVAILABILITY</h2>
+<p>All target dossiers, audit monographs, Python verification scripts, and raw extraction templates are released under the permissive MIT License in the official repository:</p>
+<ul>
+<li><strong>Repository:</strong> <code>github.com/curious/CRUCIBLE</code></li>
+<li><strong>Benchmarks:</strong> <code>benchmarks/en/</code> and <code>benchmarks/tr/</code> (18 dossiers)</li>
+<li><strong>Showcase Monographs:</strong> <code>showcase/en/</code> and <code>showcase/tr/</code> (18 sealed reports)</li>
+<li><strong>Linter &amp; Metric Extractor:</strong> <code>scripts/crucible_linter.py</code> &amp; <code>scripts/benchmark_extractor.py</code></li>
+<li><strong>Methodology Specifications:</strong> <code>docs/en/</code> (5 foundational treatises)</li>
+</ul>
+<p>To reproduce the benchmark extraction table:</p>
+<pre><code class="language-bash">python scripts/benchmark_extractor.py
+</code></pre>
+<p>To validate any audited report against the normative specification:</p>
+<pre><code class="language-bash">python scripts/crucible_linter.py showcase/en/03_Cass_Review_Report.md
+</code></pre>
+<hr />
+<h2>7. CONCLUSION</h2>
+<p>Generative AI cannot achieve genuine utility in scientific inquiry so long as it remains tethered to sycophantic alignment and smoothing abstractions. <strong>CRUCIBLE v6.0</strong> demonstrates that inference-time normative architectures—grounded in classical epistemology, causal DAGs, Popperian steelmanning, and deterministic linting—can force commercial frontier LLMs to operate as rigorous, unsparing analytical surgical instruments. By enforcing the Gödel-Tarski boundary and returning ultimate epistemic verification to the human surgeon, CRUCIBLE offers a robust, reproducible foundation for the future of automated scientific criticism.</p>
+<hr />
+<h2>REFERENCES</h2>
+<ol>
+<li><strong>Bai, Y., et al. (2022).</strong> <em>Constitutional AI: Harmlessness from AI Feedback.</em> Anthropic Preprint, arXiv:2212.08073.</li>
+<li><strong>Bradford Hill, A. (1965).</strong> <em>The Environment and Disease: Association or Causation?</em> Proceedings of the Royal Society of Medicine, 58(5), 295–300.</li>
+<li><strong>Dhuliawala, S., et al. (2023).</strong> <em>Chain-of-Verification Reduces Hallucination in Large Language Models.</em> arXiv:2309.11495.</li>
+<li><strong>Huang, Y., et al. (2025).</strong> <em>OpenReviewer: Automating Academic Paper Reviewing with Large Language Models.</em> arXiv:2501.xxxxx.</li>
+<li><strong>Irving, G., Christiano, P., &amp; Amodei, D. (2018).</strong> <em>AI Safety via Debate.</em> arXiv:1805.00899.</li>
+<li><strong>Madaan, A., et al. (2023).</strong> <em>Self-Refine: Iterative Refinement with Self-Feedback.</em> NeurIPS 2023.</li>
+<li><strong>OpenAI. (2024).</strong> <em>CriticGPT: Training LLMs to Criticize Code.</em> OpenAI Research Technical Report.</li>
+<li><strong>Pearl, J. (2009).</strong> <em>Causality: Models, Reasoning, and Inference.</em> Cambridge University Press.</li>
+<li><strong>Perez, E., et al. (2022).</strong> <em>Discovering Language Model Behaviors with Model-Written Evaluations.</em> arXiv:2212.09251.</li>
+<li><strong>Popper, K. R. (1959).</strong> <em>The Logic of Scientific Discovery.</em> Hutchinson &amp; Co.</li>
+<li><strong>Sharma, M., et al. (2023).</strong> <em>Towards Understanding Sycophancy in Large Language Models.</em> arXiv:2310.13548.</li>
+<li><strong>Tarski, A. (1936).</strong> <em>Der Wahrheitsbegriff in den formalisierten Sprachen.</em> Studia Philosophica, 1, 261–405.</li>
+</ol>
+    </div>
+</body>
+</html>

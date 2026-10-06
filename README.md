@@ -4,6 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-6.0_Epistemic_Surgery-emerald.svg)](README.md)
+[![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v6_Whitepaper.md)
+[![Benchmarks](https://img.shields.io/badge/Benchmarks-9_Suites_%26_Cross--Model-success.svg)](docs/BENCHMARKS.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
 > **"A thesis entering this minefield will either see its unexamined premises detonated, retreat under critical wounds for methodological revision, or emerge temporarily reinforced by resisting immediate falsification. The objective is not to declare absolute truth, but to generate uncompromising dialectical friction that reveals the researcher’s own blind spots."**  
@@ -122,6 +124,14 @@ CRUCIBLE v6.0 was validated against 9 contentious academic debates across 5 disp
 | **09** | **Evolutionary Psychology**| **Simon Baron-Cohen** – *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000) & 80% overlap | Major Revision | [EN Report](showcase/en/09_Simon_Baron_Cohen_Report.html) \| [TR Report](showcase/tr/09_Simon_Baron_Cohen_Report.html) |
 
 All underlying dossiers and monographies are archived in `benchmarks/` and `showcase/`.
+
+### 📚 Primary Evidence & Documentation Links
+* **Academic Whitepaper:** [`docs/CRUCIBLE_v6_Whitepaper.md`](docs/CRUCIBLE_v6_Whitepaper.md) \| [HTML Version](docs/CRUCIBLE_v6_Whitepaper.html) \| [LaTeX Source](docs/whitepaper_src/main.tex)
+* **Quantitative Benchmark Table (M1–M8):** [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)
+* **Benchmark Protocol & Metrics:** [`benchmarks/methodology/BENCHMARK_PROTOCOL.md`](benchmarks/methodology/BENCHMARK_PROTOCOL.md)
+* **Blind Testing Protocol for Unseen Literature:** [`benchmarks/methodology/BLIND_TEST_PROTOCOL.md`](benchmarks/methodology/BLIND_TEST_PROTOCOL.md)
+* **System Boundaries & Failure Modes:** [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md)
+* **Benchmark Suite Directory Index:** [`benchmarks/README.md`](benchmarks/README.md)
 
 ---
 
