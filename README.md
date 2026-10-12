@@ -52,7 +52,7 @@ This tells you **nothing**. It's a book-jacket blurb, not an analysis.
 
 ---
 
-## Quick Start
+## Quick Start: Step-by-Step Guide
 
 ### ⚡ 10-Second Preview (Inspect a Real Report)
 Want to see what CRUCIBLE actually produces without installing anything?  
@@ -60,51 +60,63 @@ Want to see what CRUCIBLE actually produces without installing anything?
 
 ---
 
-### 🌐 Path A: Web & Cloud Users (No Coding Required)
-
-Run audits in **Claude.ai**, **ChatGPT Plus**, or **Gemini Advanced** in 3 simple steps:
-
-> 📌 **Why Two Stages?** Feeding a 400-page book directly into an AI with a single *"analyze this"* prompt triggers *smoothing error* — the AI collapses into a diplomatic 18 KB summary. To prevent this, we extract raw evidence first, then execute the audit.
-
-1. **Step 1 — Extract the Evidence (Target Dossier):**
-   - Open [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md) and copy the text.
-   - Paste it into your AI chat along with your source PDF or text.
-   - The AI extracts verbatim claims, empirical data, and citations into a clean **Target Dossier** *(a raw claim list with zero editorial commentary)*.
-
-2. **Step 2 — Execute the Auditing Constitution:**
-   - Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) and copy the prompt.
-   - In the same chat, instruct the model:  
-     *"Now subject the Target Dossier from Step 1 to the CRUCIBLE 10-layer forensic audit using these rules:"* (paste prompt).
-
-3. **Step 3 — Receive the Forensic Monograph:**
-   - The AI stops diplomatic handwaving. It conducts epistemic triage, reconstructs the thesis at its strongest (steelmanning), runs source criticism, and generates a self-auditing **Auto-Falsification & Surgeon Card**.
-
-> 💡 **Permanent Workspace Tip:** If using Claude.ai Projects or Gemini Gems, upload `docs/` and `templates/` directly to your project knowledge base once. Any paper you upload afterward is automatically audited under CRUCIBLE rules.
+### 0. Prerequisites: Download the Repository (For All Users)
+1. On the GitHub page under the **Code** tab, click the green **`<> Code`** button on the top-right and select **`Download ZIP`**.
+2. Right-click the downloaded `.zip` archive and select **"Extract All"**. All directives, templates, and validation scripts are now available on your local drive.  
+*(Developer alternative: `git clone https://github.com/efegok73/crucible.git`)*
 
 ---
 
-### 💻 Path B: IDE & Agentic Users (Antigravity, Cursor, Claude Code)
+### 💻 Option A (Recommended): Autonomous Auditing with Agentic IDE
+*(For Antigravity, Cursor, VS Code + Roo/Cline, or Claude Code users)*
 
-Fully automated pipeline for developers and agentic workflows:
+In this mode, you never manually copy-paste prompts; your AI agent adopts the workspace constitutions (`.cursorrules`, `AGENTS.md`) and executes the entire pipeline autonomously.
 
-1. **Clone and open the repository:**
+1. **Open the Workspace with Trust:**  
+   Open your IDE, select `File > Open Folder`, and choose the extracted `crucible-main` directory. When prompted, select **"Trust Authors"** *(mandatory; otherwise background linter execution and agent tools are restricted)*.
+2. **Create Your Workspace Directory:**  
+   To keep repository constitutions pristine, create your own working subfolder in the file explorer (e.g., `cases/`).
+3. **Import Your Dossier:**  
+   Drag and drop the work to be audited (PDF, Word, or Markdown) into your new subfolder.
+4. **Issue the Command Based on Document Scale:**
+   - **Short Works (< 20 Pages / < 10,000 Words — Standalone Paper or Essay):**  
+     Issue a direct instruction in your agent panel:  
+     > *"Analyze `@cases/paper.pdf` using CRUCIBLE v6.0 protocol and seal the report."*
+   - **Long Works (> 20 Pages — Book, Doctoral Thesis, Monograph):**  
+     Instruct your agent to execute the mandatory two-stage pipeline:
+     - **Stage 1:** *"Apply `templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md` to this book and output a Target Dossier (`target_dossier.md`)."*
+     - **Stage 2:** *"Now audit `target_dossier.md` using the CRUCIBLE constitution and seal the report."*
+5. **Receive Your Sealed Output:**  
+   The agent completes the audit, saves the report to disk, runs `crucible_linter.py` in the background, achieves `[PASS]`, and compiles a publication-ready `.html` report. Double-click the HTML file to inspect the monograph in your browser.
+
+---
+
+### 🌐 Option B: Direct Auditing via Web Interfaces
+*(For Claude.ai, ChatGPT Plus, Google AI Studio web interfaces — Zero Installation)*
+
+1. **Initiate the Audit Based on Document Scale:**
+   - **Short Works (< 20 Pages / < 10,000 Words):**  
+     Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) in any text editor, copy its contents, paste them into your web AI chat, attach your document, and submit.
+   - **Long Works (> 20 Pages — Book, Doctoral Thesis):**  
+     - **Stage 1 (Target Dossier Extraction):** Copy [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md), paste it into your chat along with the book. The model outputs a verbatim `Target Dossier`.
+     - **Open a Fresh Chat (Mandatory):** Copy the extracted Target Dossier text. **Open a new, clean chat session** *(mandatory to eliminate context contamination and prevent smoothing degradation)*.
+     - **Stage 2 (Forensic Audit):** Paste [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) along with your extracted Target Dossier and execute the audit.
+2. **Save Your Report:**  
+   Copy the generated analytical output, paste it into a text editor, and save it locally as `cases/report.md`.
+3. **Mandatory Linter Verification & Sealing (Deterministic Audit):**  
+   Under the CRUCIBLE protocol, the linter is **not an optional suggestion; it is the external constitutional court.** An AI's self-affirmation ("I followed all rules") is strictly unverified. All 5 mandatory sections, the Layer 8 Claim-Source Matrix, and rhetorical hygiene must be verified programmatically:  
    ```bash
-   git clone https://github.com/efegok73/crucible.git
-   cd crucible
-   ```
-   *(Constitutions `.cursorrules`, `AGENTS.md`, and `CLAUDE.md` load automatically).*
+   pip install markdown
+   python scripts/crucible_linter.py cases/report.md
+   ```  
+   The linter inspects the report line by line. If all constitutional criteria are met, it stamps **`[PASS]`** and automatically compiles the publication-ready `report.html` monograph. *(Reports that fail or skip linter verification remain uncertified drafts).*
 
-2. **Issue a single command to your agent:**
-   > *"Extract the target dossier from @paper.pdf following @templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md, audit it using CRUCIBLE methodology, and verify output with scripts/crucible_linter.py."*
+---
 
-3. **Receive your sealed report:**  
-   The agent conducts the audit, executes the deterministic Python linter in the background, achieves `[PASS]`, and compiles a publication-ready `[Report_Name].html` file. Simply open it in your browser.
-
-> 🛠️ **Manual / CI Verification (Optional):** If running without an AI agent or inside a CI pipeline, validate any report manually:
-> ```bash
-> pip install markdown
-> python scripts/crucible_linter.py showcase/en/01_Judith_Butler_Report.md
-> ```
+### 📌 Core Epistemic Note: Parity Between Option A & Option B
+> When executed strictly according to instructions, **Option A and Option B are 100% identical in epistemic depth, philosophical rigor, and analytical caliber.** Both pathways execute the exact same normative layers and must pass the exact same deterministic linter.  
+> 
+> The sole distinction lies in workflow automation: **In Option A**, the two-stage pipeline, cross-window text transfer, file persistence, and background linter verification are orchestrated autonomously by your AI agent (Antigravity, Cursor, VS Code). **In Option B**, you manage these window transitions and terminal commands manually.
 
 ---
 

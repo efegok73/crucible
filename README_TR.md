@@ -52,7 +52,7 @@ Bu bir **kitap tanıtım yazısı**, analiz değil. Hiçbir somut kusuru göster
 
 ---
 
-## Hızlı Başlangıç
+## Hızlı Başlangıç: Adım Adım Uygulama Kılavuzu
 
 ### ⚡ 10 Saniyelik Önizleme (Hazır Rapor İncelemesi)
 Hiçbir şey kurmadan CRUCIBLE'ın nasıl bir çıktı ürettiğini hemen görmek için:  
@@ -60,51 +60,63 @@ Hiçbir şey kurmadan CRUCIBLE'ın nasıl bir çıktı ürettiğini hemen görme
 
 ---
 
-### 🌐 Yol A: Web ve Tarayıcı Kullanıcıları (Kodlama Bilgisi Gerekmez)
-
-**Claude.ai**, **ChatGPT Plus** veya **Gemini Advanced** arayüzünde 3 basit adımda kendi makalenizi denetleyin:
-
-> 📌 **Neden 2 Aşama?** 400 sayfalık bir kitabı modele tek bir *"bunu özetle"* komutuyla verirseniz, model diplomatik ve yüzeysel bir özete sıkışır (*smoothing error*). Bu yüzden önce ham kanıtları çıkarır, ardından denetimi başlatırız.
-
-1. **Adım 1 — Kanıtları Çıkarın (Hedef Tahtası):**
-   - [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) şablonunu açıp metnini kopyalayın.
-   - Claude veya ChatGPT sohbetine yapıştırın ve denetlemek istediğiniz PDF veya metni ekleyin.
-   - Model; yazarın iddia, veri ve alıntılarını yorum katmadan ham bir **Hedef Tahtası (Target Dossier)** listesi *(editoryal yorumdan arındırılmış saf iddia dökümü)* olarak çıkarır.
-
-2. **Adım 2 — Denetim Anayasasını Çalıştırın:**
-   - [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) şablonunu açıp anayasa metnini kopyalayın.
-   - Aynı sohbette modele şunu yazıp şablonu yapıştırın:  
-     *"1. Aşamada çıkardığın Hedef Tahtasını şimdi bu CRUCIBLE kurallarıyla acımasızca denetle."*
-
-3. **Adım 3 — Adli Raporunuzu Alın:**
-   - Model pohpohlamayı bırakır; epistemolojik triyaj yapar, iddiaları çelik adam (steelman) olarak yeniden kurar, kaynak tenkiti tablosunu döker ve kendi analitik sınırlarını itiraf eden bir **Oto-Falsifikasyon & Cerrah Kartı** üretir.
-
-> 💡 **Kalıcı Çalışma Odası İpucu:** Claude.ai Projects veya Gemini Gems kullanıyorsanız, `docs/` ve `templates/` klasöründeki dosyaları proje hafızasına (Knowledge Base) tek seferde yükleyin; her yeni makale eklediğinizde sistem otomatik denetçiye dönüşür.
+### 0. Ön Hazırlık: Dosyaları Bilgisayarınıza İndirin (Herkes İçin)
+1. GitHub sayfasında **Code** sekmesindeyken, sağ üstteki yeşil **`<> Code`** butonuna tıklayın ve **`Download ZIP`** seçeneğini seçin.
+2. İndirilen `.zip` dosyasına sağ tıklayıp **"Klasöre Çıkart"** (*Extract All*) deyin. Artık tüm şablonlar, yönergeler ve doğrulama betikleri yerel diskinizdedir.  
+*(Geliştiriciler için terminal alternatifi: `git clone https://github.com/efegok73/crucible.git`)*
 
 ---
 
-### 💻 Yol B: IDE ve Ajan Kullanıcıları (Antigravity, Cursor, Claude Code)
+### 💻 Seçenek A (Tavsiye Edilen): Ajanik IDE ile Otonom Denetim
+*(Antigravity, Cursor, VS Code + Roo/Cline veya Claude Code kullananlar için)*
 
-Geliştiriciler ve terminal kullanıcıları için tam otomatik boru hattı:
+Bu modda hiçbir metni kopyalayıp yapıştırmazsınız; klasördeki anayasa dosyalarını (`.cursorrules`, `AGENTS.md`) devralan aracı ajan tüm süreci ve doğrulamayı otonom yürütür.
 
-1. **Depoyu klonlayın ve açın:**
+1. **Klasörü Güvenle Açın (Workspace Trust):**  
+   IDE'nizi açın, `Dosya > Klasörü Aç` diyerek ayıkladığınız `crucible-main` klasörünü seçin. Karşınıza çıkarsa *"Trust Authors / Yazarlara Güven"* seçeneğini onaylayın *(Onaylanmazsa ajan araçları ve arka plan linter'ı kısıtlanır)*.
+2. **Kendi Çalışma Klasörünüzü Açın:**  
+   Proje anayasasını temiz tutmak için sol dosya ağacında yeni bir klasör oluşturun (örneğin: `calismalarim/`).
+3. **Belgenizi Taşıyın:**  
+   İncelenecek eseri (PDF, Word veya Markdown) bu klasörün içine sürükleyip bırakın.
+4. **Metin Boyutuna Göre Komut Verin:**
+   - **Kısa Metinler (< 20 Sayfa / < 10.000 Kelime — Tekil Makale veya Deneme):**  
+     Ajan paneline doğrudan komut verin:  
+     > *"Klasördeki `@calismalarim/makale.pdf` dosyasını CRUCIBLE v6.0 protokolüyle analiz et ve raporu mühürle."*
+   - **Uzun Metinler (> 20 Sayfa — Kitap, Doktora Tezi, Monografi):**  
+     Ajanla iki kademeli boru hattını işletin:
+     - **1. Aşama:** *"Bu kitaba `templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md` direktifini uygula ve bir Hedef Tahtası (`hedef_tahtasi.md`) dökümü çıkar."*
+     - **2. Aşama:** *"Şimdi `hedef_tahtasi.md` dosyasını CRUCIBLE anayasasıyla analiz et ve raporu mühürle."*
+5. **Mühürlü Çıktıyı Alın:**  
+   Ajan analizi tamamlar, raporu diske kaydeder, arka planda terminalden `crucible_linter.py` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir. Size sadece üretilen HTML dosyasına çift tıklayıp okumak kalır.
+
+---
+
+### 🌐 Seçenek B: Web Arayüzü ile Doğrudan Denetim
+*(Claude.ai, ChatGPT Plus, Google AI Studio web arayüzlerini kullananlar için — Sıfır Kurulum)*
+
+1. **Metin Boyutuna Göre Süreci Başlatın:**
+   - **Kısa Metinler (< 20 Sayfa / < 10.000 Kelime):**  
+     İndirdiğiniz klasördeki [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasını Not Defteri ile açıp metnini kopyalayın. Web sohbetine yapıştırın, yanına inceleyeceğiniz makaleyi ekleyip gönderin.
+   - **Uzun Metinler (> 20 Sayfa — Kitap, Doktora Tezi):**  
+     - **1. Aşama (Hedef Tahtası Çıkarımı):** [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) metnini kopyalayıp web sohbetine yapıştırın, kitabı ekleyin. Model size bir `Hedef Tahtası` dökümü üretir.
+     - **Temiz Sohbet Açın (Zorunlu):** Çıkan hedef tahtası metnini kopyalayın. **Yeni ve temiz bir sohbet penceresi açın** *(Bu adım bağlam gürültüsünü temizlemek ve özetleme refleksini önlemek için zorunludur)*.
+     - **2. Aşama (Analiz):** Temiz sohbete [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) şablonunu ve kopyaladığınız Hedef Tahtasını yapıştırıp analizi çalıştırın.
+2. **Raporunuzu Kaydedin:**  
+   Modelin ürettiği analitik metni kopyalayıp Not Defteri'ne yapıştırın ve `calismalarim/rapor.md` olarak kaydedin.
+3. **Zorunlu Linter Doğrulaması ve Mühürleme (Deterministik Denetim):**  
+   CRUCIBLE protokolünde linter **isteğe bağlı bir tavsiye değildir; dışsal anayasal mahkemedir.** Modelin "ben tüm kurallara uydum" iddiasına güvenilmez. Raporun 5 zorunlu bölümü, Katman 8 İddia-Kaynak tablosu ve retorik hijyeni deterministik kodla denetlenmelidir:  
    ```bash
-   git clone https://github.com/efegok73/crucible.git
-   cd crucible
-   ```
-   *(Proje anayasaları `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` ajanınız tarafından otomatik tanınır).*
+   pip install markdown
+   python scripts/crucible_linter.py calismalarim/rapor.md
+   ```  
+   Linter raporu satır satır denetler. Şartlar sağlanmışsa **`[PASS]`** mührünü basar ve eşzamanlı olarak okunmaya hazır `rapor.html` dosyasını üretir. Hata varsa hangi katmanın eksik kaldığını açıkça raporlar. *(Linter'dan geçmeyen raporlar CRUCIBLE literatüründe mühürsüz taslak sayılır).*
 
-2. **Ajanınıza tek komut verin:**
-   > *"@templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md kurallarıyla @makale.pdf dosyasının hedef tahtasını çıkar, ardından CRUCIBLE metodolojisiyle analiz edip scripts/crucible_linter.py ile doğrula."*
+---
 
-3. **Mühürlü Raporunuzu Alın:**  
-   Ajan analizi tamamlar, arka planda Python linter'ını çalıştırıp `[PASS]` alır ve yayına hazır `[Rapor_Adi].html` dosyasını üretir. Size sadece tarayıcınızda açıp incelemek kalır.
-
-> 🛠️ **Manuel / CI Doğrulaması (İsteğe Bağlı):** Ajan kullanmıyorsanız veya raporu kendiniz elle denetlemek isterseniz:
-> ```bash
-> pip install markdown
-> python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
-> ```
+### 📌 Önemli İlkesel Not: Seçenek A ile Seçenek B Arasındaki Eşitlik
+> Talimatlara uygun işletildiğinde **Seçenek A ile Seçenek B epistemolojik derinlik, felsefi cerrahi ve analitik kalite açısından %100 özdeştir.** Her iki seçenek de aynı anayasal kuralları yürütür ve aynı deterministik linter denetiminden geçer.  
+> 
+> Tek fark iş akışının otomasyonundadır: **Seçenek A'da** iki aşamalı boru hattını, pencereler arası metin aktarımını, dosya kayıtlarını ve linter sağlama adımlarını sizin yerinize IDE ajanınız (Antigravity, Cursor, VS Code) otonom olarak yapar. **Seçenek B'de** ise aynı profesyonel boru hattını tarayıcı sekmeleri arasında siz manuel olarak yönetirsiniz.
 
 ---
 
