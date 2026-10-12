@@ -108,6 +108,18 @@ Geliştiriciler ve terminal kullanıcıları için tam otomatik boru hattı:
 
 ---
 
+## 🧠 Model Yetkinlik Eşiği (Hangi Modeller Gerekir?)
+
+CRUCIBLE sıradan bir sohbet botu değil, adli bir bilimsel hakemlik protokolüdür. 10 normatif katmanı, hermenötik ayrıştırmayı ve kaynak tenkiti tablolarını işletebilmek yüksek akıl yürütme (reasoning) ve geniş bağlam penceresi gerektirir:
+
+| Seviye | Modeller | Durum & Öneri |
+|:---|:---|:---|
+| 🟢 **Doğrulanmış & Önerilen (Frontier)** | **Claude 3.5 Sonnet / Opus**, **GPT-4o / o1**, **Gemini 1.5 Pro** | **Tam uyum.** 10 katmanı ve linter standartlarını eksiksiz işletir. |
+| 🟡 **Ücretsiz Yüksek Kapasite** | **Google AI Studio (Gemini 1.5 Pro)** | **Sıfır abonelik ücreti.** 2M token bağlamında, uzun makale ve kitaplar için en güçlü ücretsiz çıkış kapısı. |
+| 🔴 **Yetersiz / Desteklenmeyen (Küçük Modeller)** | **GPT-4o-mini**, **Claude Haiku**, **Llama-3-8B** | **Önerilmez.** Talimatları unutur, özetleme refleksine (*smoothing error*) çöker. |
+
+---
+
 ## ⚠️ Uymanız Gereken 3 Kural
 
 1. **Her zaman iki aşama kullanın.** Yüzlerce sayfalık bir kitabı tek bir "bunu incele" komutuyla modele boca etmek, analizi 18 KB'lik yüzeysel bir özete sıkıştırır (*smoothing error*). Veri çıkarımını analizden ayırın.

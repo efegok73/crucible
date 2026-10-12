@@ -108,6 +108,18 @@ Fully automated pipeline for developers and agentic workflows:
 
 ---
 
+## 🧠 Model Competence Threshold (Supported Engines)
+
+CRUCIBLE is not a conversational chatbot; it is a forensic peer-review engine. Enforcing 10 normative layers, hermeneutic hygiene, and source-criticism matrices requires premier reasoning capacity and large context windows:
+
+| Tier | Models | Status & Recommendation |
+|:---|:---|:---|
+| 🟢 **Verified & Recommended (Frontier)** | **Claude 3.5 Sonnet / Opus**, **GPT-4o / o1**, **Gemini 1.5 Pro** | **Full compliance.** Flawlessly executes all 10 layers and passes deterministic linter audits. |
+| 🟡 **High-Capacity Free Tier** | **Google AI Studio (Gemini 1.5 Pro)** | **Zero subscription cost.** With a 2M token context window, this is the strongest free option for auditing long papers and books. |
+| 🔴 **Unsupported (Lightweight Models)** | **GPT-4o-mini**, **Claude Haiku**, **Llama-3-8B** | **Not recommended.** Suffers instruction decay, loses microscopic granularity, and collapses into *smoothing errors*. |
+
+---
+
 ## ⚠️ Three Rules You Must Follow
 
 1. **Always use two stages.** Feeding a 400-page book directly into an AI with a single "analyze this" prompt triggers *smoothing error* — the AI compresses your audit into an 18 KB journalistic summary. Separate extraction from analysis.
