@@ -108,15 +108,16 @@ Fully automated pipeline for developers and agentic workflows:
 
 ---
 
-## 🧠 Model Competence Threshold (Supported Engines)
+## 🧠 Model Competence Threshold (Architectural Requirements)
 
-CRUCIBLE is not a conversational chatbot; it is a forensic peer-review engine. Enforcing 10 normative layers, hermeneutic hygiene, and source-criticism matrices requires premier reasoning capacity and large context windows:
+CRUCIBLE is strictly model-agnostic and does not depend on any specific proprietary provider or transient model version. However, enforcing a 10-layer normative gauntlet, hermeneutic hygiene, and tabular source-criticism requires an underlying engine that satisfies **four structural competence criteria**:
 
-| Tier | Models | Status & Recommendation |
-|:---|:---|:---|
-| 🟢 **Verified & Recommended (Frontier)** | **Claude 3.5 Sonnet / Opus**, **GPT-4o / o1**, **Gemini 1.5 Pro** | **Full compliance.** Flawlessly executes all 10 layers and passes deterministic linter audits. |
-| 🟡 **High-Capacity Free Tier** | **Google AI Studio (Gemini 1.5 Pro)** | **Zero subscription cost.** With a 2M token context window, this is the strongest free option for auditing long papers and books. |
-| 🔴 **Unsupported (Lightweight Models)** | **GPT-4o-mini**, **Claude Haiku**, **Llama-3-8B** | **Not recommended.** Suffers instruction decay, loses microscopic granularity, and collapses into *smoothing errors*. |
+1. **Anti-Smoothing Architecture:** High resistance to conversational politeness and diplomatic compression; capable of unyielding methodological friction rather than superficial summaries.
+2. **Strict Tabular and Matrix Discipline:** Absolute fidelity in generating structured output, specifically the mandatory Layer 8 Claim-Source Matrix and Surgeon Cards, without syntactic deformation.
+3. **Multi-Constraint Instruction Adherence:** Premier reasoning capacity capable of navigating complex epistemic triage without instruction decay or context degradation over long horizons.
+4. **Substantial Context Capacity:** Sufficient context bandwidth to ingest primary source dossiers, extraction directives, and analytical constitutions simultaneously.
+
+> ⚠️ **Lightweight Models Warning:** Distilled, lightweight, or conversational mini-models suffer rapid instruction decay under multi-layered normative constraints, invariably collapsing into journalistic summarization (*smoothing errors*).
 
 ---
 

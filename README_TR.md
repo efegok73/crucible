@@ -108,15 +108,16 @@ Geliştiriciler ve terminal kullanıcıları için tam otomatik boru hattı:
 
 ---
 
-## 🧠 Model Yetkinlik Eşiği (Hangi Modeller Gerekir?)
+## 🧠 Model Yetkinlik Eşiği (Mimari Gereksinimler)
 
-CRUCIBLE sıradan bir sohbet botu değil, adli bir bilimsel hakemlik protokolüdür. 10 normatif katmanı, hermenötik ayrıştırmayı ve kaynak tenkiti tablolarını işletebilmek yüksek akıl yürütme (reasoning) ve geniş bağlam penceresi gerektirir:
+CRUCIBLE belirli bir yapay zekâ sağlayıcısına veya geçici model sürümüne bağlı değildir; modelden bağımsız (model-agnostic) çalışır. Ancak 10 normatif katmanı, hermenötik ayrıştırmayı ve kaynak tenkiti matrislerini işletebilmek için kullanılan motorun şu **4 yapısal yetkinlik kriterini** karşılaması şarttır:
 
-| Seviye | Modeller | Durum & Öneri |
-|:---|:---|:---|
-| 🟢 **Doğrulanmış & Önerilen (Frontier)** | **Claude 3.5 Sonnet / Opus**, **GPT-4o / o1**, **Gemini 1.5 Pro** | **Tam uyum.** 10 katmanı ve linter standartlarını eksiksiz işletir. |
-| 🟡 **Ücretsiz Yüksek Kapasite** | **Google AI Studio (Gemini 1.5 Pro)** | **Sıfır abonelik ücreti.** 2M token bağlamında, uzun makale ve kitaplar için en güçlü ücretsiz çıkış kapısı. |
-| 🔴 **Yetersiz / Desteklenmeyen (Küçük Modeller)** | **GPT-4o-mini**, **Claude Haiku**, **Llama-3-8B** | **Önerilmez.** Talimatları unutur, özetleme refleksine (*smoothing error*) çöker. |
+1. **Düşük Özetleme Refleksi (Anti-Smoothing):** Diplomatik özetleme ve pohpohlama eğilimine girmeyen, metindeki metodolojik çelişkilere doğrudan cerrahi müdahale yapabilen amiral gemisi akıl yürütme mimarileri.
+2. **Katı Tablo ve Matris Disiplini:** Katman 8 İddia-Kaynak matrisini ve cerrah kartını sözdizimi bozulmadan, eksiksiz tablo formatında üretebilen biçimsel çıktı sadakati.
+3. **Çok Katmanlı Yönerge Takibi:** Uzun analiz boyunca epistemolojik triyaj kurallarını unutmayan, bağlam erozyonuna uğramayan derin akıl yürütme kapasitesi.
+4. **Geniş Bağlam Penceresi:** Birincil metinleri, kanıt dökümlerini ve metodolojik anayasayı aynı anda işleyebilecek bağlam hacmi.
+
+> ⚠️ **Hafif Modeller Uyarısı:** Damıtılmış, hafif veya özetleme odaklı küçük modeller (distilled/mini/haiku sınıfları); yönerge kaybı (*instruction decay*) yaşar ve 10 katmanlı analitik yükün altında ezilerek yüzeysel özetlere çöker.
 
 ---
 
