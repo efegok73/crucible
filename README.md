@@ -97,12 +97,14 @@ Fully automated pipeline for developers and agentic workflows:
 2. **Issue a single command to your agent:**
    > *"Extract the target dossier from @paper.pdf following @templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md, audit it using CRUCIBLE methodology, and verify output with scripts/crucible_linter.py."*
 
-3. **Verify and Seal with the Deterministic Linter:**
-   ```bash
-   pip install markdown
-   python scripts/crucible_linter.py showcase/en/01_Judith_Butler_Report.md
-   ```
-   The linter validates all 5 mandatory sections, Layer 8 claim matrices, and rhetorical hygiene. On `[PASS]`, it automatically compiles a publication-ready `.html` report.
+3. **Receive your sealed report:**  
+   The agent conducts the audit, executes the deterministic Python linter in the background, achieves `[PASS]`, and compiles a publication-ready `[Report_Name].html` file. Simply open it in your browser.
+
+> 🛠️ **Manual / CI Verification (Optional):** If running without an AI agent or inside a CI pipeline, validate any report manually:
+> ```bash
+> pip install markdown
+> python scripts/crucible_linter.py showcase/en/01_Judith_Butler_Report.md
+> ```
 
 ---
 

@@ -97,12 +97,14 @@ Geliştiriciler ve terminal kullanıcıları için tam otomatik boru hattı:
 2. **Ajanınıza tek komut verin:**
    > *"@templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md kurallarıyla @makale.pdf dosyasının hedef tahtasını çıkar, ardından CRUCIBLE metodolojisiyle analiz edip scripts/crucible_linter.py ile doğrula."*
 
-3. **Deterministik Linter ile Mühürleyin:**
-   ```bash
-   pip install markdown
-   python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
-   ```
-   Linter; 5 zorunlu bölümü, Kaynak Tenkiti Tablosunu (Katman 8) ve yasaklı pohpohlayıcı terimleri denetler; `[PASS]` aldığında otomatik olarak tarayıcıda okunabilir `.html` raporunu üretir.
+3. **Mühürlü Raporunuzu Alın:**  
+   Ajan analizi tamamlar, arka planda Python linter'ını çalıştırıp `[PASS]` alır ve yayına hazır `[Rapor_Adi].html` dosyasını üretir. Size sadece tarayıcınızda açıp incelemek kalır.
+
+> 🛠️ **Manuel / CI Doğrulaması (İsteğe Bağlı):** Ajan kullanmıyorsanız veya raporu kendiniz elle denetlemek isterseniz:
+> ```bash
+> pip install markdown
+> python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
+> ```
 
 ---
 
