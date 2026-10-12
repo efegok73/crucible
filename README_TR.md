@@ -1,120 +1,194 @@
-# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v6.0) — TÜRKÇE BAŞVURU KILAVUZU
-### Epistemolojik Denetim ve Diyalektik Stres Testi Açık Kaynak Çerçevesi
-*(Uluslararası Açık Kaynak Adı: **CRUCIBLE** | Özgün Kurucu Mimari: **Mayın Tarlası Modeli**)*
+# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v6.0) — TÜRKÇE KILAVUZ
 
-[![License: MIT](https://img.shields.io/badge/Lisans-MIT-blue.svg)](LICENSE)
-[![Versiyon](https://img.shields.io/badge/Versiyon-6.0_Epistemolojik_Cerrahi-emerald.svg)](README_TR.md)
+**Yapay zekâyı diplomatik bir özetçiden acımasız bir bilimsel hakeme dönüştüren açık kaynak çerçeve.**
+
+[![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-blue.svg)](LICENSE)
+[![Versiyon](https://img.shields.io/badge/Versiyon-6.0-emerald.svg)](CHANGELOG.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
-> **"Bir tez bu mayın tarlasından ya zayıf varsayımları infilak ederek elenir, ya metodolojik yaralarını fark edip revizyona çekilir, ya da şimdilik falsifikasyona direnerek daha dayanıklı bir biçimde çıkar. Nihai amaç mutlak hakikat ilan etmek değil; araştırmacının kendi kör noktalarını görmesini sağlayan tavizsiz bir diyalektik sürtünme yaratmaktır."**  
-> *(Mayın Tarlası: Gizli varsayımların ve yöntemsel kırılganlıkların sınandığı çetin diyalektik stres testi arazisi; Crucible: Bir tezin retorik cürufundan arındırılması için maruz bırakıldığı analitik pota.)*
+> *Uluslararası Açık Kaynak Adı:* ***CRUCIBLE*** *| Özgün Kurucu Mimari:* ***Mayın Tarlası*** *(Gizli varsayımların ya sınandığı ya da havaya uçtuğu diyalektik stres testi arazisi)*
+
+🌐 **English version:** [`README.md`](README.md)
 
 ---
 
-## 🧭 CRUCIBLE ASLINDA NEDİR? (SIFIR JARGONLA)
+## CRUCIBLE Nedir?
 
-> **"Bir araştırmanın ilk veri kırıntısından nihai tez savunmasına kadar; araştırmacının kendisinden bile gizlenen kör noktaları, yöntemsel çelişkileri ve bilinçdışı önyargıları ifşa eden açık kaynaklı bir denetim mimarisidir.**  
-> **Yapay zekâyı 'harikasın' diyen bir dalkavuktan, duygularından arınmış keskin bir bilimsel hakeme dönüştürür: Bu hakem ne sizi pohpohlar, ne de pışpışlar!"**
+CRUCIBLE, ticari yapay zekâ modellerini (ChatGPT, Claude, Gemini) **sistematik ve acımasız bilimsel denetçilere** dönüştüren açık kaynaklı bir istem (prompt) çerçevesidir.
 
-Normalde yapay zekâya *"Bu makaleyi veya kitabı incele"* dediğinizde bir politikacı gibi konuşur: her iki tarafı da haklı bulur, suya sabuna dokunmayan özetler geçer ve kullanıcıyı memnun etmeye çalışır. 
+Normal bir yapay zekâya *"Bu makaleyi incele"* dediğinizde size nazik, tarafsız görünümlü bir özet verir: her iki tarafı da haklı bulur, yazara pohpohlayıcı ifadeler kullanır, eleştirileri "*bazı sınırlılıklar mevcuttur*" gibi boş cümlelerle kapatır. Buna akademik literatürde **sycophancy** (dalkavukluk önyargısı) denir ve yapay zekâyı ciddi araştırma değerlendirmesi için kullanılmaz hale getirir.
 
-CRUCIBLE ise yapay zekâyı **bir mahkeme savcısı ve kıdemli bir bilimsel hakem gibi** çalışmaya zorlar:
-1. Önce tezi yazarın bizzat savunabileceğinden daha kusursuz bir akademik formda kurdurur (**Çelik Adam / Steelmanning**).
-2. Ardından tezi 10 katmanlı bir metodolojik sınavdan geçirerek veri hilelerini, karıştırıcı değişkenlerini ve nedensellik deliklerini tek tek masaya yatırır.
-3. Analiz bittiğinde kendi hatalarını itiraf ettirir (**Oto-Falsifikasyon**) ve deterministik bir Python linter'ı ile raporu mühürler.
+CRUCIBLE bu sorunu çözer: Aynı modeli, çalışma zamanında (inference time) 10 katmanlı analitik bir anayasa ile kuşatır. Model ağırlıkları değiştirilmez, API anahtarı gerekmez, fine-tuning yapılmaz. Sadece doğru talimatlarla doğru sırada çalıştırılır.
 
----
-
-## ⚡ İKİ FARKLI ÇALIŞMA YOLU (HIZLI BAŞLANGIÇ)
-
-CRUCIBLE'ı çalışma ortamınıza ve teknik seviyenize göre iki yoldan biriyle hemen kullanabilirsiniz:
-
-### 🌐 Yol A: Web ve Tarayıcı Kullanıcısıysanız (Gemini Advanced, Claude.ai, ChatGPT)
-*Kodlama bilmenize veya bilgisayarınıza program kurmanıza gerek yoktur. Modelin özetleme tuzağına düşmesini engellemek için işlem **2 aşamada** yürütülür:*
-
-1. **1. Aşama (Veriyi Çıkarın / Hedef Tahtası):**
-   * [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) dosyasındaki talimatı kopyalayın.
-   * Gemini/Claude sohbet kutusuna yapıştırın ve incelemek istediğiniz PDF'i veya metni ekleyin.
-   * Model size editoryal yorum katmadan, yazarın iddia ve alıntılarının cımbızlandığı saf **"Hedef Tahtası"** fişini teslim edecektir.
-
-2. **2. Aşama (Otopsiyi Başlatın):**
-   * [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasındaki tek parça istemi kopyalayın.
-   * Modele: *"1. Aşamada çıkardığın bu Hedef Tahtasını şimdi bu anayasal istemle otopsiye al"* deyin.
-   * Model hiçbir özetleme yapmadan 10 katmanlı derin akademik raporu ve Cerrah Denetim Kartını dökecektir.
-
-*(💡 İpucu: Claude.ai Projects veya Gemini Gems kullanıyorsanız; `docs/` altındaki anayasa dosyalarını proje hafızasına yükleyerek bu iki adımı kalıcı bir çalışma odasına dönüştürebilirsiniz.)*
+**Bu kimin için?**
+- Bir makaleyi, tezi veya kitabı — **kendi eseri dahil** — acımasızca denetletmek isteyen araştırmacılar.
+- Tez savunmasından önce zayıf noktalarını bulmak isteyen öğrenciler.
+- Bilim gazetecileri ve politika analistleri.
+- Yapay zekânın kendisine hep hak vermesinden bıkmış herkes.
 
 ---
 
-### 💻 Yol B: Ajan ve IDE Kullanıcısıysanız (Antigravity, Cursor, Claude Code)
-*Klasörü editörde açmanız yeterlidir; sistem kökteki `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` anayasalarını otomatik olarak yükler:*
+## Sorun Nedir? CRUCIBLE Ne Fark Yaratır?
 
-1. **Klasörü Açın:** İndirdiğiniz `crucible` klasörünü editörünüzde açın (`File -> Open Folder -> crucible`).
-2. **Tek Komutla Çalıştırın:** Ajan sohbet kutusuna doğrudan şu komutu verin:
+### Standart bir yapay zekâya "bu kitabı analiz et" dediğinizde:
+
+> *"Butler'ın Gender Trouble eseri feminist teoriyi derinden etkileyen çığır açıcı bir çalışmadır. Bazı metodolojik sorular gündeme gelse de, yazar toplumsal cinsiyetin performatif doğasına ilişkin ikna edici bir argüman ortaya koymaktadır..."*
+
+Bu bir **kitap tanıtım yazısı**, analiz değil. Hiçbir somut kusuru göstermiyor.
+
+### Aynı kaynak materyale CRUCIBLE uygulandığında:
+
+> **[Katman 3 — Hermenötik Denetim]:** "Performativite" kavramı, Bölüm 1–3 arasında birbiriyle çelişen üç farklı anlamda kullanılıyor: (a) baskı altında zorunlu norm tekrarı, (b) Nietzsche'ci neden-sonuç ters çevirimi (metalepsis), (c) Austin'ci söz-edim türevi. Bu belirsizlik, yazarın güçlü ontolojik iddiası sorgulandığında zayıf epistemolojik okumaya çekilmesini sağlayan bir *motte-and-bailey* yapısı oluşturuyor.
+>
+> **[Katman 8 — Kaynak Tenkiti Matrisi]:**
+>
+> | İddia | Birincil Kaynak | Kaynak Türü | Hüküm |
+> |:---|:---|:---|:---|
+> | Biyolojik cinsiyet söylemsel olarak inşa edilmiştir | Foucault, *Cinselliğin Tarihi* Cilt 1 | Post-yapısalcı söylem analizi | **Vekil Sıçraması:** "Dil, anatomiyi tanımlar" iddiasından "anatominin kendisi kültürel bir yapıdır" sonucuna dayanaksız geçiş |
+>
+> **[Katman 10 — Oto-Falsifikasyon]:** Bu denetimin kendi analizi, değerlendirme ölçütü olarak ağırlıklı olarak Anglo-Amerikan analitik bilim felsefesine dayanıyor; bu durum, Kıta felsefesi geleneğinin kendine özgü epistemolojik taahhütlerini sistematik olarak hafife alma riski taşıyor...
+
+*— [Vaka 01: Judith Butler – Gender Trouble](showcase/tr/01_Judith_Butler_Report.html) raporundan yoğunlaştırılmış alıntı*
+
+---
+
+## Hızlı Başlangıç
+
+### 🌐 Yol A: Web ve Tarayıcı Kullanıcıları (Kodlama Bilgisi Gerektirmez)
+
+**Gemini Advanced**, **Claude.ai** veya **ChatGPT** ile çalışır. Süreç **iki zorunlu aşamadan** oluşur:
+
+**1. Aşama — Kanıtları çıkarın:**
+1. [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) dosyasını açıp talimatı kopyalayın.
+2. Yapay zekâ sohbet kutusuna yapıştırın ve incelenmesini istediğiniz PDF veya metni ekleyin.
+3. Model, yazarın iddia ve verilerini editoryal yorum katmadan temiz bir **Hedef Tahtası** dosyasına çıkaracaktır.
+
+**2. Aşama — Denetimi başlatın:**
+1. [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasını açıp sistematik istemi kopyalayın.
+2. Modele: *"1. Aşamada çıkardığın Hedef Tahtasını şimdi bu anayasal istemle denetle."* deyin.
+3. Model; epistemolojik triyaj, çelik adam inşası, kaynak tenkiti ve oto-falsifikasyon içeren yapılandırılmış bir rapor üretecektir.
+
+> 💡 **İpucu:** Claude.ai Projects veya Gemini Gems kullanıyorsanız, `docs/` ve `templates/` dosyalarını proje hafızasına yükleyerek kalıcı bir denetim çalışma odası oluşturabilirsiniz.
+
+---
+
+### 💻 Yol B: IDE ve Ajan Kullanıcıları (Antigravity, Cursor, Claude Code)
+
+1. **Repo'yu klonlayın ve açın:**
+   ```bash
+   git clone https://github.com/efegok73/crucible.git
+   cd crucible
+   ```
+   `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` anayasaları otomatik yüklenir.
+
+2. **Tek komutla çalıştırın:**
    > *"@templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md kurallarıyla @makale.pdf dosyasının hedef tahtasını çıkar, ardından CRUCIBLE metodolojisiyle analiz edip scripts/crucible_linter.py ile doğrula."*
-3. **Mühürlü Raporu Alın:** Ajan analizi yazar, terminalden Python linter'ını çalıştırıp `[PASS]` alır ve mühürlü `.html` raporunu üretir.
+
+3. **Mühürlü raporu alın.** Ajan analizi yazar, terminalden Python linter'ını çalıştırıp `[PASS]` alır ve `.html` raporunu üretir.
+
+> **Linter doğrulaması:**
+> ```bash
+> pip install markdown
+> python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
+> ```
 
 ---
 
-## 🚨 KRİTİK İŞLETİM UYARISI: FİYASKO VE DİL ÇÖKÜŞÜNÜ ÖNLEME
+## ⚠️ Uymanız Gereken 3 Kural
 
-> **⚠️ Model Performansı Fizik Sabiti Değildir:**  
-> AI sağlayıcıları model ağırlıklarını sessizce günceller. Bugün 11 normatif katmanı kusursuz işleten bir model, gelecek hafta 5. katmanda çökebilir — tersi de doğrudur. Kritik analizleri mutlaka en az 2 farklı sınır modelle çapraz doğrulayın.
+1. **Her zaman iki aşama kullanın.** Yüzlerce sayfalık bir kitabı tek bir "bunu incele" komutuyla modele boca etmek, analizi 18 KB'lik yüzeysel bir özete sıkıştırır (*smoothing error*). Veri çıkarımını analizden ayırın.
 
-> **🚨 İki Kademeli Boru Hattı Zorunluluğu:**  
-> CRUCIBLE tek adımlı bir özetleyici değildir! Yüzlerce sayfalık ham birincil metinleri tek bir komutla modele boca etmek doğrudan *Özetleyici Pürüzsüzleştirme (Smoothing Error)* hatasına yol açar ve analizi 18 KB'lik sığ bir gazete brifingine hapseder. Süreç kesinlikle önce **Veri Çıkarımı (Hedef Tahtası)**, ardından **Analiz İşletimi (Otopsi)** olarak ikiye ayrılmalıdır.
+2. **Dili kaynağa uydurun.** İngilizce bir bilimsel makaleyi inceletiyorsanız, analizi İngilizce yaptırın. Türkçe gibi morfolojik olarak karmaşık dillerde analiz yaptırmak, tokenizasyon darboğazı nedeniyle analitik derinliğin ~%50'sini kaybettirir. Gerekiyorsa mühürlü raporu sonradan Türkçeye çevirin. ([Kanıt](docs/tr/03_DILSEL_SUBSTRAT_ASIMETRISI_VE_LLM_ANALIZ_DERINLIGI.md))
 
-> **🌐 Substrat Eşitliği Yasası (Dil Kuralı):**  
-> Pozitif tıp, bilişsel nörobilim veya istatistiki bir İngilizce makale inceleniyorsa; modelden Türkçe analiz talep etmek morfolojik token darboğazı nedeniyle analitik derinliğin **%50'sini peşinen çöpe atmaktır**. İngilizce kaynakların analizi **İngilizce icra edilmeli ve mühürlenmelidir**. Türkçe okuma isteniyorsa, mühürlü 4K İngilizce rapor sonradan editoryal olarak Türkçeye çevrilmelidir.  
-> *(Donanımsal ve ampirik kanıtlar için bkz: `docs/tr/03_...`, `docs/tr/04_...` ve `docs/tr/05_...`)*
+3. **Çapraz model doğrulaması yapın.** Yapay zekâ sağlayıcıları model ağırlıklarını sessizce günceller. Bugün 10 katmanı kusursuz işleten bir model gelecek hafta çökebilir. Kritik analizleri en az 2 farklı modelde çalıştırın.
 
 ---
 
-## 🏛️ METODOLOJİK MİMARİ: 10 NORMATİF KATMAN
+## Nasıl Çalışır? 10 Normatif Katman
 
-CRUCIBLE dinamik bir **Epistemolojik Triyaj Matrisi** ile çalışır. İncelenen tezin disiplinine göre ilgili katmanlar aktif hale getirilir:
+CRUCIBLE her metinde 10 katmanın hepsini çalıştırmaz. Dinamik bir **Epistemolojik Triyaj Matrisi**, kaynak materyalin disiplinine göre ilgili katmanları aktive eder:
 
-* **Katman 1 (Epistemik Erdem ve Persona):** Duygusal ve ideolojik retoriği filtreler; epistemik alçakgönüllülüğü zorunlu kılar.
-* **Katman 2 (Çelik Adam ve Bilim Felsefesi):** Tezi eleştirmeden önce, onun en kusursuz ve en güçlü akademik halini yeniden inşa ettirir.
-* **Katman 3 (Hermenötik ve Anlamsal Hijyen):** Çift anlamlılıkları ve dil oyunlarını eler.
-* **Katman 4 (İstatistik, Olasılık ve Bayes):** Örneklem boyutlarını ($N$), etki büyüklüklerini (Cohen's $d$), $p$-değerlerini ve Bayesçi öncülleri denetler.
-* **Katman 5 (Deneysel Tasarım ve Nedensellik):** Karıştırıcı değişkenleri ($Z$), ters nedenselliği ve karşıolgusal (*counterfactual*) senaryoları test eder.
-* **Katman 6 (Kanıt Hiyerarşisi ve Sistematik Derleme):** AMSTAR-2 ve GRADE standartlarıyla tekil anekdotları eler.
-* **Katman 7 (Karar Bilimi ve Risk - DMDU):** Derin belirsizlik altında karar alma, ters riskler (*risk-risk tradeoffs*) ve anti-kırılganlığı denetler.
-* **Katman 8 (Tarihsel ve Metinsel Kaynak Tenkiti):** Birincil kaynaklara, epigrafik kayıtlara ve iç/dış tenkite dayanmayan iddiaları reddeder.
-* **Katman 9 (Hesaplamalı Modeller ve AI):** Simülasyon ayar parametrelerini (*tuning*) ve aşırı öğrenmeyi (*overfitting*) denetler.
-* **Katman 10 (Oto-Falsifikasyon ve Cerrah Kartı):** Model kendi analizindeki kör noktaları ifşa eder ve araştırmacı için 3 dakikalık somut **Cerrah Denetim Kartı** sunar.
+| Katman | İşlev | Ne Zaman Aktif? |
+|:---:|:---|:---|
+| **K1** | **Epistemik Erdem** — Duygusal retoriği filtreler, entelektüel alçakgönüllülüğü zorlar | Her zaman |
+| **K2** | **Çelik Adam (Steelmanning)** — Tezi eleştirmeden önce en güçlü akademik formda yeniden kurar | Her zaman |
+| **K3** | **Hermenötik Hijyen** — Anlamsal kaymalar, çift anlamlılıklar, kavram enflasyonu | Felsefe, sosyal bilim |
+| **K4** | **İstatistik ve Bayes** — Örneklem büyüklükleri, etki büyüklükleri, p-hacking, öncül dağılımlar | Ampirik bilimler, tıp |
+| **K5** | **Deneysel Tasarım ve Nedensellik** — Karıştırıcılar, ters nedensellik, çarpıştırıcı sapması (DAG) | Klinik çalışmalar, epidemiyoloji |
+| **K6** | **Kanıt Hiyerarşisi** — AMSTAR-2, GRADE standartları; tekil anekdotları eler | Sistematik derlemeler |
+| **K7** | **Karar Bilimi ve Risk (DMDU)** — Kalın kuyruk riskleri, ters risk tradeoff'ları | Politika analizi, iklim bilimi |
+| **K8** | **Tarihsel Kaynak Tenkiti** — Birincil kaynak üçgenlemesi; İddia-Kaynak Matrisi zorunlu | Tarih yazımı, arşiv araştırması |
+| **K9** | **Hesaplamalı Model Denetimi** — Aşırı öğrenme, doğrulama sızıntısı, parametre ayarı | Simülasyonlar, makine öğrenmesi |
+| **K10** | **Oto-Falsifikasyon ve Cerrah Kartı** — Model kendi kör noktalarını itiraf eder; 3 dakikalık insan doğrulama listesi sunar | Her zaman |
 
----
-
-## 🔬 9 KANITLANMIŞ BENCHMARK VAKASI
-
-CRUCIBLE v6.0 motoru, 5 farklı akademik sahada en çetin 9 tartışma üzerinde test edilmiş ve raporların tamamı linter'dan `[PASS]` alarak mühürlenmiştir:
-
-| # | Disiplin | İncelenen Eser & Yazar | Temel Zayıf Karın & Sürtünme | Hüküm | Monografi |
-| :---: | :--- | :--- | :--- | :---: | :--- |
-| **01** | **Felsefe & Cinsiyet** | **Judith Butler** – *Gender Trouble* (1990) | Biyolojik dimorfizmin ontolojik inkarı | Ağır Revizyon | [HTML Raporu](showcase/tr/01_Judith_Butler_Report.html) |
-| **02** | **Psikanaliz** | **Jacques Lacan** – *Seminaire XX: Encore* (1975) | Topolojik mathemelerin sahte-bilimselliği | Ağır Revizyon | [HTML Raporu](showcase/tr/02_Jacques_Lacan_Report.html) |
-| **03** | **Klinik Epidemiyoloji** | **Dr. Hilary Cass** – *The Cass Review* (NHS, 2024) | Gözlemsel kohort verisine aşırı katı RCT eşiği | Kısmi Revizyon | [HTML Raporu](showcase/tr/03_Cass_Review_Report.html) |
-| **04** | **Tarih Yazımı** | **Cheikh Anta Diop** – *The African Origin* (1974) | Anakronik ırk projeksiyonu ve sahte eşseslilik | Reddedildi | [HTML Raporu](showcase/tr/04_Cheikh_Anta_Diop_Report.html) |
-| **05** | **Klasik Filoloji** | **Frank M. Snowden Jr.** – *Blacks in Antiquity* (1970) | Greko-Romen fizyognomi ve yabancı düşmanlığının aklanması | Kısmi Revizyon | [HTML Raporu](showcase/tr/05_Frank_Snowden_Report.html) |
-| **06** | **Bibliyometri** | **Cook et al. vs. Tol** – *%97 İklim Konsensüsü* (2013) | Payda manipülasyonu (%66.4 nötr makalenin dışlanması) | Ağır Revizyon | [HTML Raporu](showcase/tr/06_Cook_Tol_Climate_Report.html) |
-| **07** | **İklim Fiziği & Risk** | **Judith Curry** – *Climate Uncertainty* (2023) | Okyanus iç salınımları vs Net Enerji Dengesizliği | Ağır Revizyon | [HTML Raporu](showcase/tr/07_Judith_Curry_Report.html) |
-| **08** | **Nöropsikiyatri & EBM**| **Joanna Moncrieff et al.** – *Serotonin Theory* (2022) | Etiyolojik nedensizlikten klinik etkinsizlik türetme (Aspirin Safsatası) | Ağır Revizyon | [HTML Raporu](showcase/tr/08_Joanna_Moncrieff_Report.html) |
-| **09** | **Evrimsel Biyoloji** | **Simon Baron-Cohen** – *Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi (Connellan 2000) | Ağır Revizyon | [HTML Raporu](showcase/tr/09_Simon_Baron_Cohen_Report.html) |
-
-Tüm dosyalar `showcase/tr/` klasöründe hem `.md` hem interaktif `.html` olarak incelenebilir.
+Analiz tamamlandıktan sonra çıktı, **deterministik bir Python linter** ([`crucible_linter.py`](scripts/crucible_linter.py)) tarafından doğrulanır. Yapısal bütünlük, triyaj tutarlılığı ve retorik hijyen kontrol edilir. Testi geçemeyen raporlar reddedilir.
 
 ---
 
-## 🛡️ TEMEL GÜVENLİK İLKELERİ
+## 9 Doğrulanmış Benchmark Vakası
 
-1. **Katı Salt-Okunur Güvenlik Duvarı:** Siz açıkça *"KAYDET"* veya *"YAZ"* demedikçe model dosyalarda değişiklik yapamaz.
-2. **Zorunlu Fazlı Duraklama:** Geniş kapsamlı analizlerde model tek seferde kontrolsüzce metin dökemez; Faz 1 (Steelman), Faz 2 (Çürütme) ve Faz 3 (Oto-Falsifikasyon) sınırlarında durup sizden *"Devam"* onayı beklemek zorundadır.
-3. **Epistemik Alçakgönüllülük:** Kanıtın olmadığı veya bilinmeyen yerlerde modelin kesin hüküm vermesi yasaktır; açıkça *"Bilinmiyor"* demek zorundadır.
+Her rapor deterministik linter'dan geçmiş ve hem İngilizce hem Türkçe olarak mevcuttur:
+
+| # | Disiplin | İncelenen Eser | Bulunan Temel Zafiyet | Hüküm |
+|:---:|:---|:---|:---|:---:|
+| 01 | Felsefe ve Cinsiyet | **Judith Butler** — *Gender Trouble* (1990) | "Performativite"de anlamsal kaçak; epistemolojiden ontolojiye dayanaksız sıçrama | Ağır Revizyon |
+| 02 | Psikanaliz | **Jacques Lacan** — *Seminaire XX* (1975) | Formel doğrulaması olmayan sahte-matematiksel topoloji (mathemeler) | Ağır Revizyon |
+| 03 | Klinik Epidemiyoloji | **Hilary Cass** — *The Cass Review* (2024) | Gözlemsel pediatrik kohort verisine orantısız RCT eşiği | Kısmi Revizyon |
+| 04 | Tarih Yazımı | **Cheikh Anta Diop** — *The African Origin* (1974) | Anakronik ırk kategorileri; sahte dilsel eşseslilikler | Reddedildi |
+| 05 | Klasik Filoloji | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Greko-Romen fizyognomik önyargının hafife alınması | Kısmi Revizyon |
+| 06 | Bibliyometri | **Cook et al. vs. Tol** — *%97 İklim Konsensüsü* (2013) | Payda manipülasyonu (%66.4 nötr makale dışlanmış) | Ağır Revizyon |
+| 07 | İklim Bilimi | **Judith Curry** — *Climate Uncertainty* (2023) | Okyanus iç salınım iddiaları vs. gözlenen net enerji dengesizliği | Ağır Revizyon |
+| 08 | Psikiyatri ve KTT | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Aspirin Safsatası: etiyolojik ilgisizlikten klinik etkinsizlik türetme | Ağır Revizyon |
+| 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi; %80 cinsiyet örtüşmesinin göz ardı edilmesi | Ağır Revizyon |
+
+📂 Raporlar: [`showcase/tr/`](showcase/tr/) (Türkçe) | [`showcase/en/`](showcase/en/) (İngilizce)  
+📊 Sayısal metrikler: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)
 
 ---
 
-## 📜 LİSANS
+## Belge Haritası
 
-Bu proje **MIT Lisansı** altında açık kaynak olarak dağıtılmaktadır. Ayrıntılar için [`LICENSE`](LICENSE) dosyasına bakınız.
+| Belge | İçerik |
+|:---|:---|
+| [**Whitepaper**](docs/CRUCIBLE_v6_Whitepaper.md) | Teknik şartname, SOTA karşılaştırması, mimari detaylar |
+| [**Benchmarks**](docs/BENCHMARKS.md) | 9 vakanın sayısal metrikleri (M1–M8), çapraz model tutarlılık verisi |
+| [**Limitations**](docs/LIMITATIONS.md) | Başarısızlık modları, kesin sınırlar, CRUCIBLE'ın yapamadığı şeyler |
+| [**Benchmark Protokolü**](benchmarks/methodology/BENCHMARK_PROTOCOL.md) | Benchmarkların nasıl tasarlandığı, yürütüldüğü ve ölçüldüğü |
+| [**Kör Test Protokolü**](benchmarks/methodology/BLIND_TEST_PROTOCOL.md) | Daha önce görülmemiş metinlerde test protokolü |
+| [**Katkı Kılavuzu**](CONTRIBUTING.md) | Rapor ekleme, metodoloji eleştirisi, linter geliştirme rehberi |
+| [**Değişiklik Günlüğü**](CHANGELOG.md) | Sürüm geçmişi |
+
+---
+
+## Bilinen Sınırlamalar
+
+CRUCIBLE yapamadığı şeyleri gizlemez:
+
+- **Teorem ispatlayıcı değildir.** Saf sembolik matematik (topoloji, sayılar teorisi) formel ispat denetleyicilerine (Lean, Coq) gerektirir, LLM'lere değil.
+- **Otonom değildir.** İnsan denetimi zorunludur. 3 fazlı interaktif duraklama sistemi, kontrolsüz çıktı dökmeyi engeller.
+- **Girdi hacmi tavanı.** ~20 sayfa / ~15 KB üzeri hedef dosyaları bağlam seyrelmesi riski taşır. Uzun eserleri parçalayın.
+- **Model kayması.** Yapay zekâ sağlayıcılarının ağırlık güncellemeleri CRUCIBLE performansını sessizce değiştirebilir. Linter yapısal bozulmayı yakalar, semantik gerilemeyi yakalamaz.
+
+Detaylı analiz: [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md)
+
+---
+
+## Katkıda Bulunma
+
+CRUCIBLE kendi denetiminden geçebilmelidir. **Metodolojik eleştiriler en değerli katkılardır.** Detaylar: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+---
+
+## Lisans ve Atıf
+
+[**MIT Lisansı**](LICENSE) altında açık kaynak olarak dağıtılmaktadır.
+
+```bibtex
+@software{crucible2026,
+  author  = {CRUCIBLE Open-Source Contributors},
+  title   = {CRUCIBLE: An Open-Source Framework for Epistemic Auditing and Dialectical Stress-Testing},
+  year    = {2026},
+  url     = {https://github.com/efegok73/crucible},
+  note    = {Originally conceived as May{\i}n Tarlas{\i} (Epistemic Minefield) Protocol}
+}
+```

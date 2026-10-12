@@ -5,7 +5,7 @@
 **Classification:** Open Source Framework Specification / Preprint Draft (`cs.AI`, `cs.CL`)  
 **Date:** October 2026  
 **License:** MIT License  
-**Repository:** [github.com/curious/CRUCIBLE](https://github.com/curious/CRUCIBLE)  
+**Repository:** [github.com/efegok73/crucible](https://github.com/efegok73/crucible)  
 
 ---
 
@@ -207,7 +207,7 @@ In accordance with Section 10 of our framework, CRUCIBLE documents its own bound
 
 All target dossiers, audit monographs, Python verification scripts, and raw extraction templates are released under the permissive MIT License in the official repository:
 
-* **Repository:** `github.com/curious/CRUCIBLE`
+* **Repository:** `github.com/efegok73/crucible`
 * **Benchmarks:** `benchmarks/en/` and `benchmarks/tr/` (18 dossiers)
 * **Showcase Monographs:** `showcase/en/` and `showcase/tr/` (18 sealed reports)
 * **Linter & Metric Extractor:** `scripts/crucible_linter.py` & `scripts/benchmark_extractor.py`
