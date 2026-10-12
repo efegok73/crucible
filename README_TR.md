@@ -54,43 +54,55 @@ Bu bir **kitap tanıtım yazısı**, analiz değil. Hiçbir somut kusuru göster
 
 ## Hızlı Başlangıç
 
-### 🌐 Yol A: Web ve Tarayıcı Kullanıcıları (Kodlama Bilgisi Gerektirmez)
+### ⚡ 10 Saniyelik Önizleme (Hazır Rapor İncelemesi)
+Hiçbir şey kurmadan CRUCIBLE'ın nasıl bir çıktı ürettiğini hemen görmek için:  
+👉 [**Judith Butler – Gender Trouble Mühürlü Raporunu Açın (HTML)**](showcase/tr/01_Judith_Butler_Report.html) veya tüm [9 Doğrulanmış Benchmark Vakasını](#9-doğrulanmış-benchmark-vakası) inceleyin.
 
-**Gemini Advanced**, **Claude.ai** veya **ChatGPT** ile çalışır. Süreç **iki zorunlu aşamadan** oluşur:
+---
 
-**1. Aşama — Kanıtları çıkarın:**
-1. [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) dosyasını açıp talimatı kopyalayın.
-2. Yapay zekâ sohbet kutusuna yapıştırın ve incelenmesini istediğiniz PDF veya metni ekleyin.
-3. Model, yazarın iddia ve verilerini editoryal yorum katmadan temiz bir **Hedef Tahtası** dosyasına çıkaracaktır.
+### 🌐 Yol A: Web ve Tarayıcı Kullanıcıları (Kodlama Bilgisi Gerekmez)
 
-**2. Aşama — Denetimi başlatın:**
-1. [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasını açıp sistematik istemi kopyalayın.
-2. Modele: *"1. Aşamada çıkardığın Hedef Tahtasını şimdi bu anayasal istemle denetle."* deyin.
-3. Model; epistemolojik triyaj, çelik adam inşası, kaynak tenkiti ve oto-falsifikasyon içeren yapılandırılmış bir rapor üretecektir.
+**Claude.ai**, **ChatGPT Plus** veya **Gemini Advanced** arayüzünde 3 basit adımda kendi makalenizi denetleyin:
 
-> 💡 **İpucu:** Claude.ai Projects veya Gemini Gems kullanıyorsanız, `docs/` ve `templates/` dosyalarını proje hafızasına yükleyerek kalıcı bir denetim çalışma odası oluşturabilirsiniz.
+> 📌 **Neden 2 Aşama?** 400 sayfalık bir kitabı modele tek bir *"bunu özetle"* komutuyla verirseniz, model diplomatik ve yüzeysel bir özete sıkışır (*smoothing error*). Bu yüzden önce ham kanıtları çıkarır, ardından denetimi başlatırız.
+
+1. **Adım 1 — Kanıtları Çıkarın (Hedef Tahtası):**
+   - [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) şablonunu açıp metnini kopyalayın.
+   - Claude veya ChatGPT sohbetine yapıştırın ve denetlemek istediğiniz PDF veya metni ekleyin.
+   - Model; yazarın iddia, veri ve alıntılarını yorum katmadan ham bir **Hedef Tahtası (Target Dossier)** listesi *(editoryal yorumdan arındırılmış saf iddia dökümü)* olarak çıkarır.
+
+2. **Adım 2 — Denetim Anayasasını Çalıştırın:**
+   - [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) şablonunu açıp anayasa metnini kopyalayın.
+   - Aynı sohbette modele şunu yazıp şablonu yapıştırın:  
+     *"1. Aşamada çıkardığın Hedef Tahtasını şimdi bu CRUCIBLE kurallarıyla acımasızca denetle."*
+
+3. **Adım 3 — Adli Raporunuzu Alın:**
+   - Model pohpohlamayı bırakır; epistemolojik triyaj yapar, iddiaları çelik adam (steelman) olarak yeniden kurar, kaynak tenkiti tablosunu döker ve kendi analitik sınırlarını itiraf eden bir **Oto-Falsifikasyon & Cerrah Kartı** üretir.
+
+> 💡 **Kalıcı Çalışma Odası İpucu:** Claude.ai Projects veya Gemini Gems kullanıyorsanız, `docs/` ve `templates/` klasöründeki dosyaları proje hafızasına (Knowledge Base) tek seferde yükleyin; her yeni makale eklediğinizde sistem otomatik denetçiye dönüşür.
 
 ---
 
 ### 💻 Yol B: IDE ve Ajan Kullanıcıları (Antigravity, Cursor, Claude Code)
 
-1. **Repo'yu klonlayın ve açın:**
+Geliştiriciler ve terminal kullanıcıları için tam otomatik boru hattı:
+
+1. **Depoyu klonlayın ve açın:**
    ```bash
    git clone https://github.com/efegok73/crucible.git
    cd crucible
    ```
-   `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` anayasaları otomatik yüklenir.
+   *(Proje anayasaları `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` ajanınız tarafından otomatik tanınır).*
 
-2. **Tek komutla çalıştırın:**
+2. **Ajanınıza tek komut verin:**
    > *"@templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md kurallarıyla @makale.pdf dosyasının hedef tahtasını çıkar, ardından CRUCIBLE metodolojisiyle analiz edip scripts/crucible_linter.py ile doğrula."*
 
-3. **Mühürlü raporu alın.** Ajan analizi yazar, terminalden Python linter'ını çalıştırıp `[PASS]` alır ve `.html` raporunu üretir.
-
-> **Linter doğrulaması:**
-> ```bash
-> pip install markdown
-> python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
-> ```
+3. **Deterministik Linter ile Mühürleyin:**
+   ```bash
+   pip install markdown
+   python scripts/crucible_linter.py showcase/tr/01_Judith_Butler_Report.md
+   ```
+   Linter; 5 zorunlu bölümü, Kaynak Tenkiti Tablosunu (Katman 8) ve yasaklı pohpohlayıcı terimleri denetler; `[PASS]` aldığında otomatik olarak tarayıcıda okunabilir `.html` raporunu üretir.
 
 ---
 

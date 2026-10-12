@@ -54,45 +54,55 @@ This tells you **nothing**. It's a book-jacket blurb, not an analysis.
 
 ## Quick Start
 
+### ⚡ 10-Second Preview (Inspect a Real Report)
+Want to see what CRUCIBLE actually produces without installing anything?  
+👉 [**Open the Judith Butler – Gender Trouble Sealed Report (HTML)**](showcase/en/01_Judith_Butler_Report.html) or browse all [9 Verified Benchmark Cases](#9-verified-benchmark-cases).
+
+---
+
 ### 🌐 Path A: Web & Cloud Users (No Coding Required)
 
-Works with **Gemini Advanced**, **Claude.ai**, **ChatGPT**, or any frontier model.
+Run audits in **Claude.ai**, **ChatGPT Plus**, or **Gemini Advanced** in 3 simple steps:
 
-CRUCIBLE runs in **two mandatory stages** to prevent the AI from collapsing into superficial summarization:
+> 📌 **Why Two Stages?** Feeding a 400-page book directly into an AI with a single *"analyze this"* prompt triggers *smoothing error* — the AI collapses into a diplomatic 18 KB summary. To prevent this, we extract raw evidence first, then execute the audit.
 
-**Stage 1 — Extract the evidence:**
-1. Open [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md) and copy the directive.
-2. Paste it into your AI chat along with your source PDF or text.
-3. The AI extracts verbatim claims, data, and causal assertions into a clean **Target Dossier** — no editorial commentary allowed.
+1. **Step 1 — Extract the Evidence (Target Dossier):**
+   - Open [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md) and copy the text.
+   - Paste it into your AI chat along with your source PDF or text.
+   - The AI extracts verbatim claims, empirical data, and citations into a clean **Target Dossier** *(a raw claim list with zero editorial commentary)*.
 
-**Stage 2 — Run the audit:**
-1. Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) and copy the system prompt.
-2. Tell the AI: *"Now subject the Target Dossier from Stage 1 to the CRUCIBLE 10-layer forensic audit."*
-3. The AI produces a structured monography with epistemic triage, steelmanning, source criticism, and auto-falsification.
+2. **Step 2 — Execute the Auditing Constitution:**
+   - Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) and copy the prompt.
+   - In the same chat, instruct the model:  
+     *"Now subject the Target Dossier from Step 1 to the CRUCIBLE 10-layer forensic audit using these rules:"* (paste prompt).
 
-> 💡 **Pro Tip:** On Claude.ai Projects or Gemini Gems, upload the files from `docs/` and `templates/` to your project knowledge base to create a permanent auditing workspace.
+3. **Step 3 — Receive the Forensic Monograph:**
+   - The AI stops diplomatic handwaving. It conducts epistemic triage, reconstructs the thesis at its strongest (steelmanning), runs source criticism, and generates a self-auditing **Auto-Falsification & Surgeon Card**.
+
+> 💡 **Permanent Workspace Tip:** If using Claude.ai Projects or Gemini Gems, upload `docs/` and `templates/` directly to your project knowledge base once. Any paper you upload afterward is automatically audited under CRUCIBLE rules.
 
 ---
 
 ### 💻 Path B: IDE & Agentic Users (Antigravity, Cursor, Claude Code)
 
-1. **Clone and open** this repository in your IDE:
+Fully automated pipeline for developers and agentic workflows:
+
+1. **Clone and open the repository:**
    ```bash
    git clone https://github.com/efegok73/crucible.git
    cd crucible
    ```
-   The `.cursorrules`, `AGENTS.md`, and `CLAUDE.md` constitutions activate automatically.
+   *(Constitutions `.cursorrules`, `AGENTS.md`, and `CLAUDE.md` load automatically).*
 
-2. **Issue a single command** in your agent's chat:
+2. **Issue a single command to your agent:**
    > *"Extract the target dossier from @paper.pdf following @templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md, audit it using CRUCIBLE methodology, and verify output with scripts/crucible_linter.py."*
 
-3. **Receive a sealed report.** The agent conducts the audit, runs the deterministic Python linter (`[PASS]` required), and compiles a publication-grade `.html` report.
-
-> **Linter verification:**
-> ```bash
-> pip install markdown
-> python scripts/crucible_linter.py showcase/en/01_Judith_Butler_Report.md
-> ```
+3. **Verify and Seal with the Deterministic Linter:**
+   ```bash
+   pip install markdown
+   python scripts/crucible_linter.py showcase/en/01_Judith_Butler_Report.md
+   ```
+   The linter validates all 5 mandatory sections, Layer 8 claim matrices, and rhetorical hygiene. On `[PASS]`, it automatically compiles a publication-ready `.html` report.
 
 ---
 
