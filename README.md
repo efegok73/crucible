@@ -26,6 +26,19 @@ CRUCIBLE solves this by injecting a structured analytical constitution into the 
 - Science journalists and policy analysts who need to distinguish robust evidence from rhetorical confidence.
 - Anyone who is tired of AI telling them what they want to hear.
 
+### 🏛️ The Four Epistemic Pillars
+
+CRUCIBLE is not a polite summarizer; it is an inference-time forensic harness operating on four non-negotiable principles of scientific inquiry:
+
+1. **Enforcement of Frontier Methodological Standards:**  
+   Audits claims against formal scientific demarcation (Popperian falsifiability, Bradford Hill causal criteria, GRADE evidentiary hierarchies) rather than consensus rhetoric.
+2. **Forensic Evidence & Denominator Surgery:**  
+   Dissects the empirical foundation of the thesis—hunting denominator inflation, sample attrition, and unsubstantiated leaps from proxy data to ontological reality.
+3. **Detection of Semantic Equivocation & Unstated Axioms:**  
+   Exposes motte-and-bailey defenses, circular definitions, and dogma masquerading as settled methodology behind academic prose.
+4. **Radical Auto-Falsification (The Gödel-Tarski Boundary):**  
+   Acknowledging that no AI can formally validate its own meta-language, it subjects its own critique to adversarial self-examination, explicitly cataloging its own blind spots, disciplinary biases, and single-source risks before handing the verdict to a human researcher.
+
 ---
 
 ## The Problem — and What CRUCIBLE Does About It

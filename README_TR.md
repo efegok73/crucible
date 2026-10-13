@@ -26,6 +26,19 @@ CRUCIBLE bu sorunu çözer: Aynı modeli, çalışma zamanında (inference time)
 - Bilim gazetecileri ve politika analistleri.
 - Yapay zekânın kendisine hep hak vermesinden bıkmış herkes.
 
+### 🏛️ CRUCIBLE'ın Dört Epistemik İlkesi
+
+CRUCIBLE sıradan bir "özetleyici" değil; akademik bir tezi dört aşamalı bir adli otopsiden geçiren kurumsal bir hakemdir:
+
+1. **En Yüksek Metodolojik Standartların İşletilmesi:**  
+   Metni genelgeçer kanaatlerle değil; çağdaş bilim felsefesinin en katı filtreleriyle (Popperiyen yanlışlanabilirlik, Bradford Hill nedensellik matrisi, GRADE kanıt piramidi) sınar.
+2. **Veri ve Kaynak Cerrahisi:**  
+   Tezin dayandığı birincil kaynakları, örneklem büyüklüklerini ve payda seçimlerini inceler; veriyle iddia arasındaki gizli sıçramaları (vekil veri manipülasyonu) açığa çıkarır.
+3. **Kavramsal Çelişki ve Örtük Aksiyom Avı:**  
+   Akademik jargona sarılarak gizlenmiş çift anlamlılıkları (motte-and-bailey), döngüsel mantıkları ve sorgulanmadan doğru kabul edilmiş örtük dogmaları patlatır.
+4. **Mutlak Tarafsızlık Yerine Oto-Falsifikasyon:**  
+   Hiçbir yapay zekânın mutlak bir hakikat yargıcı olamayacağını (Gödel-Tarski sınırı) baştan kabul eder. Kendi ürettiği analizin de zayıf noktalarını, tek-kaynak risklerini ve felsefi eğilimlerini dürüstçe itiraf eder; son kararı daima araştırmacının elindeki Cerrah Kartı'na bırakır.
+
 ---
 
 ## Sorun Nedir? CRUCIBLE Ne Fark Yaratır?
