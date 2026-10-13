@@ -14,11 +14,13 @@
 
 ## CRUCIBLE Nedir?
 
-CRUCIBLE, ticari yapay zekâ modellerini (ChatGPT, Claude, Gemini) **sistematik ve acımasız bilimsel denetçilere** dönüştüren açık kaynaklı bir istem (prompt) çerçevesidir.
+CRUCIBLE, ticari yapay zekâ modellerini (ChatGPT, Claude, Gemini) **sistematik ve acımasız bilimsel hakemlere** dönüştüren iki bileşenli açık kaynak bir denetim çerçevesidir:
+1. **10 Katmanlı Normatif Anayasa:** Modeli çıkarım zamanında (inference time) Popperiyen yanlışlanabilirlik, Bayesyen yönlü güncellemeler ve nedensel DAG analitiğiyle kuşatan diyalektik istem protokolü.
+2. **Deterministik Python Linter'ı (`scripts/crucible_linter.py`):** Modelin kuralları uygulayıp uygulamadığını harf harf denetleyen, eksik tablo veya dogmatik dil tespit ettiğinde derlemeyi durduran ve yalnızca onaylanan raporlara yeşil mühür basan harici mekanik doğrulayıcı.
 
-Normal bir yapay zekâya *"Bu makaleyi incele"* dediğinizde size nazik, tarafsız görünümlü bir özet verir: her iki tarafı da haklı bulur, yazara pohpohlayıcı ifadeler kullanır, eleştirileri "*bazı sınırlılıklar mevcuttur*" gibi boş cümlelerle kapatır. Buna akademik literatürde **sycophancy** (dalkavukluk önyargısı) denir ve yapay zekâyı ciddi araştırma değerlendirmesi için kullanılmaz hale getirir.
+Normal bir yapay zekâya *"Bu makaleyi incele"* dediğinizde size nazik, tarafsız görünümlü bir özet verir: her iki tarafı da haklı bulur, yazara pohpohlayıcı ifadeler kullanır, eleştirileri "*bazı sınırlılıklar mevcuttur*" gibi boş cümlelerle kapatır. Buna akademik literatürde **sycophancy** (dalkavukluk önyargısı) denir ve yapay zekâyı ciddi araştırma değerlendirmesi için kullanışsız kılar.
 
-CRUCIBLE bu sorunu çözer: Aynı modeli, çalışma zamanında (inference time) 10 katmanlı analitik bir anayasa ile kuşatır. Model ağırlıkları değiştirilmez, API anahtarı gerekmez, fine-tuning yapılmaz. Sadece doğru talimatlarla doğru sırada çalıştırılır.
+CRUCIBLE, salt "prompt engineering" değildir; çünkü promptlar doğaları gereği rastgeledir (stokastik) ve bağlam uzadığında kuralları gizlice terk edebilir. CRUCIBLE, prompt anayasasını **harici bir Python derleyicisi (Linter)** ile bağlayarak yapay zekâ muhakemesine derleme-zamanı (compile-time) tip denetimi getirir. Model ağırlıkları değiştirilmez, API anahtarı gerekmez, pahalı fine-tuning yapılmaz.
 
 **Bu kimin için?**
 - Bir makaleyi, tezi veya kitabı — **kendi eseri dahil** — acımasızca denetletmek isteyen araştırmacılar.
@@ -38,6 +40,17 @@ CRUCIBLE sıradan bir "özetleyici" değil; akademik bir tezi dört aşamalı bi
    Akademik jargona sarılarak gizlenmiş çift anlamlılıkları (motte-and-bailey), döngüsel mantıkları ve sorgulanmadan doğru kabul edilmiş örtük dogmaları patlatır.
 4. **Mutlak Tarafsızlık Yerine Oto-Falsifikasyon:**  
    Hiçbir yapay zekânın mutlak bir hakikat yargıcı olamayacağını (Gödel-Tarski sınırı) baştan kabul eder. Kendi ürettiği analizin de zayıf noktalarını, tek-kaynak risklerini ve felsefi eğilimlerini dürüstçe itiraf eder; son kararı daima araştırmacının elindeki Cerrah Kartı'na bırakır.
+
+### 🔬 Neden Yalnızca Prompt Yetmez? Deterministik Linter'ın Rolü
+
+Pek çok kullanıcı haklı olarak sorar: *"Yapay zekâya iyi bir prompt vermek yetmez mi?"*  
+**Yetmez.** Çünkü LLM'ler uzun metinlerde talimatları sessizce atlar, tabloları çizmeyi unutur ve zorunlu öz-eleştiriden kaçar. 
+
+CRUCIBLE bu yüzden **`scripts/crucible_linter.py`** adında harici bir Python denetleyicisi ile mühürlenir. Bu linter bir öneri değil, anayasal bir mahkemedir:
+- **Yapısal Eksiklik Cezası:** Rapor 5 zorunlu bölümü (`[EPİSTEMOLOJİK TRİYAJ]`, `[ÇELİK ADAM]`, `[OTO-FALSİFİKASYON]`, `[HASAR RAPORU]`, `[CERRAH DENETİM KARTI]`) eksiksiz içermiyorsa derleme anında durdurulur (`[FAIL]`).
+- **Tablo Zorunluluğu:** Katman 8 aktifse, iddia-kaynak tablosu metinde bulunmadan rapor onaylanamaz.
+- **Retorik Hijyen Filtresi:** *"şüphesiz"*, *"tartışmasızdır"*, *"kesinlikle kanıtlanmıştır"* gibi dogmatik veya taraflı ifadeler kullanılmışsa uyarı basılır.
+- **Resmi Doğrulama Mührü:** Yalnızca testi başarıyla geçen raporlar mühürlenir ve HTML çıktısının tepesine resmi yeşil **`[PASS] DETERMINISTIC VERIFICATION SEAL`** damgası basılır. Mühürsüz metinler bilimsel geçerlilik taşımaz.
 
 ---
 

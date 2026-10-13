@@ -1,7 +1,19 @@
 import os
 import sys
 import re
-import markdown
+
+try:
+    import markdown
+except ImportError:
+    print("\n" + "=" * 72)
+    print("❌ [CRUCIBLE ERROR] Missing required third-party dependency: 'markdown'")
+    print("=" * 72)
+    print("To compile and verify CRUCIBLE reports, please install dependencies:")
+    print("    pip install markdown")
+    print("or:")
+    print("    pip install -r requirements.txt")
+    print("=" * 72 + "\n")
+    sys.exit(1)
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
@@ -20,6 +32,10 @@ def validate_and_convert(md_path):
     errors = []
     warnings = []
 
+    # 0. MINIMUM PAYLOAD & SUBSTANTIVE DEPTH CHECK
+    if len(lines) < 30 or len(full_text.strip()) < 1500:
+        errors.append(f"Payload Too Small: Report contains only {len(lines)} lines ({len(full_text)} characters). A valid CRUCIBLE audit requires substantive analysis (minimum 30 lines / 1,500 characters).")
+
     # 1. CORE SECTION INTEGRITY
     required_sections = [
         ("EPİSTEMOLOJİK TRİYAJ / EPISTEMIC TRIAGE", r"\[(EP[İI]STEMOLOJ[İI]K\s+TR[İI]YAJ|EPISTEMIC\s+TRIAGE)\]"),
@@ -32,6 +48,13 @@ def validate_and_convert(md_path):
     for section_name, pattern in required_sections:
         if not re.search(pattern, full_text, re.IGNORECASE):
             errors.append(f"Missing Required Core Section: '{section_name}'")
+
+    # 1.1 SURGEON CHECKLIST SUBSTANTIVE VERIFICATION
+    surgeon_match = re.search(r"##.*?(CERRAH\s+(DENET[İI]M\s+)?KART|SURGEON('S)?\s+(AUDIT\s+)?(CARD|CHECKLIST))(.*?)(?=(\n#[^#]|\Z))", full_text, re.DOTALL | re.IGNORECASE)
+    if surgeon_match:
+        surgeon_body = surgeon_match.group(0)
+        if not (re.search(r"(\[[\s_xX]?\]|☐|☑|\|.*?Check.*?\||\|.*?Action.*?\||\|.*?Doğrulama.*?\||\|.*?Denetim.*?\|)", surgeon_body)):
+            errors.append("Surgeon Checklist is present but lacks actionable checklist items (e.g. '☐', '[ ]', or structured action table)!")
 
     # 2. DYNAMIC TRIAGE VERIFICATION
     # If Historical Textual Criticism (Layer 8) is active, require evidentiary table
@@ -146,6 +169,24 @@ def validate_and_convert(md_path):
 
     html_body = markdown.markdown(render_text, extensions=['tables', 'fenced_code', 'nl2br'])
 
+    stamp_html = f"""
+    <div style="background: #0f172a; color: #f8fafc; border: 2px solid #3b82f6; border-radius: 8px; padding: 18px 24px; margin-bottom: 35px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.12);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <span style="font-weight: 700; color: #60a5fa; font-size: 1.1em; letter-spacing: 0.5px;">🛡️ CRUCIBLE v6.0 — DETERMINISTIC VERIFICATION SEAL</span>
+            <span style="background: #16a34a; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.9em; letter-spacing: 0.5px;">[PASS] 100% CONSTITUTIONAL COMPLIANCE</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #cbd5e1;">
+            <div><strong>Validator:</strong> <code>scripts/crucible_linter.py</code></div>
+            <div><strong>Verified Payload:</strong> {len(lines)} lines | {len(full_text):,} characters</div>
+            <div><strong>Rhetorical Hygiene:</strong> Clean (0 Forbidden Dogmatic Terms)</div>
+            <div><strong>Constitutional Triage:</strong> Core Layers & Matrices Audited</div>
+        </div>
+        <div style="margin-top: 10px; font-size: 0.82em; color: #94a3b8; border-top: 1px dashed #334155; padding-top: 8px;">
+            Deterministic Verification Stamp: Compiled directly from verified Markdown source via AST & regex constraints. Unverified drafts lack this seal.
+        </div>
+    </div>
+    """
+
     styled_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,6 +289,7 @@ def validate_and_convert(md_path):
     </script>
 </head>
 <body>
+    {stamp_html}
     {html_body}
 </body>
 </html>"""

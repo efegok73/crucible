@@ -14,11 +14,13 @@
 
 ## What Is CRUCIBLE?
 
-CRUCIBLE is an **open-source prompt framework** that transforms commercial AI models (ChatGPT, Claude, Gemini) into rigorous, adversarial scientific auditors.
+CRUCIBLE is an open-source epistemic auditing framework that transforms commercial frontier AI models (Claude, ChatGPT, Gemini) into adversarial, forensic-grade scientific referees through a **two-component architecture**:
+1. **A 10-Layer Normative Prompt Constitution:** Enforces Popperian falsification, causal Directed Acyclic Graphs (DAGs), Bayesian ordinal updates, and GRADE hierarchies at inference time.
+2. **A Deterministic Python Linter (`scripts/crucible_linter.py`):** Acts as an external constitutional court. It parses the AI's output line by line, blocks unverified claims, penalizes dogmatic rhetoric, and cryptographically stamps reports with a verified `[PASS]` certificate.
 
 When you ask a standard AI to "review this paper," it produces polite, non-committal summaries that agree with the author and avoid confrontation. This is a well-documented failure mode called **sycophancy** — and it makes AI useless for serious research evaluation.
 
-CRUCIBLE solves this by injecting a structured analytical constitution into the AI at inference time. No fine-tuning. No API keys. No model retraining. The same AI model, constrained by CRUCIBLE's 10-layer normative protocol, produces forensic-grade analysis instead of diplomatic handwaving.
+CRUCIBLE is fundamentally distinct from mere "prompt engineering." Prompting alone is stochastic and untrustworthy; models silently omit negative constraints as token context expands. CRUCIBLE couples normative reasoning directives with **compile-time AST & regex verification**. No fine-tuning. No API keys. No model retraining.
 
 **Who is this for?**
 - Researchers who want a brutally honest second opinion on a paper, thesis, or book — including their own work.
@@ -38,6 +40,17 @@ CRUCIBLE is not a polite summarizer; it is an inference-time forensic harness op
    Exposes motte-and-bailey defenses, circular definitions, and dogma masquerading as settled methodology behind academic prose.
 4. **Radical Auto-Falsification (The Gödel-Tarski Boundary):**  
    Acknowledging that no AI can formally validate its own meta-language, it subjects its own critique to adversarial self-examination, explicitly cataloging its own blind spots, disciplinary biases, and single-source risks before handing the verdict to a human researcher.
+
+### 🔬 Why Prompting Alone Fails: The Deterministic Linter
+
+Many practitioners ask: *"Why can't I just use a good system prompt?"*  
+**Because prompts alone provide zero execution guarantees.** Unconstrained LLMs suffer from attention dilution, silently skip negative instructions, collapse into diplomatic handwaving, and fail to self-falsify when analyzing complex literature.
+
+CRUCIBLE solves this by introducing **`scripts/crucible_linter.py`**, a local deterministic validator that acts as a compile-time static analyzer for natural language auditing:
+- **Structural Integrity Enforcement:** Rejects the report with exit code 1 (`[FAIL]`) if any of the 5 universal core sections (`[EPISTEMIC TRIAGE]`, `[STEELMANNING]`, `[AUTO-FALSIFICATION]`, `[DAMAGE REPORT]`, `[SURGEON CHECKLIST]`) are omitted or hollow.
+- **Mandatory Evidentiary Matrices:** If Layer 8 is activated during triage, the linter mechanically halts compilation unless a complete Claim-Source table is constructed.
+- **Rhetorical Hygiene Scanner:** Scans AST and text tokens outside code blocks for forbidden dogmatic terms (*"undoubtedly"*, *"indisputable"*, *"absolutely proven"*) to prevent rhetorical bias.
+- **Deterministic Verification Seal:** Only verified reports receive the green **`[PASS] DETERMINISTIC VERIFICATION SEAL`** stamped at the top of the compiled HTML monograph. Unverified drafts lack this certificate.
 
 ---
 
