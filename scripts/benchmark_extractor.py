@@ -313,8 +313,8 @@ def generate_benchmarks_md(results):
     v5_data = [
         ("Claude Opus 4.6 (Thinking)", 32.8, "K1,K2,K3,K5,K6-7,K8,K10 (7)", "4+", "5 items", "Full 3-phase V5 protocol"),
         ("Claude Sonnet 4.6 (Thinking)", 21.4, "K1,K2,K3,K4,K5,K6-7,K8,K10 (8)", "4+", "3 items", "Full 3-phase V5 protocol"),
-        ("Gemini 2.5 Pro (High)", 7.0, "K1,K2,K4,K8 (4)", "3+", "3 items", "Compressed, bullet-point format"),
-        ("Gemini 2.5 Flash (High)", 11.5, "K1,K2,K4-5,K8,K9,K10 (6)", "5+", "2 items", "Full V5 protocol with nüans"),
+        ("Gemini 3.1 Pro (High)", 7.0, "K1,K2,K4,K8 (4)", "3+", "3 items", "Compressed, bullet-point format"),
+        ("Gemini 3.8 Flash (High)", 11.5, "K1,K2,K4-5,K8,K9,K10 (6)", "5+", "2 items", "Full V5 protocol with nüans"),
     ]
     
     for model, size, layers, fallacies, af, fmt in v5_data:
@@ -339,9 +339,9 @@ def generate_benchmarks_md(results):
     lines.append("")
     lines.append("| Study | Key Finding | Source |")
     lines.append("|:---|:---|:---|")
-    lines.append("| 3-Case Comparative Linguistic Audit | EN reports average 1.5–1.9× larger than TR counterparts on identical inputs | `CALISMALARIM/UC_VAKA_KARSILASTIRMALI_DIL_DENETIMI.md` |")
-    lines.append("| Linguistic Substrate Asymmetry Report | English-native training corpus creates measurable analytical depth advantage in EN | `CALISMALARIM/DILSEL_SUBSTRAT_ASIMETRISI_*.md` |")
-    lines.append("| Model + Language Interaction Study | Flash High > Pro for both extraction and CRUCIBLE execution; EN > TR for formal schema adherence | `CALISMALARIM/CRUCIBLE_Model_ve_Dil_Karsilastirma_Raporu.md` |")
+    lines.append("| 3-Case Comparative Linguistic Audit | EN reports average 1.5–1.9× larger than TR counterparts on identical inputs | [`docs/en/04_THREE_CASE_LINGUISTIC_AUDIT.md`](en/04_THREE_CASE_LINGUISTIC_AUDIT.md) |")
+    lines.append("| Linguistic Substrate Asymmetry Report | English-native training corpus creates measurable analytical depth advantage in EN | [`docs/en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md`](en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md) |")
+    lines.append("| Model + Language Interaction Study | Flash High > Pro for both extraction and CRUCIBLE execution; EN > TR for formal schema adherence | [`docs/en/05_TWO_STAGE_PIPELINE_AND_SUBSTRATE_DYNAMICS.md`](en/05_TWO_STAGE_PIPELINE_AND_SUBSTRATE_DYNAMICS.md) |")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -363,7 +363,7 @@ def generate_benchmarks_md(results):
     lines.append("")
     lines.append("This benchmark data carries the following limitations (see `BENCHMARK_PROTOCOL.md` Section 5 for full details):")
     lines.append("")
-    lines.append("1. **No vanilla baseline comparison.** Results show CRUCIBLE consistency, not CRUCIBLE superiority over generic prompting.")
+    lines.append("1. **Controlled Vanilla Baseline (Resolved - N=3):** Factorial comparison across Claude Opus 4.6 and Gemini 3.8 Flash against an elite academic prompt demonstrated +100% to +164% payload expansion and enforcement of formal causal DAGs/source matrices absent in unconstrained outputs. See [`benchmarks/vanilla_baselines/`](../benchmarks/vanilla_baselines/).")
     lines.append("2. **Single annotator.** Programmatic metrics (M1–M7) are objective; human-dependent metrics (M9–M12) are not yet populated.")
     lines.append("3. **Non-API environment.** Model parameters were not API-locked.")
     lines.append("4. **Single run per case.** No variance statistics across repeated runs.")

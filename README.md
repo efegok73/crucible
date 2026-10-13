@@ -181,7 +181,8 @@ Every report below passed the deterministic linter and is available in both Engl
 | 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000); 80% sex overlap ignored | Major Revision |
 
 📂 Full reports: [`showcase/en/`](showcase/en/) (English) | [`showcase/tr/`](showcase/tr/) (Turkish)  
-📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)
+📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)  
+🔬 Controlled Vanilla Baseline: [`benchmarks/vanilla_baselines/`](benchmarks/vanilla_baselines/) (N=3 Multi-Model Factorial Study)
 
 ---
 
@@ -191,6 +192,7 @@ Every report below passed the deterministic linter and is available in both Engl
 |:---|:---|
 | [**Whitepaper**](docs/CRUCIBLE_v6_Whitepaper.md) | Full technical specification, SOTA comparison, architecture details |
 | [**Benchmarks**](docs/BENCHMARKS.md) | Quantitative metrics (M1–M8) for all 9 cases, cross-model consistency data |
+| [**Vanilla Baselines**](benchmarks/vanilla_baselines/COMPARATIVE_FACTORIAL_ANALYSIS.md) | Same-day N=3 factorial benchmark: CRUCIBLE vs unconstrained LLMs on an elite doctoral prompt |
 | [**Limitations**](docs/LIMITATIONS.md) | Failure modes, hard boundaries, and what CRUCIBLE cannot do |
 | [**Benchmark Protocol**](benchmarks/methodology/BENCHMARK_PROTOCOL.md) | How benchmarks were designed, executed, and measured |
 | [**Blind Test Protocol**](benchmarks/methodology/BLIND_TEST_PROTOCOL.md) | Protocol for testing CRUCIBLE on literature it has never seen |

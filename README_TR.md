@@ -181,7 +181,8 @@ Her rapor deterministik linter'dan geçmiş ve hem İngilizce hem Türkçe olara
 | 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi; %80 cinsiyet örtüşmesinin göz ardı edilmesi | Ağır Revizyon |
 
 📂 Raporlar: [`showcase/tr/`](showcase/tr/) (Türkçe) | [`showcase/en/`](showcase/en/) (İngilizce)  
-📊 Sayısal metrikler: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)
+📊 Sayısal metrikler: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)  
+🔬 Kontrollü Vanilla Karşılaştırma Çalışması: [`benchmarks/vanilla_baselines/`](benchmarks/vanilla_baselines/) (N=3 Faktöriyel Benchmark)
 
 ---
 
@@ -191,6 +192,7 @@ Her rapor deterministik linter'dan geçmiş ve hem İngilizce hem Türkçe olara
 |:---|:---|
 | [**Whitepaper**](docs/CRUCIBLE_v6_Whitepaper.md) | Teknik şartname, SOTA karşılaştırması, mimari detaylar |
 | [**Benchmarks**](docs/BENCHMARKS.md) | 9 vakanın sayısal metrikleri (M1–M8), çapraz model tutarlılık verisi |
+| [**Vanilla Karşılaştırmaları**](benchmarks/vanilla_baselines/COMPARATIVE_FACTORIAL_ANALYSIS.md) | Aynı gün icra edilen N=3 faktöriyel deney: Doktora düzeyinde serbest talimat vs CRUCIBLE |
 | [**Limitations**](docs/LIMITATIONS.md) | Başarısızlık modları, kesin sınırlar, CRUCIBLE'ın yapamadığı şeyler |
 | [**Benchmark Protokolü**](benchmarks/methodology/BENCHMARK_PROTOCOL.md) | Benchmarkların nasıl tasarlandığı, yürütüldüğü ve ölçüldüğü |
 | [**Kör Test Protokolü**](benchmarks/methodology/BLIND_TEST_PROTOCOL.md) | Daha önce görülmemiş metinlerde test protokolü |

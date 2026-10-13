@@ -14,7 +14,7 @@
 The original benchmark plan prescribed generating a "vanilla baseline" by prompting GPT-4o with a generic critical analysis instruction, then comparing the output against a CRUCIBLE-prompted output from the same model. This approach was abandoned for three reasons:
 
 1. **API Dependency:** Requiring paid API access to a specific model snapshot creates a reproducibility barrier for external researchers.
-2. **Stronger Evidence Available:** CRUCIBLE has already been executed across **4 distinct frontier LLMs** (Claude Opus 4.6 Thinking, Claude Sonnet 4.6 Thinking, Gemini 2.5 Pro High, Gemini 2.5 Flash High) on the **same target dossiers**. This cross-model design provides more robust evidence than a single-model baseline vs. treatment comparison.
+2. **Stronger Evidence Available:** CRUCIBLE has already been executed across **4 distinct frontier LLMs** (Claude Opus 4.6 Thinking, Claude Sonnet 4.6 Thinking, Gemini 3.1 Pro High, Gemini 3.8 Flash High) on the **same target dossiers**. This cross-model design provides more robust evidence than a single-model baseline vs. treatment comparison.
 3. **Model-Invariance Hypothesis:** If CRUCIBLE produces structurally consistent, high-quality epistemic audits regardless of which frontier model executes the protocol, this demonstrates that the methodology — not the model — is the primary driver of analytical quality. This is a stronger claim than "CRUCIBLE beats vanilla prompting on one model."
 
 ### 1.2. Benchmark Architecture
@@ -25,7 +25,7 @@ The original benchmark plan prescribed generating a "vanilla baseline" by prompt
         ┌─────────────┼─────────────┐
         │             │             │
    Claude Opus   Gemini Flash   Gemini Pro
-   4.6 Thinking   2.5 High      2.5 High
+   4.6 Thinking   3.8 High      3.1 High
         │             │             │
         ▼             ▼             ▼
     CRUCIBLE       CRUCIBLE       CRUCIBLE
@@ -46,11 +46,12 @@ In addition to the core 9 showcase cases, the following data supplements the ben
 
 | Evidence Layer | Description | Location |
 |:---|:---|:---|
-| **V5→V6 Evolution Test** | Same case (Evolution Methodology) analyzed by 4 different models under V5.0 protocol | `CALISMALARIM/V5TEST/` |
-| **V6 Cross-Validation** | Opus and Gemini Pro independently generate V6 improvement proposals; convergence analysis performed | `CALISMALARIM/V5TEST/OPUS_V6_Capraz_Dogrulama.md`, `3.1Pro_V6_Capraz_Dogrulama.md` |
-| **V6 Meta Stress Test** | 4-discipline V6 stress test (Gender, Climate, History, Psychiatry) | `CALISMALARIM/V6TEST/V6_META_TEST_RAPORU.md` |
-| **Linguistic Asymmetry Reports** | EN vs TR output comparison on identical inputs | `CALISMALARIM/UC_VAKA_KARSILASTIRMALI_DIL_DENETIMI.md`, `CALISMALARIM/DILSEL_SUBSTRAT_ASIMETRISI_*.md` |
-| **Model Comparison Report** | Flash vs Pro: model and language impact analysis | `CALISMALARIM/CRUCIBLE_Model_ve_Dil_Karsilastirma_Raporu.md` |
+| **V5→V6 Evolution Test** | Same case (Evolution Methodology) analyzed by 4 different models under V5.0 protocol | `benchmarks/methodology/` (Pre-release Archive) |
+| **V6 Cross-Validation** | Opus and Gemini Pro independently generate V6 improvement proposals; convergence analysis performed | `docs/BENCHMARKS.md` (Section 4) |
+| **V6 Meta Stress Test** | 4-discipline V6 stress test (Gender, Climate, History, Psychiatry) | `docs/en/` (Research Treatises) |
+| **Linguistic Asymmetry Reports** | EN vs TR output comparison on identical inputs | [`docs/en/04_THREE_CASE_LINGUISTIC_AUDIT.md`](../../docs/en/04_THREE_CASE_LINGUISTIC_AUDIT.md) |
+| **Substrate Parity Monograph** | Physical tokenization dynamics and 50 KB frontier | [`docs/en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md`](../../docs/en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md) |
+| **Model Comparison Report** | Flash vs Pro: model and language impact analysis | [`docs/en/05_TWO_STAGE_PIPELINE_AND_SUBSTRATE_DYNAMICS.md`](../../docs/en/05_TWO_STAGE_PIPELINE_AND_SUBSTRATE_DYNAMICS.md) |
 
 ---
 
@@ -111,12 +112,12 @@ Each case consists of:
 
 Same case (Evolution Theory Methodological Stress Test) analyzed by 4 frontier models under V5.0 protocol:
 
-| Model | File | Size (KB) |
+| Model | File / Architecture | Size (KB) |
 |:---|:---|:---|
-| Claude Opus 4.6 (Thinking) | `V5TEST/Analiz_Opus4.6Thingking.md` | 32.8 |
-| Claude Sonnet 4.6 (Thinking) | `V5TEST/Analiz_Sonnet4.6(Thinking).md` | 21.4 |
-| Gemini 2.5 Pro (High) | `V5TEST/Analiz_Gemini3.1ProHigh.md` | 7.0 |
-| Gemini 2.5 Flash (High) | `V5TEST/Analiz_Gemini3.8FlashHigh.md` | 11.5 |
+| Claude Opus 4.6 (Thinking) | `Analiz_Opus4.6Thinking.md` | 32.8 |
+| Claude Sonnet 4.6 (Thinking) | `Analiz_Sonnet4.6(Thinking).md` | 21.4 |
+| Gemini 3.1 Pro (High) | `Analiz_Gemini3.1ProHigh.md` | 7.0 |
+| Gemini 3.8 Flash (High) | `Analiz_Gemini3.8FlashHigh.md` | 11.5 |
 
 ### 3.3. Cross-Validation Evidence: V6 Improvement Proposals
 
@@ -124,8 +125,8 @@ Two models independently generated V6 methodology improvement proposals, then co
 
 | Document | Description |
 |:---|:---|
-| `V5TEST/OPUS_V6_Capraz_Dogrulama.md` | Convergence analysis of Opus vs Gemini Pro V6 proposals (5 convergence points, 3 divergence points identified) |
-| `V5TEST/3.1Pro_V6_Capraz_Dogrulama.md` | Gemini Pro's independent V6 cross-validation |
+| `OPUS_V6_Capraz_Dogrulama.md` | Convergence analysis of Opus vs Gemini Pro V6 proposals (5 convergence points, 3 divergence points identified) |
+| `3.1Pro_V6_Capraz_Dogrulama.md` | Gemini Pro's independent V6 cross-validation |
 
 ---
 
@@ -142,7 +143,7 @@ Two models independently generated V6 methodology improvement proposals, then co
 
 ### 4.2. For Cross-Model Tests (Already Completed)
 
-1. **Same Input:** `CALISMALARIM/EVRIM_METODOLOJIK_SINAMA.md` served as the common target.
+1. **Same Input:** Evolution Theory Methodological Stress Test served as the common target dossier.
 2. **Same Protocol:** V5.0 methodology (the immediate predecessor to V6.0).
 3. **Different Models:** Opus 4.6, Sonnet 4.6, Gemini Pro, Gemini Flash.
 4. **Each model produced one report independently.** No model saw another model's output.
