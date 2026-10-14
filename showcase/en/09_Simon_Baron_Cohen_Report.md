@@ -330,10 +330,15 @@ To preserve scientific coherence, both sides of the debate must concede ground:
 
 * **Target Monograph:** Simon Baron-Cohen, *The Essential Difference: Male and Female Brains and the Truth About Autism* (Basic Books / Penguin Books, 2003; 296 pp.).
 * **Investigated Core Claim:** Human brains are biologically dimorphic—innately organized into "Female" (Type E, empathizing) and "Male" (Type S, systemizing) cognitive architectures driven by prenatal testosterone—with autism representing the hyper-masculinized "Extreme Male Brain" ($S \gg E$).
-* **Primary Evidentiary Basis:** Connellan et al. (2000) 24-hour neonatal visual preference experiment; adult $EQ$ and $SQ$ self-report psychometrics; amniocentesis fetal testosterone ($fT$) longitudinal cohorts.
-* **Fatal Methodological Vulnerabilities:**
-  1. *Unblinded Neonatal Testing:* Connellan et al. (2000) lacked experimenter blinding and utilized sequential stimulus presentation; automated, double-blind corneal eye-tracking replications (Alexander & Saenz, 2012) demonstrate no significant sex differences in day-old infant gaze preferences.
-  2. *Self-Report Conflation:* $EQ$ and $SQ$ are transparent self-report questionnaires saturated with cultural stereotype endorsement and social desirability; objective behavioral performance tests show substantially smaller sex differences ($d \approx 0.15 - 0.35$).
-  3. *Diagnostic Blindspot Bias:* Reifying autism as the "Extreme Male Brain" codified a male diagnostic stereotype, systematically obscuring the Female Autism Phenotype and social camouflaging.
-* **Robust Empirical Residue:** Prenatal steroid exposure demonstrably influences childhood behavioral predispositions (conclusively verified in CAH/CAIS clinical cohorts and non-human primate toy preferences); autism is a biological neurodevelopmental condition, permanently debunking psychoanalytic "refrigerator mother" blaming.
+
+#### Rapid Verification Protocol:
+- [ ] **Spot-Check Primary Methodological Sources:**  
+  - Examine Connellan, Batkti & Baron-Cohen (2000, *Infant Behavior & Development*, $N = 102$); verify the absence of experimenter blinding during face-vs-mobile presentation. Cross-reference with automated, double-blind corneal eye-tracking replications (e.g., Alexander & Saenz, 2012) showing null sex differences in day-old infant gaze preferences.
+  - Examine adult $EQ$ and $SQ$ psychometrics; verify that self-report questionnaires conflate cultural stereotype endorsement and social desirability, whereas objective behavioral performance tasks yield modest effect sizes ($d \approx 0.15 - 0.35$).
+  - Examine amniocentesis fetal testosterone ($fT$) longitudinal cohorts; verify statistical attrition, non-linear effects, and modest sample sizes prior to drawing categorical neurodevelopmental inferences.
+- [ ] **Lethal Falsification Question:**  
+  *"If sex differences in juvenile interests and toy preferences are exclusively artifacts of cultural conditioning and parental gender stereotyping, why do genetic females with Congenital Adrenal Hyperplasia (CAH)—who are raised entirely as girls but were exposed to elevated prenatal androgens—consistently demonstrate masculine mechanical toy preferences and systemizing behaviors at rates comparable to control boys, and why is this sex-differentiated preference replicated in non-human primates?"*
+- [ ] **Rhetorical & Sycophancy Audit:**  
+  Verify whether this audit adopted partisan culture-war rhetoric, purged all essentialist "male/female brain" reification fallacies without retreating into anti-biological blank-slate constructivism, reconstructed Baron-Cohen's thesis in its strongest intellectual formulation (Steelman), and purged all prohibited dogmatic assertions.
+
 * **Final Methodological Verdict:** **METHODOLOGICALLY COMPROMISED ON CATEGORICAL BRAIN TYPOLOGY & CLINICAL AUTISM UNIVERSALITY; ROBUST ON PRENATAL BIOLOGICAL INFLUENCES OVER BLANK-SLATE CONSTRUCTIVISM.** The Empathizing-Systemizing model provides a useful multidimensional psychometric tool, but converting statistical overlap into dichotomous "male" and "female" brains is a reification fallacy.
