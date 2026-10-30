@@ -1,9 +1,9 @@
-# ⚖️ CRUCIBLE — Epistemic Auditing Framework for AI-Assisted Research
+# ⚖️ CRUCIBLE v7.0 — Grounded Epistemic Auditing Framework for AI-Assisted Research
 
-**Force AI to critique research like a senior scientific referee, not a diplomat.**
+**Force AI to critique research like a senior scientific referee, grounded directly in primary source evidence.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-6.0-emerald.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-7.0-emerald.svg)](CHANGELOG.md)
 [![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v6_Whitepaper.md)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-9_Cases_Validated-success.svg)](docs/BENCHMARKS.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
@@ -15,8 +15,8 @@
 ## What Is CRUCIBLE?
 
 CRUCIBLE is an open-source epistemic auditing framework that transforms commercial frontier AI models (Claude, ChatGPT, Gemini) into adversarial, forensic-grade scientific referees through a **two-component architecture**:
-1. **A 10-Layer Normative Prompt Constitution:** Enforces Popperian falsification, causal Directed Acyclic Graphs (DAGs), Bayesian ordinal updates, and GRADE hierarchies at inference time.
-2. **A Deterministic Python Linter (`scripts/crucible_linter.py`):** Acts as an external constitutional court. It parses the AI's output line by line, blocks unverified claims, penalizes dogmatic rhetoric, and cryptographically stamps reports with a verified `[PASS]` certificate.
+1. **A 10-Layer Normative Prompt Constitution:** Enforces Popperian falsification, causal Directed Acyclic Graphs (DAGs), Bayesian ordinal updates, No-Citation No-Critique constraints, and Adversarial Defense filters.
+2. **A Source-Grounded Deterministic Python Linter (`scripts/crucible_linter.py --source document.docx`):** Acts as an external constitutional court. It cross-checks cited claims and paragraph citations directly against the primary source document, blocks hallucinated / ungrounded artifacts with a hard compile error, penalizes dogmatic rhetoric, and cryptographically stamps reports with a verified `[PASS]` certificate.
 
 When you ask a standard AI to "review this paper," it produces polite, non-committal summaries that agree with the author and avoid confrontation. This is a well-documented failure mode called **sycophancy** — and it makes AI useless for serious research evaluation.
 
@@ -133,9 +133,9 @@ In this mode, you never manually copy-paste prompts; your AI agent adopts the wo
    Under the CRUCIBLE protocol, the linter is **not an optional suggestion; it is the external constitutional court.** An AI's self-affirmation ("I followed all rules") is strictly unverified. All 5 mandatory sections, the Layer 8 Claim-Source Matrix, and rhetorical hygiene must be verified programmatically:  
    ```bash
    pip install markdown
-   python scripts/crucible_linter.py cases/report.md
+   python scripts/crucible_linter.py cases/report.md --source cases/manuscript.docx
    ```  
-   The linter inspects the report line by line. If all constitutional criteria are met, it stamps **`[PASS]`** and automatically compiles the publication-ready `report.html` monograph. *(Reports that fail or skip linter verification remain uncertified drafts).*
+   The linter inspects the report line by line, cross-referencing citations and artifacts against the `--source` primary text to eliminate phantom references. If all constitutional criteria are met, it stamps **`[PASS]`** and automatically compiles the publication-ready `report.html` monograph. *(Reports that fail or skip linter verification remain uncertified drafts).*
 
 ---
 

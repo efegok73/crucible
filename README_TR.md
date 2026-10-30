@@ -1,9 +1,9 @@
-# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v6.0) — TÜRKÇE KILAVUZ
+# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v7.0) — TÜRKÇE KILAVUZ
 
-**Yapay zekâyı diplomatik bir özetçiden acımasız bir bilimsel hakeme dönüştüren açık kaynak çerçeve.**
+**Yapay zekâyı diplomatik bir özetçiden acımasız ve zemin metin çıpalı bir bilimsel hakeme dönüştüren açık kaynak çerçeve.**
 
 [![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-blue.svg)](LICENSE)
-[![Versiyon](https://img.shields.io/badge/Versiyon-6.0-emerald.svg)](CHANGELOG.md)
+[![Versiyon](https://img.shields.io/badge/Versiyon-7.0-emerald.svg)](CHANGELOG.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
 > *Uluslararası Açık Kaynak Adı:* ***CRUCIBLE*** *| Özgün Kurucu Mimari:* ***Mayın Tarlası*** *(Gizli varsayımların ya sınandığı ya da havaya uçtuğu diyalektik stres testi arazisi)*
@@ -14,9 +14,9 @@
 
 ## CRUCIBLE Nedir?
 
-CRUCIBLE, ticari yapay zekâ modellerini (ChatGPT, Claude, Gemini) **sistematik ve acımasız bilimsel hakemlere** dönüştüren iki bileşenli açık kaynak bir denetim çerçevesidir:
-1. **10 Katmanlı Normatif Anayasa:** Modeli çıkarım zamanında (inference time) Popperiyen yanlışlanabilirlik, Bayesyen yönlü güncellemeler ve nedensel DAG analitiğiyle kuşatan diyalektik istem protokolü.
-2. **Deterministik Python Linter'ı (`scripts/crucible_linter.py`):** Modelin kuralları uygulayıp uygulamadığını harf harf denetleyen, eksik tablo veya dogmatik dil tespit ettiğinde derlemeyi durduran ve yalnızca onaylanan raporlara yeşil mühür basan harici mekanik doğrulayıcı.
+CRUCIBLE, ticari yapay zekâ modellerini (ChatGPT, Claude, Gemini) **sistematik, zemin metne çıpalı ve acımasız bilimsel hakemlere** dönüştüren iki bileşenli açık kaynak bir denetim çerçevesidir:
+1. **10 Katmanlı Normatif Anayasa:** Modeli çıkarım zamanında (inference time) Popperiyen yanlışlanabilirlik, Bayesyen yönlü güncellemeler, Alıntısız Eleştiri Yasağı ve Şeytanın Savunmanı filtresiyle kuşatan diyalektik istem protokolü.
+2. **Kaynak-Bilinçli Deterministik Python Linter'ı (`scripts/crucible_linter.py --source dosya.docx`):** Modelin kuralları uygulayıp uygulamadığını, alıntıların birincil kaynakta gerçekten var olup olmadığını denetleyen; uydurma kaynaklarda (*hayalet referans*) derlemeyi durduran ve yalnızca onaylanan raporlara yeşil mühür basan harici mekanik doğrulayıcı.
 
 Normal bir yapay zekâya *"Bu makaleyi incele"* dediğinizde size nazik, tarafsız görünümlü bir özet verir: her iki tarafı da haklı bulur, yazara pohpohlayıcı ifadeler kullanır, eleştirileri "*bazı sınırlılıklar mevcuttur*" gibi boş cümlelerle kapatır. Buna akademik literatürde **sycophancy** (dalkavukluk önyargısı) denir ve yapay zekâyı ciddi araştırma değerlendirmesi için kullanışsız kılar.
 
@@ -133,9 +133,9 @@ Bu modda hiçbir metni kopyalayıp yapıştırmazsınız; klasördeki anayasa do
    CRUCIBLE protokolünde linter **isteğe bağlı bir tavsiye değildir; dışsal anayasal mahkemedir.** Modelin "ben tüm kurallara uydum" iddiasına güvenilmez. Raporun 5 zorunlu bölümü, Katman 8 İddia-Kaynak tablosu ve retorik hijyeni deterministik kodla denetlenmelidir:  
    ```bash
    pip install markdown
-   python scripts/crucible_linter.py calismalarim/rapor.md
+   python scripts/crucible_linter.py calismalarim/rapor.md --source calismalarim/makale.docx
    ```  
-   Linter raporu satır satır denetler. Şartlar sağlanmışsa **`[PASS]`** mührünü basar ve eşzamanlı olarak okunmaya hazır `rapor.html` dosyasını üretir. Hata varsa hangi katmanın eksik kaldığını açıkça raporlar. *(Linter'dan geçmeyen raporlar CRUCIBLE literatüründe mühürsüz taslak sayılır).*
+   Linter raporu satır satır denetler. `--source` ile verilen birincil metni tarayarak raporda uydurma kaynak (*hayalet referans*) veya sahte alıntı olup olmadığını mekanik olarak doğrular. Şartlar sağlanmışsa **`[PASS]`** mührünü basar ve eşzamanlı olarak okunmaya hazır `rapor.html` dosyasını üretir. Hata varsa hangi katmanın veya alıntının eksik kaldığını açıkça raporlar. *(Linter'dan geçmeyen raporlar CRUCIBLE literatüründe mühürsüz taslak sayılır).*
 
 ---
 

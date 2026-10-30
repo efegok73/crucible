@@ -5,6 +5,17 @@ All notable changes to the CRUCIBLE framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.0.0] - 2026-10-30
+
+### Added
+- **Grounded Source Cross-Checking Engine (`--source`)** — Deterministik linter artık birincil kaynak belgesini (`.docx`, `.txt`, `.md`) doğrudan okuyarak rapordaki iddiaları zemin metinle doğrular.
+- **Sıfır Hayalet Referans Kalkanı (Zero-Hallucination Guard)** — K8 İddia-Kaynak matrisinde yer alan birincil nesnelerin kaynak belgede fiilen var olup olmadığını denetler. Metinde bulunmayan ve `[DIŞ KAYNAK]` etiketi taşımayan hayalet referanslarda derleme anında `[FAIL: UNGROUNDED ARTIFACT]` ile durdurulur.
+- **Paragraf Çıpası ve Tırnak İçi Alıntı Doğrulaması (`[P:xxxx]`)** — Raporda tırnak içinde verilen doğrudan alıntıların birincil kaynak metinde kelimesi kelimesine var olduğunu deterministik olarak doğrular. Uydurma alıntılar `[FAIL: UNVERIFIED QUOTE]` ile engellenir.
+- **Epistemik İndeks ve Yapı Haritası Protokolü (Registry Protocol)** — v6.0'ın metnin %97'sini silerek bağlam atomizasyonuna ve saman adam üretimine yol açan kayıplı "Hedef Tahtası" özeti kaldırıldı; yerine metni yok etmeden paragraf kütüğü çıkaran v7 İndeks formatı getirildi.
+- **Şeytanın Savunmanı Filtresi (Adversarial Defense / Anti-Strawman)** — Yazarın kendi metninde zaten tartıştığı veya şerh düştüğü hususların modele "yeni kusur" gibi atfedilmesini engelleyen zorunlu karşı-denetim kuralı.
+- **v7.0 Zemin Çıpalı Mühür** — Derlenen HTML raporlarına birincil kaynak adı, paragraf sayısı ve sıfır hayalet referans tescilini içeren yeşil mühür damgası.
+- **Yeni Birim Testleri** — `scripts/test_crucible_linter.py` dosyasına kaynak zemin doğrulamasını, hayalet referans yakalamayı, dış kaynak istisnalarını ve alıntı kontrolünü test eden 4 yeni birim test eklendi (toplam 12 test).
+
 ## [6.0.0] - 2026-10-04
 
 ### Added

@@ -1,53 +1,65 @@
-# HEDEF TAHTASI: [YAZAR / ESER / İDDİA ADI]
+# EPİSTEMİK İNDEKS VE YAPI HARİTASI (REGISTRY): [YAZAR / ESER / İDDİA ADI]
+*CRUCIBLE v7.0 Zemin Metin Çıpalı Kütük Formatı*
 
 ## 1. METİN KÜNYESİ VE BAĞLAM
 * **Yazar(lar) / Kurum:** 
-* **Eser / Birincil Kaynak:** 
-* **Disiplin:** (örn. Siyaset Felsefesi, Epidemiyoloji, İklim Bilimi, Teorik Fizik)
-* **Hedef Kitle / Yayın Mecrası:** 
+* **Eser / Birincil Kaynak Belge:** 
+* **Toplam Hacim:** (Örn: 85.000 kelime, 3.500 paragraf, 20 tablo)
+* **Disiplin:** (örn. Erken İslam Tarihi, Epigrafi, Klinik Epidemiyoloji, Siyaset Felsefesi)
+* **Zemin Metin Dosyası:** (örn. `makale.pdf`, `monografi.docx`)
 
 ---
 
-## 2. KÖK TEZ (ÇELİK ADAM FORMÜLASYONU)
-> *"[Merkezi iddiayı temsil eden doğrudan, kelimesi kelimesine birincil pasajı buraya ekleyin]"*  
-> — Kaynak, Sayfa / DOI / Referans
+## 2. KÖK TEZ VE YAPISAL PASAJLAR (PARAGRAF ÇIPALI)
+*Her alıntı doğrudan ve tırnak içinde verilmeli, parafraz yapılmamalıdır.*
 
-**Yapısal Özet (Çelik Adam):**  
-İddiayı en güçlü, en sofistike akademik formunda ifade edin. Karikatürleri, gazeteci abartılarını veya siyasi saman adamları ayıklayın. İddia edilen temel ontolojik veya mekanik nedensellik nedir?
+> `[P:xxxx]` *"[Yazarın merkezi tezini temsil eden kelimesi kelimesine birincil pasaj]"*  
+> — Kaynak, Bölüm / Paragraf / Sayfa
 
----
+> `[P:yyyy]` *"[Yazarın yöntemsel sınırını veya dönüşüm modelini belirten ikinci anahtar pasaj]"*  
+> — Kaynak, Bölüm / Paragraf / Sayfa
 
-## 3. BİRİNCİL KANIT VE VERİ TİPLERİ
-İddiayı destekleyen ampirik, teorik veya arşivsel verileri sınıflandırın:
-* **Ampirik Veri Setleri / Gözlemler:** 
-* **İstatistiksel / Ekonometrik Modeller:** 
-* **Arşivsel / Metinsel / Epigrafik Kayıtlar:** 
-* **Deneysel / Klinik Çalışmalar:** 
+**Yapısal Özet (Çelik Adam Formülasyonu):**  
+Yazarın savunduğu temel ontolojik ve mekanik tezi, yazarın kendi nüansları ve ihtiyatlarıyla en sağlam formunda formüle edin.
 
 ---
 
-## 4. İDDİA EDİLEN NEDENSELLİK (DEĞİŞİM TEORİSİ)
-Yazarın nedensellik zincirini şematize edin:
-$$\text{Öncül / Neden} \longrightarrow \text{Aracı Mekanizma} \longrightarrow \text{Bildirilen Etki}$$
+## 3. BİRİNCİL NESNE VE VERİ KÜTÜĞÜ (GROUNDED REGISTRY)
+*Metinde fiilen incelenen her nesne ve veri seti kesin paragraf çıpasıyla listelenmelidir (hayalet veri yasaktır):*
+
+* `[P:xxxx]` **[Nesne / Belge / Veri Seti 1]:** Tanım, tarih, fiziksel durum.
+* `[P:xxxx]` **[Nesne / Belge / Veri Seti 2]:** Tanım, tarih, fiziksel durum.
+* `[P:xxxx]` **[Nesne / Belge / Veri Seti 3]:** Tanım, tarih, fiziksel durum.
+*(Metin dışı karşılaştırma eklenecekse mutlaka `[DIŞ KAYNAK - YAZARDA YOKTUR]` etiketi vurulmalıdır)*
 
 ---
 
-## 5. KARŞIT EKOLLER VE ALTERNATİF PARADİGMALAR
-* Bu eser hangi düşünce ekolünü veya yerleşik anlayışı çürütmeyi amaçlıyor?
-* Güncel hakemli literatürdeki temel rakip hipotezler nelerdir?
+## 4. YAZARIN KENDİ METODOLOJİK ŞERHLERİ (EMNİYET SUPAPLARI)
+*Yazarın metin içinde bizzat koyduğu ihtiyatlar, metodolojik kısıtlar ve aşırı yoruma karşı uyarıları:*
+
+* `[P:xxxx]` **Şerh 1:** (Örn: Biyolojik parşömen yaşı ile mürekkep yazım yaşı eşitlenemez)
+* `[P:xxxx]` **Şerh 2:** (Örn: Bu buluntular homojen bir merkeziyetçilik iddiası taşımaz, yerel melezlik vardır)
+* `[P:xxxx]` **Şerh 3:** (Örn: Çizelge satır toplamları bağımsız Bayesçi gözlemler değildir)
 
 ---
 
-## 6. METODOLOJİK KIRILGANLIKLAR VE SÜRTÜNME NOKTALARI (CRUCIBLE İÇİN)
+## 5. İDDİA EDİLEN NEDENSELLİK (DÖNÜŞÜM MEKANİZMASI)
+Yazarın savunduğu nedensellik zincirini formel akışa dökün:
+$$\text{Öncül / Doğrudan Neden} \longrightarrow \text{Aracı Mekanizma / Patika} \longrightarrow \text{Bildirilen Etki / Standartlaşma}$$
 
-### Sürtünme Noktası 1: Yöntemsel ve Ampirik Sürtünme
-* **Pasaj:** 
-* **Kırılganlık:** İddia nerede ampirik verilerle, fiziksel yasalarla veya tarihsel kanıtlarla çatışıyor?
+---
 
-### Sürtünme Noktası 2: Karıştırıcı Değişkenler ve Atlanan Faktörler
-* **Pasaj:** 
-* **Kırılganlık:** Gözlemlenen korelasyonu açıklayabilecek alternatif mekanizmalar nelerdir?
+## 6. HAKİKİ METODOLOJİK SÜRTÜNME ALANLARI (CRUCIBLE v7.0 İÇİN)
+*Yazarın kendi şerhleriyle bertaraf edemediği, ampirik veri ile çıkarım arasındaki gerçek 3 yarılma noktası:*
 
-### Sürtünme Noktası 3: Sınır ve Vekil Değişken İhlalleri
-* **Pasaj:** 
-* **Kırılganlık:** Yerel bir vekil değişken, ontolojik bir kesinlik gibi aşırı mı genelleniyor?
+### Sürtünme Noktası 1: Yöntemsel / Ampirik Yarılma
+* **Çıpa:** `[P:xxxx]`
+* **Kırılganlık:** Yazarın kurduğu teorik model ile sunduğu veri arasındaki fiili uyuşmazlık.
+
+### Sürtünme Noktası 2: Karıştırıcı Değişkenler ve Alternatif Mekanizmalar
+* **Çıpa:** `[P:xxxx]`
+* **Kırılganlık:** Yazarın nedensellik zincirini kesintiye uğratan üçüncü faktörler.
+
+### Sürtünme Noktası 3: Analitik Birim ve Sınır İhlalleri
+* **Çıpa:** `[P:xxxx]`
+* **Kırılganlık:** Örneklem biriminin belirsizliği, sözde-tekrarlama veya seçici geçirgenlik.
