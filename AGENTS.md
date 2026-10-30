@@ -36,13 +36,13 @@ Every formal Crucible research monography preserves the following core structure
    - **Adversarial Defense Filter:** Before attacking a thesis, verify whether the author already addressed this objection in the text.
    - **Empirical Claim-Source Audit Matrix:** If Layer 8 is active, Section 2.1 MUST contain `| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |`. Any external comparative data must be tagged `[EXTERNAL]` / `[DIŞ KAYNAK]`.
 3. `[AUTO-FALSIFICATION & SURGEON CHECKLIST]`: Conduct a post-mortem exposing your own analytical blind spots and single-source risks. Conclude with a concrete 3-minute `[SURGEON AUDIT CHECKLIST]` for external peer review.
-4. `[DETERMINISTIC LINTER PASS]`: When the report is written, execute:
+4. `[DETERMINISTIC LINTER PASS & VERSIONED OUTPUT]`: Reports must include version identifiers (`[Case_Name]_v[X]_Report.[md|html]`) to ensure provenance and side-by-side regression testing. When the report is written, execute:
    ```bash
    python scripts/crucible_linter.py "[path_to_report.md]" --source "[path_to_source]"
    ```
    No report is accepted until the linter returns `[PASS]`. The linter verifies grounding against the source and simultaneously compiles:
-   - `[Case_Name]_Report.md` (Machine-readable)
-   - `[Case_Name]_Report.html` (Human-readable dark-mode monography)
+   - `[Case_Name]_v[X]_Report.md` (Machine-readable)
+   - `[Case_Name]_v[X]_Report.html` (Human-readable dark-mode monography)
 
 ## 6. MANDATORY PHASED EXECUTION (INTERACTIVE PAUSES)
 When auditing complex or multi-disciplinary treatises (11-section format), NEVER output the entire monography in a single turn. The model MUST execute in 3 interactive phases, pausing at each phase boundary to await human review and confirmation ("Continue" / "Devam"):
