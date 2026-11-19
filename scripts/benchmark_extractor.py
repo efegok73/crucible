@@ -1,5 +1,5 @@
 """
-CRUCIBLE v6.0 — Benchmark Metrics Extractor
+CRUCIBLE v7.1 — Benchmark Metrics Extractor
 Extracts quantitative metrics (M1-M8) from showcase reports.
 Outputs: BENCHMARKS.md table
 """

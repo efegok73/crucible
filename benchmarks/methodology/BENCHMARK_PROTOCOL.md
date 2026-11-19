@@ -1,4 +1,4 @@
-# CRUCIBLE v6.0 — BENCHMARK PROTOCOL
+# CRUCIBLE — BENCHMARK PROTOCOL (v6.0 Baselines & v7.1 Architecture)
 **Document ID:** `BENCHMARK_PROTOCOL.md`  
 **Version:** 1.0  
 **Date:** 2026-10-06  
@@ -135,7 +135,7 @@ Two models independently generated V6 methodology improvement proposals, then co
 ### 4.1. For 9 Showcase Cases (Already Completed)
 
 1. **Input Preparation:** Target dossier sourced from `benchmarks/en/XX_*.md`.
-2. **System Prompt:** CRUCIBLE v6.0 full methodology (`templates/CRUCIBLE_WEB_PROMPT_EN.md`).
+2. **System Prompt:** CRUCIBLE full methodology (`templates/CRUCIBLE_WEB_PROMPT_EN.md`).
 3. **Model:** Frontier LLM (model identity recorded in report header).
 4. **Temperature:** Model default (not API-controlled in Antigravity IDE environment).
 5. **Output:** Report generated in both EN and TR.

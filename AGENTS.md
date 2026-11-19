@@ -22,8 +22,8 @@
 Do not load all 10 layers into memory simultaneously at the start of a session. Direct attention based on the objective:
 - **For Textual, Philosophical, or Scientific Audits:**
   Load and enforce the constitutional methodology based on working language:
-  - English: `docs/en/01_CRUCIBLE_METHODOLOGY_v6.md` & `docs/en/02_TRIAGE_AND_CONCEPTS.md`
-  - Türkçe: `docs/tr/01_ANALITIK_YONTEM_ILKELERI_v6.md` & `docs/tr/02_SENARYOLAR_VE_KAVRAMLAR.md`
+  - English: `docs/en/01_CRUCIBLE_METHODOLOGY_v7.md` & `docs/en/02_TRIAGE_AND_CONCEPTS.md`
+  - Türkçe: `docs/tr/01_ANALITIK_YONTEM_ILKELERI_v7.md` & `docs/tr/02_SENARYOLAR_VE_KAVRAMLAR.md`
 - **For Pure Coding, Scripting, or File Management Tasks:**
   Do not invoke philosophical layers; operate strictly as a concise, high-efficiency software engineer.
 

@@ -1,15 +1,15 @@
-# CRUCIBLE v6.0 — BLIND TEST PROTOCOL
+# CRUCIBLE — BLIND TEST PROTOCOL (v7.1 Grounded Architecture)
 **Document ID:** `BLIND_TEST_PROTOCOL.md`  
 **Version:** 1.0  
 **Date:** 2026-10-06  
 **Status:** Active  
-**Purpose:** Standardized procedure for independently evaluating CRUCIBLE v6.0 on previously unseen academic texts.
+**Purpose:** Standardized procedure for independently evaluating CRUCIBLE on previously unseen academic texts.
 
 ---
 
 ## 1. OBJECTIVE
 
-This protocol enables any external researcher to test CRUCIBLE v6.0 on a text that was **not part of the original 9-case showcase** and has **never been seen** by the CRUCIBLE developer. The goal is to demonstrate that CRUCIBLE's epistemic auditing capabilities generalize beyond cherry-picked demonstration cases.
+This protocol enables any external researcher to test CRUCIBLE on a text that was **not part of the original 9-case showcase** and has **never been seen** by the CRUCIBLE developer. The goal is to demonstrate that CRUCIBLE's epistemic auditing capabilities generalize beyond cherry-picked demonstration cases.
 
 ---
 
@@ -78,7 +78,7 @@ The target text is converted into a CRUCIBLE-compatible target dossier format:
 
 ### Step 3.4: CRUCIBLE Execution
 
-1. **System Prompt:** Use the standard CRUCIBLE v6.0 web prompt (`templates/CRUCIBLE_WEB_PROMPT_EN.md`).
+1. **System Prompt:** Use the standard CRUCIBLE v7.1 web prompt (`templates/CRUCIBLE_WEB_PROMPT_EN.md`).
 2. **Model:** Any frontier LLM. Record model name and version in the report header.
 3. **Input:** The target dossier from Step 3.3.
 4. **Run the protocol** and capture the full output.

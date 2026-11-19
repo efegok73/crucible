@@ -1,4 +1,4 @@
-# CRUCIBLE v6.0 — COMPREHENSIVE TRIAGE MATRIX & EPISTEMIC LEXICON (MAYIN TARLASI MODEL)
+# CRUCIBLE v7.1 — COMPREHENSIVE TRIAGE MATRIX & EPISTEMIC LEXICON (MAYIN TARLASI MODEL)
 ### Operational Scenarios, Disciplinary Boundary Protocols & Precedents (Appendix 1)
 *(Global Nomenclature: **CRUCIBLE** | Canonical Founding Architecture: **Mayın Tarlası [Epistemic Minefield] Model**)*
 

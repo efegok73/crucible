@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-7.0-emerald.svg)](CHANGELOG.md)
-[![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v6_Whitepaper.md)
+[![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v7.1_Whitepaper.md)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-9_Cases_Validated-success.svg)](docs/BENCHMARKS.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
@@ -208,7 +208,7 @@ Every report below passed the deterministic linter and is available in both Engl
 
 | Document | What It Contains |
 |:---|:---|
-| [**Whitepaper**](docs/CRUCIBLE_v6_Whitepaper.md) | Full technical specification, SOTA comparison, architecture details |
+| [**Whitepaper**](docs/CRUCIBLE_v7.1_Whitepaper.md) | Full technical specification, SOTA comparison, architecture details |
 | [**Benchmarks**](docs/BENCHMARKS.md) | Quantitative metrics (M1–M8) for all 9 cases, cross-model consistency data |
 | [**Vanilla Baselines**](benchmarks/vanilla_baselines/COMPARATIVE_FACTORIAL_ANALYSIS.md) | Same-day N=3 factorial benchmark: CRUCIBLE vs unconstrained LLMs on an elite doctoral prompt |
 | [**Limitations**](docs/LIMITATIONS.md) | Failure modes, hard boundaries, and what CRUCIBLE cannot do |

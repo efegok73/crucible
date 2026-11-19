@@ -1,8 +1,8 @@
-# CRUCIBLE v6.0 TRİYAJ MATRİSİ VE KAVRAMLAR SÖZLÜĞÜ (MAYIN TARLASI MODELİ)
+# CRUCIBLE v7.1 TRİYAJ MATRİSİ VE KAVRAMLAR SÖZLÜĞÜ (MAYIN TARLASI MODELİ)
 ### Operasyonel Senaryolar, Disipliner Sınır Protokolleri ve İçtihatlar (Ek-1)
 *(Uluslararası Açık Kaynak Adı: **CRUCIBLE** | Özgün Kurucu Mimari: **Mayın Tarlası Modeli**)*
 
-Bu referans belgesi, [CRUCIBLE v6.0 Metodoloji Anayasası](01_ANALITIK_YONTEM_ILKELERI_v6.md) metninde geçen tüm teknik terimlerin, felsefi kavramların ve istatistiksel kuralların somut, laboratuvar veya masa başı senaryolarla açıklanmış kapsamlı bir sözlüğüdür. V6.0 Kılavuzunun 10 katmanlı mimarisine uyumlu olarak tasarlanmıştır.
+Bu referans belgesi, [CRUCIBLE v7.1 Metodoloji Anayasası](01_ANALITIK_YONTEM_ILKELERI_v7.md) metninde geçen tüm teknik terimlerin, felsefi kavramların ve istatistiksel kuralların somut, laboratuvar veya masa başı senaryolarla açıklanmış kapsamlı bir sözlüğüdür. V6.0 Kılavuzunun 10 katmanlı mimarisine uyumlu olarak tasarlanmıştır.
 
 ---
 
@@ -163,9 +163,9 @@ Gerçek saha araştırmalarında (örneğin *Arap Yarımadası ve Mekke Monograf
 
 
 
-## 2. KAVRAMLAR VE TERİMLER ANSİKLOPEDİSİ (V6.0 SÖZLÜĞÜ)
+## 2. KAVRAMLAR VE TERİMLER ANSİKLOPEDİSİ (V7.1 SÖZLÜĞÜ)
 
-Aşağıdaki kavramlar, V6.0 Kılavuzunda geçen kritik terimlerin operasyonel tanımlarını ve laboratuvar/saha senaryolarını içerir.
+Aşağıdaki kavramlar, V7.1 Kılavuzunda geçen kritik terimlerin operasyonel tanımlarını ve laboratuvar/saha senaryolarını içerir.
 
 ### 2.1. Epistemoloji ve Mantık Kavramları
 
@@ -443,6 +443,6 @@ Aşağıdaki kavramlar, V6.0 Kılavuzunda geçen kritik terimlerin operasyonel t
 > *İhlal (Model):* "Yazarın sunduğu bu yeni belge ışığında, teorinin doğruluğuna olan inancımı %30'dan %75'e güncelliyorum."
 > *Analitik Doğru:* "Performatif Bayesçilik ihlali! Neden %75? Neden %60 değil? Likelihood ratio (olabilirlik oranı) nerede hesaplandı? Eğer elinde istatistiksel bir ağırlık yoksa sayısal yüzde veremezsin. Bunun yerine 'İhtimal Yönü (Direction of Probability)' kullanmalısın: 'Bu veri, tezin doğruluğunu belirgin şekilde artırır [▲].'"
 
-> 🛑 **[V6.0 SÖZLÜĞÜNÜN SONU. SÖZLÜK, YENİ İHLAL TÜRLERİ TESPİT EDİLDİKÇE GÜNCELLENMEYE AÇIKTIR.]**
+> 🛑 **[V7.1 SÖZLÜĞÜNÜN SONU. SÖZLÜK, YENİ İHLAL TÜRLERİ TESPİT EDİLDİKÇE GÜNCELLENMEYE AÇIKTIR.]**
 
 

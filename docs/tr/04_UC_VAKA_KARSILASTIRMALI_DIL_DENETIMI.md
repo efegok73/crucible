@@ -1,8 +1,8 @@
-# CRUCIBLE v6.0 MİKRO-DİSEKSİYON: ÜÇ VAKA KARŞILAŞTIRMALI DİL DENETİMİ
+# CRUCIBLE MİKRO-DİSEKSİYON: ÜÇ VAKA KARŞILAŞTIRMALI DİL DENETİMİ
 **Rapor Kodu:** CRUCIBLE-CASE-COMPARE-2026-01  
 **Başlık:** İngilizce ve Türkçe Substratlarda Yürütülen Analizlerin Karşılaştırmalı Epistemik Çözünürlük, Sayısal Hassasiyet ve Yöntemsel Derinlik Otopsisi  
 **Tarih:** 2026-10-03  
-**Analitik Motor:** CRUCIBLE v6.0 Epistemolojik Cerrahi Protokolü  
+**Analitik Motor:** CRUCIBLE Epistemolojik Cerrahi Protokolü  
 **Statü:** Mühürlendi & Arşivlendi (GitHub Açık Kaynak Karşılaştırma Belgesi)  
 **Karşılaştırılan Vaka Çiftleri:**
 1. **Klinik Tıp & Epidemiyoloji:** *The Cass Review* (NHS England, 2024)
@@ -185,5 +185,5 @@ Bu 3 vakanın mikro-diseksiyonu sonucunda aşağıdaki kurallar ampirik olarak k
 2. **Kavramsal Çözünürlük Token Mimarisine Bağlıdır:** Bu fark yapay zekânın "Türkçe bilmemesi" değil; transformatör mimarisinin attention bütçesini Türkçenin parçalanmış morfemlerine harcamak zorunda kalmasıdır.
 3. **Nihai Tavsiye:** Açık kaynak CRUCIBLE metodolojisini kullanacak tüm araştırmacılar için bağlayıcı kural: **Analizi İngilizce icra et, 4K raporu mühürle; gerekiyorsa Türkçeye editoryal tercüme yap.**
 
-**Mühürleyen:** CRUCIBLE v6.0 Analitik Otorite  
+**Mühürleyen:** CRUCIBLE Analitik Otorite  
 **Belge Dosyası:** `docs/tr/04_UC_VAKA_KARSILASTIRMALI_DIL_DENETIMI.md`  

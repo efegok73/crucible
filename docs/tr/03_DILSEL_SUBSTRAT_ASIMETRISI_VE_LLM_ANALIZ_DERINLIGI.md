@@ -1,8 +1,8 @@
-# CRUCIBLE v6.0 METODOLOJİK ÖZEL RAPOR: DİLSEL SUBSTRAT ASİMETRİSİ VE LLM ANALİZ DERİNLİĞİ
+# CRUCIBLE METODOLOJİK ÖZEL RAPOR: DİLSEL SUBSTRAT ASİMETRİSİ VE LLM ANALİZ DERİNLİĞİ
 **Rapor Kodu:** CRUCIBLE-METH-2026-01  
 **Başlık:** Çok Dilli Büyük Dil Modellerinde (LLM) Epistemik Çözünürlük Kaybı, Tokenizasyon Darboğazı ve Substrat Eşitliği İlkesi Üzerine Ampirik Bir Araştırma  
 **Tarih:** 2026-10-03  
-**Analitik Motor:** CRUCIBLE v6.0 Epistemolojik Cerrahi Protokolü  
+**Analitik Motor:** CRUCIBLE Epistemolojik Cerrahi Protokolü  
 **Statü:** Mühürlendi & Arşivlendi (GitHub Açık Kaynak Çerçeve Belgesi)  
 **Hedef Kitle:** Yapay zekâ araştırmacıları, bilişsel bilimciler, dijital beşerî bilimciler ve analitik felsefeciler  
 
@@ -23,7 +23,7 @@ Bu rapor, söz konusu olgunun donanımsal ve algoritmik nedenlerini açıklamakt
 
 ## 2. SUBSTRAT EŞİTLİĞİ İLKESİ (THE LAW OF SUBSTRATE PARITY)
 
-CRUCIBLE v6.0 metodolojisinin anayasal kurallarından biri olan **Substrat Eşitliği İlkesi**, şu aksiyom üzerine kuruludur:
+CRUCIBLE metodolojisinin anayasal kurallarından biri olan **Substrat Eşitliği İlkesi**, şu aksiyom üzerine kuruludur:
 
 > **"Substrat Eşitliği ve Dilsel-Epistemik Asimetri Yasası:"**  
 > *Bir iddianın, kuramın veya bilimsel tezin yapay zekâ tarafından epistemolojik denetimi; ancak ve ancak iddianın inşa edildiği birincil dil ve ontolojik veri ortamında (native substrate) icra edildiğinde azami analitik çözünürlüğe (4K mikroskop hassasiyeti) ulaşır.*  
@@ -205,8 +205,8 @@ Bu çerçeve GitHub üzerinden açık kaynak bir epistemik denetim aracı olarak
 
 Bu raporla sabitlenmiştir ki; Büyük Dil Modellerinin çok dilli yetenekleri (multilingual capabilities) dilbilgisi düzeyinde pürüzsüz görünse dahi, **kavramsal çözünürlük ve metodolojik cerrahi düzeyinde asimetriktir**.
 
-CRUCIBLE v6.0 sistemi, bu asimetriyi gizleyen sahte çok dillilik illüzyonunu reddeder. Proje, epistemik dürüstlüğün bir gereği olarak; her iddiayı ait olduğu dilsel substratta, sıfır pürüzsüzleştirme ve azami çözünürlükle denetlemeyi anayasal bir kural olarak ilan eder.
+CRUCIBLE sistemi, bu asimetriyi gizleyen sahte çok dillilik illüzyonunu reddeder. Proje, epistemik dürüstlüğün bir gereği olarak; her iddiayı ait olduğu dilsel substratta, sıfır pürüzsüzleştirme ve azami çözünürlükle denetlemeyi anayasal bir kural olarak ilan eder.
 
-**Mühürleyen:** CRUCIBLE v6.0 Analitik Otorite  
+**Mühürleyen:** CRUCIBLE Analitik Otorite  
 **Doğrulama Durumu:** Tamamlandı & Arşivlendi  
 **Belge Konumu:** `docs/tr/03_DILSEL_SUBSTRAT_ASIMETRISI_VE_LLM_ANALIZ_DERINLIGI.md`  

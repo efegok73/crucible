@@ -1,8 +1,8 @@
-# CRUCIBLE v6.0 MICRO-DISSECTION: THREE-CASE COMPARATIVE LINGUISTIC AUDIT
+# CRUCIBLE RESEARCH REPORT: MICRO-DISSECTION: THREE-CASE COMPARATIVE LINGUISTIC AUDIT
 **Report Code:** CRUCIBLE-CASE-COMPARE-2026-01  
 **Title:** An Empirical Autopsy of Comparative Epistemic Resolution, Numerical Granularity, and Methodological Depth Across English and Turkish LLM Substrates  
 **Date:** 2026-10-03  
-**Analytical Engine:** CRUCIBLE v6.0 Epistemic Surgery Protocol  
+**Analytical Engine:** CRUCIBLE Epistemic Surgery Protocol  
 **Status:** Sealed & Archived (GitHub Open-Source Case Specification)  
 **Evaluated Case Pairs:**
 1. **Clinical Medicine & Epidemiology:** *The Cass Review* (NHS England, Final Report, 2024)
@@ -187,5 +187,5 @@ The micro-dissection of these three cases yields an undeniable empirical verdict
 3. **The Unconditional Operating Directive:** Always execute the CRUCIBLE engine natively within the primary source substrate (English), verify and seal the 4K monography, and only subsequently perform an editorial translation if local-language dissemination is required.
 
 ---
-**Sealed By:** CRUCIBLE v6.0 Epistemic Authority  
+**Sealed By:** CRUCIBLE Epistemic Authority  
 **Location:** `docs/en/04_THREE_CASE_LINGUISTIC_AUDIT.md`  

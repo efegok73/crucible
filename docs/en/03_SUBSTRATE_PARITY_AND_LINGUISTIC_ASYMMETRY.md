@@ -1,8 +1,8 @@
-# CRUCIBLE v6.0 SPECIAL REPORT: THE LAW OF SUBSTRATE PARITY & LINGUISTIC-EPISTEMIC ASYMMETRY
+# CRUCIBLE RESEARCH REPORT: THE LAW OF SUBSTRATE PARITY & LINGUISTIC-EPISTEMIC ASYMMETRY
 **Report Code:** CRUCIBLE-METH-2026-01  
 **Title:** Empirical Investigation into Loss of Epistemic Resolution, Tokenisation Bottlenecks, and Native Substrate Parity in Multilingual Large Language Models  
 **Date:** 2026-10-03  
-**Analytical Engine:** CRUCIBLE v6.0 Epistemic Surgery Protocol  
+**Analytical Engine:** CRUCIBLE Epistemic Surgery Protocol  
 **Operational Status:** Sealed & Codified (Canonical Framework Reference)  
 **Target Audience:** Cognitive scientists, AI safety researchers, digital humanists, and analytical philosophers  
 
@@ -126,5 +126,5 @@ To prevent loss of epistemic resolution in open-source deployments of CRUCIBLE, 
    * **Stage 1:** Execute and seal the complete 4K monography natively in English (`[Case]_Report.md`).
    * **Stage 2:** Commission a high-fidelity editorial translation of the sealed English monography into the target language. The model must never be forced to generate primary deep-thinking outputs through an agglutinative bottleneck.
 
-**Codified By:** CRUCIBLE v6.0 Epistemic Authority  
+**Codified By:** CRUCIBLE Epistemic Authority  
 **Repository Location:** `docs/en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md`  

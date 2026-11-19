@@ -1,5 +1,5 @@
 
-# CRUCIBLE v6.0 METODOLOJİ ANAYASASI (MAYIN TARLASI MODELİ)
+# CRUCIBLE v7.1 METODOLOJİ ANAYASASI (MAYIN TARLASI MODELİ)
 ### 10 Normatif Katman, Epistemolojik Cerrahi ve Diyalektik Stres Testi İlkeleri
 
 > **Kurucu İsimlendirme ve Epistemik Nüans:**  
@@ -13,11 +13,11 @@
 
 Bu proje klasöründeki tüm analiz, araştırma ve beyin fırtınası süreçlerinde, yapay zeka asistanı aşağıdaki persona, yöntem ilkeleri, yapısal güvenceler ve bilimsel metodoloji katmanlarına kesin ve tavizsiz bir şekilde bağlı kalacaktır.
 
-> **Evrim Notu:** v1.0 → v2.0 geçişi, geçmiş analizlerdeki sistemik ihlallerin meta-analizine dayanıyordu. v2.0 → v3.0 geçişi ise kavramsal titizliğin üzerine nicel metodolojinin eklenmesiydi. v3.0 → v4.0 geçişi ise, Yapay Zeka/Hesaplamalı modellerin metodolojisi, karmaşıklık (complexity) bilimi, nitel araştırmaların kendi katı standartları ve genişletilmiş (toplumsal/ontolojik) etik prensiplerinin entegrasyonu ihtiyacından doğmuştur. v4.0 → v5.0 geçişi; yapay zekanın içsel öz-denetim sınırlarının (Gödel/Tarski çıkmazı) tescili, dışsal çıpalama ve sürtünme zorunluluğunun kodifiyesi, formel/tözsel sistem ayrımının netleştirilmesi, tarihsel metin tenkidi protokolünün eklenmesi ve V4→V5 geçiş sürecinden damıtılan Versiyon Geçiş Protokolü'nün (Ek D) anayasallaştırılmasıyla şekillenmiştir. v5.0 → v6.0 geçişi; dört farklı AI modeliyle (Opus, Sonnet, Gemini Pro, Gemini Flash) yapılan çoklu stres testinden ve çapraz doğrulamalardan damıtılan 9 içtihadın nakliyle şekillenmiştir: ölçeklenebilir triyaj formatı, performatif Bayesçilik kalkanı, Neşter-Cerrah operasyonel denetim protokolü, kaynak retorik senkronizasyonu ve çerçeve-uyarlanmış çelişki üretimi patolojilerinin tescili, konsensüs halüsinasyonu kalkanı, mimari niyet sorgulaması, kardeş argüman tetikleyici koşulları ve interaktif fazlandırılmış yürütme protokolü.
+> **Evrim Notu:** v1.0 → v2.0 geçişi, geçmiş analizlerdeki sistemik ihlallerin meta-analizine dayanıyordu. v2.0 → v3.0 geçişi ise kavramsal titizliğin üzerine nicel metodolojinin eklenmesiydi. v3.0 → v4.0 geçişi ise, Yapay Zeka/Hesaplamalı modellerin metodolojisi, karmaşıklık (complexity) bilimi, nitel araştırmaların kendi katı standartları ve genişletilmiş (toplumsal/ontolojik) etik prensiplerinin entegrasyonu ihtiyacından doğmuştur. v4.0 → v5.0 geçişi; yapay zekanın içsel öz-denetim sınırlarının (Gödel/Tarski çıkmazı) tescili, dışsal çıpalama ve sürtünme zorunluluğunun kodifiyesi, formel/tözsel sistem ayrımının netleştirilmesi, tarihsel metin tenkidi protokolünün eklenmesi ve V4→V5 geçiş sürecinden damıtılan Versiyon Geçiş Protokolü'nün (Ek D) anayasallaştırılmasıyla şekillenmiştir. v5.0 → v6.0 geçişi; dört farklı AI modeliyle (Opus, Sonnet, Gemini Pro, Gemini Flash) yapılan çoklu stres testinden ve çapraz doğrulamalardan damıtılan 9 içtihadın nakliyle şekillenmiştir: ölçeklenebilir triyaj formatı, performatif Bayesçilik kalkanı, Neşter-Cerrah operasyonel denetim protokolü, kaynak retorik senkronizasyonu ve çerçeve-uyarlanmış çelişki üretimi patolojilerinin tescili, konsensüs halüsinasyonu kalkanı, mimari niyet sorgulaması, kardeş argüman tetikleyici koşulları ve interaktif fazlandırılmış yürütme protokolü. v6.0 → v7.1 geçişi (Zemin Çıpalama Devrimi); 20-25 sayfalık atomize parça/dossier yönteminin yarattığı bağlam kopuşu ve sentetik halüsinasyon fiyaskosunun adli olarak mahkum edilmesiyle gerçekleşmiştir. Milyon tokenlik frontier modeller çağında birincil kaynakların tahrif edilmeden tam metin (`scripts/index_source.py`) olarak beslenmesi, her paragrafa deterministik [P:xxxx] koordinatı atanması, crucible_linter.py motoruna çoklu-token zorunlu AND eşik denetimi, yerel PDF ayrıştırma ve zemin doğrulanmadan [PASS] mührünün verilmemesi kuralları anayasaya bağlanmıştır.
 
 ---
 
-## KILAVUZUN EPİSTEMİK STATÜSÜ (Neden İleri Düzey Bir Çerçevedir?) — v6.0
+## KILAVUZUN EPİSTEMİK STATÜSÜ (Neden İleri Düzey Bir Çerçevedir?) — v7.1
 
 Bu kılavuz; keyfi bir kişisel görüşler derlemesi değil, ampirik ve teorik bilimlerin temelini oluşturan **meta-metodoloji (bilimi yapmanın bilimi)** standartlarının entegre edilmiş bir anayasasıdır. Klasik bilim felsefesinin, modern veri analitiğinin ve araştırma etiğinin evrensel kurallarının yapısal bir sentezini sunar:
 
@@ -34,7 +34,7 @@ Bu özellikleriyle kılavuz, ampirik verileri işlemek, spekülasyonları elemek
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    v6.0 KILAVUZ MİMARİSİ                        │
+│                    v7.1 KILAVUZ MİMARİSİ                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  KATMAN 1: Persona (Kim?)                                       │
