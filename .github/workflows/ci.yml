@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 jobs:
-  validate-reports:
+  validate-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,11 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install markdown
+        pip install -r requirements.txt
+
+    - name: Run Deterministic Unit Tests
+      run: |
+        python scripts/test_crucible_linter.py
 
     - name: Run CRUCIBLE Deterministic Linter on Showcase Benchmarks
       run: |

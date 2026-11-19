@@ -3,7 +3,11 @@
 **Başlık:** Büyük Dil Modellerinde (LLM) Veri Çıkarımı (Extraction) ile Analitik İşletim (Execution) Arasındaki Epistemik Asimetri, Model Mimarisi Davranışı ve Fiyasko Önleme Protokolü  
 **Tarih:** 2026-10-04  
 **Analitik Motor:** CRUCIBLE v6.0 Epistemolojik Cerrahi Protokolü  
-**Statü:** Mühürlendi & Arşivlendi (GitHub Açık Kaynak Çerçeve Belgesi)  
+**Statü:** [TARİHSEL ARŞİV — v7.0 İTİBARIYLA FESHEDİLMİŞTİR]  
+
+> ⚠️ **[METODOLOJİK OTOPSİ VE PROTOKOL İPTALİ BİLDİRİMİ — CRUCIBLE v7.0]**  
+> **Statü: Hatalı Protokol / Zemin Metin Dokunulmazlığı ile Değiştirildi.**  
+> Bu belgede savunulan "iki aşamalı hedef tahtası boru hattı" ve "20-25 sayfa üstünü atomize etme" yaklaşımı; 1M+ bağlam pencereli modellerde bağlam bütünlüğünü yıktığı, yazarın emniyet supaplarını sildiği ve yapay saman adam ürettiği için v7.0 itibarıyla terk edilmiştir. v7.0'da birincil metin asla parçalanmaz (`--source`); tam metin paragraf çıpalarıyla (`[P:xxxx]`) canlı hakikat zeminini oluşturur. Bu belge bilimsel dürüstlük ve versiyon intikali gereği arşiv olarak korunmaktadır.
 
 ---
 

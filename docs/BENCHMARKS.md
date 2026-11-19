@@ -17,8 +17,8 @@
 | 05 | Frank Snowden – Blacks in Antiquity | Classics / Ancient History | 13.9 | 34.8 | 18.3 | 5 | ✅ PASS | 2 | 3 | ✅ | ✅ | 1.9 |
 | 06 | Cook et al. vs Tol – Climate Consensus | Bibliometrics / Climate Science | 11.3 | 45.5 | 20.5 | 7 | ✅ PASS | 9 | 3 | ✅ | ✅ | 2.22 |
 | 07 | Judith Curry – Climate Uncertainty | Climate Science / Decision Theory | 12.7 | 42.5 | 19.8 | 7 | ✅ PASS | 6 | 3 | ✅ | ✅ | 2.15 |
-| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14.1 | 41.8 | 20.3 | 8 | ✅ PASS | 7 | 3 | ✅ | ✅ | 2.06 |
-| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience | 12.3 | 49.0 | 20.0 | 6 | ✅ PASS | 7 | 3 | ✅ | ✅ | 2.45 |
+| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14.1 | 41.8 | 20.3 | 8 | ✅ PASS | 6 | 3 | ✅ | ✅ | 2.06 |
+| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience | 12.3 | 49.4 | 20.0 | 6 | ✅ PASS | 8 | 3 | ✅ | ✅ | 2.47 |
 
 ### 1.1. Aggregate Statistics
 

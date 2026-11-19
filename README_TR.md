@@ -104,36 +104,29 @@ Bu modda hiçbir metni kopyalayıp yapıştırmazsınız; klasördeki anayasa do
    Proje anayasasını temiz tutmak için sol dosya ağacında yeni bir klasör oluşturun (örneğin: `calismalarim/`).
 3. **Belgenizi Taşıyın:**  
    İncelenecek eseri (PDF, Word veya Markdown) bu klasörün içine sürükleyip bırakın.
-4. **Metin Boyutuna Göre Komut Verin:**
-   - **Kısa Metinler (< 20 Sayfa / < 10.000 Kelime — Tekil Makale veya Deneme):**  
-     Ajan paneline doğrudan komut verin:  
-     > *"Klasördeki `@calismalarim/makale.pdf` dosyasını CRUCIBLE v6.0 protokolüyle analiz et ve raporu mühürle."*
-   - **Uzun Metinler (> 20 Sayfa — Kitap, Doktora Tezi, Monografi):**  
-     Ajanla iki kademeli boru hattını işletin:
-     - **1. Aşama:** *"Bu kitaba `templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md` direktifini uygula ve bir Hedef Tahtası (`hedef_tahtasi.md`) dökümü çıkar."*
-     - **2. Aşama:** *"Şimdi `hedef_tahtasi.md` dosyasını CRUCIBLE anayasasıyla analiz et ve raporu mühürle."*
+4. **Metni İndeksleyin ve Komut Verin (Zemin Metin Dokunulmazlığı):**
+   - **v7.0 Kuralı:** Metni asla 20-25 sayfalık parçalara bölmeyin veya özetlemeyin. 1M+ bağlam pencereli modellerde atomizasyon bağlam bütünlüğünü yıkar.
+   - İsterseniz önce `python scripts/index_source.py calismalarim/eser.pdf -o calismalarim/eser_indeksli.txt` ile deterministik `[P:xxxx]` kütüğünü çıkarın.
+   - Ajan paneline doğrudan komut verin:  
+     > *"Klasördeki `@calismalarim/eser.pdf` birincil metnini CRUCIBLE v7.0 Zemin Çıpalı anayasasıyla analiz et, alıntıları [P:xxxx] çıpalarıyla zeminle ve raporu diske kaydedip mühürle."*
 5. **Mühürlü Çıktıyı Alın:**  
-   Ajan analizi tamamlar, raporu diske kaydeder, arka planda terminalden `crucible_linter.py` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir. Size sadece üretilen HTML dosyasına çift tıklayıp okumak kalır.
+   Ajan analizi tamamlar, raporu `calismalarim/rapor.md` olarak kaydeder, terminalden `python scripts/crucible_linter.py calismalarim/rapor.md --source calismalarim/eser.pdf` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir. Size sadece üretilen HTML dosyasına çift tıklayıp okumak kalır.
 
 ---
 
 ### 🌐 Seçenek B: Web Arayüzü ile Doğrudan Denetim
 *(Claude.ai, ChatGPT Plus, Google AI Studio web arayüzlerini kullananlar için — Sıfır Kurulum)*
 
-1. **Metin Boyutuna Göre Süreci Başlatın:**
-   - **Kısa Metinler (< 20 Sayfa / < 10.000 Kelime):**  
-     İndirdiğiniz klasördeki [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasını Not Defteri ile açıp metnini kopyalayın. Web sohbetine yapıştırın, yanına inceleyeceğiniz makaleyi ekleyip gönderin.
-   - **Uzun Metinler (> 20 Sayfa — Kitap, Doktora Tezi):**  
-     - **1. Aşama (Hedef Tahtası Çıkarımı):** [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE_TR.md) metnini kopyalayıp web sohbetine yapıştırın, kitabı ekleyin. Model size bir `Hedef Tahtası` dökümü üretir.
-     - **Temiz Sohbet Açın (Zorunlu):** Çıkan hedef tahtası metnini kopyalayın. **Yeni ve temiz bir sohbet penceresi açın** *(Bu adım bağlam gürültüsünü temizlemek ve özetleme refleksini önlemek için zorunludur)*.
-     - **2. Aşama (Analiz):** Temiz sohbete [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) şablonunu ve kopyaladığınız Hedef Tahtasını yapıştırıp analizi çalıştırın.
+1. **Süreci Başlatın:**
+   - İndirdiğiniz klasördeki [`templates/CRUCIBLE_WEB_PROMPT_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md) dosyasını Not Defteri ile açıp metnini kopyalayın. 
+   - Web sohbetine yapıştırın, yanına inceleyeceğiniz tam metni (PDF, Word veya Markdown) ekleyip gönderin. *(Metni özetlemeyin; tam metin canlı hakikat çıpanızdır).*
 2. **Raporunuzu Kaydedin:**  
    Modelin ürettiği analitik metni kopyalayıp Not Defteri'ne yapıştırın ve `calismalarim/rapor.md` olarak kaydedin.
 3. **Zorunlu Linter Doğrulaması ve Mühürleme (Deterministik Denetim):**  
    CRUCIBLE protokolünde linter **isteğe bağlı bir tavsiye değildir; dışsal anayasal mahkemedir.** Modelin "ben tüm kurallara uydum" iddiasına güvenilmez. Raporun 5 zorunlu bölümü, Katman 8 İddia-Kaynak tablosu ve retorik hijyeni deterministik kodla denetlenmelidir:  
    ```bash
-   pip install markdown
-   python scripts/crucible_linter.py calismalarim/rapor.md --source calismalarim/makale.docx
+   pip install markdown pypdf
+   python scripts/crucible_linter.py calismalarim/rapor.md --source calismalarim/eser.pdf
    ```  
    Linter raporu satır satır denetler. `--source` ile verilen birincil metni tarayarak raporda uydurma kaynak (*hayalet referans*) veya sahte alıntı olup olmadığını mekanik olarak doğrular. Şartlar sağlanmışsa **`[PASS]`** mührünü basar ve eşzamanlı olarak okunmaya hazır `rapor.html` dosyasını üretir. Hata varsa hangi katmanın veya alıntının eksik kaldığını açıkça raporlar. *(Linter'dan geçmeyen raporlar CRUCIBLE literatüründe mühürsüz taslak sayılır).*
 

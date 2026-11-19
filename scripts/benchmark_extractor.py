@@ -7,6 +7,11 @@ Outputs: BENCHMARKS.md table
 import os
 import re
 import sys
+from datetime import datetime
+
+# Import deterministic linter engine
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from crucible_linter import CrucibleLinter
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
@@ -132,12 +137,22 @@ def count_active_layers(text):
 
 
 def count_fallacies(text):
-    """M4: Count distinct named fallacies in the report."""
+    """M4: Count distinct named fallacies in the report, excluding negative/mitigating assertions."""
     found = set()
+    negation_patterns = [
+        r'(?:not\s+(?:a\s+)?|no\s+|avoid(?:ed|s)?\s+|without\s+|kaçın\w*|yapma(?:m[ıi][şs]|d[ıi])\w*|de[ğg]il\w*)'
+    ]
     for pattern in FALLACY_PATTERNS:
-        matches = re.findall(pattern, text, re.IGNORECASE)
-        if matches:
-            # Use the pattern as a key to avoid double-counting
+        matches = list(re.finditer(pattern, text, re.IGNORECASE))
+        if not matches:
+            continue
+        has_affirmative = False
+        for m in matches:
+            snippet = text[max(0, m.start() - 40):min(len(text), m.end() + 40)]
+            if not any(re.search(neg, snippet, re.IGNORECASE) for neg in negation_patterns):
+                has_affirmative = True
+                break
+        if has_affirmative:
             found.add(pattern)
     return len(found)
 
@@ -228,7 +243,15 @@ def extract_metrics(case_num, case_name, discipline):
     result["m2_volume_kb"] = round(en_size / 1024, 1)
     result["m2_tr_volume_kb"] = round(tr_size / 1024, 1) if tr_size else "—"
     result["m2_dossier_kb"] = round(dossier_size / 1024, 1) if dossier_size else "—"
-    result["m3_linter"] = "✅ PASS"  # All showcase reports already passed linter
+    
+    # Execute actual deterministic linter on the report
+    try:
+        linter = CrucibleLinter(en_path)
+        lint_res = linter.validate()
+        result["m3_linter"] = "✅ PASS" if lint_res.passed else f"❌ FAIL ({len(lint_res.errors)})"
+    except Exception as e:
+        result["m3_linter"] = f"❌ ERR ({e})"
+
     result["m4_fallacies"] = count_fallacies(en_text)
     result["m5_autofalsification"] = count_autofalsification_items(en_text)
     result["m6_source_matrix"] = "✅" if check_source_matrix(en_text) else "❌"

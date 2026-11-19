@@ -49,6 +49,18 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
+def tr_lower(text: str) -> str:
+    """Turkish-aware case folding: İ -> i, I -> ı."""
+    if not text:
+        return ""
+    return text.replace('İ', 'i').replace('I', 'ı').lower().replace('\u0307', '')
+
+def tr_upper(text: str) -> str:
+    """Turkish-aware upper casing: i -> İ, ı -> I."""
+    if not text:
+        return ""
+    return text.replace('i', 'İ').replace('ı', 'I').upper()
+
 # ═══════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════
@@ -163,7 +175,7 @@ LAYER_TRIGGERS: Dict[str, list] = {
     'K4':  [r'K4\b', r'Katman\s*4\b', r'Layer\s*4\b', r'Nicel', r'Quantitative', r'Bayes', r'Statist'],
     'K5':  [r'K5\b', r'Katman\s*5\b', r'Layer\s*5\b', r'Deneysel', r'Experimental', r'Nedensellik', r'Causal'],
     'K6':  [r'K6\b', r'Katman\s*6\b', r'Layer\s*6\b', r'Sistematik\s+Derleme', r'Systematic\s+Review', r'Retorik', r'Rhetoric'],
-    'K7':  [r'K7\b', r'Katman\s*7\b', r'Layer\s*7\b', r'A[çc][ıi]k\s+Bilim', r'Open\s+Science', r'Tekrar(?:lanabilirlik)?', r'Replicat'],
+    'K7':  [r'K7\b', r'Katman\s*7\b', r'Layer\s*7\b', r'A[çc][ıi]k\s+Bilim', r'Open\s+Science', r'Tekrar(?:lanabilirlik)?', r'Replicat', r'DMDU\b', r'Karar\s+Bilimi', r'Decision\s+Science', r'Belirsizlik', r'Uncertainty'],
     'K8':  [r'K8\b', r'Katman\s*8\b', r'Layer\s*8\b', r'Tarihsel', r'Historical', r'Disciplinary\s+Matrix', r'Kaynak\s+Tenkit', r'Source\s+Criticism'],
     'K9':  [r'K9\b', r'Katman\s*9\b', r'Layer\s*9\b', r'Hesaplamal[ıi]', r'Computational', r'\bAI\b'],
     'K10': [r'K10\b', r'Katman\s*10\b', r'Layer\s*10\b', r'Karma[şs][ıi]kl[ıi]k', r'Complexity', r'Geni[şs]letilmi[şs]\s+Etik', r'Post-Mortem', r'Reporting'],
@@ -304,17 +316,45 @@ class CrucibleLinter:
             self.load_source()
 
     def load_source(self):
-        """Loads primary source document (.docx, .txt, .md) for grounding verification."""
+        """Loads primary source document (.pdf, .docx, .txt, .md) for grounding verification."""
         if not os.path.exists(self.source_path):
             raise FileNotFoundError(f"Primary source file not found: {self.source_path}")
 
         ext = os.path.splitext(self.source_path)[1].lower()
-        if ext == '.docx':
+        if ext == '.pdf':
+            # PDF loader with pypdf / PyPDF2 fallback
+            try:
+                reader = None
+                try:
+                    import pypdf
+                    reader = pypdf.PdfReader(self.source_path)
+                except ImportError:
+                    try:
+                        import PyPDF2
+                        reader = PyPDF2.PdfReader(self.source_path)
+                    except ImportError:
+                        pass
+
+                if reader is not None:
+                    paras = []
+                    for page in reader.pages:
+                        text = page.extract_text()
+                        if text:
+                            # Genuine paragraphs delimited by double newlines or substantial line breaks
+                            page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+                            paras.extend(page_paras)
+                    self.source_paragraphs = paras
+                    self.source_full_text = "\n\n".join(paras)
+                else:
+                    self._error("Cannot load .pdf source (neither pypdf nor PyPDF2 is installed). Please install pypdf: pip install pypdf")
+            except Exception as e:
+                self._error(f"Failed to load .pdf source: {e}")
+        elif ext == '.docx':
             if docx is not None:
                 try:
                     doc = docx.Document(self.source_path)
-                    self.source_paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
-                    self.source_full_text = "\n".join(self.source_paragraphs)
+                    self.source_paragraphs = [p.text.strip() for p in doc.paragraphs if p.text.strip()]
+                    self.source_full_text = "\n\n".join(self.source_paragraphs)
                 except Exception as e:
                     self._error(f"Failed to load .docx source: {e}")
             else:
@@ -329,16 +369,18 @@ class CrucibleLinter:
                         texts = [node.text for node in p.iter('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t') if node.text]
                         if texts:
                             paras.append(''.join(texts))
-                    self.source_paragraphs = [p for p in paras if p.strip()]
-                    self.source_full_text = "\n".join(self.source_paragraphs)
+                    self.source_paragraphs = [p.strip() for p in paras if p.strip()]
+                    self.source_full_text = "\n\n".join(self.source_paragraphs)
                 except Exception as e:
                     self._error(f"Failed to load .docx source via XML fallback: {e}")
         else:
-            # Text / Markdown / Plain formats
+            # Text / Markdown / Plain formats: Split on blank lines for genuine paragraphs
             try:
                 with open(self.source_path, 'r', encoding='utf-8', errors='ignore') as f:
-                    self.source_paragraphs = [line.strip() for line in f if line.strip()]
-                    self.source_full_text = "\n".join(self.source_paragraphs)
+                    content = f.read()
+                    paras = [p.strip() for p in re.split(r'\n\s*\n', content) if p.strip()]
+                    self.source_paragraphs = paras
+                    self.source_full_text = "\n\n".join(paras)
             except Exception as e:
                 self._error(f"Failed to load source text: {e}")
 
@@ -612,7 +654,7 @@ class CrucibleLinter:
             self._info("Source grounding check skipped (no --source provided; running in unanchored mode).")
             return
 
-        source_lower = self.source_full_text.lower()
+        source_lower = tr_lower(self.source_full_text)
         source_name = os.path.basename(self.source_path)
         external_marker_re = re.compile(
             r'\[\s*(?:DIŞ\s+KAYNAK|EXTERNAL\s+SOURCE|DIŞ\s+L[İI]TERATÜR|EXTERNAL)\b',
@@ -620,24 +662,29 @@ class CrucibleLinter:
         )
 
         # 1. Parse and verify Claim-Source Audit Matrix (K8 table)
-        table_rows = re.findall(r'^\|(.+)\|$', self.full_text, re.MULTILINE)
+        # Process line-by-line to strictly isolate the matrix table from subsequent tables
         in_matrix = False
         matrix_rows = []
 
-        for row in table_rows:
-            cols = [c.strip() for c in row.split('|')]
+        for line in self.full_text.splitlines():
+            line_s = line.strip()
+            # If not a table row or if a section heading, terminate matrix context
+            if not line_s.startswith('|') or line_s.startswith('#'):
+                in_matrix = False
+                continue
+
+            cols = [c.strip() for c in line_s.strip('|').split('|')]
             if len(cols) < 3:
                 continue
+
             # Header check
             if any(re.search(r'(?:Tez|İddia|Thesis|Claim)', c, re.IGNORECASE) for c in cols) and \
                any(re.search(r'(?:Kaynak|Source)', c, re.IGNORECASE) for c in cols):
                 in_matrix = True
                 continue
+
             if in_matrix:
                 if re.match(r'^[\s:\-]+$', cols[0]):
-                    continue
-                if cols[0].startswith('#') or len(cols) < 2:
-                    in_matrix = False
                     continue
                 matrix_rows.append(cols)
 
@@ -671,21 +718,28 @@ class CrucibleLinter:
                 tokens = [t.strip('().,;:"\'') for t in artifact_clean.split()]
                 candidate_tokens = [
                     t for t in tokens
-                    if len(t) >= 3 and t.lower() not in stop_words and not re.match(r'^[0-9\-/]+$', t)
+                    if len(t) >= 3 and tr_lower(t) not in stop_words and not re.match(r'^[0-9\-/]+$', t)
                 ]
 
                 if not candidate_tokens:
                     continue
 
                 found = False
-                if len(artifact_clean) <= 40 and artifact_clean.lower() in source_lower:
+                art_lower = tr_lower(artifact_clean)
+                if len(art_lower) <= 40 and art_lower in source_lower:
                     found = True
                 else:
+                    matching_tokens = []
                     for tok in candidate_tokens:
-                        tok_re = rf'(?<![{_TR_ALPHA}]){re.escape(tok.lower())}(?![{_TR_ALPHA}])'
+                        tok_re = rf'(?<![{_TR_ALPHA}]){re.escape(tr_lower(tok))}(?![{_TR_ALPHA}])'
                         if re.search(tok_re, source_lower):
-                            found = True
-                            break
+                            matching_tokens.append(tok)
+
+                    # Multi-token AND logic threshold to prevent phantom single-word leakage
+                    if len(candidate_tokens) <= 2:
+                        found = (len(matching_tokens) == len(candidate_tokens))
+                    else:
+                        found = (len(matching_tokens) / len(candidate_tokens) >= 0.70)
 
                 if not found:
                     self._error(
@@ -705,27 +759,44 @@ class CrucibleLinter:
                     f"Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
                 )
 
-        # 3. Check Verbatim Quotes attached to [P:xxxx]
-        quote_matches = re.finditer(
-            r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“\']([^"”\']{20,150})["”\']',
-            self.full_text
-        )
-        for qm in quote_matches:
-            p_num = int(qm.group(1))
-            quoted_str = qm.group(2).strip()
-            norm_quote = re.sub(r'\s+', ' ', quoted_str).lower()
+        # 3. Check Verbatim Quotes attached to [P:xxxx] (supporting both before/after anchors and apostrophes)
+        quote_specs = [
+            (r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]([^"”]{20,250})["”]', 1, 2),
+            (r'["“]([^"”]{20,250})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
+        ]
 
-            if norm_quote not in source_lower:
-                short_snippet = norm_quote[:35]
-                if short_snippet not in source_lower:
+        verified_quotes = set()
+        for q_regex, p_grp, q_grp in quote_specs:
+            for qm in re.finditer(q_regex, self.full_text):
+                p_num = int(qm.group(p_grp))
+                quoted_str = qm.group(q_grp).strip()
+                norm_quote = tr_lower(re.sub(r'\s+', ' ', quoted_str))
+
+                quote_key = (p_num, norm_quote)
+                if quote_key in verified_quotes:
+                    continue
+                verified_quotes.add(quote_key)
+
+                if norm_quote in source_lower:
+                    # Check paragraph locality: +/- 1 neighbor window
+                    if 1 <= p_num <= len(self.source_paragraphs):
+                        w_start = max(0, p_num - 2)
+                        w_end = min(len(self.source_paragraphs), p_num + 1)
+                        w_text = tr_lower(" ".join(self.source_paragraphs[w_start:w_end]))
+                        if norm_quote in w_text or norm_quote[:35] in w_text:
+                            self._info(f"Verified verbatim quote anchor at [P:{p_num}].")
+                        else:
+                            self._warn(
+                                f"[WARN: PARAGRAPH DRIFT] Quote '{quoted_str[:35]}...' found in source, "
+                                f"but outside declared paragraph [P:{p_num}] (checked P:{w_start+1}-P:{w_end})."
+                            )
+                    else:
+                        self._info(f"Verified verbatim quote anchor for [P:{p_num}].")
+                else:
                     self._error(
                         f"[FAIL: UNVERIFIED QUOTE] Quoted text attached to [P:{p_num}] not found in '{source_name}': "
                         f'"{quoted_str[:60]}..."'
                     )
-                else:
-                    self._info(f"Verified partial quote anchor for [P:{p_num}].")
-            else:
-                self._info(f"Verified verbatim quote anchor for [P:{p_num}].")
 
         if len(self.result.errors) == 0:
             self.result.grounded = True
@@ -853,7 +924,11 @@ class CrucibleLinter:
 
         if lang_code == 'tr':
             w_text = "Temiz (0 terim)" if wc == 0 else f"{wc} uyarı"
-            ground_box = f"<div><strong>Zemin Kaynak (Ground Truth):</strong> <code>{src_name}</code> ({self.result.source_paragraphs} paragraf)</div><div><strong>Zemin Doğrulama:</strong> Sıfır Hayalet Referans (Doğrulandı)</div>" if src_name else "<div><strong>Zemin Doğrulama:</strong> Çıpasız Mod (Kaynak belirtilmedi)</div>"
+            if src_name:
+                v_text = "Sıfır Hayalet Referans (Doğrulandı)" if self.result.grounded else "Zemin Doğrulama Tamamlanmadı / Kısmi"
+                ground_box = f"<div><strong>Zemin Kaynak (Ground Truth):</strong> <code>{src_name}</code> ({self.result.source_paragraphs} paragraf)</div><div><strong>Zemin Doğrulama:</strong> {v_text}</div>"
+            else:
+                ground_box = "<div><strong>Zemin Doğrulama:</strong> Çıpasız Mod (Kaynak belirtilmedi)</div>"
             return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
@@ -875,7 +950,11 @@ class CrucibleLinter:
     </div>"""
 
         w_text = "Clean (0 terms)" if wc == 0 else f"{wc} warning(s)"
-        ground_box = f"<div><strong>Ground Truth Source:</strong> <code>{src_name}</code> ({self.result.source_paragraphs} paras)</div><div><strong>Artifact Grounding:</strong> Zero Phantom References (Verified)</div>" if src_name else "<div><strong>Artifact Grounding:</strong> Unanchored Mode (No source provided)</div>"
+        if src_name:
+            v_text = "Zero Phantom References (Verified)" if self.result.grounded else "Grounding Incomplete / Partial"
+            ground_box = f"<div><strong>Ground Truth Source:</strong> <code>{src_name}</code> ({self.result.source_paragraphs} paras)</div><div><strong>Artifact Grounding:</strong> {v_text}</div>"
+        else:
+            ground_box = "<div><strong>Artifact Grounding:</strong> Unanchored Mode (No source provided)</div>"
         return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">

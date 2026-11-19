@@ -392,6 +392,96 @@ the structural coherence is evaluated through charitable interpretation and syst
         self.assertTrue(any("UNVERIFIED QUOTE" in err for err in result.errors),
                         f"Expected unverified quote error, got: {result.errors}")
 
+    def test_v7_multi_token_phantom_artifact_fails(self):
+        """v7.1: Multi-token hallucinated artifact fails even if one token exists in source (AND logic)."""
+        source_text = "Metinde sadece Selme köyünden bahsedilmektedir."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Core proposition Alpha | Tamamen Hayali Selme Kodeksi | Primary Source | Hallucinated artifact! |
+"""
+        md = make_valid_document(include_k8_table=False, extra_sections=matrix)
+        report_path = self._create_report(md)
+
+        linter = CrucibleLinter(report_path, source_path=source_path)
+        result = linter.validate()
+        self.assertFalse(result.passed)
+        self.assertTrue(any("UNGROUNDED ARTIFACT" in err and "Tamamen Hayali Selme Kodeksi" in err for err in result.errors),
+                        f"Expected ungrounded artifact error, got: {result.errors}")
+
+    def test_v7_isolated_matrix_prevents_damage_report_table_leak(self):
+        """v7.1: A second table in Damage Report does NOT leak into K8 matrix."""
+        source_text = "Metinde Selme Yazıtı bulunmaktadır."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Core proposition Alpha | Selme Yazıtı | Primary Source | Verified in text |
+
+## DAMAGE REPORT
+Hasar raporu detayları aşağıdadır ve en az on beş kelimelik içerik barındırmaktadır.
+
+| Hasar Türü | Etki Düzeyi | Not |
+|---|---|---|
+| Epistemik Bozulma | Düşük | Bu satır matris sanılmamalıdır |
+"""
+        md = make_valid_document(include_k8_table=False, extra_sections=matrix)
+        report_path = self._create_report(md)
+
+        linter = CrucibleLinter(report_path, source_path=source_path)
+        result = linter.validate()
+        self.assertTrue(result.passed, f"Expected pass, got errors: {result.errors}")
+        self.assertTrue(result.grounded)
+
+    def test_v7_turkish_case_folding_grounding(self):
+        """v7.1: Turkish dotted/dotless I case folding works correctly in grounding."""
+        source_text = "İSLAM ve IRAK coğrafyasındaki bulgular incelenmiştir."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Tarihsel tez | İslam ve Irak metinleri | Primary Source | Verified |
+"""
+        md = make_valid_document(include_k8_table=False, extra_sections=matrix)
+        report_path = self._create_report(md)
+
+        linter = CrucibleLinter(report_path, source_path=source_path)
+        result = linter.validate()
+        self.assertTrue(result.passed, f"Expected pass with Turkish case folding, got errors: {result.errors}")
+        self.assertTrue(result.grounded)
+
+    def test_v7_quote_with_apostrophe_and_after_anchor(self):
+        """v7.1: Quotes with apostrophes and quotes preceding [P:xxxx] anchors are verified."""
+        source_text = "Bu çalışmada Zuhayr'ın meşhur şiiri ve author's argument ele alınmaktadır."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Core proposition Alpha | Zuhayr şiiri | Primary Source | Verified in text |
+"""
+
+        body_with_quotes = """
+In this section we construct the strongest possible version of the author's primary argument.
+We identify the key premises: First, knowledge claims require grounding in observable reality.
+As stated: "Zuhayr'ın meşhur şiiri ve author's argument" [P:1], the dialectical friction is analyzed.
+This section contains detailed substantive text meeting all minimum word count thresholds.
+"""
+        md = make_valid_document(steelman_text=body_with_quotes, include_k8_table=False, extra_sections=matrix)
+        report_path = self._create_report(md)
+
+        linter = CrucibleLinter(report_path, source_path=source_path)
+        result = linter.validate()
+        self.assertTrue(result.passed, f"Expected quote with apostrophe to pass, got errors: {result.errors}")
+
 
 if __name__ == '__main__':
     unittest.main()

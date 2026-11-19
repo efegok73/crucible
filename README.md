@@ -104,36 +104,28 @@ In this mode, you never manually copy-paste prompts; your AI agent adopts the wo
    To keep repository constitutions pristine, create your own working subfolder in the file explorer (e.g., `cases/`).
 3. **Import Your Dossier:**  
    Drag and drop the work to be audited (PDF, Word, or Markdown) into your new subfolder.
-4. **Issue the Command Based on Document Scale:**
-   - **Short Works (< 20 Pages / < 10,000 Words — Standalone Paper or Essay):**  
-     Issue a direct instruction in your agent panel:  
-     > *"Analyze `@cases/paper.pdf` using CRUCIBLE v6.0 protocol and seal the report."*
-   - **Long Works (> 20 Pages — Book, Doctoral Thesis, Monograph):**  
-     Instruct your agent to execute the mandatory two-stage pipeline:
-     - **Stage 1:** *"Apply `templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md` to this book and output a Target Dossier (`target_dossier.md`)."*
-     - **Stage 2:** *"Now audit `target_dossier.md` using the CRUCIBLE constitution and seal the report."*
+4. **Index and Issue the Audit Instruction (Ground-Truth Immutability):**
+   - **v7.0 Grounding Rule:** NEVER segment or compress primary sources into lossy 20-25 page summaries. With modern 1M+ context windows, atomization destroys dialectical coherence and creates strawmen.
+   - You can pre-index paragraphs using `python scripts/index_source.py cases/source.pdf -o cases/source_indexed.txt` to generate deterministic `[P:xxxx]` anchors.
+   - Issue a direct instruction in your agent panel:  
+     > *"Audit `@cases/source.pdf` using CRUCIBLE v7.0 Grounded Constitution, anchor all citations with [P:xxxx], and seal the report."*
 5. **Receive Your Sealed Output:**  
-   The agent completes the audit, saves the report to disk, runs `crucible_linter.py` in the background, achieves `[PASS]`, and compiles a publication-ready `.html` report. Double-click the HTML file to inspect the monograph in your browser.
+   The agent completes the audit, saves the report to `cases/report.md`, runs `python scripts/crucible_linter.py cases/report.md --source cases/source.pdf` in the background, achieves `[PASS]`, and compiles a publication-ready `.html` report.
 
 ---
 
 ### 🌐 Option B: Direct Auditing via Web Interfaces
 *(For Claude.ai, ChatGPT Plus, Google AI Studio web interfaces — Zero Installation)*
 
-1. **Initiate the Audit Based on Document Scale:**
-   - **Short Works (< 20 Pages / < 10,000 Words):**  
-     Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) in any text editor, copy its contents, paste them into your web AI chat, attach your document, and submit.
-   - **Long Works (> 20 Pages — Book, Doctoral Thesis):**  
-     - **Stage 1 (Target Dossier Extraction):** Copy [`templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md`](templates/CRUCIBLE_EXTRACTION_DIRECTIVE.md), paste it into your chat along with the book. The model outputs a verbatim `Target Dossier`.
-     - **Open a Fresh Chat (Mandatory):** Copy the extracted Target Dossier text. **Open a new, clean chat session** *(mandatory to eliminate context contamination and prevent smoothing degradation)*.
-     - **Stage 2 (Forensic Audit):** Paste [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) along with your extracted Target Dossier and execute the audit.
+1. **Initiate the Audit:**
+   - Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) in any text editor, copy its contents, paste them into your web AI chat, attach your full primary document (PDF, Word, or Markdown), and submit. *(Do not compress or summarize; the full text is your living ground-truth anchor).*
 2. **Save Your Report:**  
    Copy the generated analytical output, paste it into a text editor, and save it locally as `cases/report.md`.
 3. **Mandatory Linter Verification & Sealing (Deterministic Audit):**  
    Under the CRUCIBLE protocol, the linter is **not an optional suggestion; it is the external constitutional court.** An AI's self-affirmation ("I followed all rules") is strictly unverified. All 5 mandatory sections, the Layer 8 Claim-Source Matrix, and rhetorical hygiene must be verified programmatically:  
    ```bash
-   pip install markdown
-   python scripts/crucible_linter.py cases/report.md --source cases/manuscript.docx
+   pip install markdown pypdf
+   python scripts/crucible_linter.py cases/report.md --source cases/source.pdf
    ```  
    The linter inspects the report line by line, cross-referencing citations and artifacts against the `--source` primary text to eliminate phantom references. If all constitutional criteria are met, it stamps **`[PASS]`** and automatically compiles the publication-ready `report.html` monograph. *(Reports that fail or skip linter verification remain uncertified drafts).*
 

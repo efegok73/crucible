@@ -5,6 +5,26 @@ All notable changes to the CRUCIBLE framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.1.0] - 2026-11-20
+
+### Fixed & Hardened
+- **Hayalet Referans AND Mantığı (Linter Güvenliği)** — K8 matrisinde tek kelimelik gevşek `OR` eşleşmesi kaldırılarak, uydurma kaynakların (`Tamamen Hayali Selme Kodeksi`) tek bir kelime üzerinden linter'ı delmesi engellendi; çoklu token `AND` eşiği getirildi.
+- **Tablo Durum Sızıntısı İzolasyonu (`in_matrix` Bug'ı)** — Markdown tabloları satır satır izole edilerek, K8 matrisinden sonraki bölümlerde (Hasar Raporu, Cerrah Kartı vb.) yer alan tabloların K8 zannedilmesi ve meşru raporların haksız yere `[FAIL: UNGROUNDED ARTIFACT]` alması önlendi.
+- **Doğrudan PDF Desteği** — `crucible_linter.py` motoruna `pypdf`/`PyPDF2` entegre edilerek `.pdf` kaynak metinlerinin ikili akış olarak çökmesi engellendi; yerel PDF'ler doğrudan zemin metin olarak desteklendi.
+- **Türkçe Karakter Desteği (`tr_lower`)** — Standart Python `.lower()` dönüşümünün ürettiği `İ/I` harf anomalisi giderildi; Türkçe kaynaklardaki terimlerin sessizce eşleşme hatası vermesi önlendi.
+- **Alıntı Doğrulamasında Paragraf Yakınlığı ve Kesme İşareti Tamiri** — Tırnak içi alıntıların kesme işaretleriyle (`Zuhayr'ın`, `author's`) kırılması önlendi, alıntının beyan edilen `[P:xxxx]` paragrafında (±1 komşu aralığında) bulunması denetlendi; paragraf kayması uyarıları eklendi.
+- **Koşulsuz Mühür Düzeltmesi** — Kaynak verilip doğrulanmadığında veya kısmi kaldığında mühre otomatik "Sıfır Hayalet Referans" yazılması engellendi; sadece 100% zemin doğrulamasından geçen raporlara tam onay damgası verildi.
+
+### Added
+- **Deterministik Paragraf İndeksleyici (`scripts/index_source.py`)** — `.pdf`, `.docx`, `.txt`, `.md` birincil metinlerini `crucible_linter.py` ile birebir aynı kurallarla `[P:0001]...` formatında indeksleyen CLI aracı eklendi.
+- **Dinamik Benchmark Denetimi** — `scripts/benchmark_extractor.py` dosyasındaki sabitlenmiş `✅ PASS` kaldırılarak gerçek linter motoru entegre edildi; safsata sayımına olumsuzlama/kaçınma filtresi getirildi.
+- **Genişletilmiş Birim Testleri** — `scripts/test_crucible_linter.py` süitine 4 yeni güvenlik testi eklendi (toplam 16 test, %100 PASS).
+- **CI/CD Birim Test Entegrasyonu** — GitHub Actions (`ci.yml`) iş akışına `test_crucible_linter.py` testi ve `requirements.txt` bağımlılık kurulumu eklendi.
+
+### Deprecated & Cleaned
+- **20-25 Sayfa Atomizasyon Fiyaskosu İptali** — 1M+ bağlam pencereli modellerde bağlam bütünlüğünü imha eden iki aşamalı Target Dossier boru hattı (`05_TWO_STAGE...`) metodolojik olarak feshedildi ve otopsi şerhiyle arşivlendi.
+- **Zombi Dosya Temizliği** — `config/` altındaki 2 Ekim tarihli kopyalanmış eski `.cursorrules`, `AGENTS.md` ve `CLAUDE.md` dosyaları kaldırıldı.
+
 ## [7.0.0] - 2026-10-30
 
 ### Added

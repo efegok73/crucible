@@ -3,7 +3,11 @@
 **Title:** Epistemic Asymmetry between Instrumental Data Extraction and Dialectical Execution: Architectural Model Profiles, Computational Bottlenecks, and Collapse Prevention Protocols  
 **Date:** 2026-10-04  
 **Analytical Engine:** CRUCIBLE v6.0 Epistemic Surgery Protocol  
-**Status:** Sealed & Archived (GitHub Open-Source Framework Specification)  
+**Status:** [HISTORICAL ARCHIVE — RETRACTED IN v7.0]  
+
+> ⚠️ **[METHODOLOGICAL RETRACTION & DEPRECATION NOTICE — CRUCIBLE v7.0]**  
+> **Status: Retracted / Superseded by Ground-Truth Immutability.**  
+> The "two-stage target dossier pipeline" and "20-25 page atomization" advocated in this v6.0 monograph proved to be a catastrophic failure mode in frontier models with 1M+ context windows. Segmenting documents into lossy chunks destroyed cross-chapter dialectical coherence, stripped the author's methodological hedges, and manufactured caricatured strawmen. As of v7.0, CRUCIBLE mandates full-text ground-truth immutability (`--source`) and paragraph-anchored registry maps (`[P:xxxx]`). This document is preserved strictly for historical and methodological provenance.
 
 ---
 
