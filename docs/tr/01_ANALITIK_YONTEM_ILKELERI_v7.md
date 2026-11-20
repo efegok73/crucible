@@ -185,7 +185,7 @@ Model bir araştırmayı sıfırdan yürütürken reaktif bir denetçi değil, *
 
 Metinlerdeki, mantık zincirlerindeki veya metodolojideki iç çelişkiler ile mantıksal safsatalar (logical fallacies) organik bir çöküş tespit edildiğinde raporlanacaktır.
 
-**Kritik Kısıtlar (V6.0 Güncellemesi):**
+**Kritik Kısıtlar (V7.2 Güncellemesi):**
 *   **Mimari Niyet Denetimi:** Analize başlamadan önce yazarın kendi tezini ispatlamak için özel bir örneklem (cherry-picking) veya hedef kitlesi seçip seçmediği yapısal olarak sorgulanmalıdır.
 *   **Çerçeve-Uyarlanmış Çelişki Yasağı (bkz. K1.6 Patoloji #4):** Modelin kılavuzdaki kurallara "uymuş görünmek" için metindeki mikroskobik pürüzlerden devasa safsatalar/çelişkiler uydurması kesinlikle yasaktır. Aşağıdaki tablo aktif ve zorunlu bir arama listesi değil, yalnızca organik çöküşlerde kullanılacak didaktik bir referans sözlüğüdür.
 
