@@ -1,34 +1,41 @@
-# ⚖️ CRUCIBLE v7.0 — Grounded Epistemic Auditing Framework for AI-Assisted Research
+# ⚖️ CRUCIBLE (Mayın Tarlası Model v7.2) — Grounded Epistemic Auditing Framework
 
-**Force AI to critique research like a senior scientific referee, grounded directly in primary source evidence.**
+**Transform frontier AI from a polite summarizer into an uncompromising, source-grounded scientific referee.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-7.0-emerald.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-7.2-emerald.svg)](CHANGELOG.md)
 [![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v7.1_Whitepaper.md)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-9_Cases_Validated-success.svg)](docs/BENCHMARKS.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
-> *Originally conceived as* ***Mayın Tarlası*** *(Epistemic Minefield Model) — the testing ground where unstated axioms are either detonated or survive.*
+> *Originally conceived as* ***Mayın Tarlası*** *(Epistemic Minefield Protocol) — the testing ground where unstated axioms are either detonated or survive.*
+
+🌐 **Türkçe sürüm:** [`README_TR.md`](README_TR.md)
 
 ---
 
 ## What Is CRUCIBLE?
 
 CRUCIBLE is an open-source epistemic auditing framework that transforms commercial frontier AI models (Claude, ChatGPT, Gemini) into adversarial, forensic-grade scientific referees through a **two-component architecture**:
-1. **A 10-Layer Normative Prompt Constitution:** Enforces Popperian falsification, causal Directed Acyclic Graphs (DAGs), Bayesian ordinal updates, No-Citation No-Critique constraints, and Adversarial Defense filters.
-2. **A Source-Grounded Deterministic Python Linter (`scripts/crucible_linter.py --source document.docx`):** Acts as an external constitutional court. It cross-checks cited claims and paragraph citations directly against the primary source document, blocks hallucinated / ungrounded artifacts with a hard compile error, penalizes dogmatic rhetoric, and cryptographically stamps reports with a verified `[PASS]` certificate.
 
-When you ask a standard AI to "review this paper," it produces polite, non-committal summaries that agree with the author and avoid confrontation. This is a well-documented failure mode called **sycophancy** — and it makes AI useless for serious research evaluation.
+1. **A 10-Layer Normative Prompt Constitution:** Enforces Popperian falsification, causal Directed Acyclic Graphs (DAGs), Bayesian ordinal updates, No-Citation No-Critique constraints, and Adversarial Defense filters at inference time.
+2. **A Source-Grounded Deterministic Python Linter (`scripts/crucible_linter.py`):** Acts as an external constitutional court. It cross-checks cited claims and paragraph citations directly against the primary source document (`--source`), blocks hallucinated / ungrounded artifacts with a hard compile error, enforces the Substrate Parity Gate, penalizes dogmatic rhetoric, and cryptographically stamps reports with a verified `[PASS]` certificate.
+
+### Why Standard AI Fails at Scientific Peer Review
+
+When you ask a standard commercial AI to "review this paper," it produces polite, non-committal summaries that agree with the author and avoid confrontation. This is a well-documented failure mode called **sycophancy** — and it makes AI useless for serious research evaluation.
 
 CRUCIBLE is fundamentally distinct from mere "prompt engineering." Prompting alone is stochastic and untrustworthy; models silently omit negative constraints as token context expands. CRUCIBLE couples normative reasoning directives with **compile-time AST & regex verification**. No fine-tuning. No API keys. No model retraining.
 
 **Who is this for?**
-- Researchers who want a brutally honest second opinion on a paper, thesis, or book — including their own work.
-- Students preparing thesis defenses who want to discover their weak points before their committee does.
+- Researchers who want a brutally honest second opinion on a paper, thesis, or book — **including their own work**.
+- Doctoral students preparing defenses who want to discover their weak points before their committee does.
 - Science journalists and policy analysts who need to distinguish robust evidence from rhetorical confidence.
 - Anyone who is tired of AI telling them what they want to hear.
 
-### 🏛️ The Four Epistemic Pillars
+---
+
+## 🏛️ The Four Epistemic Pillars
 
 CRUCIBLE is not a polite summarizer; it is an inference-time forensic harness operating on four non-negotiable principles of scientific inquiry:
 
@@ -41,181 +48,109 @@ CRUCIBLE is not a polite summarizer; it is an inference-time forensic harness op
 4. **Radical Auto-Falsification (The Gödel-Tarski Boundary):**  
    Acknowledging that no AI can formally validate its own meta-language, it subjects its own critique to adversarial self-examination, explicitly cataloging its own blind spots, disciplinary biases, and single-source risks before handing the verdict to a human researcher.
 
-### 🔬 Why Prompting Alone Fails: The Deterministic Linter
+---
 
-Many practitioners ask: *"Why can't I just use a good system prompt?"*  
-**Because prompts alone provide zero execution guarantees.** Unconstrained LLMs suffer from attention dilution, silently skip negative instructions, collapse into diplomatic handwaving, and fail to self-falsify when analyzing complex literature.
+## 🌐 The Universal Substrate Parity Law ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)
 
-CRUCIBLE solves this by introducing **`scripts/crucible_linter.py`**, a local deterministic validator that acts as a compile-time static analyzer for natural language auditing:
-- **Structural Integrity Enforcement:** Rejects the report with exit code 1 (`[FAIL]`) if any of the 5 universal core sections (`[EPISTEMIC TRIAGE]`, `[STEELMANNING]`, `[AUTO-FALSIFICATION]`, `[DAMAGE REPORT]`, `[SURGEON CHECKLIST]`) are omitted or hollow.
-- **Mandatory Evidentiary Matrices:** If Layer 8 is activated during triage, the linter mechanically halts compilation unless a complete Claim-Source table is constructed.
-- **Rhetorical Hygiene Scanner:** Scans AST and text tokens outside code blocks for forbidden dogmatic terms (*"undoubtedly"*, *"indisputable"*, *"absolutely proven"*) to prevent rhetorical bias.
-- **Deterministic Verification Seal:** Only verified reports receive the green **`[PASS] DETERMINISTIC VERIFICATION SEAL`** stamped at the top of the compiled HTML monograph. Unverified drafts lack this certificate.
+CRUCIBLE is designed as a universal architecture for scholars worldwide. Whether a Chinese researcher audits a Chinese philosophical text for Arabic publication, or an English scholar reviews a German treatise in English, linguistic asymmetry obeys the same mathematical law.
+
+### 1. The Core Problem: Why Direct Cross-Lingual Auditing Fails
+When an LLM is asked to evaluate a text in a language different from the source document, it suffers a **two-fold cognitive collapse**:
+- **Tokenization Bottleneck & Smoothing Loss:** Cross-lingual semantic transfer forces the model to simultaneously translate and critically reason, causing an estimated ~40% to ~50% degradation in analytical depth (*smoothing loss*).
+- **Translationese & Strawman Hallucinations:** Delicate authorial hedges, regional caveats, and safety valves evaporate in translation, leading the AI to falsely accuse the author of unhedged fallacies.
+
+### 2. The Two-Stage Universal Protocol
+CRUCIBLE mathematically codifies the Substrate Parity Law:
+
+$$\mathbf{L_{audit} \equiv L_{source}} \quad \longrightarrow \quad \mathbf{L_{target}}$$
+
+1. **Stage 1 (Native Substrate Primary Audit):**  
+   The primary forensic audit ($L_{audit}$) must **strictly execute in the native language of the source document** ($L_{source}$ — English, Chinese, Arabic, Russian, Turkish, etc.) and be verified by the linter (`audit_en.md`, `audit_zh.md`).
+2. **Stage 2 (Localized Transfer with Dual Anchors):**  
+   To generate a report in the researcher's target language ($L_{target}$), the verified primary audit is translated while maintaining dual paragraph coordinates `[P:xxxx]` and verbatim quotes, declaring metadata: `**Primary Audit:** <path_to_stage1_audit>`.
+
+### 3. Programmatic Enforcement: Substrate Parity Gate
+In `scripts/crucible_linter.py`, this rule is enforced at compile time. The linter automatically detects the script and language of both source and report. Auditing an English paper directly in Turkish or Arabic without passing `--allow-localized` or linking a primary audit halts execution with:
+`[FAIL: SUBSTRATE PARITY VIOLATION]`
 
 ---
 
-## The Problem — and What CRUCIBLE Does About It
+## 🎯 Pedagogical Clarity & Anti-Translationese Standard
 
-### What a normal AI produces when asked to "analyze this book":
+An audit is worthless if the researcher cannot immediately grasp the exact methodological flaw. CRUCIBLE enforces two non-negotiable communicative standards:
 
-> *"Butler's Gender Trouble is a groundbreaking and thought-provoking work that has profoundly influenced feminist theory. While some scholars have raised methodological questions, the text presents a compelling and nuanced argument for the performative nature of gender..."*
-
-This tells you **nothing**. It's a book-jacket blurb, not an analysis.
-
-### What CRUCIBLE produces from the same source material:
-
-> **[Layer 3 — Hermeneutic Audit]:** The term "performativity" is deployed with three semantically distinct definitions across Chapters 1–3 — (a) involuntary citation of norms under duress, (b) Nietzschean metalepsis of cause/effect, (c) Austinian speech-act derivation — without explicit disambiguation. This creates a motte-and-bailey structure: when the strong ontological claim is challenged, the author retreats to the weaker epistemological reading.
->
-> **[Layer 8 — Source Criticism Matrix]:**
->
-> | Claim | Primary Source | Source Type | Verdict |
-> |:---|:---|:---|:---|
-> | Biological sex is discursively constructed | Foucault, *History of Sexuality* Vol. 1 | Post-structuralist discourse analysis | **Proxy Leap:** Unsubstantiated jump from "language mediates our description of anatomy" to "anatomy itself is a cultural artifact" |
->
-> **[Layer 10 — Auto-Falsification]:** This audit's own analysis relies heavily on Anglo-American analytic philosophy of science as its evaluative benchmark, which may systematically underweight the Continental tradition's distinct epistemological commitments...
-
-*— Condensed from [Case 01: Judith Butler – Gender Trouble](showcase/en/01_Judith_Butler_Report.html) (Full report: 25 KB, 192 lines, 5 active layers, 8 fallacies detected)*
+1. **Anti-Translationese (Natural Academic Prose):**  
+   Reports must reject mechanical bureaucratic calques, stacked passive verbs, and robotic translationese. Prose must be vivid, lucid, and direct.
+2. **"One Concept, One Concrete Example" Standard:**  
+   Hurling abstract jargon at an author is prohibited. Every technical critique (*motte-and-bailey*, *causal DAG collapse*, *proxy leap*) must be followed by an intuitive, concrete real-world analogy. For instance:
+   > *"The author deploys a motte-and-bailey defense: like a medieval army retreating from an indefensible fertile valley (the bailey: 'biological sex is entirely a discursive illusion') to an unassailable stone fortress (the motte: 'our descriptions of anatomy are culturally conditioned') whenever attacked, only to reoccupy the radical claim once scrutiny subsides."*
 
 ---
 
-## Quick Start: Step-by-Step Guide
+## Quick Start Guide
 
-### ⚡ 10-Second Preview (Inspect a Real Report)
-Want to see what CRUCIBLE actually produces without installing anything?  
-👉 [**Open the Judith Butler – Gender Trouble Sealed Report (HTML)**](showcase/en/01_Judith_Butler_Report.html) or browse all [9 Verified Benchmark Cases](#9-verified-benchmark-cases).
+### 💻 Option A (Recommended): Autonomous Agentic IDE
+*(Antigravity, Cursor, VS Code + Roo/Cline, or Claude Code)*
 
----
-
-### 0. Prerequisites: Download the Repository (For All Users)
-1. On the GitHub page under the **Code** tab, click the green **`<> Code`** button on the top-right and select **`Download ZIP`**.
-2. Right-click the downloaded `.zip` archive and select **"Extract All"**. All directives, templates, and validation scripts are now available on your local drive.  
-*(Developer alternative: `git clone https://github.com/efegok73/crucible.git`)*
-
----
-
-### 💻 Option A (Recommended): Autonomous Auditing with Agentic IDE
-*(For Antigravity, Cursor, VS Code + Roo/Cline, or Claude Code users)*
-
-In this mode, you never manually copy-paste prompts; your AI agent adopts the workspace constitutions (`.cursorrules`, `AGENTS.md`) and executes the entire pipeline autonomously.
-
-1. **Open the Workspace with Trust:**  
-   Open your IDE, select `File > Open Folder`, and choose the extracted `crucible-main` directory. When prompted, select **"Trust Authors"** *(mandatory; otherwise background linter execution and agent tools are restricted)*.
-2. **Create Your Workspace Directory:**  
-   To keep repository constitutions pristine, create your own working subfolder in the file explorer (e.g., `cases/`).
-3. **Import Your Dossier:**  
-   Drag and drop the work to be audited (PDF, Word, or Markdown) into your new subfolder.
-4. **Index and Issue the Audit Instruction (Ground-Truth Immutability):**
-   - **v7.0 Grounding Rule:** NEVER segment or compress primary sources into lossy 20-25 page summaries. With modern 1M+ context windows, atomization destroys dialectical coherence and creates strawmen.
-   - You can pre-index paragraphs using `python scripts/index_source.py cases/source.pdf -o cases/source_indexed.txt` to generate deterministic `[P:xxxx]` anchors.
-   - Issue a direct instruction in your agent panel:  
-     > *"Audit `@cases/source.pdf` using CRUCIBLE v7.0 Grounded Constitution, anchor all citations with [P:xxxx], and seal the report."*
-5. **Receive Your Sealed Output:**  
-   The agent completes the audit, saves the report to `cases/report.md`, runs `python scripts/crucible_linter.py cases/report.md --source cases/source.pdf` in the background, achieves `[PASS]`, and compiles a publication-ready `.html` report.
+1. **Open Workspace:** Open the `crucible` repository in your agentic IDE.
+2. **Place Primary Document:** Put your PDF, Word, or Markdown document in your working directory (e.g., `CALISMALARIM/`).
+3. **Ground-Truth Immutability (v7.2 Rule):** Do NOT chunk or summarize. Use `python scripts/index_source.py CALISMALARIM/paper.pdf -o CALISMALARIM/paper_indexed.txt` to generate deterministic paragraph coordinates.
+4. **Issue Command:**
+   > *"Audit `@CALISMALARIM/paper.pdf` using CRUCIBLE v7.2. Execute the primary audit in the native substrate language of the paper, then localize with dual anchors and run crucible_linter.py until verified."*
+5. **Inspect Sealed Output:** The agent runs the linter and compiles the final verified HTML monograph with the green verification seal.
 
 ---
 
-### 🌐 Option B: Direct Auditing via Web Interfaces
-*(For Claude.ai, ChatGPT Plus, Google AI Studio web interfaces — Zero Installation)*
+### 🌐 Option B: Direct Web Interface
+*(Claude.ai, ChatGPT Plus, Google AI Studio — Zero Setup)*
 
-1. **Initiate the Audit:**
-   - Open [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) in any text editor, copy its contents, paste them into your web AI chat, attach your full primary document (PDF, Word, or Markdown), and submit. *(Do not compress or summarize; the full text is your living ground-truth anchor).*
-2. **Save Your Report:**  
-   Copy the generated analytical output, paste it into a text editor, and save it locally as `cases/report.md`.
-3. **Mandatory Linter Verification & Sealing (Deterministic Audit):**  
-   Under the CRUCIBLE protocol, the linter is **not an optional suggestion; it is the external constitutional court.** An AI's self-affirmation ("I followed all rules") is strictly unverified. All 5 mandatory sections, the Layer 8 Claim-Source Matrix, and rhetorical hygiene must be verified programmatically:  
+1. Copy the system prompt from [`templates/CRUCIBLE_WEB_PROMPT_EN.md`](templates/CRUCIBLE_WEB_PROMPT_EN.md) (or [`_TR.md`](templates/CRUCIBLE_WEB_PROMPT_TR.md)).
+2. Paste into the web model with your full document.
+3. Save the resulting output to `report.md`.
+4. Run the local deterministic linter:
    ```bash
    pip install markdown pypdf
-   python scripts/crucible_linter.py cases/report.md --source cases/source.pdf
-   ```  
-   The linter inspects the report line by line, cross-referencing citations and artifacts against the `--source` primary text to eliminate phantom references. If all constitutional criteria are met, it stamps **`[PASS]`** and automatically compiles the publication-ready `report.html` monograph. *(Reports that fail or skip linter verification remain uncertified drafts).*
+   python scripts/crucible_linter.py report.md --source paper.pdf
+   ```
+   The linter validates structure, Claim-Source matrices, paragraph anchors, and language parity before producing `report.html` with the official green **`[PASS]`** seal.
 
 ---
 
-### 📌 Core Epistemic Note: Parity Between Option A & Option B
-> When executed strictly according to instructions, **Option A and Option B are 100% identical in epistemic depth, philosophical rigor, and analytical caliber.** Both pathways execute the exact same normative layers and must pass the exact same deterministic linter.  
-> 
-> The sole distinction lies in workflow automation: **In Option A**, the two-stage pipeline, cross-window text transfer, file persistence, and background linter verification are orchestrated autonomously by your AI agent (Antigravity, Cursor, VS Code). **In Option B**, you manage these window transitions and terminal commands manually.
+## How It Works: The 10 Normative Layers
 
----
-
-## 🧠 Model Competence Threshold (Architectural Requirements)
-
-CRUCIBLE is strictly model-agnostic and does not depend on any specific proprietary provider or transient model version. However, enforcing a 10-layer normative gauntlet, hermeneutic hygiene, and tabular source-criticism requires an underlying engine that satisfies **four structural competence criteria**:
-
-1. **Anti-Smoothing Architecture:** High resistance to conversational politeness and diplomatic compression; capable of unyielding methodological friction rather than superficial summaries.
-2. **Strict Tabular and Matrix Discipline:** Absolute fidelity in generating structured output, specifically the mandatory Layer 8 Claim-Source Matrix and Surgeon Cards, without syntactic deformation.
-3. **Multi-Constraint Instruction Adherence:** Premier reasoning capacity capable of navigating complex epistemic triage without instruction decay or context degradation over long horizons.
-4. **Substantial Context Capacity:** Sufficient context bandwidth to ingest primary source dossiers, extraction directives, and analytical constitutions simultaneously.
-
-> ⚠️ **Lightweight Models Warning:** Distilled, lightweight, or conversational mini-models suffer rapid instruction decay under multi-layered normative constraints, invariably collapsing into journalistic summarization (*smoothing errors*).
-
----
-
-## ⚠️ Three Rules You Must Follow
-
-1. **Always use two stages.** Feeding a 400-page book directly into an AI with a single "analyze this" prompt triggers *smoothing error* — the AI compresses your audit into an 18 KB journalistic summary. Separate extraction from analysis.
-
-2. **Match the language to the source.** If your source material is in English, run the audit in English. Forcing analysis of English scientific literature into a morphologically complex language (e.g., Turkish, Hungarian) costs ~50% of analytical depth due to tokenization overhead. Translate the sealed report afterward if needed. ([Evidence](docs/en/03_SUBSTRATE_PARITY_AND_LINGUISTIC_ASYMMETRY.md))
-
-3. **Cross-validate across models.** AI providers silently update model weights. A model that executes all 10 layers flawlessly today may degrade next week. Run critical audits on at least 2 different frontier models.
-
----
-
-## How It Works: The 10-Layer Normative Gauntlet
-
-CRUCIBLE does not activate all 10 layers on every text. A dynamic **Epistemic Triage Matrix** selects relevant layers based on the discipline of the source material:
-
-| Layer | Function | Example Activation |
+| Layer | Function | Trigger Condition |
 |:---:|:---|:---|
-| **L1** | **Epistemic Virtue & Demarcation** — Eliminates emotional rhetoric, enforces intellectual humility | Always active |
-| **L2** | **Steelmanning** — Rebuilds the thesis in its strongest possible academic form before any critique | Always active |
-| **L3** | **Hermeneutics & Lexical Hygiene** — Detects semantic shifts, double meanings, concept creep | Philosophy, social science |
-| **L4** | **Statistics & Bayesian Audit** — Audits sample sizes, effect sizes, p-hacking, prior distributions | Empirical sciences, medicine |
-| **L5** | **Experimental Design & Causality** — Tests for confounders, reverse causation, collider bias via DAGs | Clinical trials, epidemiology |
-| **L6** | **Evidence Hierarchies** — Applies AMSTAR-2, GRADE protocols; filters single-case anecdotes | Systematic reviews, meta-analyses |
-| **L7** | **Decision Science & Risk (DMDU)** — Evaluates risk tradeoffs, fat-tail exposures, antifragility | Policy analysis, climate science |
-| **L8** | **Historical Source Criticism** — Enforces primary source triangulation; requires Claim-Source Matrix | Historiography, archival research |
-| **L9** | **Computational Model Audit** — Checks for overfitting, validation leakage, parameter tuning | Simulations, ML, agent-based models |
-| **L10** | **Auto-Falsification & Surgeon Card** — AI confesses its own blind spots; provides 3-minute human verification checklist | Always active |
-
-After analysis, the output is validated by a **deterministic Python linter** ([`crucible_linter.py`](scripts/crucible_linter.py)) that checks structural completeness, triage integrity, and rhetorical hygiene. Reports that fail are rejected and cannot be sealed.
+| **L1** | **Epistemic Virtue** — Filters rhetorical theater, eliminates sycophancy | Always active |
+| **L2** | **Steelmanning** — Reconstructs thesis in its strongest academic form | Always active |
+| **L3** | **Hermeneutic Hygiene** — Semantic equivocation, concept inflation | Philosophy, humanities |
+| **L4** | **Statistics & Bayes** — Sample sizes, p-hacking, Bayesian prior updating | Empirical science, medicine |
+| **L5** | **Experimental Design** — Confounders, reverse causality, causal DAGs | Clinical trials, epidemiology |
+| **L6** | **Evidence Hierarchy** — GRADE / AMSTAR-2 standards; filters single anecdotes | Systematic reviews |
+| **L7** | **Decision Science (DMDU)** — Fat-tail risks under deep uncertainty | Policy analysis, climate science |
+| **L8** | **Source Criticism** — Primary document cross-checking; Claim-Source matrix | Historiography, archival research |
+| **L9** | **Computational Models** — Overfitting, validation leakage, algorithmic bias | AI, simulations |
+| **L10** | **Auto-Falsification** — Model self-discloses blind spots; outputs Surgeon Card | Always active |
 
 ---
 
-## Showcase: 9 Validated Benchmark Cases
+## 9 Validated Benchmark Cases
 
-Every report below passed the deterministic linter and is available in both English and Turkish:
+Every benchmark report has passed the deterministic linter:
 
-| # | Discipline | Audited Work | Key Vulnerability Found | Verdict |
+| # | Discipline | Audited Work | Key Methodological Vulnerability Found | Verdict |
 |:---:|:---|:---|:---|:---:|
 | 01 | Philosophy & Gender | **Judith Butler** — *Gender Trouble* (1990) | Semantic equivocation on "performativity"; proxy leap from epistemology to ontology | Major Revision |
 | 02 | Psychoanalysis | **Jacques Lacan** — *Seminaire XX* (1975) | Pseudo-mathematical topology (mathemes) without formal validation | Major Revision |
 | 03 | Clinical Epidemiology | **Hilary Cass** — *The Cass Review* (NHS, 2024) | Excessive RCT threshold applied to observational pediatric cohort data | Minor Revision |
 | 04 | Historiography | **Cheikh Anta Diop** — *The African Origin* (1974) | Anachronistic racial categories; false linguistic cognates | Rejected |
 | 05 | Classical Philology | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Minimization of Greco-Roman physiognomic prejudice | Minor Revision |
-| 06 | Bibliometrics | **Cook et al. vs. Tol** — *97% Climate Consensus* (2013) | Denominator manipulation (66.4% neutral abstracts excluded) | Major Revision |
-| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Internal ocean oscillation claims vs. observed net energy imbalance | Major Revision |
-| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Aspirin Fallacy: conflating etiological irrelevance with clinical inefficacy | Major Revision |
+| 06 | Bibliometrics | **Cook et al. vs. Tol** — *97% Climate Consensus* (2013) | Denominator manipulation (66.4% neutral abstracts excluded to inflate consensus) | Major Revision |
+| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Internal ocean oscillation claims vs. satellite-observed net planetary energy imbalance | Major Revision |
+| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | **V7 Grounded Correction:** Author hedges verified; V6 "Aspirin Fallacy" false accusation dismissed; core vulnerability identified as biochemical proxy leap to clinical prognosis. | Major Revision |
 | 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000); 80% sex overlap ignored | Major Revision |
 
-📂 Full reports: [`showcase/en/`](showcase/en/) (English) | [`showcase/tr/`](showcase/tr/) (Turkish)  
-📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)  
-🔬 Controlled Vanilla Baseline: [`benchmarks/vanilla_baselines/`](benchmarks/vanilla_baselines/) (N=3 Multi-Model Factorial Study)
-
----
-
-## Documentation Map
-
-| Document | What It Contains |
-|:---|:---|
-| [**Whitepaper**](docs/CRUCIBLE_v7.1_Whitepaper.md) | Full technical specification, SOTA comparison, architecture details |
-| [**Benchmarks**](docs/BENCHMARKS.md) | Quantitative metrics (M1–M8) for all 9 cases, cross-model consistency data |
-| [**Vanilla Baselines**](benchmarks/vanilla_baselines/COMPARATIVE_FACTORIAL_ANALYSIS.md) | Same-day N=3 factorial benchmark: CRUCIBLE vs unconstrained LLMs on an elite doctoral prompt |
-| [**Limitations**](docs/LIMITATIONS.md) | Failure modes, hard boundaries, and what CRUCIBLE cannot do |
-| [**Benchmark Protocol**](benchmarks/methodology/BENCHMARK_PROTOCOL.md) | How benchmarks were designed, executed, and measured |
-| [**Blind Test Protocol**](benchmarks/methodology/BLIND_TEST_PROTOCOL.md) | Protocol for testing CRUCIBLE on literature it has never seen |
-| [**Contributing Guide**](CONTRIBUTING.md) | How to contribute reports, critique methodology, or improve the linter |
-| [**Changelog**](CHANGELOG.md) | Version history |
+📂 Full reports: [`showcase/en/`](showcase/en/) | [`showcase/tr/`](showcase/tr/)  
+📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)
 
 ---
 
@@ -223,18 +158,9 @@ Every report below passed the deterministic linter and is available in both Engl
 
 CRUCIBLE is transparent about what it **cannot** do:
 
-- **Not a theorem prover.** Pure symbolic mathematics (topology, number theory) requires formal proof checkers (Lean, Coq), not LLMs.
-- **Not autonomous.** Human-in-the-loop is mandatory. The 3-phase interactive pause system prevents black-box output dumps.
-- **Input volume ceiling.** Target dossiers exceeding ~20 pages / ~15 KB risk context dilution. Segment longer works.
-- **Model drift.** AI provider weight updates can silently alter CRUCIBLE performance. The deterministic linter catches structural degradation, but not semantic regression.
-
-Full autopsy: [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md)
-
----
-
-## Contributing
-
-CRUCIBLE must withstand its own audit. **Methodological critiques are the most valuable contributions.** See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
+- **Not a theorem prover.** Pure symbolic mathematics requires formal proof assistants (Lean, Coq), not LLMs.
+- **Not autonomous.** Human-in-the-loop verification is mandatory. The 3-phase interactive execution ensures researchers retain final judgment.
+- **Model drift.** Model provider weight updates can alter performance. The deterministic linter detects structural degradation, but cross-model verification on 2+ frontier models is recommended for high-stakes audits.
 
 ---
 

@@ -61,6 +61,50 @@ def tr_upper(text: str) -> str:
         return ""
     return text.replace('i', 'İ').replace('ı', 'I').upper()
 
+def detect_text_language(text: str) -> str:
+    """Universal multi-lingual script and stop-word language detector.
+    Supports CJK (zh), Arabic (ar), Cyrillic (ru), Hebrew (he), Japanese (ja),
+    and Latin script languages: Turkish (tr), English (en), German (de), French (fr), Spanish (es).
+    """
+    if not text:
+        return 'en'
+
+    # 1. Non-Latin script checks
+    kana_count = len(re.findall(r'[\u3040-\u309f\u30a0-\u30ff]', text))
+    if kana_count >= 15:
+        return 'ja'
+
+    cjk_count = len(re.findall(r'[\u4e00-\u9fff]', text))
+    if cjk_count >= 20:
+        return 'zh'
+
+    arabic_count = len(re.findall(r'[\u0600-\u06ff\u0750-\u077f\u08a0-\u08ff]', text))
+    if arabic_count >= 20:
+        return 'ar'
+
+    cyrillic_count = len(re.findall(r'[\u0400-\u04ff]', text))
+    if cyrillic_count >= 25:
+        return 'ru'
+
+    hebrew_count = len(re.findall(r'[\u0590-\u05ff]', text))
+    if hebrew_count >= 20:
+        return 'he'
+
+    # 2. Latin script stop-word & specific character distribution
+    tr_chars = len(re.findall(r'[çÇğĞıİöÖşŞüÜ]', text))
+    scores: Dict[str, int] = {
+        'tr': len(re.findall(r'(?<![a-zA-ZçÇğĞıİöÖşŞüÜâÂîÎûÛ])(?:ve|bir|bu|ile|için|olan|ise|olarak|ancak|çünkü|değil|kadar|gibi|tarafından|göre|neden|sonuç)(?![a-zA-ZçÇğĞıİöÖşŞüÜâÂîÎûÛ])', text, re.IGNORECASE)) + (tr_chars * 2),
+        'en': len(re.findall(r'\b(?:the|and|is|are|this|that|which|with|from|but|not|has|have|was|were|for|in|on|at|by|an)\b', text, re.IGNORECASE)),
+        'de': len(re.findall(r'\b(?:und|der|die|das|ist|ein|eine|für|mit|auf|nicht|auch|sich|dem|den|des|oder|aber)\b', text, re.IGNORECASE)) + len(re.findall(r'[äÄöÖüÜß]', text)),
+        'fr': len(re.findall(r'\b(?:et|le|la|les|est|un|une|des|pour|dans|pas|qui|que|sont|sur|avec|plus|par)\b', text, re.IGNORECASE)) + len(re.findall(r'[éÉèÈêÊàÀçÇùÙ]', text)),
+        'es': len(re.findall(r'\b(?:el|la|los|las|es|un|una|del|por|con|que|no|se|como|para|en|más|pero)\b', text, re.IGNORECASE)) + len(re.findall(r'[ñÑáÁéÉíÍóÓúÚ¿¡]', text)),
+    }
+
+    detected = max(scores, key=scores.get)  # type: ignore[arg-type]
+    if scores[detected] == 0:
+        detected = 'en'
+    return detected
+
 # ═══════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════
@@ -238,6 +282,8 @@ class LintResult:
     passed: bool = False
     source_path: Optional[str] = None
     source_paragraphs: int = 0
+    source_language: Optional[str] = None
+    substrate_parity: bool = True
     grounded: bool = False
     grounding_errors: List[str] = field(default_factory=list)
 
@@ -255,6 +301,8 @@ class LintResult:
             'passed': self.passed,
             'source_path': self.source_path,
             'source_paragraphs': self.source_paragraphs,
+            'source_language': self.source_language,
+            'substrate_parity': self.substrate_parity,
             'grounded': self.grounded,
             'error_count': len(self.errors),
             'warning_count': len(self.warnings),
@@ -287,10 +335,19 @@ class CrucibleLinter:
     call validate(), then optionally compile_html().
     """
 
-    def __init__(self, md_path: str, source_path: Optional[str] = None, strict: bool = False):
+    def __init__(
+        self,
+        md_path: str,
+        source_path: Optional[str] = None,
+        strict: bool = False,
+        allow_localized: bool = False,
+        parent_audit: Optional[str] = None
+    ):
         self.md_path = os.path.abspath(md_path)
         self.source_path = os.path.abspath(source_path) if source_path else None
         self.strict = strict
+        self.allow_localized = allow_localized
+        self.parent_audit = os.path.abspath(parent_audit) if parent_audit else None
 
         if not os.path.exists(self.md_path):
             raise FileNotFoundError(f"Target file not found: {self.md_path}")
@@ -440,20 +497,9 @@ class CrucibleLinter:
 
     def detect_language(self) -> str:
         """Z6 fix: Content-based heuristic language detection."""
-        scores: Dict[str, int] = {
-            'tr': len(re.findall(r'\b(?:ve|bir|bu|ile|için|olan|ise|olarak|ancak|çünkü|değil|kadar|gibi)\b', self.full_text, re.IGNORECASE)),
-            'en': len(re.findall(r'\b(?:the|and|is|are|this|that|which|with|from|but|not|has|have|was|were)\b', self.full_text, re.IGNORECASE)),
-            'de': len(re.findall(r'\b(?:und|der|die|das|ist|ein|eine|für|mit|auf|nicht|auch|sich)\b', self.full_text, re.IGNORECASE)),
-            'fr': len(re.findall(r'\b(?:et|le|la|les|est|un|une|des|pour|dans|pas|qui|que|sont)\b', self.full_text, re.IGNORECASE)),
-            'es': len(re.findall(r'\b(?:el|la|los|las|es|un|una|del|por|con|que|no|se|como)\b', self.full_text, re.IGNORECASE)),
-        }
-
-        detected = max(scores, key=scores.get)  # type: ignore[arg-type]
-        if scores[detected] < 10:
-            detected = 'en'
-
+        detected = detect_text_language(self.full_text)
         self.result.detected_language = detected
-        self._info(f"Detected language: {detected} (tr={scores['tr']}, en={scores['en']}, de={scores['de']}, fr={scores['fr']}, es={scores['es']})")
+        self._info(f"Detected language: {detected}")
         return detected
 
     # ── Phase 1: Payload & Core Sections ──
@@ -645,6 +691,29 @@ class CrucibleLinter:
                         f"'{term_name}' (Snippet: {stripped[:70]})"
                     )
 
+        # Anti-Translationese & Mechanical Bureaucratic Stacking (Turkish)
+        if lang == 'tr':
+            calques = [
+                (r'\btarafından\s+(?:gerçekleştiril|icra\s+edil|yapıl)', 'tarafından yapılmak (robotic passive calque)'),
+                (r'\bşeklinde\s+(?:mütalaa\s+edil|ifade\s+edil|ortaya\s+konul)', 'şeklinde mütalaa edilmek (bureaucratic jargon)'),
+                (r'\bbağlamında\s+ele\s+alındığında\b', 'bağlamında ele alındığında (filler phrase)'),
+                (r'\bbir\s+şekilde\b', 'bir şekilde (vague filler)'),
+                (r'\b\w+(?:ilmektedir|ulmaktadır|inmektedir|ünmektedir)\b', 'stacked passive verb ending')
+            ]
+            calque_counts = 0
+            calque_samples = []
+            for pat, desc in calques:
+                matches = re.findall(pat, self.full_text, re.IGNORECASE)
+                if matches:
+                    calque_counts += len(matches)
+                    calque_samples.append(f"{desc} (x{len(matches)})")
+            if calque_counts > 25:
+                self._warn(
+                    f"[WARN: MECHANICAL TRANSLATIONESE] High concentration of robotic passive/bureaucratic calques "
+                    f"({calque_counts} instances detected: {', '.join(calque_samples[:3])}). "
+                    f"CRUCIBLE V7 mandates active, fluent academic Turkish over mechanical translations."
+                )
+
     # ── Phase 4: Grounded Source Verification (v7.0) ──
 
     def validate_source_grounding(self):
@@ -653,6 +722,41 @@ class CrucibleLinter:
         if not self.source_path or not self.source_full_text:
             self._info("Source grounding check skipped (no --source provided; running in unanchored mode).")
             return
+
+        # 0. Substrate Parity Gate (CRUCIBLE Universal Law)
+        source_lang = detect_text_language(self.source_full_text)
+        report_lang = self.result.detected_language
+        self.result.source_language = source_lang
+
+        if source_lang != report_lang:
+            parent_declared = False
+            declared_parent_path = None
+            parent_match = re.search(
+                r'(?i)\*\*(?:Primary\s+Audit(?:\s+Reference)?|Birincil\s+Denetim(?:\s+Referans[ıi])?|Parent\s+Audit)\s*:\*\*\s*(?:`?\[?([^`\n\r\]]+)\]?`?)',
+                self.full_text
+            )
+            if parent_match:
+                parent_declared = True
+                declared_parent_path = parent_match.group(1).strip()
+
+            if self.allow_localized:
+                self.result.substrate_parity = True
+                self._info(f"Substrate Parity: Localized transfer authorized via --allow-localized ({source_lang.upper()} ➔ {report_lang.upper()}).")
+            elif self.parent_audit:
+                self.result.substrate_parity = True
+                self._info(f"Substrate Parity: Verified two-stage localized transfer with parent audit: {os.path.basename(self.parent_audit)} ({source_lang.upper()} ➔ {report_lang.upper()}).")
+            elif parent_declared:
+                self.result.substrate_parity = True
+                self._info(f"Substrate Parity: Verified two-stage localized transfer with declared parent audit: '{declared_parent_path}' ({source_lang.upper()} ➔ {report_lang.upper()}).")
+            else:
+                self.result.substrate_parity = False
+                self._error(
+                    f"[FAIL: SUBSTRATE PARITY VIOLATION] Primary source language is '{source_lang.upper()}', "
+                    f"but report language is '{report_lang.upper()}'. CRUCIBLE Universal Law mandates executing the primary audit "
+                    f"in the native substrate language of the source ({source_lang.upper()}) to prevent translationese artifacts "
+                    f"and tokenization loss. To generate a localized report in '{report_lang.upper()}', you must first complete "
+                    f"the primary audit in '{source_lang.upper()}' and reference it via '**Primary Audit:** <path>' or use '--allow-localized'."
+                )
 
         source_lower = tr_lower(self.source_full_text)
         source_name = os.path.basename(self.source_path)
@@ -1026,6 +1130,13 @@ def print_report(result: LintResult):
         print(f"🧬 Active Layers: {', '.join(result.active_layers)}")
     if result.source_path:
         print(f"⚓ Primary Source: {os.path.basename(result.source_path)} ({result.source_paragraphs} paragraphs)")
+        src_l = result.source_language.upper() if result.source_language else "N/A"
+        rep_l = result.detected_language.upper()
+        if result.substrate_parity:
+            parity_str = f"✅ SOURCE-MATCH ({src_l})" if src_l == rep_l else f"🔄 TWO-STAGE LOCALIZED ({src_l} ➔ {rep_l})"
+        else:
+            parity_str = f"❌ PARITY VIOLATION ({src_l} vs {rep_l})"
+        print(f"🌐 Substrate Parity: {parity_str}")
         print(f"🛡️ Grounding: {'✅ GROUNDED (Zero Phantom Artifacts)' if result.grounded else '❌ UNGROUNDED / UNVERIFIED'}")
     else:
         print("⚓ Primary Source: None (Unanchored Mode)")
@@ -1074,6 +1185,10 @@ Examples:
                         help='Path to primary source document (.docx, .txt, .md) for ground-truth verification')
     parser.add_argument('--strict', action='store_true',
                         help='Treat layer-artifact warnings as hard errors')
+    parser.add_argument('--allow-localized', action='store_true',
+                        help='Allow localized report where report language differs from primary source without failing substrate parity')
+    parser.add_argument('--parent-audit', metavar='PATH', default=None,
+                        help='Path to source-language primary audit report proving two-stage substrate protocol')
     parser.add_argument('--json', action='store_true',
                         help='Output structured JSON results')
     parser.add_argument('-o', '--output', metavar='PATH',
@@ -1086,7 +1201,13 @@ Examples:
     args = parser.parse_args()
 
     try:
-        linter = CrucibleLinter(args.target, source_path=args.source, strict=args.strict)
+        linter = CrucibleLinter(
+            args.target,
+            source_path=args.source,
+            strict=args.strict,
+            allow_localized=args.allow_localized,
+            parent_audit=args.parent_audit
+        )
         result = linter.validate()
     except FileNotFoundError as e:
         print(f"[ERROR] {e}", file=sys.stderr)

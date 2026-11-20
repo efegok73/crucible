@@ -17,7 +17,7 @@ _DIR = os.path.dirname(os.path.abspath(__file__))
 if _DIR not in sys.path:
     sys.path.insert(0, _DIR)
 
-from crucible_linter import CrucibleLinter, LintResult, CORE_SECTIONS
+from crucible_linter import CrucibleLinter, LintResult, CORE_SECTIONS, detect_text_language
 
 
 def make_valid_document(
@@ -326,7 +326,7 @@ We systematically review the disciplinary matrix and its boundaries.
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertTrue(result.passed, f"Expected pass, got errors: {result.errors}")
         self.assertTrue(result.grounded)
@@ -346,7 +346,7 @@ We systematically review the disciplinary matrix and its boundaries.
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertFalse(result.passed)
         self.assertTrue(any("UNGROUNDED ARTIFACT" in err and "Selme" in err for err in result.errors),
@@ -367,7 +367,7 @@ We systematically review the disciplinary matrix and its boundaries.
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertTrue(result.passed, f"Expected pass with external exemption, got errors: {result.errors}")
 
@@ -386,7 +386,7 @@ the structural coherence is evaluated through charitable interpretation and syst
         md = make_valid_document(steelman_text=body_with_bad_quote)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertFalse(result.passed)
         self.assertTrue(any("UNVERIFIED QUOTE" in err for err in result.errors),
@@ -406,7 +406,7 @@ the structural coherence is evaluated through charitable interpretation and syst
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertFalse(result.passed)
         self.assertTrue(any("UNGROUNDED ARTIFACT" in err and "Tamamen Hayali Selme Kodeksi" in err for err in result.errors),
@@ -433,7 +433,7 @@ Hasar raporu detayları aşağıdadır ve en az on beş kelimelik içerik barın
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertTrue(result.passed, f"Expected pass, got errors: {result.errors}")
         self.assertTrue(result.grounded)
@@ -452,7 +452,7 @@ Hasar raporu detayları aşağıdadır ve en az on beş kelimelik içerik barın
         md = make_valid_document(include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertTrue(result.passed, f"Expected pass with Turkish case folding, got errors: {result.errors}")
         self.assertTrue(result.grounded)
@@ -478,9 +478,124 @@ This section contains detailed substantive text meeting all minimum word count t
         md = make_valid_document(steelman_text=body_with_quotes, include_k8_table=False, extra_sections=matrix)
         report_path = self._create_report(md)
 
-        linter = CrucibleLinter(report_path, source_path=source_path)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
         result = linter.validate()
         self.assertTrue(result.passed, f"Expected quote with apostrophe to pass, got errors: {result.errors}")
+
+    def test_v7_universal_language_detection(self):
+        """v7.2: Multi-lingual script and stop-word language detector handles non-Latin & Latin scripts."""
+        # Chinese
+        self.assertEqual(detect_text_language("这是一段关于科学方法论与认识论批判的中文学术文本，包含足够的字符进行语言识别。"), 'zh')
+        # Arabic
+        self.assertEqual(detect_text_language("هذا نص أكاديمي باللغة العربية يتعلق بالمنهجية الفلسفية ونقد المصادر التاريخية للتحقق من صحة النص الأصلي."), 'ar')
+        # Russian
+        self.assertEqual(detect_text_language("Это академический текст на русском языке, посвященный методологии научного исследования и эпистемологии."), 'ru')
+        # Turkish
+        self.assertEqual(detect_text_language("Bu makale bilim felsefesi ve epistemolojik triyaj ilkeleri üzerine odaklanmaktadır."), 'tr')
+        # English
+        self.assertEqual(detect_text_language("This paper focuses on the philosophy of science and the empirical falsification of historical claims."), 'en')
+
+    def test_v7_substrate_parity_violation_fails(self):
+        """v7.2: English source audited directly in Turkish without two-stage declaration fails Substrate Parity."""
+        source_text = "The quick brown fox jumps over the lazy dog. Scientific methodology demands empirical falsification."
+        source_path = self._create_report(source_text)
+
+        # Turkish report with Turkish headings and stop words
+        tr_body = """
+Bu bölümde yazarın öne sürdüğü temel savın en güçlü ve tutarlı halini yeniden kuruyoruz.
+Yazarın birinci temel öncülü şudur: Bilimsel bilgi iddiaları gözlemlenebilir gerçekliğe dayanmak zorundadır.
+İkinci olarak, söylemsel kategoriler ile ontolojik zemin birbirine karıştırılmamalıdır.
+Üçüncü olarak, iç tutarlılık titiz bir metodolojik çözümlemeyle sınanmalıdır.
+"""
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Core proposition Alpha | Scientific methodology | Primary Source | Verified in text |
+"""
+        # A Turkish document
+        triage_tr = """
+### Aktif Katmanlar
+| Katman | Durum | Gerekçe |
+|---|---|---|
+| **K1: Persona** | ✅ AKTİF | Epistemik alçakgönüllülük ve analitik tutum zorunludur. |
+| **K8: Disipliner Matris** | ✅ AKTİF | Kaynak tenkiti işletilmektedir. |
+"""
+        md = f"""# Test Raporu
+## [EPİSTEMOLOJİK TRİYAJ]
+{triage_tr}
+## 2. ÇELİK ADAM
+{tr_body}
+## 3. OTO-FALSİFİKASYON
+Kendi analizimizdeki metodolojik kısıtları, model eğilimlerini ve tek kaynak risklerini burada dürüstçe sorguluyoruz. Hangi ampirik bulgunun veya karşıt arşiv belgesinin bu analizimizin temel çıkarımlarını yanlışlayacağını açıkça ifşa ediyoruz.
+## 4. HASAR RAPORU
+Tezin aldığı asgari epistemik hasar ve geriye kalan sağlam iddia çekirdeği burada özetlenmektedir. Metodolojik zafiyetler tezin genellenebilirlik sınırlarını daraltmıştır.
+{matrix}
+## 5. CERRAH DENETİM KARTI
+- [ ] Birincil kaynakta doğrudan alıntı kontrolü yap.
+""" + ("\n<!-- padding dolgusu -->" * 25)
+
+        report_path = self._create_report(md)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=False)
+        result = linter.validate()
+        self.assertFalse(result.passed)
+        self.assertFalse(result.substrate_parity)
+        self.assertTrue(any("SUBSTRATE PARITY VIOLATION" in e for e in result.errors))
+
+    def test_v7_substrate_parity_pass_with_allow_localized_or_parent_audit(self):
+        """v7.2: Localized report passes when --allow-localized or **Primary Audit:** metadata is present."""
+        source_text = "The quick brown fox jumps over the lazy dog. Scientific methodology demands empirical falsification."
+        source_path = self._create_report(source_text)
+
+        tr_body = """
+Bu bölümde yazarın öne sürdüğü temel savın en güçlü ve tutarlı halini yeniden kuruyoruz.
+Yazarın birinci temel öncülü şudur: Bilimsel bilgi iddiaları gözlemlenebilir gerçekliğe dayanmak zorundadır.
+İkinci olarak, söylemsel kategoriler ile ontolojik zemin birbirine karıştırılmamalıdır.
+Üçüncü olarak, iç tutarlılık titiz bir metodolojik çözümlemeyle sınanmalıdır.
+"""
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Core proposition Alpha | Scientific methodology | Primary Source | Verified in text |
+"""
+        triage_tr = """
+### Aktif Katmanlar
+| Katman | Durum | Gerekçe |
+|---|---|---|
+| **K1: Persona** | ✅ AKTİF | Epistemik alçakgönüllülük ve analitik tutum zorunludur. |
+| **K8: Disipliner Matris** | ✅ AKTİF | Kaynak tenkiti işletilmektedir. |
+"""
+        # With **Primary Audit:** header
+        md_with_meta = f"""# Test Raporu
+**Primary Audit:** `audits/primary_source_audit_en.md`
+
+## [EPİSTEMOLOJİK TRİYAJ]
+{triage_tr}
+## 2. ÇELİK ADAM
+{tr_body}
+## 3. OTO-FALSİFİKASYON
+Kendi analizimizdeki metodolojik kısıtları, model eğilimlerini ve tek kaynak risklerini burada dürüstçe sorguluyoruz. Hangi ampirik bulgunun veya karşıt arşiv belgesinin bu analizimizin temel çıkarımlarını yanlışlayacağını açıkça ifşa ediyoruz.
+## 4. HASAR RAPORU
+Tezin aldığı asgari epistemik hasar ve geriye kalan sağlam iddia çekirdeği burada özetlenmektedir. Metodolojik zafiyetler tezin genellenebilirlik sınırlarını daraltmıştır.
+{matrix}
+## 5. CERRAH DENETİM KARTI
+- [ ] Birincil kaynakta doğrudan alıntı kontrolü yap.
+""" + ("\n<!-- padding dolgusu -->" * 25)
+
+        report_path = self._create_report(md_with_meta)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
+        result = linter.validate()
+        self.assertTrue(result.passed, f"Expected pass with metadata, got errors: {result.errors}")
+        self.assertTrue(result.substrate_parity)
+
+        # Also test with allow_localized=True without metadata
+        md_bare = md_with_meta.replace("**Primary Audit:** `audits/primary_source_audit_en.md`", "")
+        report_path_bare = self._create_report(md_bare)
+        linter_allowed = CrucibleLinter(report_path_bare, source_path=source_path, allow_localized=True)
+        res_allowed = linter_allowed.validate()
+        self.assertTrue(res_allowed.passed, f"Expected pass with allow_localized, got errors: {res_allowed.errors}")
+        self.assertTrue(res_allowed.substrate_parity)
 
 
 if __name__ == '__main__':
