@@ -171,17 +171,17 @@ Dinamik **Epistemolojik Triyaj Matrisi**, incelenen eserin disiplinine göre ilg
 
 Tüm raporlar deterministik linter tarafından doğrulanmış ve mühürlenmiştir:
 
-| # | Disiplin | İncelenen Eser | Temel Metodolojik Zafiyet | Hüküm |
-|:---:|:---|:---|:---|:---:|
-| 01 | Felsefe & Toplumsal Cinsiyet | **Judith Butler** — *Gender Trouble* (1990) | "Performativite"de anlamsal kaçak; epistemolojiden ontolojiye dayanaksız vekil sıçraması | Ağır Revizyon |
-| 02 | Psikanaliz | **Jacques Lacan** — *Seminaire XX* (1975) | Formel matematiksel temeli olmayan sahte-topoloji (mathemeler) | Ağır Revizyon |
-| 03 | Klinik Epidemiyoloji | **Hilary Cass** — *The Cass Review* (2024) | Gözlemsel pediatrik kohort verisine orantısız RCT katılığı uygulanması | Kısmi Revizyon |
-| 04 | Tarih Yazımı | **Cheikh Anta Diop** — *The African Origin* (1974) | Anakronik ırk kategorileri; fonetik benzerlikten sahte köken türetme | Reddedildi |
-| 05 | Klasik Filoloji | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Greko-Romen fizyognomik önyargının ve dilsel ayrımcılığın hafife alınması | Kısmi Revizyon |
-| 06 | Bibliyometri & İklim | **Cook et al. vs. Tol** — *%97 İklim Konsensüsü* (2013) | Payda manipülasyonu (%66.4 nötr makale analiz dışı bırakılarak yüzde şişirilmiş) | Ağır Revizyon |
-| 07 | İklim Modellemesi | **Judith Curry** — *Climate Uncertainty* (2023) | Okyanus içi salınım savları vs. uydulardan gözlenen net gezegensel enerji dengesizliği | Ağır Revizyon |
-| 08 | Psikiyatri & Kanıta Dayalı Tıp | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | **V7 Zemin Düzeltmesi:** Yazarın etiyoloji şerhleri doğrulanarak V6'nın haksız "Aspirin Safsatası" ithamı düşürüldü; asıl sorun biyokimyasal belirteç ile klinik seyir arasındaki vekil sıçraması olarak tespit edildi. | Ağır Revizyon |
-| 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi; %80 cinsiyet örtüşmesinin yok sayılması | Ağır Revizyon |
+| # | Disiplin | İncelenen Eser | Temel Metodolojik Zafiyet | Hüküm | Rapor |
+|:---:|:---|:---|:---|:---:|:---:|
+| 01 | Felsefe & Cinsiyet | **Judith Butler** — *Gender Trouble* (1990) | "Performativite"de anlamsal kaçak; epistemolojiden ontolojiye dayanaksız vekil sıçraması | Ağır Revizyon | [Türkçe](showcase/tr/01_Judith_Butler_Report.html) · [English](showcase/en/01_Judith_Butler_Report.html) |
+| 02 | Psikanaliz | **Jacques Lacan** — *Séminaire XX* (1975) | Formel matematiksel temeli olmayan sahte-topoloji (mathemeler) | Ağır Revizyon | [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) · [English](showcase/en/02_Jacques_Lacan_Report.html) |
+| 03 | Klinik Epidemiyoloji | **Hilary Cass** — *The Cass Review* (2024) | Gözlemsel pediatrik kohort verisine orantısız RCT katılığı uygulanması | Kısmi Revizyon | [Türkçe](showcase/tr/03_Cass_Review_Report.html) · [English](showcase/en/03_Cass_Review_Report.html) |
+| 04 | Tarih Yazımı | **Cheikh Anta Diop** — *The African Origin* (1974) | Anakronik ırk kategorileri; fonetik benzerlikten sahte dilsel köken türetme | Reddedildi | [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) · [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) |
+| 05 | Klasik Filoloji | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Greko-Romen fizyognomik önyargının ve popüler kalıpların hafife alınması | Kısmi Revizyon | [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) · [English](showcase/en/05_Frank_Snowden_Report.html) |
+| 06 | Bibliyometri & İklim | **Cook et al. vs. Tol** — *%97 İklim Konsensüsü* (2013) | Payda manipülasyonu (%66.4 nötr makale analiz dışı bırakılarak yüzde şişirilmiş) | Ağır Revizyon | [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) · [English](showcase/en/06_Cook_Tol_Report.html) |
+| 07 | İklim Modellemesi | **Judith Curry** — *Climate Uncertainty* (2023) | Okyanus içi salınım savları vs. uydulardan gözlenen net gezegensel enerji dengesizliği | Ağır Revizyon | [Türkçe](showcase/tr/07_Judith_Curry_Report.html) · [English](showcase/en/07_Judith_Curry_Report.html) |
+| 08 | Psikiyatri & Tıp | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Biyokimyasal belirteçler (serotonin/5-HIAA) ile klinik depresyon seyri arasındaki vekil sıçraması | Ağır Revizyon | [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) · [English](showcase/en/08_Joanna_Moncrieff_Report.html) |
+| 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi; %80 cinsiyet örtüşmesinin yok sayılması | Ağır Revizyon | [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) · [English](showcase/en/09_Simon_Baron_Cohen_Report.html) |
 
 📂 Mühürlü Raporlar: [`showcase/tr/`](showcase/tr/) (Türkçe) | [`showcase/en/`](showcase/en/) (İngilizce)  
 📊 Sayısal Metrikler: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)

@@ -137,17 +137,17 @@ An audit is worthless if the researcher cannot immediately grasp the exact metho
 
 Every benchmark report has passed the deterministic linter:
 
-| # | Discipline | Audited Work | Key Methodological Vulnerability Found | Verdict |
-|:---:|:---|:---|:---|:---:|
-| 01 | Philosophy & Gender | **Judith Butler** — *Gender Trouble* (1990) | Semantic equivocation on "performativity"; proxy leap from epistemology to ontology | Major Revision |
-| 02 | Psychoanalysis | **Jacques Lacan** — *Seminaire XX* (1975) | Pseudo-mathematical topology (mathemes) without formal validation | Major Revision |
-| 03 | Clinical Epidemiology | **Hilary Cass** — *The Cass Review* (NHS, 2024) | Excessive RCT threshold applied to observational pediatric cohort data | Minor Revision |
-| 04 | Historiography | **Cheikh Anta Diop** — *The African Origin* (1974) | Anachronistic racial categories; false linguistic cognates | Rejected |
-| 05 | Classical Philology | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Minimization of Greco-Roman physiognomic prejudice | Minor Revision |
-| 06 | Bibliometrics | **Cook et al. vs. Tol** — *97% Climate Consensus* (2013) | Denominator manipulation (66.4% neutral abstracts excluded to inflate consensus) | Major Revision |
-| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Internal ocean oscillation claims vs. satellite-observed net planetary energy imbalance | Major Revision |
-| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | **V7 Grounded Correction:** Author hedges verified; V6 "Aspirin Fallacy" false accusation dismissed; core vulnerability identified as biochemical proxy leap to clinical prognosis. | Major Revision |
-| 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000); 80% sex overlap ignored | Major Revision |
+| # | Discipline | Audited Work | Key Methodological Vulnerability Found | Verdict | Reports |
+|:---:|:---|:---|:---|:---:|:---:|
+| 01 | Philosophy & Gender | **Judith Butler** — *Gender Trouble* (1990) | Semantic equivocation on "performativity"; proxy leap from epistemology to ontology | Major Revision | [English](showcase/en/01_Judith_Butler_Report.html) · [Türkçe](showcase/tr/01_Judith_Butler_Report.html) |
+| 02 | Psychoanalysis | **Jacques Lacan** — *Séminaire XX* (1975) | Pseudo-mathematical topology (mathemes) without formal validation | Major Revision | [English](showcase/en/02_Jacques_Lacan_Report.html) · [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) |
+| 03 | Clinical Epidemiology | **Hilary Cass** — *The Cass Review* (NHS, 2024) | Excessive RCT threshold applied to observational pediatric cohort data | Minor Revision | [English](showcase/en/03_Cass_Review_Report.html) · [Türkçe](showcase/tr/03_Cass_Review_Report.html) |
+| 04 | Historiography | **Cheikh Anta Diop** — *The African Origin* (1974) | Anachronistic racial categories; false linguistic cognates | Rejected | [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) · [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) |
+| 05 | Classical Philology | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Minimization of Greco-Roman physiognomic prejudice and popular stereotyping | Minor Revision | [English](showcase/en/05_Frank_Snowden_Report.html) · [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) |
+| 06 | Bibliometrics | **Cook et al. vs. Tol** — *97% Climate Consensus* (2013) | Denominator manipulation (66.4% neutral abstracts excluded to inflate consensus) | Major Revision | [English](showcase/en/06_Cook_Tol_Report.html) · [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) |
+| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Internal ocean oscillation claims vs. satellite-observed net planetary energy imbalance | Major Revision | [English](showcase/en/07_Judith_Curry_Report.html) · [Türkçe](showcase/tr/07_Judith_Curry_Report.html) |
+| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Proxy leap from biochemical markers (serotonin/5-HIAA) to clinical depression prognosis | Major Revision | [English](showcase/en/08_Joanna_Moncrieff_Report.html) · [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) |
+| 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000); 80% sex overlap ignored | Major Revision | [English](showcase/en/09_Simon_Baron_Cohen_Report.html) · [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) |
 
 📂 Full reports: [`showcase/en/`](showcase/en/) | [`showcase/tr/`](showcase/tr/)  
 📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)

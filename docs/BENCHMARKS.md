@@ -1,43 +1,42 @@
-# CRUCIBLE — QUANTITATIVE BENCHMARK RESULTS (v6.0 Baselines & v7.1 Grounded Architecture)
+# CRUCIBLE — QUANTITATIVE BENCHMARK RESULTS (v7.2 Grounded Architecture)
 **Document ID:** `BENCHMARKS.md`  
-**Version:** 7.1  
+**Version:** 7.2  
 **Last Updated:** 2026-11-20  
-**Methodology:** Cross-Model Benchmark Protocol v1.0 / v7.1  
+**Methodology:** Cross-Model Benchmark Protocol v7.2 (Universal Substrate Parity & Full-Text Grounding)  
 **Reference:** [`benchmarks/methodology/BENCHMARK_PROTOCOL.md`](../benchmarks/methodology/BENCHMARK_PROTOCOL.md)  
-**Linter:** `scripts/crucible_linter.py` — All 9 baseline showcase reports verified `[PASS]`  
+**Linter:** `scripts/crucible_linter.py` — All 9 showcase cases (18 reports: 9 EN, 9 TR) verified `[PASS]`  
 
 > [!NOTE]
-> **Provenance & Grounding Notice:** The 9 showcase evaluations listed below were generated as v6.0 target dossier baselines. They are preserved in the repository as immutable regression baselines. The CRUCIBLE v7.1 architecture introduces full-text source grounding via `scripts/index_source.py`, enforcing deterministic paragraph verification (`[P:xxxx]`) directly against unabridged monographs.
+> **Provenance & Grounding Notice:** All 9 showcase evaluations listed below are fully grounded against unabridged primary monographs via `scripts/index_source.py`, enforcing deterministic paragraph verification (`[P:xxxx]`) and the Universal Substrate Parity Law ($L_{source} \equiv L_{audit} \rightarrow L_{target}$). Every report has passed AST structure, source grounding, and rhetoric linting.
 
 ---
 
-## 1. PRIMARY METRIC TABLE: 9 Showcase Cases (v6.0 Baselines)
+## 1. PRIMARY METRIC TABLE: 9 Grounded Showcase Cases (v7.2 Production)
 
-| # | Case | Discipline | Dossier (KB) | EN Report (KB) | TR Report (KB) | Active Layers (M1) | Linter (M3) | Fallacies Detected (M4) | Auto-Falsification Depth (M5) | Source Matrix (M6) | Surgeon Card (M7) | EN/TR Ratio (M8) |
-|:---|:---|:---|---:|---:|---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 01 | Judith Butler – Gender Trouble | Post-Structuralist Philosophy | 9.0 | 25.0 | 18.0 | 5 | ✅ PASS | 8 | 4 | ✅ | ✅ | 1.38 |
-| 02 | Jacques Lacan – Encore | Psychoanalysis / Semiotics | 11.3 | 35.1 | 18.0 | 6 | ✅ PASS | 5 | 3 | ✅ | ✅ | 1.95 |
-| 03 | Cass Review – Gender Medicine | Clinical Medicine | 15.3 | 37.7 | 20.2 | 8 | ✅ PASS | 6 | 3 | ✅ | ✅ | 1.86 |
-| 04 | Cheikh Anta Diop – African Origin | Historiography | 13.0 | 36.1 | 18.6 | 6 | ✅ PASS | 6 | 3 | ✅ | ✅ | 1.94 |
-| 05 | Frank Snowden – Blacks in Antiquity | Classics / Ancient History | 13.9 | 34.8 | 18.3 | 5 | ✅ PASS | 2 | 3 | ✅ | ✅ | 1.90 |
-| 06 | Cook et al. vs Tol – Climate Consensus | Bibliometrics / Climate Science | 11.3 | 45.5 | 20.5 | 7 | ✅ PASS | 9 | 3 | ✅ | ✅ | 2.22 |
-| 07 | Judith Curry – Climate Uncertainty | Climate Science / Decision Theory | 12.7 | 42.5 | 19.8 | 7 | ✅ PASS | 6 | 3 | ✅ | ✅ | 2.15 |
-| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14.1 | 41.8 | 20.3 | 8 | ✅ PASS | 6 | 3 | ✅ | ✅ | 2.06 |
-| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience | 12.3 | 49.4 | 20.0 | 6 | ✅ PASS | 8 | 3 | ✅ | ✅ | 2.47 |
+| # | Case | Discipline | Source Index | EN Report (KB) | TR Report (KB) | Active Layers | Linter (M3) | Methodological Fractures | Auto-Falsification Items | Source Matrix (K8) | Surgeon Card | Substrate Parity |
+|:---|:---|:---|:---|---:|---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 01 | Judith Butler – Gender Trouble | Post-Structuralist Philosophy | 252 paras | 18.2 | 17.9 | 5 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 02 | Jacques Lacan – Encore | Psychoanalysis / Semiotics | 156 paras | 17.7 | 16.4 | 5 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 03 | Hilary Cass – The Cass Review | Clinical Medicine / Epidemiology | 549 paras | 18.7 | 18.7 | 6 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 04 | Cheikh Anta Diop – African Origin | Historiography / Anthropology | 18 sections | 16.9 | 17.2 | 6 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 05 | Frank Snowden – Blacks in Antiquity | Classics / Ancient History | 388 paras | 17.4 | 17.1 | 5 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 06 | Cook et al. vs Tol – Climate Consensus | Bibliometrics / Climatology | 9 paras | 17.8 | 20.5 | 6 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 07 | Judith Curry – Climate Uncertainty | Atmospheric Physics / DMDU | 534 paras | 16.7 | 17.7 | 7 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14 paras | 16.8 | 20.9 | 6 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
+| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience | 279 paras | 16.8 | 17.0 | 7 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
 
 ### 1.1. Aggregate Statistics
 
 | Metric | Value |
 |:---|:---|
-| Total Cases Analyzed | 9 |
-| Linter Pass Rate | 9/9 (100%) |
-| Average Active Layers per Report | 6.4 |
-| Total Fallacies Detected (All Cases) | 56 |
-| Average Fallacies per Report | 6.2 |
-| Total Auto-Falsification Items | 28 |
-| Average Auto-Falsification Depth | 3.1 |
-| Source Matrix Presence | 9/9 (100%) |
-| Surgeon Card Presence | 9/9 (100%) |
+| Total Cases Analyzed | 9 (18 Reports: 9 EN + 9 TR) |
+| Linter Pass Rate | 18/18 (100% `[PASS]`) |
+| Average Active Layers per Report | 6.0 |
+| Total Methodological Fractures Dissected | 27 (3 per case) |
+| Total Auto-Falsification Items | 27 (3 per case) |
+| Source Matrix Presence (K8) | 18/18 (100%) |
+| Surgeon Audit Card Presence | 18/18 (100%) |
+| Universal Substrate Parity Compliance | 18/18 (100%) |
 
 ---
 
