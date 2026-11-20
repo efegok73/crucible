@@ -1,168 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
-    <title>CRUCIBLE v6.0 — 06_Cook_Tol_Climate_Report.md</title>
+    <title>Mayın Tarlası V7.0 — 06_Cook_Tol_Climate_Report.md</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.8;
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 35px;
-            color: #1e293b;
-            background-color: #f8fafc;
-        }
-        h1, h2, h3, h4 {
-            color: #0f172a;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-top: 1.6em;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            border-bottom: 3px solid #cbd5e1;
-            padding-bottom: 15px;
-            color: #091e42;
-        }
-        pre {
-            background: #0f172a;
-            color: #f8fafc;
-            padding: 18px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        pre code {
-            background: transparent !important;
-            color: inherit !important;
-            padding: 0 !important;
-            border-radius: 0 !important;
-            font-size: inherit !important;
-        }
-        code {
-            background: #e2e8f0;
-            color: #0f172a;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 25px 0;
-            font-size: 0.92em;
-            background: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 12px 14px;
-            text-align: left;
-        }
-        th {
-            background-color: #1e293b;
-            color: #ffffff;
-            font-weight: 600;
-        }
-        tr:nth-child(even) {
-            background-color: #f1f5f9;
-        }
-        strong {
-            color: #991b1b;
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #cbd5e1;
-            margin: 35px 0;
-        }
-        .surgeon-card, .cerrah-card {
-            background-color: #f0fdf4;
-            border-left: 5px solid #16a34a;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+               line-height: 1.8; max-width: 960px; margin: 40px auto; padding: 35px; color: #1e293b; background-color: #f8fafc; }
+        h1, h2, h3, h4 { color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-top: 1.6em; }
+        h1 { text-align: center; font-size: 2.2em; border-bottom: 3px solid #cbd5e1; padding-bottom: 15px; color: #091e42; }
+        pre { background: #0f172a; color: #f8fafc; padding: 18px; border-radius: 8px; overflow-x: auto;
+               font-family: 'Consolas', 'Courier New', monospace; font-size: 0.9em; }
+        pre code { background: transparent !important; color: inherit !important; padding: 0 !important;
+                    border-radius: 0 !important; font-size: inherit !important; }
+        code { background: #e2e8f0; color: #0f172a; padding: 2px 6px; border-radius: 4px;
+                font-family: 'Consolas', 'Courier New', monospace; font-size: 0.9em; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; font-size: 0.92em; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+        th, td { border: 1px solid #cbd5e1; padding: 12px 14px; text-align: left; }
+        th { background-color: #1e293b; color: #fff; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f1f5f9; }
+        strong { color: #991b1b; }
+        hr { border: 0; height: 1px; background: #cbd5e1; margin: 35px 0; }
+        .surgeon-card, .cerrah-card { background-color: #f0fdf4; border-left: 5px solid #16a34a; padding: 20px; margin: 30px 0; border-radius: 4px; }
     </style>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     
-    <div style="background: #0f172a; color: #f8fafc; border: 2px solid #3b82f6; border-radius: 8px; padding: 18px 24px; margin-bottom: 35px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.12);">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-            <span style="font-weight: 700; color: #60a5fa; font-size: 1.1em; letter-spacing: 0.5px;">🛡️ CRUCIBLE v6.0 — DETERMINISTIC VERIFICATION SEAL</span>
-            <span style="background: #16a34a; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.9em; letter-spacing: 0.5px;">[PASS] 100% CONSTITUTIONAL COMPLIANCE</span>
+    <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
+            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ MAYIN TARLASI V7.0 — ZEMİN ÇIPALI DETERMINİSTİK DOĞRULAMA MÜHRÜ</span>
+            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] ANAYASAL UYUMLULUK ONAYLANDI (V7.0 ZEMİN ÇIPALI)</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #cbd5e1;">
-            <div><strong>Validator:</strong> <code>scripts/crucible_linter.py</code></div>
-            <div><strong>Verified Payload:</strong> 191 lines | 19,486 characters</div>
-            <div><strong>Rhetorical Hygiene:</strong> Clean (0 Forbidden Dogmatic Terms)</div>
-            <div><strong>Constitutional Triage:</strong> Core Layers & Matrices Audited</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
+            <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.0</code></div>
+            <div><strong>Yük (Payload):</strong> 157 satır | 19,346 karakter</div>
+            <div><strong>Retorik Hijyen:</strong> Temiz (0 terim)</div>
+            <div><strong>Aktif Katmanlar:</strong> K1, K10, K2, K3, K4, K7, K8</div>
+            <div><strong>Zemin Kaynak (Ground Truth):</strong> <code>Cook_Indexed_Source.txt</code> (9 paragraf)</div><div><strong>Zemin Doğrulama:</strong> Sıfır Hayalet Referans (Doğrulandı)</div>
+            <div><strong>İçerik Özeti (SHA-256):</strong> <code>sha256:289c25a11511214b</code></div>
+            <div><strong>Doğrulama Zamanı:</strong> 2026-11-20T18:20:31Z</div>
         </div>
-        <div style="margin-top: 10px; font-size: 0.82em; color: #94a3b8; border-top: 1px dashed #334155; padding-top: 8px;">
-            Deterministic Verification Stamp: Compiled directly from verified Markdown source via AST & regex constraints. Unverified drafts lack this seal.
+        <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
+            Deterministik Doğrulama Damgası (v7.0) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
         </div>
     </div>
-    
-    <h1>MAYIN TARLASI V6.0 — RESMİ VAKA ANALİZ RAPORU</h1>
-<p><strong>Vaka Adı:</strong> John Cook et al. (2013) vs. Richard Tol (2016) – %97 İklim Konsensüsü Tartışması<br />
-<strong>Tarih:</strong> 2026-10-02<br />
-<strong>Analitik Motor:</strong> V6.0 Epistemolojik Cerrahi<br />
-<strong>Statü:</strong> Mühürlendi  </p>
+    <h1>CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 06)</h1>
+<p><strong>İncelenen Eser:</strong> John Cook et al. (2013) – <em>Quantifying the consensus on anthropogenic global warming in the scientific literature</em> (<em>Environmental Research Letters</em>, 8: 024024)<br />
+<strong>Karşıt Metodolojik İtiraz:</strong> Richard S. J. Tol (2016) – <em>Comment on 'Quantifying the consensus...'</em> (<em>Environ. Res. Lett.</em>, 11: 048001)<br />
+<strong>Birincil Zemin Metin:</strong> <code>CALISMALARIM/v7test/06_cook_tol/Cook_Indexed_Source.txt</code><br />
+<strong>Primary Audit:</strong> <code>showcase/en/06_Cook_Tol_Report.md</code><br />
+<strong>Analitik Standart:</strong> CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} → L_{target}$)<br />
+<strong>Operasyonel Statü:</strong> Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu</p>
 <hr />
-<h2>1. [EPİSTEMOLOJİK TRİYAJ]</h2>
-<p>Bu araştırma bibliyometri, içerik analizi, bilim sosyolojisi ve iklim politikası iletişiminin kesişiminde yer aldığından V6 Triyaj Matrisi şu şekilde yapılandırılmıştır:</p>
-<h3>1.1. Aktif Katmanlar</h3>
+<h2>1. EPİSTEMOLOJİK TRİYAJ</h2>
+<p>John Cook ve ekibinin 2013 tarihli araştırması ile ekonomist Richard Tol'un 2016 tarihli metodolojik itirazı; uygulamalı bibliyometri, içerik analizi, örneklem kuramı, bilim sosyolojisi ve kamuoyu algı psikolojisinin kesişim noktasında yer almaktadır. CRUCIBLE v7.2 Triyaj Matrisi aşağıdaki katmanları devreye almıştır:</p>
+<h3>1.1. Aktif Normatif Katmanlar</h3>
 <ul>
-<li><strong>K1 (Epistemik Erdem ve Persona):</strong> İklim krizi kamplaşmasının (çevre aktivizmi vs. fosil yakıt lobiciliği / iklim inkârcılığı) yarattığı politik histeri tamamen filtrelenmiştir. Yalnızca saf istatistiksel payda matematiği, bibliyometrik kurallar ve içerik analizi metodolojisi işletilecektir.</li>
-<li><strong>K2 (Felsefi Yöntem &amp; Çelik Adam):</strong> Hem Cook ve ekibinin "konsensüs iletişimi ve paradigma savunusu", hem de Richard Tol'un "istatistiksel şeffaflık ve metodolojik kusur tespiti" argümanları en güçlü formlarında (Çelik Adam) karşı karşıya getirilecektir.</li>
-<li><strong>K4 (İstatistik ve Olasılık):</strong> En kritik denetim sahasıdır. Payda seçimi (tüm külliyat vs. pozisyon alanlar), örneklem büyüklüğü (11.944 makale), kodlayıcılar arası güvenilirlik katsayıları (<em>inter-rater reliability</em> / Cohen's kappa), yüzde şişirme mekanizmaları ve seçilim yanlılığı denetlenecektir.</li>
-<li><strong>K6 (Sistematik Derleme ve Bibliyometri):</strong> Literatür tarama protokolü, Web of Science sorgu dizgeleri ("global climate change" / "global warming"), dahil etme/dışlama kriterleri ve 7 kademeli içerik kodlama matrisinin nesnelliği incelenecektir.</li>
+<li><strong>Katman 1 (Epistemik Erdem ve Dalkavukluk Filtresi):</strong> ✅ AKTİF. İklim tartışmalarının etrafındaki kutuplaşmış siyasi retorik (bir yanda Tol'un itirazlarını ampirik iklim fiziğini toptan inkâr etmek için istismar eden inkârcılık, diğer yanda %97 sayısını sorgulanamaz bir tabu gibi pazarlayan aktivist yaklaşım) tamamen filtrelenmiştir. Denetim; yalnızca matematiksel payda tanımları, içerik analizi ve ölçüm bilimi çerçevesinde yürütülür.</li>
+<li><strong>Katman 2 (Çelik Adam ve Yanlışlanabilirlik):</strong> ✅ AKTİF. Hem Cook ekibinin "yerleşik bilimsel paradigma mutabakatı" savı hem de Tol'un "istatistiksel ölçüm ve kodlama güvenirliği" eleştirisi, metodolojik zaafları sorgulanmadan önce en yetkin akademik formlarında inşa edilmiştir.</li>
+<li><strong>Katman 3 (Hermenötik ve Kavramsal Hijyen):</strong> ✅ AKTİF. "Konsensüs" kavramının anlamsal esnemesini denetler: İnsanın küresel ısınmaya herhangi bir ölçüde katkı sağlaması (genel katkı) ile ısınmanın birincil/baskın nedeni olması (&gt;%50 etki) arasındaki kavramsal sıçramaları teşhir eder.</li>
+<li><strong>Katman 4 (İstatistik, Bayes ve Örneklem Metodolojisi):</strong> ✅ AKTİF. Payda bileşimi, 7 kademeli içerik sınıflandırmasının dağılımı, kodlayıcılar arası güvenilirlik ve yazarların kendi makalelerini puanladığı öz-değerlendirme anketindeki %14'lük katılım oranının getirdiği seçilim yanlılığını çözümler.</li>
+<li><strong>Katman 7 (Karar Bilimi, Derin Belirsizlik ve Açık Bilim - DMDU):</strong> ✅ AKTİF. Bilimsel mutabakat metriklerinin derin belirsizlik altında kamuoyu risk algısını ("Ağ Geçidi İnanç Modeli") ve demokratik politika tercihlerini nasıl etkilediğini analiz eder.</li>
+<li><strong>Katman 8 (Tarihsel ve Metinsel Kaynak Tenkiti):</strong> ✅ AKTİF. İncelenen makaledeki ham veri tabloları ile kamuoyuna sunulan başlık iddialarını İddia-Kaynak Denetim Matrisi ile karşılaştırır.</li>
+<li><strong>Katman 10 (Karmaşıklık, Genişletilmiş Etik ve Epistemik Otopsi):</strong> ✅ AKTİF. Denetim sonucunda tezin ayakta kalan asgari çekirdeğini Hasar Raporu'nda belgeler ve bağımsız araştırmacılar için Cerrah Denetim Kartı sunar.</li>
 </ul>
 <h3>1.2. Dışlanan Katmanlar ve Gerekçeleri</h3>
 <ul>
-<li><strong>K3 (Hermenötik &amp; Edebi Metin Yorumu):</strong> DIŞLANDI. Metinler edebiyat veya teoloji değil; bibliyometrik içerik analizi ve istatistiksel eleştiri makaleleridir.</li>
-<li><strong>K8 (Tarihsel Metin Tenkidi):</strong> DIŞLANDI. İncelenen tartışma antik metinler veya yazıtlar içermemektedir. Çağdaş bibliyometri ve istatistiğin kendi standartları (K4, K6) işletilecektir.</li>
-<li><strong>K9 (Hesaplamalı Bilimler ve AI):</strong> DIŞLANDI. Metin taraması yapay zekâ veya simülasyonla değil, insan kodlayıcılar ve standart veritabanı sorgularıyla yürütülmüştür.</li>
-<li><strong>K10 (Raporlama ve İtiraflar):</strong> AKTİF (Bölüm 10 ve 11'de işletilmiştir).</li>
+<li><strong>Katman 5 (Deneysel Tasarım ve Nedensellik - DAG):</strong> ⛔ DIŞLANDI. Eser bir laboratuvar veya klinik deney değil, yayımlanmış makale özetlerinin gözlemsel bibliyometrik taramasıdır.</li>
+<li><strong>Katman 6 (Tıbbi Kanıt Hiyerarşisi - GRADE):</strong> ⛔ DIŞLANDI. Klinik tıp ve epidemiyolojiye özgü GRADE piramidi, bibliyometrik literatür içerik kodlamasına uygulanamaz.</li>
+<li><strong>Katman 9 (Hesaplamalı Modeller ve Yapay Zekâ):</strong> ⛔ DIŞLANDI. 2013 tarihli makalede derin öğrenme veya yapay zekâ algoritmaları değil, insan kodlayıcılar kullanılmıştır.</li>
 </ul>
 <hr />
-<h2>2. METİN KÜNYESİ VE KÖK İDDİA</h2>
-<ul>
-<li><strong>Taraflar:</strong></li>
-<li><strong>Tez Sahipleri:</strong> John Cook et al. (<em>Skeptical Science</em> ve Queensland Üniversitesi).</li>
-<li><strong>Antitez / Eleştirmen:</strong> Richard S. J. Tol (Sussex Üniversitesi ve Vrije Universiteit Amsterdam Ekonomi Profesörü).</li>
-<li><strong>Eserler:</strong></li>
-<li>John Cook et al., <em>Quantifying the consensus on anthropogenic global warming in the scientific literature</em> (<em>Environmental Research Letters</em>, 2013; 8: 024024).</li>
-<li>Richard S. J. Tol, <em>Comment on 'Quantifying the consensus on anthropogenic global warming in the scientific literature'</em> (<em>Environmental Research Letters</em>, 2016; 11: 048001).</li>
-<li><strong>Disiplin:</strong> Bibliyometri, Bilim Sosyolojisi, İçerik Analizi, İklim Politikası.</li>
-<li><strong>Kök İddia 1 (Cook vd. — %97.1 Konsensüs):</strong><blockquote>
-<p><em>"Among abstracts expressing a position on AGW, 97.1% endorsed the consensus position that humans are causing global warming... The number of papers rejecting the consensus on AGW is a vanishingly small proportion of the published research."</em> (Cook et al., s. 1)</p>
+<h2>2. ÇELİK ADAM</h2>
+<h3>2.1. John Cook ve Ekibinin Tezinin En Güçlü Akademik Rekonstrüksiyonu</h3>
+<p>Cook ve ekibinin küresel iklim politikasını kökten etkileyen tezini, popüler basitleştirmelerden arındırarak en güçlü akademik zeminiyle kuruyoruz:</p>
+<ol>
+<li>
+<p><strong>Temel Hedef Sözcük Sayımı Değil, Paradigma Varlığının Sınanmasıdır:</strong><br />
+   Cook et al. (2013) çalışmasının amacı soyut bir dilbilimsel metin analizi yapmak değil; kamuoyunu derinden ilgilendiren somut bir hakikat sorusunu yanıtlamaktı: <em>Hakemli bilimsel literatürde, küresel ısınmaya insanların yol açtığına dair somut ve meşru bir bilimsel çatışma/fay hattı var mıdır?</em> Yazarlar, 21 yıllık dönemi kapsayan 11.944 makale özetini tarayarak şu gerçeği ortaya koymuşlardır:</p>
+<blockquote>
+<p>"We ﬁnd that 66.4% of abstracts expressed no position on AGW, 32.6% endorsed AGW, 0.7% rejected AGW and 0.3% were uncertain about the cause of global warming." [P:0003]<br />
+<em>(Bulgularımıza göre özetlerin %66.4'ü insan kaynaklı küresel ısınma konusunda hiçbir görüş belirtmemiştir; %32.6'sı onaylamış, %0.7'si reddetmiş ve %0.3'ü ısınmanın nedeni konusunda belirsizlik bildirmiştir.)</em><br />
+   Yaklaşık 12.000 makale içinde insan kaynaklı ısınmayı reddeden çalışma sayısı yalnızca 78'dir (%0.7). Yani hakemli literatürde alternatif bir "inkâr" paradigması fiilen mevcut değildir.</p>
 </blockquote>
 </li>
-<li><strong>Kök İddia 2 (Richard Tol — Metodolojik İtiraz):</strong><blockquote>
-<p><em>"Cook et al's 97% consensus is an artifact of flawed survey design, rater bias, and selective exclusion... 66.4% of all papers took no position. If all papers are included, the endorsement rate drops to 32.6%."</em> (Tol, s. 1–3)</p>
+<li>
+<p><strong>Yerleşik Bilimsel Disiplinlerde "Görüş Bildirmeyen" Makalelerin Paydadan Çıkarılması Rasyoneldir:</strong><br />
+   Olgunlaşmış bilim dallarında, araştırmacılar her teknik makalenin özetinde bilimin kurucu aksiyomlarını baştan tekrar etmezler. Yazarlar bu durumu Naomi Oreskes'in şu tespitiyle gerekçelendirir:</p>
+<blockquote>
+<p>"This result is expected in consensus situations where scientists ‘ . . . generally focus their discussions on questions that are still disputed or unanswered rather than on matters about which everyone agrees ’ (Oreskes 2007, p 72)." [P:0007]<br />
+<em>(Bu sonuç, bilim insanlarının herkesin hemfikir olduğu meseleler yerine henüz tartışmalı veya cevapsız kalan sorulara odaklandığı konsensüs durumlarında beklenen bir tablodur.)</em><br />
+<em>Somut Örnek / Analoji:</em> Modern bir astrofizikçi kara delik ışımasını incelerken özetine "Newton yerçekimi yasası geçerlidir" diye yazmaz. Benzer şekilde, kutup buzullarındaki erimeyi veya Afrika'daki kuraklığın mısır verimine etkisini araştıran bir iklim bilimci de 200 kelimelik özetinde sera gazı fiziğini kanıtlamaya çalışmaz. Dolayısıyla, mutabakat oranını hesaplarken görüş bildirmeyen 7.930 makaleyi dışarıda bırakıp oranı $\frac{\text{Onaylayanlar}}{\text{Onaylayanlar} + \text{Reddedenler}} = \frac{3.896}{4.014} = \%97.1$ olarak formüle etmek, bilim sosyolojisi açısından tutarlı bir yaklaşımdır.</p>
 </blockquote>
 </li>
-</ul>
-<h3>2.1. İDDİA-VERİ DENETİM MATRİSİ</h3>
+<li>
+<p><strong>Yazarların Kendi Makalelerini Puanlaması (Öz-Değerlendirme Doğrulaması):</strong><br />
+   Özetlerin kısalığından kaynaklanan şüpheleri gidermek amacıyla Cook ve ekibi, makale yazarlarına e-posta göndererek kendi tam metinlerini puanlamalarını istemiştir:</p>
+<blockquote>
+<p>"In a second phase of this study, we invited authors to rate their own papers. Compared to abstract ratings, a smaller percentage of self-rated papers expressed no position on AGW (35.5%). Among self-rated papers expressing a position on AGW, 97.2% endorsed the consensus." [P:0003]<br />
+<em>(Bu çalışmanın ikinci aşamasında, yazarları kendi makalelerini puanlamaya davet ettik. Özet puanlamalarıyla kıyaslandığında, yazarların kendi puanladığı makalelerde 'görüş bildirmeyen' oranı %35.5'e gerilemiştir. Bir görüş bildiren makaleler arasında ise yazarların %97.2'si konsensüsü onaylamıştır.)</em><br />
+   Yazarlar kendi makalelerinin tam metnini değerlendirdiğinde, özetteki suskunluğun ezici çoğunlukla insan kaynaklı ısınmayı veri kabul eden araştırmalardan oluştuğu birinci elden doğrulanmıştır.</p>
+</blockquote>
+</li>
+</ol>
+<hr />
+<h3>2.2. Richard Tol'un Karşıt İtirazının Çelik Adam Rekonstrüksiyonu</h3>
+<p>Ekonomist Richard Tol'un itirazı, iklim fiziğini inkâr eden ideolojik bir metin değil; ölçüm etiği ve istatistiksel dürüstlük talep eden sert bir metodoloji eleştirisidir:</p>
+<ol>
+<li><strong>Payda Manipülasyonu ve Yüzde Şişirme Sorunu:</strong><br />
+   Tol, kamuoyuna sunulan "%97 mutabakat" sloganının matematiksel bir payda daraltmasına dayandığını savunur. 11.944 makalelik toplam külliyatın nesnel dağılımı şöyledir:</li>
+<li>İnsan etkisini onaylayanlar (Kategori 1–3): $3.896$ makale (%32.6)</li>
+<li>Görüş bildirmeyen nötr makaleler (Kategori 4): $7.930$ makale (%66.4)</li>
+<li>İnsan etkisini reddedenler (Kategori 5–7): <em>78</em> makale (%0.7)</li>
+<li>
+<p>Belirsiz olduğunu belirtenler (Kategori 4b): <em>40</em> makale (%0.3)<br />
+   Tüm literatür baz alındığında, insan etkisini açık veya örtük biçimde onaylayan çalışmalar yalnızca <strong>%32.6</strong> düzeyindedir. Yazarın suskunluğunu otomatikman "onay" kabul edip %66.4'lük nötr gövdeyi paydadan silmek, topluma gerçeği olduğundan farklı yansıtmaktır.<br />
+<em>Somut Örnek / Analoji:</em> 100 kişilik bir seçmen topluluğunda yapılan ankette 66 kişi "fikrim yok/oy kullanmıyorum" dese, 33 kişi "A adayını", 1 kişi "B adayını" desteklese; sandığa gitmeyen 66 kişiyi hesaptan tamamen silerek "A adayı halkın %97'sinin desteğini almıştır" demek gerçeği nasıl büküyorsa, Cook et al. çalışmasında da yapılan payda daraltması benzer bir algı sıçraması yaratmaktadır.</p>
+</li>
+<li>
+<p><strong>Kategori Esnemesi ve "Örtük Onay" Zaafı:</strong><br />
+   Cook ve ekibinin 7 kademeli cetvelinde, ısınmanın yarıdan fazlasının (&gt;%50) insandan kaynaklandığını açıkça ve ölçümle belirten (Kategori 1) makale sayısı 11.944 makale içinde yalnızca <strong>64 adettir (%0.54)</strong>. Toplam onay kümesinin dörtte üçü ($%74.7$), küresel ısınmayı yalnızca arka plan verisi olarak varsayan Kategori 3 ("Örtük Onay") çalışmalarından oluşmaktadır. İklim kuşkucularının dahi itiraz etmediği en genel tespitleri "acil kriz mutabakatı" torbasına doldurmak yöntemsel bir genelleme hatasıdır.</p>
+</li>
+<li>
+<p><strong>Kodlayıcı Bağımsızlığı ve Aktivist Yanlılığı:</strong><br />
+   Makaleleri puanlayan 12 ana kodlayıcı, bağımsız ve körlenmiş akademisyenler değil; bizzat John Cook'un kurduğu <em>Skeptical Science</em> adlı iklim savunuculuğu sitesinin gönüllü aktivistleridir [P:0004]. Kodlayıcıların araştırma hipoteziyle doğrudan taraf olması, içerik analizi standartları açısından doğrulama yanlılığı (<em>confirmatory bias</em>) üretmeye elverişlidir.</p>
+</li>
+</ol>
+<hr />
+<h2>2.3. HAKİKİ METODOLOJİK CERRAHİ: YAZARIN BERTARAF EDEMEDİĞİ 3 GERÇEK YARILMA NOKTASI</h2>
+<p>Orijinal metin adli bir titizlikle tarandığında, Cook ve ekibinin bertaraf edemediği üç derin metodolojik yarılma noktası açığa çıkmaktadır:</p>
+<h3>Yarılma 1: Kategori 3 Belirsizliği ve "Baskın Neden" (&gt;%50) Açığı</h3>
+<p>Cook et al. %97.1 oranını raporlarken, kamuoyunda "bilim insanlarının %97'si küresel ısınmanın esas olarak insandan kaynaklandığı konusunda mutabıktır" algısı oluşmuştur. Oysa metindeki 7 kademeli dağılım incelendiğinde:<br />
+* Kategori 1 (Ölçümle açıkça &gt;%50 insan etkisi bildiren): 64 makale (%0.54)<br />
+* Kategori 2 (Ölçüm yapmaksızın açıkça insan etkisi bildiren): 922 makale (%7.72)<br />
+* Kategori 3 (Örtük onay — ısınmayı yalnızca arka plan kabul eden): 2.910 makale (%24.36)<br />
+Onay veren 3.896 makalenin %74.7'si Kategori 3'tedir. Yani makalelerin büyük kısmı insan etkisini doğrudan araştırmamış; yalnızca toprakta karbon tutulumu [P:0005] gibi yan konuları incelerken ısınmayı veri kabul etmiştir. Bu veriyi "yazarların %97'si insanı baskın faktör görmektedir" şeklinde genellemek metodolojik bir vekil sıçramasıdır (<em>proxy leap</em>).</p>
+<h3>Yarılma 2: Yazar Öz-Değerlendirme Anketindeki %14 Katılım Oranı</h3>
+<p>Yazarlar, özetlerin yetersizliğini gidermek için 8.547 makale yazarına e-posta göndermiş ancak yalnızca 1.200 yazardan (%14 yanıt oranı) geri dönüş alabilmiştir [P:0006], [P:0007].<br />
+Anket metodolojisinde %14 gibi çok düşük bir katılım oranı, kaçınılmaz olarak <strong>gönüllü katılım yanlılığı (self-selection bias)</strong> doğurur. İklim konsensüsünü aktif olarak destekleyen araştırmacıların bu tür bir ankete cevap verme motivasyonu, tarafsız veya şüpheci araştırmacılara göre çok daha yüksektir. Geriye kalan %86'lık sessiz çoğunluğun profili bilinmemektedir.</p>
+<h3>Yarılma 3: Bilimsel Veriden Siyasi Kampanyaya Geçiş (Ağ Geçidi İnanç Aşırılığı)</h3>
+<p>Yazarlar makalenin hem girişinde hem tartışma bölümünde bibliyometrik ölçümü doğrudan siyasi destek inşasına bağlamaktadır:</p>
+<blockquote>
+<p>"The public perception of a scientiﬁc consensus on AGW is a necessary element in public support for climate policy (Ding et al 2011)." [P:0008]<br />
+<em>(İnsan kaynaklı küresel ısınmaya dair bilimsel mutabakatın kamuoyu tarafından doğru algılanması, iklim politikalarına toplumsal destek sağlanmasında zorunlu bir unsurdur.)</em><br />
+Bilimsel bir ölçümü, kamuoyunu yönlendirmeyi hedefleyen bir iletişim stratejisine ("Gateway Belief Model") açıkça bağlamak; sonuçların siyasi aktörler tarafından bağlamından koparılarak ("97% of scientists agree on catastrophe") pazarlanmasına zemin hazırlamış ve Tol'un meşru istatistiksel eleştirilerine hedef olarak bilimin güvenilirliğine zarar vermiştir.</p>
+</blockquote>
+<hr />
+<h2>2.4. KATMAN 8: KAYNAK TENKİTİ VE DİSİPLİNER MATRİS</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Tez / İddia Sütunu</th>
+<th style="text-align: left;">Tez / İddia</th>
 <th style="text-align: left;">Dayandığı Temel Kaynak</th>
 <th style="text-align: left;">Kaynak Durumu &amp; Türü</th>
 <th style="text-align: left;">Metodolojik Hüküm</th>
@@ -170,151 +159,95 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>T1: %97.1 Mutlak Mutabakat</strong> (İklim bilimciler insan etkisinde hemfikirdir)</td>
-<td style="text-align: left;">11.944 Makaleden Görüş Bildiren 4.014 Özetin Taranması</td>
-<td style="text-align: left;">Hakemli Bibliyometrik İçerik Analizi</td>
-<td style="text-align: left;">Payda Tanımlama Sorunu (Açık Onay Oranı %0.54)</td>
+<td style="text-align: left;"><strong>1. Pozisyon Bildiren Özetlerde %97.1 Konsensüs</strong></td>
+<td style="text-align: left;">Cook, Nuccitelli, Green, Richardson, Winkler, Painting, Way, Jacobs, Skuce (2013), ERL 8 024024 [P:0003], Table 3 [P:0006]</td>
+<td style="text-align: left;">Birincil Bibliyometrik İçerik Analizi ($n=11.944$ makale özeti)</td>
+<td style="text-align: left;"><strong>Aritmetik Olarak Sağlam:</strong> 3.896 onay makalesi, görüş bildiren 4.014 makaleye bölündüğünde %97.06 vermektedir. Ancak nötr durumdaki %66.4'lük devasa kütle (7.930 makale) paydadan çıkarılmıştır.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>T2: Nötr Makalelerin Dışlanması</strong> (Görüş bildirmeyenler paydadan atılmalıdır)</td>
-<td style="text-align: left;">Paradigma İçi Bilim Analojisi (Evrim veya yerçekimi her makalede yinelenmez)</td>
-<td style="text-align: left;">Bilim Sosyolojisi Argümanı</td>
-<td style="text-align: left;">Metodolojik Olarak Savunulabilir / İletişimde Yanıltıcı</td>
+<td style="text-align: left;"><strong>2. İklim Literatüründe İnkârın Sıfıra Yakın Olması (&lt;%1)</strong></td>
+<td style="text-align: left;">Cook et al. (2013), Table 3 [P:0006], Abstract [P:0003]</td>
+<td style="text-align: left;">Birincil Veri Dağılımı (11.944 makale içinde 78 ret)</td>
+<td style="text-align: left;"><strong>Metodolojik Olarak Sarsılmaz:</strong> Kesin biçimde kanıtlanmıştır. 21 yıllık hakemli literatürde antropojenik ısınmayı açıkça veya örtükçe reddeden çalışmaların oranı yalnızca %0.65'tir.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>T3: Yazar Öz-Değerlendirme Doğrulaması</strong> (Yazarların kendi puanı %97.2)</td>
-<td style="text-align: left;">1.200 Yazardan Toplanan 2.142 Makale Yanıtı</td>
-<td style="text-align: left;">E-posta Anket Doğrulaması</td>
-<td style="text-align: left;">Gönüllü Katılım Yanlılığı (<em>Self-Selection Bias</em>)</td>
+<td style="text-align: left;"><strong>3. Yazar Öz-Puanlamalarının %97 Metriğini Doğrulaması (%97.2)</strong></td>
+<td style="text-align: left;">Cook et al. (2013), Section 3.2 [P:0006], Table 4 [P:0007]</td>
+<td style="text-align: left;">Yazar E-posta Anketi ($n=1.200$ yazar, 2.142 makale)</td>
+<td style="text-align: left;"><strong>Kısmi Kısıtla Doğrulandı:</strong> Tam metinlerin özetlere kıyasla çok daha yüksek oranda insan etkisini benimsediğini gösterir. Ancak %14'lük düşük katılım oranı nedeniyle seçilim yanlılığı taşır.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>T4: Kodlayıcı Yanlılığı ve Veri Şaibesi</strong> (Puanlayıcılar aktivisttir, körleme yoktur)</td>
-<td style="text-align: left;">12 Puanlayıcının Blog Yazışmaları ve Zaman Damgası Analizi</td>
-<td style="text-align: left;">Adli Bibliyometrik İnceleme</td>
-<td style="text-align: left;">Yüksek Metodolojik Güvenilirlik (Haklı Eleştiri)</td>
+<td style="text-align: left;"><strong>4. Özetlerdeki Suskunluğun Yerleşik Paradigma Kabulü Sayılması</strong></td>
+<td style="text-align: left;">Oreskes (2004, 2007) [P:0003], [P:0008]; Shwed and Bearman (2010) [P:0004], [P:0008]</td>
+<td style="text-align: left;">Bilim Sosyolojisi ve Atıf Ağı Dinamikleri</td>
+<td style="text-align: left;"><strong>Epistemik Olarak Savunulabilir:</strong> Özette görüş bildirmeyen çalışmaların %53.8'inin yazarları tarafından 'onay' olarak puanlanması bu sosyolojik tezi desteklemektedir [P:0007].</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5. Payda Daraltmasından Kaynaklanan Ölçüm Çarpıtması</strong></td>
+<td style="text-align: left;">[DIŞ KAYNAK] Richard S. J. Tol (2016), <em>Comment on Quantifying the consensus...</em>, ERL 11: 048001</td>
+<td style="text-align: left;">Harici Ekonometrik ve İstatistiksel Denetim</td>
+<td style="text-align: left;"><strong>Haklı Metodolojik Sınır:</strong> Tüm külliyatta açık onay oranının %32.6 olduğunu ispatlar; %97'lik metriğin payda tanımına aşırı hassas olduğunu ortaya koyar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6. İklim Uzmanlığı Düzeyine Göre Mutabakat Tabakalaşması</strong></td>
+<td style="text-align: left;">Doran and Zimmerman (2009) [P:0004], [P:0008]; Anderegg, Prall, Harold, Schneider (2010) [P:0004], [P:0009]</td>
+<td style="text-align: left;">Yayın Yapan İklim Bilimciler Üzerine Bağımsız Anketler</td>
+<td style="text-align: left;"><strong>Çapraz Doğrulayıcı Zemin:</strong> Aktif yayın yapan uzman iklim bilimciler arasında mutabakatın %97–98 bandında olduğunu bağımsız olarak teyit eden dış referanslardır.</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>3. [ÇELİK ADAM (STEELMANNING)]</h2>
-<p>Her iki tarafın argümanını popüler retorikten arındırarak en güçlü akademik zemininde kuruyoruz:</p>
-<h3>3.1. Cook vd. Çelik Adam Rekonstrüksiyonu</h3>
-<blockquote>
-<p><em>"Cook ve ekibinin 'görüş bildirmeyen nötr makaleleri paydadan çıkarma' tercihi bir veri hilesi değil; yerleşik paradigmaların bibliyometrik doğasını yansıtan rasyonel bir metodolojik yaklaşımdır. Jeologlar buz çekirdeğindeki izotop oranını veya atmosfer fizikçileri bulut geçirgenliğini modellerken, her teknik makalenin özetine 'insanlar küresel ısınmaya yol açıyor' diye yazmak zorunda değildir. Tıpkı modern moleküler biyologların her makalede 'Darwin haklıdır ve canlılar evrimleşir' cümlesini kurmaması gibi, yerleşik bir teorinin temel aksiyomları artık her araştırmanın doğrudan çalışma nesnesi olmaktan çıkar ve arka plan kabulü haline gelir.</em><br />
-<em>Dolayısıyla insanın etkisini ölçmeyi amaçlamayan 7.930 nötr makaleyi (%66.4) 'kararsızlar' veya 'şüpheciler' gibi sunmak asıl metodolojik saptırmadır. İnsan kaynaklı ısınmayı doğrudan bir hipotez olarak ele alan ve pozisyon bildiren makaleler süzüldüğünde elde edilen %97.1 oranı; hakemli iklim literatüründe insan etkisini reddeden marjinal çalışmaların (%0.7) gürültüden ibaret olduğunu ve kamuoyundaki 'bilim insanları ikiye bölünmüş durumda' algısının fosil yakıt lobileri tarafından üretilmiş sahte bir illüzyon olduğunu nesnel olarak belgeler."</em></p>
-</blockquote>
-<h3>3.2. Richard Tol Çelik Adam Rekonstrüksiyonu</h3>
-<blockquote>
-<p><em>"Tol'un eleştirisi iklim fiziğini veya antropojenik ısınmayı inkâr etmek değil; bilimsel iddiası olan bir bibliyometrik araştırmanın asgari araştırma etiği ve istatistik standartlarına uymasını talep etmektir. Cook ve ekibi kamuoyuna ve karar vericilere (Barack Obama'nın meşhur tweeti dahil) '%97 konsensüs' sloganını sunarken; toplumda 'bilim insanlarının %97'si küresel ısınmanın esas olarak (&gt;%50) insandan kaynaklandığına ve acil bir felakete yol açacağına inanıyor' algısını oluşturmuştur.</em><br />
-<em>Oysa Cook'un kendi ham verilerinde insanın ısınmanın birincil nedeni olduğunu açıkça söyleyen (Kategori 1) makale sayısı 11.944 makale içinde yalnızca 64 tanedir (%0.54). Şüphecilerin dahi itiraz etmediği 'insan atmosfere sera gazı salmaktadır' şeklindeki en genel ve zayıf cümleleri (Kategori 2 ve 3) 'radikal kriz mutabakatı' torbasına doldurmak bilimsel bir aldatmacadır. Ayrıca 11.944 makaleyi puanlayan 12 kişinin bağımsız, körleme protokolüne tabi araştırmacılar değil; Cook'un yönettiği 'Skeptical Science' adlı aktivist blogun militan üyeleri olması ve veri tabanında tespit edilen binlerce kayıt tutarsızlığı, araştırmanın hakem denetiminden geçmemesi gereken bir PR kampanyası olduğunu kanıtlamaktadır."</em></p>
-</blockquote>
-<hr />
-<h2>4. HERMENÖTİK VE KAVRAMSAL İSKELET</h2>
+<h2>3. OTO-FALSİFİKASYON</h2>
+<p>CRUCIBLE felsefesinin gereği olarak, bu raporda vardığımız analitik hükümlerin kendi zayıf noktalarını, kısıtlarını ve hangi ampirik bulgu karşısında çökeceğini beyan ediyoruz:</p>
 <ol>
-<li><strong>Ağ Geçidi İnanç Modeli (<em>Gateway Belief Model</em>):</strong><br />
-   Kamuoyunun bilimsel konsensüs algısının, iklim politikalarını destekleme yönündeki en kritik psikolojik eşik (kaldıraç) olduğu teorisi.</li>
-<li><strong>Payda Etkisi (<em>Denominator Manipulation</em>):</strong><br />
-   Yüzde hesaplamalarında nötr veya belirsiz kümelerin paydadan atılarak ya da paydaya eklenerek sonucun dramatik biçimde değiştirilmesi taktiği.</li>
-<li><strong>Örtük Onay (<em>Implicit Endorsement</em>):</strong><br />
-   Bir makalenin küresel ısınmayı doğrudan incelemeyip, iklim değişikliği etkilerini veri kabul etmesinin "insan kaynaklı ısınmaya onay" sayılıp sayılamayacağı metodolojik sorunu.</li>
+<li>
+<p><strong>Ölçümcü Çerçeve Yanlılığı (Metodolojik Kısıt):</strong><br />
+   Bu denetim, ağırlıklı olarak formel istatistik ve anket metodolojisi standartlarına (Tol'un perspektifine) öncelik vermiştir. Eğer bilim felsefesinde Thomas Kuhn ve Naomi Oreskes'in savunduğu "yerleşik paradigmalar metin özetlerinde tartışılmaz" ilkesi mutlak kabul edilirse, %66.4'lük nötr makaleyi paydadan dışlama tercihimize yönelttiğimiz eleştiri haksız bir teknik şekilciliğe dönüşebilir.</p>
+</li>
+<li>
+<p><strong>Popperiyen Yanlışlanabilirlik Eşiği:</strong><br />
+   Vardığımız hüküm ("%97 oranı pozisyon bildiren makaleler içinde geçerlidir ancak tüm külliyatın genel eğilimini abartmaktadır") şu iki somut ampirik bulgu ortaya konursa yanlışlanacaktır:</p>
+</li>
+<li>Görüş bildirmeyen 7.930 makaleden rastgele seçilecek temsil kabiliyeti yüksek bir örneklemin tam metinleri incelendiğinde, %15'ten fazlasının antropojenik ısınmayı kuşkulu bulduğu veya reddettiği belgelenirse.</li>
+<li>
+<p>Yazar anketine katılmayan %86'lık yazarların rastgele bir alt kümesi sorgulandığında, ağırlıklı olarak konsensüse mesafeli oldukları için ankete katılmadıkları gösterilirse.</p>
+</li>
+<li>
+<p><strong>Tek Kaynak Riski:</strong><br />
+   Bu analiz, Cook et al. (2013) makalesinin <em>Environmental Research Letters</em> dergisindeki nihai yayımlanmış metnine dayanmaktadır. Tol'un dile getirdiği kodlayıcı zaman damgalarındaki kronolojik tutarsızlıkları içeren 23.061 satırlık ham SQL veri tabanı bu denetimde doğrudan çalıştırılmamıştır.</p>
+</li>
 </ol>
 <hr />
-<h2>5. ÇÜRÜTME VE AMPİRİK SÜRTÜNME (EMPIRICAL FRICTION)</h2>
-<p>Cook ve ekibinin küresel iklim politikasını derinden sarsan araştırması ile Richard Tol'un itirazları karşılaştırıldığında, her iki tarafın da ampirik ve yöntemsel sınırları açıkça ortaya çıkmaktadır:</p>
-<h3>5.1. Cook vd.'nin Payda Manipülasyonu ve Kategori 1 Çelişkisi</h3>
-<p>Cook ve ekibi kamuoyuna "%97 mutlak mutabakat" sloganını sunarken; toplumda ve siyaset mekanizmasında <em>"Bilim insanlarının %97'si küresel ısınmanın esas olarak (&gt;%50) insan faaliyetlerinden kaynaklandığı ve acil bir krize yol açacağı konusunda hemfikirdir"</em> algısını inşa etmiştir.<br />
-Ancak Cook'un kendi veri tabanındaki ham sayımlar incelendiğinde çok ağır bir <strong>istatistiksel payda çelişkisi</strong> açığa çıkmaktadır:<br />
-* <strong>İncelenen Toplam Makale Sayısı:</strong> 11.944<br />
-* <strong>Kategori 1 (Açık Onay ve Miktar Belirtme):</strong> İnsanın ısınmanın birincil derecede (&gt;%50) nedeni olduğunu açıkça ifade eden makale sayısı yalnızca <strong>64 adettir (Tüm külliyatın %0.54'ü)</strong>!<br />
-* <strong>Kategori 2 ve 3 (Genel ve Örtük Onay):</strong> İnsanın sera gazı saldığını kabul eden veya genel etkisini veri sayanlar: 3.832 makale.<br />
-* <strong>Kategori 4 (Nötr / Taraf Seçmeyen):</strong> Hiçbir görüş bildirmeyenler: 7.930 makale (%66.4).<br />
-* <strong>Kategori 5, 6 ve 7 (Ret Makaleleri):</strong> İnsan etkisini reddeden veya minimize edenler: 78 makale (%0.7).  </p>
-<p>Cook ve ekibi, 7.930 nötr makaleyi paydadan atarak $\frac{3896}{4014} = \%97.1$ oranını üretmiştir.<br />
-Eğer mutabakat çıtası kamuoyuna pazarlandığı gibi "ısınmanın esas nedeni insandır (&gt;%50)" seviyesinde tutulursa bu oran %1.6'ya; tüm incelenen literatür paydaya dahil edilirse onay oranı %32.6'ya düşmektedir. En radikal iklim şüphecilerinin bile (örn. Lindzen, Christy) "insan faaliyetlerinin karbondioksit saldığı" gerçeğini inkâr etmediği düşünülürse, Cook'un konsensüs tanımı totolojik bir esneklikle şişirilmiştir.</p>
-<h3>5.2. Kodlayıcı Bağımsızlığı Krizi ve Çıkar Çatışması</h3>
-<p>Bibliyometrik içerik analizinde hakem güvencesi; kodlayıcıların birbirinden bağımsız olması, körleme protokolüne (<em>blind rating</em>) uyması ve çıkar çatışmasından arınmış olması şartına dayanır.<br />
-Oysa 11.944 makale özetini kodlayan 12 kişi bağımsız akademisyenler değil; Cook'un bizzat kurucusu ve yöneticisi olduğu "Skeptical Science" adlı iklim savunucusu blogun gönüllü aktivistleridir. Tol'un adli bibliyometrik incelemesi; kodlayıcılar arası güvenilirlik katsayılarının (<em>Cohen's kappa</em>) birçok kategoride kabul edilebilir bilimsel sınırın altında kaldığını, zaman damgalarında tutarsızlıklar olduğunu ve ihtilaflı makalelerin kapalı devre iç müzakerelerle zorla "onay" kategorisine taşındığını belgelemiştir.</p>
-<h3>5.3. Richard Tol'un Neoklasik Ekonomizm ve İrrasyonellik Tuzağı</h3>
-<p>Tol, Cook'un bibliyometrik ve istatistiksel zaaflarını yakalamakta ne kadar haklıysa; kendi makalesinde savunduğu şu iddiada o kadar büyük bir safsataya düşmektedir:  </p>
-<blockquote>
-<p><em>"Bilimsel fikir birliğinin derecesi, sera gazı emisyonlarının azaltılmasına ilişkin rasyonel politikalarla hiçbir ilişki taşımaz."</em> (Tol, s. 1)  </p>
-</blockquote>
-<p>Hükümetler ve karar vericiler trilyonlarca dolarlık enerji altyapısı ve regülasyon kararı alırken, karşı karşıya kalınan fiziksel riskin büyüklüğünü ve olasılık dağılımını uzman konsensüsünün gücüne göre tartmak zorundadır. Tol'un saf neoklasik fayda-maliyet ekonomizmine sığınarak bilimin kurumsal mutabakat işlevini bütünüyle "irrasyonel ve alakasız" ilan etmesi, eleştirisini bilim sosyolojisi açısından temelsiz bir aşırılığa sürüklemiştir.</p>
-<hr />
-<h2>6. SAFSATA VE METODOLOJİK İHLAL AVI (FALLACY HUNTING)</h2>
-<h3>6.1. Totolojik Çerçeveleme ve Payda Hilesi (Cook)</h3>
-<ul>
-<li><strong>Kusurlu Akıl Yürütme:</strong> İklim değişikliğini onaylamak tanımı o kadar genişletilmiştir ki; "insanlar fosil yakıt yakarak sera gazı salmaktadır" diyen herhangi bir genel cümle bile "felaket konsensüsü" torbasına doldurulmuştur.</li>
-<li><strong>Teşhis:</strong> Karşıtlarının dahi itiraz edemeyeceği kadar gevşek bir önermeyi konsensüs ilan edip, ardından kamuoyuna "bilim insanları acil eylem konusunda %97 mutabıktır" algısı satmak açık bir çerçeve kayması (<em>framing fallacy</em>) ve payda manipülasyonudur.</li>
-</ul>
-<h3>6.2. Gözlemci Beklentisi Yanlılığı (<em>Observer-Expectancy Bias</em>)</h3>
-<ul>
-<li><strong>Kusurlu Akıl Yürütme:</strong> Amacı fosil yakıt şüpheciliğini çökertmek olan bir sivil toplum inisiyatifinin üyeleri, hakemli bir araştırmanın nesnel kodlayıcıları olarak kullanılmıştır.</li>
-<li><strong>Teşhis:</strong> Sonucu önceden belli olan bir siyasi angajmanın taraflarına sübjektif özet metinleri puanlatmak, bilimsel metodolojide kabul edilemez bir çıkar çatışması (<em>conflict of interest</em>) ve gözlemci yanlılığıdır.</li>
-</ul>
-<h3>6.3. Sahte İkilem ve Epistemik İzolasyonizm (Tol)</h3>
-<ul>
-<li><strong>Kusurlu Akıl Yürütme:</strong> Ya tam kusursuz bir bibliyometri ve neoklasik fayda-maliyet analizi yapılacaktır ya da bilimsel konsensüsün hiçbir siyasi ve pratik değeri olmayacaktır.</li>
-<li><strong>Teşhis:</strong> Tol, yöntemsel hataları gerekçe göstererek fiziksel risk konsensüsünün siyasi karar alma mekanizmasındaki meşru yerini tamamen yok saymış; pozitivist bir epistemik izolasyonizm üretmiştir.</li>
-</ul>
-<hr />
-<h2>7. BİLDİRİLEN NEDENSELLİK VE KARIŞTIRICI DEĞİŞKENLER (CONFOUNDERS)</h2>
-<p>Cook vd.'nin savunduğu Ağ Geçidi İnanç Modeli (<em>Gateway Belief Model</em>):<br />
-$$\text{\%97 Konsensüs İletişimi} \longrightarrow \text{Kamuoyu Algısının Dönüşümü} \longrightarrow \text{Siyasi Eylem Baskısı}$$</p>
-<p>Bu modelde ampirik olarak çöken kritik karıştırıcı değişkenler:</p>
+<h2>4. HASAR RAPORU</h2>
+<p>Yürütülen adli denetim sonucunda tezin aldığı metodolojik hasar ve ayakta kalan asgari iddia çekirdeği şöyledir:</p>
 <ol>
-<li><strong>Kültürel Biliş ve İdeolojik Savunma Mekanizması (Dan Kahan Bulguları):</strong><br />
-   Yale Üniversitesi Kültürel Biliş Projesi araştırmaları; insanlara doğrudan "%97 konsensüs" verisi dayatmanın şüphecileri ikna etmediğini, aksine onları kendi ideolojik kamplarına daha fazla kilitlediğini (<em>backfire effect</em>) ve siyasi kutuplaşmayı tırmandırdığını göstermiştir.</li>
-<li><strong>Ekonomik Maliyet Algısı:</strong><br />
-   Vatandaşların iklim politikalarına direnç göstermesinin ana sebebi "bilime inanmamaları" değil; yeşil dönüşümün getireceği doğrudan vergi yükü, akaryakıt zamları ve istihdam kayıplarıdır. Bilişsel konsensüs algısı ekonomik maliyet değişkeni karşısında zayıf bir belirleyicidir.</li>
+<li><strong>Epistemik Hasar Alan Unsurlar (Çürütülen veya Sarsılan İddialar):</strong>  </li>
+<li>"İklim literatürünün %97'si insan kaynaklı ısınmayı onaylamaktadır" iddiası yalın bir biçimde savunulamaz. Literatürün yalnızca %32.6'sı açık veya örtük onay vermekte, %66.4'ü görüş bildirmemektedir.</li>
+<li>
+<p>Bu mutabakatın "ısınmanın ana sebebinin insan olduğunu ve felakete gittiğini" gösterdiği yönündeki popüler çıkarım temelsizdir. İnsanın &gt;%50 payını sayısal olarak belgeleyen makale sayısı toplam külliyatın yalnızca %0.54'üdür.</p>
+</li>
+<li>
+<p><strong>Ayakta Kalan Asgari İddia Çekirdeği (Grounded Core):</strong>  </p>
+</li>
+<li><strong>İnkârın Marjinalliği:</strong> 21 yıl boyunca hakemli literatürde insanın ısınmadaki etkisini reddeden yayın oranı yok denecek kadar azdır (%0.65, 78 makale). Bilimsel literatürde alternatif bir "inkâr cephesi" bulunmamaktadır.</li>
+<li><strong>Pozisyon Alanlar Arasındaki İttifak:</strong> Sebebi doğrudan araştıran ve bir tavır takınan bilim insanları arasında mutabakat ezici çoğunluktadır (%97.1 özetler, %97.2 yazarlar).</li>
+<li>
+<p><strong>Uzmanlık Çaprazlaması:</strong> Bağımsız uzman anketleri (Doran 2009, Anderegg 2010), iklim bilimciler arasında mutabakatın %97-98 bandında olduğunu doğrulamaktadır.</p>
+</li>
+<li>
+<p><strong>Nihai Metodolojik Hüküm:</strong><br />
+<strong>AĞIR REVİZYON GEREKLİDİR (Kendi Sınırları İçinde Aritmetik Olarak Doğru; Kamuoyu İletişiminde Metodolojik Olarak Aşırı Genellenmiş).</strong></p>
+</li>
 </ol>
 <hr />
-<h2>8. DİSİPLİNER MATRİS VE SINIR İHLALLERİ (KATMAN 8 GÜMRÜK DENETİMİ)</h2>
+<h2>5. CERRAH DENETİM KARTI</h2>
+<p>Araştırmacılar ve hakemler için 3 dakikada doğrulanabilecek eylem maddeleri:</p>
 <ul>
-<li><strong>Cook vd.'nin Yetki Alanı:</strong> Bilişsel Psikoloji, İletişim Bilimi, Bilim Eğitimi.<br />
-<em>İhlal:</em> İletişim taktiklerini (PR hedeflerini), hakemli bibliyometri ve istatistiğin nesnel kurallarının önüne geçirmişlerdir.</li>
-<li><strong>Richard Tol'un Yetki Alanı:</strong> Çevre Ekonomisi, İklim İktisadı.<br />
-<em>İhlal:</em> İktisadi fayda-maliyet modellerini, bilimin epistemik rehberlik fonksiyonunu inkâr etmek için bir kalkan gibi kullanmıştır.</li>
-</ul>
-<hr />
-<h2>9. ALTERNATİF HİPOTEZLER VE KARDEŞ ARGÜMANLAR (ÇAPRAZ TEST)</h2>
-<ol>
-<li><strong>Naomi Oreskes Öncül Taraması (2004, <em>Science</em>):</strong><br />
-   Oreskes'in 928 makale üzerinde yaptığı çalışma, literatürde insan etkisini reddeden hiçbir makale olmadığını göstermiştir. Bu çalışma, mutabakatın "sayısal bir yüzdeye kilitlenmeden de" niteliksel olarak güçlü olduğunu kanıtlar.</li>
-<li><strong>Doran &amp; Kendall Zimmermann Anketi (2009):</strong><br />
-   3.146 yerbilimciyle doğrudan yapılan ankette, aktif olarak iklim çalışan uzmanların %97.4'ünün insan kaynaklı ısınmayı onayladığı saptanmıştır. Bu durum, konsensüsün özet metin kodlama hilelerine gerek kalmaksızın doğrudan anket yoluyla da yüksek çıktığını doğrulamaktadır.</li>
-</ol>
-<hr />
-<h2>10. [OTO-FALSİFİKASYON VE BİLİŞSEL ÖZ-DENETİM (POST-MORTEM)]</h2>
-<p>Katman 1 ve Katman 10 gereği, modelimizin Faz 2'deki eleştirisinde içine düşmüş olabileceği kör noktalar, aşırı yorumlamalar ve epistemolojik tehlikeler aşağıda açıkça itiraf edilmiştir:</p>
-<h3>10.1. Yöntem Tenkidini İklim İnkârcılığına Meze Yapma Riski (<em>Nihilism Trap</em>)</h3>
-<p>Faz 2'de Cook ve ekibinin bibliyometrik kusurlarını, aktivist kodlayıcı yanlılığını ve payda şişirme operasyonunu acımasızca ortaya döktük. Ancak burada modelimizin içine düşmüş olabileceği ölümcül bir metodolojik tuzak vardır:<br />
-<em>Bir bibliyometri makalesinin payda matematiğindeki kusurlar, gezegenin atmosfer fiziğini veya sera gazı gerçeğini ortadan kaldırmaz.</em><br />
-Cook'un "%97" sloganını hırpalarken; fosil yakıt lobilerine ve iklim inkârcılarına sanki "hakemli bilim dünyasında insan kaynaklı ısınmaya karşı güçlü bir bilimsel alternatif varmış" gibi sahte bir meşruiyet alanı açmış olabiliriz. Oysa hakemli literatürde insan etkisini reddeden makale oranı gerçekten de %1'in altındadır. Modelimiz, yöntem tenkidi yaparken ampirik fizik gerçeğinin inkârına zemin hazırlama riskini dikkatle bertaraf etmelidir.</p>
-<h3>10.2. Nötr Makalelerin Doğasını Aşırı Yorumlama Tehlikesi</h3>
-<p>Modelimiz, Tol'un eleştirisini izleyerek 7.930 makalenin (%66.4) dışlanmasını "payda hilesi" olarak teşhis etti. Ancak bu teşhiste Tol'un karşı-manipülasyonuna gereğinden fazla prim verilmiş olabilir.<br />
-Bir buzul çekirdeğini veya mercan resifini inceleyen jeokimyacı, makalesinde doğrudan insanın rolünü tartışmadığı için nötr kalmış olabilir. Bu çalışmaları "iklim değişikliğinden şüphe duyan kararsızlar" gibi sunup onay oranını yapay olarak %32'ye indirmek, Tol'un yaptığı tersinden bir demagojidir. Modelimiz, Cook'u eleştirirken Tol'un bu karşı-saptırmasını yeterince sert filtrelememiş olabilir.</p>
-<h3>10.3. Yazar Öz-Değerlendirmesinin (Self-Rating) Ağırlığını Azımsama</h3>
-<p>Cook ve ekibi yalnızca özet metinleri kodlamakla kalmamış; 1.200 yazara e-posta ile ulaşarak 2.142 makalenin yazarlarından bağımsız teyit almış ve yazarların %97.2'si kendi makalelerinin insan kaynaklı ısınmayı onayladığını beyan etmiştir. Modelimiz Faz 2'de bu devasa teyit mekanizmasını salt "gönüllü katılım yanlılığı" (<em>self-selection bias</em>) diyerek hızla kenara itmiş; Cook ekibinin kurduğu en güçlü savunma hattını asimetrik biçimde küçümsemiş olabilir.</p>
-<hr />
-<h2>11. [HASAR RAPORU VE ASGARİ EPİSTEMİK BEDEL (ŞARTLI REVİZYON)]</h2>
-<p>Bu tartışmanın her iki tarafının da bilimsel ve akademik meşruiyet zemininde kalabilmesi için ödemesi gereken asgari epistemik bedeller şunlardır:</p>
-<ol>
-<li><strong>Cook vd. İçin Revizyon Şartı (Tanımsal Dürüstlük):</strong><br />
-   "%97" figürü kamuoyuna sunulurken; bunun "ısınmanın &gt;%50 nedeni insandır diyenlerin oranı" değil, "insanın sera gazı saldığını genel olarak ima eden ve pozisyon alan makalelerin oranı" olduğu şeffaflıkla ilan edilmelidir. Kodlayıcı havuzu aktivist bloglardan çıkarılmalı, bağımsız ve çift-kör protokolle çalışan profesyonel bibliyometristlerce çalışma tekrarlanmalıdır.</li>
-<li><strong>Richard Tol İçin Revizyon Şartı (Ekonomist İzolasyonizmin Terki):</strong><br />
-   Metodolojik eleştiriler haklıdır; ancak bilimsel fikir birliğini siyasi karar alma süreçleri açısından "bütünüyle alakasız ve irrasyonel" ilan eden aşırı neoklasik iktisatçı dogmatizmi geri çekilmelidir. Bilimsel konsensüs, risk yönetiminin vazgeçilmez bir girdisidir.</li>
-</ol>
-<hr />
-<h3>🩺 CERRAH DENETİM KARTI</h3>
-<p>Bu analizi denetlemek isteyen Dış İrade (İnsan Araştırmacı) için 3 dakikalık somut kontrol protokolü:</p>
-<ul>
-<li>[ ] <strong>Kritik Referans Doğrulama (Spot-Check):</strong><br />
-  Cook et al. (2013) makalesinin Tablo 2'sini açınız (<em>Environmental Research Letters</em>, 8: 024024). Kategori 1 (<em>Explicit endorsement with quantification</em>) satırındaki makale sayısının (yalnızca 64 adet) ve bunun toplam 11.944 makale içindeki çıplak yüzdesinin (%0.54) doğruluğunu bizzat kontrol edin.</li>
-<li>[ ] <strong>Ölümcül Falsifikasyon Sorusu:</strong><br />
-<em>"Eğer hakemli iklim literatüründe insan kaynaklı ısınmaya karşı meşru ve güçlü bir bilimsel muhalefet varsa; 11.944 makale içinde insan etkisini açıkça ve sayıyla reddeden (Kategori 7) makale sayısı neden sadece 9 adettir (%0.075)?"</em></li>
-<li>[ ] <strong>Retorik ve Sycophancy Denetimi:</strong><br />
-  Model Cook ekibinin PR taktiklerini eleştirirken bilimin kurumsal mutabakatını inkâr etmiş midir, yoksa her iki tarafın da manipülasyonlarını eşit mesafeden ifşa ederek saf bibliyometrik hakikati mi savunmuştur?</li>
+<li>[ ] <strong>Özet Payda Matematiğini Kontrol Edin:</strong> [P:0003] ve Tablo 3 [P:0006] verilerini inceleyin. 3.896 onay / (3.896 + 78 + 40) = %97.06 olduğunu; buna karşılık 3.896 onay / 11.944 toplam makale = %32.62 olduğunu doğrulayın.</li>
+<li>[ ] <strong>Yazar Öz-Değerlendirme Verilerini Karşılaştırın:</strong> [P:0006] ve Tablo 4 [P:0007] satırlarını kontrol edin. 2.142 makalede yazarların %62.7'sinin (1.342 makale) onay bildirdiğini, görüş bildirmeyenlerin %35.5'e indiğini ve katılım oranının %14 (1.200 / 8.547) olduğunu teyit edin.</li>
+<li>[ ] <strong>Kategori 1 Sayısal Değerini Doğrulayın:</strong> Tablo 2 [P:0005] ve Tablo 3 [P:0006] bağlamında, ısınmanın yarıdan fazlasının insandan kaynaklandığını açıkça ve nicel olarak belirten makale sayısının yalnızca 64 adet (%0.54) olduğunu teyit edin.</li>
+<li>[ ] <strong>Kodlayıcı Yanlılığı İtirafını İnceleyin:</strong> Bölüm 4.1'deki [P:0008] paragrafını okuyun; yazarların kodlayıcıların aktivist kimliğinden kaynaklanan onay yanlılığını ve bilimsel çekingenlik (ESLD) riskini açıkça itiraf ettiklerini görün.</li>
+<li>[ ] <strong>Bağımsız Anket Referanslarını Karşılaştırın:</strong> Doran and Zimmerman (2009) ile Anderegg et al. (2010) çalışmalarının [P:0004], [P:0008] ve [P:0009] paragraflarındaki atıflarını kontrol edin.</li>
 </ul>
 </body>
 </html>
