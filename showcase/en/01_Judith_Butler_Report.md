@@ -1,7 +1,7 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 01)
 **Target Monograph:** Judith Butler (1990) – *Gender Trouble: Feminism and the Subversion of Identity* (Routledge, New York & London)  
 **Author:** Judith Butler  
-**Primary Source Document:** `CALISMALARIM/v7test/01_judith_butler/Butler_Indexed_Source.txt` (252 indexed paragraphs)  
+**Primary Source Document:** `Butler_Indexed_Source.txt` (252 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Sealed & Verified)
 

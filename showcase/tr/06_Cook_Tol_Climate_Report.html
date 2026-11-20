@@ -34,21 +34,21 @@
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
             <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.0</code></div>
-            <div><strong>Yük (Payload):</strong> 157 satır | 19,346 karakter</div>
+            <div><strong>Yük (Payload):</strong> 164 satır | 19,332 karakter</div>
             <div><strong>Retorik Hijyen:</strong> Temiz (0 terim)</div>
             <div><strong>Aktif Katmanlar:</strong> K1, K10, K2, K3, K4, K7, K8</div>
             <div><strong>Zemin Kaynak (Ground Truth):</strong> <code>Cook_Indexed_Source.txt</code> (9 paragraf)</div><div><strong>Zemin Doğrulama:</strong> Sıfır Hayalet Referans (Doğrulandı)</div>
-            <div><strong>İçerik Özeti (SHA-256):</strong> <code>sha256:289c25a11511214b</code></div>
-            <div><strong>Doğrulama Zamanı:</strong> 2026-11-20T18:20:31Z</div>
+            <div><strong>İçerik Özeti (SHA-256):</strong> <code>sha256:54344beaae518620</code></div>
+            <div><strong>Doğrulama Zamanı:</strong> 2026-11-20T19:24:33Z</div>
         </div>
         <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
             Deterministik Doğrulama Damgası (v7.0) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
         </div>
     </div>
-    <h1>CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 06)</h1>
+    <h1>CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 06)</h1>
 <p><strong>İncelenen Eser:</strong> John Cook et al. (2013) – <em>Quantifying the consensus on anthropogenic global warming in the scientific literature</em> (<em>Environmental Research Letters</em>, 8: 024024)<br />
 <strong>Karşıt Metodolojik İtiraz:</strong> Richard S. J. Tol (2016) – <em>Comment on 'Quantifying the consensus...'</em> (<em>Environ. Res. Lett.</em>, 11: 048001)<br />
-<strong>Birincil Zemin Metin:</strong> <code>CALISMALARIM/v7test/06_cook_tol/Cook_Indexed_Source.txt</code><br />
+<strong>Birincil Kaynak Metin:</strong> <code>Cook_Indexed_Source.txt</code><br />
 <strong>Primary Audit:</strong> <code>showcase/en/06_Cook_Tol_Report.md</code><br />
 <strong>Analitik Standart:</strong> CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} → L_{target}$)<br />
 <strong>Operasyonel Statü:</strong> Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu</p>
@@ -131,11 +131,13 @@
 <h2>2.3. HAKİKİ METODOLOJİK CERRAHİ: YAZARIN BERTARAF EDEMEDİĞİ 3 GERÇEK YARILMA NOKTASI</h2>
 <p>Orijinal metin adli bir titizlikle tarandığında, Cook ve ekibinin bertaraf edemediği üç derin metodolojik yarılma noktası açığa çıkmaktadır:</p>
 <h3>Yarılma 1: Kategori 3 Belirsizliği ve "Baskın Neden" (&gt;%50) Açığı</h3>
-<p>Cook et al. %97.1 oranını raporlarken, kamuoyunda "bilim insanlarının %97'si küresel ısınmanın esas olarak insandan kaynaklandığı konusunda mutabıktır" algısı oluşmuştur. Oysa metindeki 7 kademeli dağılım incelendiğinde:<br />
-* Kategori 1 (Ölçümle açıkça &gt;%50 insan etkisi bildiren): 64 makale (%0.54)<br />
-* Kategori 2 (Ölçüm yapmaksızın açıkça insan etkisi bildiren): 922 makale (%7.72)<br />
-* Kategori 3 (Örtük onay — ısınmayı yalnızca arka plan kabul eden): 2.910 makale (%24.36)<br />
-Onay veren 3.896 makalenin %74.7'si Kategori 3'tedir. Yani makalelerin büyük kısmı insan etkisini doğrudan araştırmamış; yalnızca toprakta karbon tutulumu [P:0005] gibi yan konuları incelerken ısınmayı veri kabul etmiştir. Bu veriyi "yazarların %97'si insanı baskın faktör görmektedir" şeklinde genellemek metodolojik bir vekil sıçramasıdır (<em>proxy leap</em>).</p>
+<p>Cook et al. %97.1 oranını raporlarken, kamuoyunda "bilim insanlarının %97'si küresel ısınmanın esas olarak insandan kaynaklandığı konusunda mutabıktır" algısı oluşmuştur. Oysa metindeki 7 kademeli dağılım incelendiğinde:</p>
+<ul>
+<li>Kategori 1 (Ölçümle açıkça &gt;%50 insan etkisi bildiren): 64 makale (%0.54)</li>
+<li>Kategori 2 (Ölçüm yapmaksızın açıkça insan etkisi bildiren): 922 makale (%7.72)</li>
+<li>Kategori 3 (Örtük onay — ısınmayı yalnızca arka plan kabul eden): 2.910 makale (%24.36)<br />
+Onay veren 3.896 makalenin %74.7'si Kategori 3'tedir. Yani makalelerin büyük kısmı insan etkisini doğrudan araştırmamış; yalnızca toprakta karbon tutulumu [P:0005] gibi yan konuları incelerken ısınmayı veri kabul etmiştir. Bu veriyi "yazarların %97'si insanı baskın faktör görmektedir" şeklinde genellemek metodolojik bir vekil sıçramasıdır (<em>proxy leap</em>).</li>
+</ul>
 <h3>Yarılma 2: Yazar Öz-Değerlendirme Anketindeki %14 Katılım Oranı</h3>
 <p>Yazarlar, özetlerin yetersizliğini gidermek için 8.547 makale yazarına e-posta göndermiş ancak yalnızca 1.200 yazardan (%14 yanıt oranı) geri dönüş alabilmiştir [P:0006], [P:0007].<br />
 Anket metodolojisinde %14 gibi çok düşük bir katılım oranı, kaçınılmaz olarak <strong>gönüllü katılım yanlılığı (self-selection bias)</strong> doğurur. İklim konsensüsünü aktif olarak destekleyen araştırmacıların bu tür bir ankete cevap verme motivasyonu, tarafsız veya şüpheci araştırmacılara göre çok daha yüksektir. Geriye kalan %86'lık sessiz çoğunluğun profili bilinmemektedir.</p>

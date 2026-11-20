@@ -1,7 +1,7 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 04)
 **Target Monograph:** Cheikh Anta Diop (1974) – *The African Origin of Civilization: Myth or Reality* (Trans. Mercer Cook, Lawrence Hill & Co., New York / Présence Africaine, Paris; 345 pp.)  
 **Author:** Cheikh Anta Diop (Physicist, Anthropologist, Egyptologist)  
-**Primary Source Document:** `CALISMALARIM/v7test/04_cheikh_anta_diop/Diop_Indexed_Source.txt` (18 indexed sections)  
+**Primary Source Document:** `Diop_Indexed_Source.txt` (18 indexed sections)  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Sealed & Verified)
 

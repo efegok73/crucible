@@ -1,7 +1,7 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 03)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 03)
 **İncelenen Eser:** Dr. Hilary Cass (Nisan 2024) – *The Cass Review: Independent Review of Gender Identity Services for Children and Young People (Final Report)* (National Health Service England)  
 **Yazar:** Dr. Hilary Cass (Kıdemli Pediatrist, Eski Kraliyet Pediatri ve Çocuk Sağlığı Koleji Başkanı)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/03_hilary_cass/Cass_Indexed_Source.txt` (549 indeksli paragraf)  
+**Birincil Kaynak Metin:** `Cass_Indexed_Source.txt` (549 indeksli paragraf)  
 **Primary Audit:** `showcase/en/03_Cass_Review_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)
@@ -13,7 +13,7 @@
 Cass Raporu; pediatrik tıp, klinik epidemiyoloji, kanıta dayalı tıp (EBM), ergen nörogelişimi ve yüksek siyasi kutuplaşmanın kesişiminde yer almaktadır. CRUCIBLE v7.2 Triyaj Matrisi aşağıdaki konfigürasyonu işletmektedir:
 
 ### 1.1. Aktif Normatif Katmanlar
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Kültür savaşlarının ahlaki panikleri (trans karşıtı gerici retorik) ve tıp loncasının savunmacı dogmatizmi (kanıtlanmamış protokolleri koşulsuz onaylama) elenmiştir. Denetim; EBM standartları, yanlışlanabilirlik ve öncül-sonuç tutarlılığı üzerinden yürütülür.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Kültür savaşlarının ahlaki panikleri (trans karşıtı gerici retorik) ve tıp loncasının savunmacı dogmatizmi (kanıtlanmamış protokolleri koşulsuz onaylama) elenmiştir. Denetim; EBM standartları, yanlışlanabilirlik ve öncül-sonuç tutarlılığı üzerinden yürütülür.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Raporun klinik-epidemiyolojik çerçevesi, York Üniversitesi sistematik derlemelerine dayanan en güçlü kurumsal formülasyonuyla kurulur.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Temel klinik kategori ayrımlarına odaklanılır: "Sosyal geçiş", "ergenlik durdurucular (GnRHa)", "karşı cinsiyet hormonları" ve "teşhiste gölgeleme" (diagnostic overshadowing) kavramları cerrahiye tabi tutulur.
 * **Katman 4 (Nicel Epistemoloji ve İstatistiksel Denetim):** ✅ AKTİF. Sevk demografisindeki patlama (biyolojik kız ergenlerdeki katlanarak artış), takip kayıpları ve York incelemelerindeki istatistiksel güç denetlenir.

@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 02)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 02)
 
 **İncelenen Eser:** Jacques Lacan (1975) – *The Seminar of Jacques Lacan, Book XX: Encore, On Feminine Sexuality: The Limits of Love and Knowledge (1972–1973)* (Ed. Jacques-Alain Miller, Trans. Bruce Fink, W.W. Norton & Co., 1998)  
 **Yazar:** Jacques Lacan  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/02_jacques_lacan/Lacan_Indexed_Source.txt` (156 indeksli paragraf)  
+**Birincil Kaynak Metin:** `Lacan_Indexed_Source.txt` (156 indeksli paragraf)  
 **Primary Audit:** `showcase/en/02_Jacques_Lacan_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)
@@ -15,7 +15,7 @@ Jacques Lacan'ın *Seminer XX: Encore* metni; psikanalitik yapısalcılık, form
 
 ### 1.1. Aktif Normatif Katmanlar
 
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Hem Lacan'ı kutsallaştıran psikanalitik tarikat dogmatizmi hem de metni toptan anlamsız sayan sığ pozitivizm reddedilmiştir. Lacan'ın önermeleri formel mantıksal öncül ve sonuç zincirleri üzerinden denetlenir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Hem Lacan'ı kutsallaştıran psikanalitik tarikat dogmatizmi hem de metni toptan anlamsız sayan sığ pozitivizm reddedilmiştir. Lacan'ın önermeleri formel mantıksal öncül ve sonuç zincirleri üzerinden denetlenir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Lacan'ın mathemleri, cinsiyetlenme formülleri ve haz ekonomisi, metodolojik zaaflarına geçilmeden önce en güçlü felsefi ve mantıksal formülasyonlarıyla inşa edilir.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Temel odak kavram kaymalarının engellenmesidir: "Zevk/Haz" (Jouissance), "Kadın Yoktur" ($\not\exists x \text{La Femme}$), "Hepsi Değil" (*Pas-toute*), "Nesne $a$" ve "Cinsel İlişki Yoktur" (*Rapport sexuel*) kavramlarının anlamsal sınırları çizilir.
 * **Katman 8 (Tarihsel ve Metinsel Kaynak Tenkiti):** ✅ AKTİF. Lacan'ın dayandığı temel kaynaklar (Aristoteles fiziği, Hristiyan mistisizmi, Frege mantığı ve Freud'un iğdiş kuramı) İddia-Kaynak Denetim Matrisi ile denetlenir.

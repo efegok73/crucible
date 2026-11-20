@@ -2,7 +2,7 @@
 
 **Target Work:** Judith A. Curry (2023) – *Climate Uncertainty and Risk: Rethinking Our Response* (Anthem Press, London & New York; 539 pp.)  
 **Author:** Judith A. Curry (Professor Emerita and former Chair of the School of Earth and Atmospheric Sciences, Georgia Institute of Technology)  
-**Primary Grounded Source:** `CALISMALARIM/v7test/07_judith_curry/Curry_Indexed_Source.txt` (534 indexed paragraphs)  
+**Primary Grounded Source:** `Curry_Indexed_Source.txt` (534 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Epistemic Protocol ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operational Status:** Sealed Primary Forensic Audit (Stage 1 English Canonical Audit)  
 

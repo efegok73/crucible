@@ -2,7 +2,7 @@
 
 **Target Work:** Simon Baron-Cohen (2003) – *The Essential Difference: Male and Female Brains and the Truth About Autism* (Basic Books, New York / Penguin Books, London; 296 pp.)  
 **Author:** Simon Baron-Cohen (Professor of Developmental Psychopathology, University of Cambridge; Director, Autism Research Centre)  
-**Primary Grounded Source:** `CALISMALARIM/v7test/09_simon_baron_cohen/BaronCohen_Indexed_Source.txt` (279 indexed paragraphs)  
+**Primary Grounded Source:** `BaronCohen_Indexed_Source.txt` (279 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Epistemic Protocol ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operational Status:** Sealed Primary Forensic Audit (Stage 1 English Canonical Audit)  
 

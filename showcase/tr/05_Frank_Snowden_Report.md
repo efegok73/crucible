@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 05)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 05)
 
 **İncelenen Eser:** Frank M. Snowden, Jr. (1970) – *Blacks in Antiquity: Ethiopians in the Greco-Roman Experience* (The Belknap Press of Harvard University Press, Cambridge, Massachusetts; 388 pp., 120+ illüstrasyon)  
 **Yazar:** Frank M. Snowden, Jr. (Howard Üniversitesi Klasik Filoloji ve Antik Tarih Profesörü)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/05_frank_snowden/Snowden_Indexed_Source.txt` (388 indeksli paragraf)  
+**Birincil Kaynak Metin:** `Snowden_Indexed_Source.txt` (388 indeksli paragraf)  
 **Primary Audit:** `showcase/en/05_Frank_Snowden_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)  
@@ -14,7 +14,7 @@
 Frank M. Snowden, Jr.’ın klasik filoloji, Greko-Romen antik tarihi, klasik arkeoloji, sanat tarihi ile ırk ve kölelik sosyolojisinin kesişiminde yer alan çığır açıcı monografisi `[P:0009]`, `[P:0193]`, CRUCIBLE v7.2 Triyaj Matrisi tarafından aşağıdaki katman konfigürasyonuyla denetlenmektedir:
 
 ### 1.1. Aktif Normatif Katmanlar
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Yazarın antik dünyada ırk eşitliği olduğuna dair vardığı hükümlerin epigrafik, edebi ve ikonografik kanıtlarla mantıksal uyumu denetlenir; modern dönemin iyimser arzularının antik çağa geriye dönük yansıtılması (anakronik temenni) engellenir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Yazarın antik dünyada ırk eşitliği olduğuna dair vardığı hükümlerin epigrafik, edebi ve ikonografik kanıtlarla mantıksal uyumu denetlenir; modern dönemin iyimser arzularının antik çağa geriye dönük yansıtılması (anakronik temenni) engellenir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Snowden'ın tezi en yetkin akademik formülasyonuyla kurulur: Antik Akdeniz toplumlarının biyolojik ırk kavramına sahip olmadığı ve ten renginin toplumsal entegrasyona engel teşkil etmediği somut kanıtlarıyla teslim edilir `[P:0193]`, `[P:0242]`.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Antik *Aithiops* ("yanık yüzlü") kavramı ile modern ırk kategorileri arasındaki ayrım cerrahiye tabi tutulur; çevresel iklim teorisi ile modern biyolojik ırkçılık birbirinden ayrıştırılır `[P:0025]`, `[P:0197]`.
 * **Katman 5 (Nedensellik, Karıştırıcı Değişkenler ve Karşılaştırmalı Yöntem):** ✅ AKTİF. Ten rengi ile toplumsal statü arasındaki korelasyonun doğrudan ırkçı bir nedensellik mi yoksa savaş esirliği ve coğrafi köken gibi üçüncü karıştırıcı değişkenlerden (confounder) mi kaynaklandığı denetlenir `[P:0207]`.

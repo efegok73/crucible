@@ -2,7 +2,7 @@
 
 **Target Monograph:** Joanna Moncrieff et al. (2022) – *The serotonin theory of depression: a systematic umbrella review of the evidence* (*Molecular Psychiatry*, 28: 3243–3256; <https://doi.org/10.1038/s41380-022-01661-0>)  
 **Authors:** Joanna Moncrieff, Ruth E. Cooper, Tom Stockmann, Simone Amendola, Michael P. Hengartner, Mark A. Horowitz  
-**Primary Source Document:** `CALISMALARIM/v7test/08_joanna_moncrieff/Moncrieff_Indexed_Source.txt`  
+**Primary Source Document:** `Moncrieff_Indexed_Source.txt`  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Pre-Localization)
 

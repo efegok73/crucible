@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 07)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 07)
 
 **İncelenen Eser:** Judith A. Curry (2023) – *Climate Uncertainty and Risk: Rethinking Our Response* (Anthem Press, London & New York; 539 pp.)  
 **Yazar:** Judith A. Curry (Georgia Institute of Technology Eski Yer ve Atmosfer Bilimleri Okulu Başkanı; CFAN Başkanı)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/07_judith_curry/Curry_Indexed_Source.txt` (534 indeksli paragraf)  
+**Birincil Kaynak Metin:** `Curry_Indexed_Source.txt` (534 indeksli paragraf)  
 **Primary Audit:** `showcase/en/07_Judith_Curry_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)  
@@ -14,7 +14,7 @@
 Judith A. Curry’nin atmosferik fizik, sayısal küresel iklim modelleri (GCM), iklim duyarlılığı hesaplamaları, derin belirsizlik altında karar bilimi (DMDU) ve enerji politikalarının kesişiminde yer alan kapsamlı eseri `[P:0007]`, `[P:0098]`, CRUCIBLE v7.2 Triyaj Protokolü tarafından aşağıdaki katman konfigürasyonuyla denetlenmektedir:
 
 ### 1.1. Aktif Normatif Katmanlar
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Curry'nin BM ve IPCC uzlaşısına yönelttiği eleştirilerin mantıksal geçerliliği denetlenir; simetrik tutarlılık ilkesi işletilerek model fiziğine uygulanan aşırı şüpheciliğin tarihsel gözlem verilerine de uygulanıp uygulanmadığı test edilir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Curry'nin BM ve IPCC uzlaşısına yönelttiği eleştirilerin mantıksal geçerliliği denetlenir; simetrik tutarlılık ilkesi işletilerek model fiziğine uygulanan aşırı şüpheciliğin tarihsel gözlem verilerine de uygulanıp uygulanmadığı test edilir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Curry'nin "çetrefil karmaşa" (*wicked mess*) paradigması ve iklim pragmatizmi en güçlü bilimsel ve karar teorisi formülasyonuyla kurulur `[P:0098]`, `[P:0498]`.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Basit mühendislik problemleri (*tame problems*) ile derin belirsizlik ve uzlaşmaz değer çatışmaları içeren çetrefil problemler (*wicked problems*) arasındaki epistemolojik ayrım netleştirilir `[P:0098]`, `[P:0099]`.
 * **Katman 5 (Nedensellik, Karıştırıcı Değişkenler ve İklim Geri-Beslemeleri):** ✅ AKTİF. 20. yüzyıl ısınmasının nedensel dağılımında insan kaynaklı sera gazları ile çok-onyıllık doğal okyanus salınımları (AMO, PDO gibi karıştırıcı etkenler) arasındaki korelasyon ve nedensellik ayrımı denetlenir `[P:0040]`, `[P:0182]`.

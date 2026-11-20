@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 06)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 06)
 
 **İncelenen Eser:** John Cook et al. (2013) – *Quantifying the consensus on anthropogenic global warming in the scientific literature* (*Environmental Research Letters*, 8: 024024)  
 **Karşıt Metodolojik İtiraz:** Richard S. J. Tol (2016) – *Comment on 'Quantifying the consensus...'* (*Environ. Res. Lett.*, 11: 048001)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/06_cook_tol/Cook_Indexed_Source.txt`  
+**Birincil Kaynak Metin:** `Cook_Indexed_Source.txt`  
 **Primary Audit:** `showcase/en/06_Cook_Tol_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu

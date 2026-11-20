@@ -1,7 +1,7 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 08)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 08)
 **İncelenen Eser:** Joanna Moncrieff et al. (2022) – *The serotonin theory of depression: a systematic umbrella review of the evidence* (*Molecular Psychiatry*, 28: 3243–3256; https://doi.org/10.1038/s41380-022-01661-0)  
 **Yazarlar:** Joanna Moncrieff, Ruth E. Cooper, Tom Stockmann, Simone Amendola, Michael P. Hengartner, Mark A. Horowitz  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/08_joanna_moncrieff/Moncrieff_Indexed_Source.txt`  
+**Birincil Kaynak Metin:** `Moncrieff_Indexed_Source.txt`  
 **Primary Audit:** `showcase/en/08_Joanna_Moncrieff_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu
@@ -15,7 +15,7 @@ Bu sistematik şemsiye derlemenin metodolojik ve farmakolojik yapısı gereği, 
 ### 1.1. Aktif Normatif Katmanlar
 * **Katman 1 (Epistemik Erdem ve Dalkavukluk Filtresi):** ✅ AKTİF. Psikiyatri ve psikofarmakoloji alanındaki kurumsal konsensüse, popüler ilaç anlatılarına ve antidepresan endüstrisinin yerleşik kabullerine karşı sıfır-taviz analitik otorite işletilir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Yazarların tezi, popüler medyanın *"antidepresanlar işe yaramıyor"* şeklindeki indirgemeci çarpıtmasına hapsedilmeden, makalenin kendi dar teknik sınırları (şemsiye derleme metodolojisi ve 6 biyokimyasal araştırma sahası) içinde en güçlü akademik formülasyonuyla kurulur.
-* **Katman 3 (Yapısal Güvenceler ve Çıktı Mimarisi):** ✅ AKTİF. Deterministik linter kurallarına tam uyum; iddiaların ve eleştirilerin `[P:xxxx]` zemin çıpalarına bağlanması zorunludur.
+* **Katman 3 (Yapısal Güvenceler ve Çıktı Mimarisi):** ✅ AKTİF. Deterministik linter kurallarına tam uyum; iddiaların ve eleştirilerin `[P:xxxx]` metin dayanaklarına bağlanması zorunludur.
 * **Katman 4 (Nicel Epistemoloji ve İstatistiksel Denetim):** ✅ AKTİF. Null-Hipotez İstatistiksel Test (NHST) ve $p$-değeri fetişizmi reddedilir; etki büyüklükleri (Hedges’ $g$, Cohen’s $d$), güven aralıkları (%95 CI), heterojenlik katsayıları ($I^2$) ve çoklu karşılaştırma düzeltmeleri denetlenir.
 * **Katman 5 (Deneysel ve Nedensel Mimari):** ✅ AKTİF. Bradford Hill nedensellik kriterleri işletilir; özellikle **antidepresan kullanımının kendisinin** serotonin sistemini aşağı regüle etmesi riski (karıştırıcı değişken / confounder ve ters nedensellik) analiz edilir.
 * **Katman 6 (Sistematik Derleme ve Kanıt Hiyerarşisi):** ✅ AKTİF. Makale bizzat bir şemsiye derleme (umbrella review) olduğu için AMSTAR-2 kalite kriterleri, GRADE kanıt kesinliği sınıflaması ve örtüşen birincil çalışma (overlapping primary studies) yanlılıkları merkezi denetim alanıdır.
@@ -117,7 +117,7 @@ Bu analizin kendi sınırları, potansiyel kör noktaları ve model kısıtları
 1. **İkincil Çıkarım Bağımlılığı (Şemsiye Kısıtı):** Bu denetim, doğrudan birincil PET tarama verilerini veya genotipleme ham verilerini (raw patient data) yeniden analiz etmemiştir. Yazarların dahil ettiği meta-analizlerin kalite puanlarına ve bildirdikleri özet istatistiklere güvenmek durumundadır.
 2. **Kritik Psikiyatri Karşıtı Önyargı Riski:** Moncrieff'in "Kritik Psikiyatri" (Critical Psychiatry Network) ekolünün kurucularından olması, analiz yapan modelde yazara karşı peşin bir şüphecilik (*ad hominem bias*) doğurma riski taşır. Yazarların genetik konsorsiyum verileri (Border ve Culverhouse) konusundaki bulguları yüksek metodolojik güvenilirlikle sağlamdır ve ideolojik duruşlarından bağımsız olarak bilimsel bir kazanımdır.
 3. **Alternatif Nörobiyolojik Modellerin İncelenmemesi:** Yazarları "korkuluk safsatası" yapmakla eleştirirken, serotoninin nöroplastisite (BDNF, TrkB reseptör aktivasyonu) üzerindeki dolaylı modülatör rolünün bu makalenin kapsamı dışında bırakıldığı kabul edilmelidir. Makale salt serotonin eksikliği hipotezine odaklanmıştır ve bu dar odak meşrudur.
-4. **Tek Araştırmacı / Tek Model Kısıtı:** Bu rapor tek bir AI mimarisinin (Crucible v7.2) zemin çıpalı analiziyle üretilmiştir. Çoklu model ve uzman insan hakemliğiyle çapraz sorguya muhtaçtır.
+4. **Tek Araştırmacı / Tek Model Kısıtı:** Bu rapor tek bir AI mimarisinin (Crucible v7.2) kaynak metin dayanaklı analiziyle üretilmiştir. Çoklu model ve uzman insan hakemliğiyle çapraz sorguya muhtaçtır.
 
 ---
 

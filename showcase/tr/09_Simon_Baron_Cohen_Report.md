@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 09)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 09)
 
 **İncelenen Eser:** Simon Baron-Cohen (2003) – *The Essential Difference: Male and Female Brains and the Truth About Autism* (Basic Books, New York / Penguin Books, London; 296 pp.)  
 **Yazar:** Simon Baron-Cohen (Cambridge Üniversitesi Gelişimsel Psikopatoloji Profesörü; Otizm Araştırma Merkezi Direktörü)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/09_simon_baron_cohen/BaronCohen_Indexed_Source.txt` (279 indeksli paragraf)  
+**Birincil Kaynak Metin:** `BaronCohen_Indexed_Source.txt` (279 indeksli paragraf)  
 **Primary Audit:** `showcase/en/09_Simon_Baron_Cohen_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)  
@@ -14,7 +14,7 @@
 Simon Baron-Cohen’in bilişsel nörobilim, evrimsel psikoloji, gelişimsel psikopatoloji, davranışsal endokrinoloji ve psikometrinin kesişiminde yer alan etkili çalışması `[P:0008]`, `[P:0013]`, CRUCIBLE v7.2 Triyaj Protokolü tarafından aşağıdaki katman konfigürasyonuyla denetlenmektedir:
 
 ### 1.1. Aktif Normatif Katmanlar
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. İstatistiksel grup ortalamalarından bireysel biyolojik "donanıma" (*hard-wiring*) sıçrayan mantıksal tümdengelim hataları ve özcü kavram reifikasyonları denetlenir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. İstatistiksel grup ortalamalarından bireysel biyolojik "donanıma" (*hard-wiring*) sıçrayan mantıksal tümdengelim hataları ve özcü kavram reifikasyonları denetlenir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Baron-Cohen'in Empati Kurma - Sistemleştirme (E-S) teorisi ve otizmin "Aşırı Erkek Beyni" (*Extreme Male Brain*) modeli en güçlü nörobiyolojik formülasyonuyla kurulur `[P:0013]`, `[P:0019]`.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Muğlak "biyolojik donanım" (*hard-wired*) kavramı cerrahiye tabi tutulur; sabit doğuştan devreler ile deneyime dayalı nöroplastisite (beyin esnekliği) birbirinden ayrıştırılır `[P:0013]`, `[P:0018]`.
 * **Katman 4 (İstatistiksel Örneklem ve Psikometri):** ✅ AKTİF. Empati Katsayısı (EQ) ve Sistemleştirme Katsayısı (SQ) anketlerinin psikometrik geçerliliği, öz-bildirim yanlılığı ve etki büyüklüğü (*effect size*) dağılımları denetlenir `[P:0019]`, `[P:0093]`.

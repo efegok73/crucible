@@ -2,7 +2,7 @@
 
 **Target Work:** Frank M. Snowden, Jr. (1970) – *Blacks in Antiquity: Ethiopians in the Greco-Roman Experience* (The Belknap Press of Harvard University Press, Cambridge, Massachusetts; 388 pp., 120+ illustrations)  
 **Author:** Frank M. Snowden, Jr. (Professor of Classics, Howard University)  
-**Primary Grounded Source:** `CALISMALARIM/v7test/05_frank_snowden/Snowden_Indexed_Source.txt` (388 indexed paragraphs)  
+**Primary Grounded Source:** `Snowden_Indexed_Source.txt` (388 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Epistemic Protocol ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operational Status:** Sealed Primary Forensic Audit (Stage 1 English Canonical Audit)  
 

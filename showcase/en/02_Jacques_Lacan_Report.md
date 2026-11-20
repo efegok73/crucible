@@ -1,7 +1,7 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 02)
 **Target Monograph:** Jacques Lacan (1975) – *The Seminar of Jacques Lacan, Book XX: Encore, On Feminine Sexuality: The Limits of Love and Knowledge (1972–1973)* (Ed. Jacques-Alain Miller, Trans. Bruce Fink, W.W. Norton & Co., 1998)  
 **Author:** Jacques Lacan  
-**Primary Source Document:** `CALISMALARIM/v7test/02_jacques_lacan/Lacan_Indexed_Source.txt` (156 indexed paragraphs)  
+**Primary Source Document:** `Lacan_Indexed_Source.txt` (156 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Sealed & Verified)
 

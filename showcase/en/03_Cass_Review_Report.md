@@ -1,7 +1,7 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 03)
 **Target Monograph:** Dr. Hilary Cass (April 2024) – *The Cass Review: Independent Review of Gender Identity Services for Children and Young People (Final Report)* (National Health Service England)  
 **Author:** Dr. Hilary Cass (Senior Paediatrician, Former President of the Royal College of Paediatrics and Child Health)  
-**Primary Source Document:** `CALISMALARIM/v7test/03_hilary_cass/Cass_Indexed_Source.txt` (549 indexed paragraphs)  
+**Primary Source Document:** `Cass_Indexed_Source.txt` (549 indexed paragraphs)  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Sealed & Verified)
 

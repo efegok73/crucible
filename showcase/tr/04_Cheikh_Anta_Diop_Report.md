@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 04)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 04)
 
 **İncelenen Eser:** Cheikh Anta Diop (1974) – *The African Origin of Civilization: Myth or Reality* (Trans. Mercer Cook, Lawrence Hill & Co., New York / Présence Africaine, Paris; 345 pp.)  
 **Yazar:** Cheikh Anta Diop (Fizikçi, Antropolog, Mısırbilimci)  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/04_cheikh_anta_diop/Diop_Indexed_Source.txt` (18 indeksli bölüm)  
+**Birincil Kaynak Metin:** `Diop_Indexed_Source.txt` (18 indeksli bölüm)  
 **Primary Audit:** `showcase/en/04_Cheikh_Anta_Diop_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)
@@ -15,7 +15,7 @@ Cheikh Anta Diop'un *Uygarlığın Afrika Kökenleri* adlı eseri; Afro-merkezci
 
 ### 1.1. Aktif Normatif Katmanlar
 
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Hem Avrupa-merkezci ırkçı tahrifatlar ("Hami efsanesi") hem de romantik Afro-merkezci mit üretimi elenmiştir. Yazarın iddiaları ampirik osteoloji, antik popülasyon genetiği ve karşılaştırmalı dilbilimsel öncül ve sonuç zincirleri üzerinden denetlenir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Hem Avrupa-merkezci ırkçı tahrifatlar ("Hami efsanesi") hem de romantik Afro-merkezci mit üretimi elenmiştir. Yazarın iddiaları ampirik osteoloji, antik popülasyon genetiği ve karşılaştırmalı dilbilimsel öncül ve sonuç zincirleri üzerinden denetlenir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Diop'un disiplinlerarası sentezi (melanin ölçümleri, Wolof-Mısır dili karşılaştırması, Greko-Romen görgü tanıklıkları ve totemizm), ampirik geçerliliği sınanmadan önce en yetkin akademik formülasyonuyla kurulur.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Özcü ırksal sınıflandırmalar cerrahiye tabi tutulur: "Negroid", "Siyah", "Kemit" terimlerinin sınırları çizilir ve sömürgeci antropolojinin "Hami" kavramı deşifre edilir.
 * **Katman 5 (Deneysel ve Nedensel Mimari - Bradford Hill):** ✅ AKTİF. Diop'un laboratuvar deneyleri (morötesi melanin spektrofotometrisi, ABO kan grubu paleoserolojisi ve kemik oranları) incelenir; karıştırıcı değişkenler (confounders) ve nedensel çıkarım sınırları Bradford Hill ilkeleriyle denetlenir.

@@ -1,6 +1,6 @@
 # ⚖️ CRUCIBLE (Mayın Tarlası Modeli v7.2) — KULLANICI VE METODOLOJİ KILAVUZU
 
-**Yapay zekâyı diplomatik bir metin özetleyicisinden, birincil kaynaklara sımsıkı çıpalı, acımasız ve berrak bir bilimsel hakeme dönüştüren açık kaynak denetim çerçevesi.**
+**Yapay zekâyı diplomatik bir metin özetleyicisinden, birincil kaynak metne dayalı, acımasız ve berrak bir bilimsel hakeme dönüştüren açık kaynak denetim çerçevesi.**
 
 [![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-blue.svg)](LICENSE)
 [![Versiyon](https://img.shields.io/badge/Versiyon-7.2-emerald.svg)](CHANGELOG.md)
@@ -14,10 +14,10 @@
 
 ## CRUCIBLE Nedir?
 
-CRUCIBLE, ticari büyük dil modellerini (Claude, ChatGPT, Gemini) **metodolojik açıdan tavizsiz, birincil kaynak metne çıpalı ve analitik derinliğe sahip bilimsel hakemlere** dönüştüren iki bileşenli bir açık kaynak araştırma çerçevesidir:
+CRUCIBLE, ticari büyük dil modellerini (Claude, ChatGPT, Gemini) **metodolojik açıdan tavizsiz, birincil kaynak metne dayalı ve analitik derinliğe sahip bilimsel hakemlere** dönüştüren iki bileşenli bir açık kaynak araştırma çerçevesidir:
 
 1. **10 Katmanlı Normatif Anayasa:** Modeli çıkarım anında (inference time) Karl Popper'ın yanlışlanabilirlik ilkesi, nedensel yönlü grafikler (DAG), Bayesçi olasılık güncellemeleri, Alıntısız Eleştiri Yasağı ve Şeytanın Savunmanı filtresiyle bağlayan epistemik yönerge protokolü.
-2. **Zemin Çıpalı Deterministik Linter (`scripts/crucible_linter.py`):** Modelin kurallara uyup uymadığını dışarıdan denetleyen bağımsız bir Python derleyicisidir. İncelenen rapordaki her alıntıyı ve iddiayı orijinal kaynak dosya (`--source`) ile karşılaştırır; uydurma kaynaklarda (*hayalet referans*) veya dil uyuşmazlığında (*Substrate Parity Gate*) derlemeyi durdurur; yalnızca tüm şartları sağlayan raporlara doğrulanmış yeşil mühür basar.
+2. **Kaynak Metin Dayanaklı Deterministik Linter (`scripts/crucible_linter.py`):** Modelin kurallara uyup uymadığını dışarıdan denetleyen bağımsız bir Python derleyicisidir. İncelenen rapordaki her alıntıyı ve iddiayı orijinal kaynak dosya (`--source`) ile karşılaştırır; uydurma kaynaklarda (*hayalet referans*) veya dil uyuşmazlığında (*Substrate Parity Gate*) derlemeyi durdurur; yalnızca tüm şartları sağlayan raporlara doğrulanmış yeşil mühür basar.
 
 ### Sıradan Yapay Zekâ Neden Bilimsel Hakemlik Yapamaz?
 
@@ -122,12 +122,12 @@ Bu modda dosyaları tek tek kopyalayıp yapıştırmazsınız; klasördeki anaya
 1. **Çalışma Klasörünü Açın:**  
    IDE'nizi açarak `crucible` reposunu çalışma alanı olarak yükleyin.
 2. **Belgenizi Yerleştirin:**  
-   İncelenecek eseri (PDF, Word veya Markdown) klasörünüze (örneğin `CALISMALARIM/`) ekleyin.
-3. **Zemin Metin Dokunulmazlığı (v7.2 Kuralı):**  
+   İncelenecek eseri (PDF, Word veya Markdown) çalışma klasörünüze (örneğin `data/` veya `kaynaklar/`) ekleyin.
+3. **Kaynak Metin Dokunulmazlığı (v7.2 Kuralı):**  
    - Eseri asla 20-25 sayfalık parçalara bölmeyin veya özetlemeyin.
-   - İsterseniz önce `python scripts/index_source.py CALISMALARIM/eser.pdf -o CALISMALARIM/eser_indeksli.txt` komutuyla deterministik `[P:xxxx]` kütüğünü oluşturun.
+   - İsterseniz önce `python scripts/index_source.py data/eser.pdf -o data/eser_indeksli.txt` komutuyla deterministik `[P:xxxx]` kütüğünü oluşturun.
 4. **Komut Verin:**  
-   > *"Klasördeki `@CALISMALARIM/eser.pdf` eserini CRUCIBLE v7.2 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır."*
+   > *"Klasördeki `@data/eser.pdf` eserini CRUCIBLE v7.2 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır."*
 5. **Mühürlü Çıktıyı Alın:**  
    Ajan analizi tamamlar, `scripts/crucible_linter.py` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir.
 

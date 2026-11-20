@@ -1,7 +1,7 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 06)
 **Target Monograph:** John Cook et al. (2013) – *Quantifying the consensus on anthropogenic global warming in the scientific literature* (*Environmental Research Letters*, 8: 024024)  
 **Adversarial Challenge:** Richard S. J. Tol (2016) – *Comment on 'Quantifying the consensus...'* (*Environ. Res. Lett.*, 11: 048001)  
-**Primary Source Document:** `CALISMALARIM/v7test/06_cook_tol/Cook_Indexed_Source.txt`  
+**Primary Source Document:** `Cook_Indexed_Source.txt`  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
 **Operational Status:** Stage 1 Primary Forensic Audit (Pre-Localization)
 

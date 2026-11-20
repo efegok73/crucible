@@ -1,8 +1,8 @@
-# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 01)
+# CRUCIBLE v7.2 — Kaynak Metin Dayanaklı Adli Denetim Raporu (Vaka 01)
 
 **İncelenen Eser:** Judith Butler (1990) – *Gender Trouble: Feminism and the Subversion of Identity* (Routledge, New York & London)  
 **Yazar:** Judith Butler  
-**Birincil Zemin Metin:** `CALISMALARIM/v7test/01_judith_butler/Butler_Indexed_Source.txt` (252 indeksli paragraf)  
+**Birincil Kaynak Metin:** `Butler_Indexed_Source.txt` (252 indeksli paragraf)  
 **Primary Audit:** `showcase/en/01_Judith_Butler_Report.md`  
 **Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
 **Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)
@@ -15,7 +15,7 @@ Judith Butler'ın *Cinsiyet Belası* (Gender Trouble) adlı eseri; post-yapısal
 
 ### 1.1. Aktif Normatif Katmanlar
 
-* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Kültür savaşlarının kutuplaşmış siyasi retoriği (bir yanda eseri toptan ahlaki yozlaşma sayan biyolojik indirgemecilik, diğer yanda post-modern jargona körü körüne biat eden dogmatizm) tamamen elenmiştir. Butler'ın argümanları mantıksal öncül ve sonuç zincirleri üzerinden denetlenir.
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Kaynak Metin Dayanaklı Analitik Otorite. Kültür savaşlarının kutuplaşmış siyasi retoriği (bir yanda eseri toptan ahlaki yozlaşma sayan biyolojik indirgemecilik, diğer yanda post-modern jargona körü körüne biat eden dogmatizm) tamamen elenmiştir. Butler'ın argümanları mantıksal öncül ve sonuç zincirleri üzerinden denetlenir.
 * **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Butler'ın tezi, popüler medyadaki *"cinsiyet sadece kıyafet seçimidir"* şeklindeki sığ karikatürlere hapsedilmeden, eserin en yetkin post-yapısalcı felsefi zemininde yeniden inşa edilmiştir.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Temel odak kategori hatalarıdır: "İfade edici edimler" (expressive acts) ile "kurucu edimsellik" (performative constitution) arasındaki fark ve cinsiyet/toplumsal cinsiyet ikiliğinin altında yatan "töz metafiziği" çözümlenir.
 * **Katman 8 (Tarihsel ve Metinsel Kaynak Tenkiti):** ✅ AKTİF. Butler'ın başvurduğu temel teorik kaynaklar (Lévi-Strauss'un akrabalık mübadelesi, Lacan'ın fallus merkezciliği ve Monique Wittig'in lezbiyen materyalizmi) İddia-Kaynak Denetim Matrisi ile çapraz sorguya tabi tutulur.
