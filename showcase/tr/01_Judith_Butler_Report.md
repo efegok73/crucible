@@ -69,6 +69,8 @@ Butler, Nietzsche'nin izinden giderek öznenin eylemden önce var olmadığını
 
 **Metodolojik Yarılma:** Eğer "Ben" dediğimiz bilinç yalnızca zorunlu disipliner tekrarların geriye dönük bir yankısıysa, **kuralları bozan o yıkıcı tekrarı (subversion) başlatan irade kimdir?** Eğer kültür öncesinde hiçbir özerk düşünen özne yoksa (`[P:0213]`), başkaldırı ya dil sistemindeki rastgele bir kopyalama hatasına (mekanik arıza) indirgenir; ya da Butler sisteme isyan edebilen "bilinçli bir özneyi" gizlice arka kapıdan içeri sokmak zorunda kalır. Metin, radikal yapısalcı belirlenimcilik ile bireysel isyan umudu arasındaki mantıksal çıkmazı aşamaz.
 
+**Kavram ve Somut Örnek (Öznesiz Faillik):** Bir fabrikadaki bütün robotların yalnızca ana bilgisayardan gelen yazılımla hareket ettiğini, hiçbir robotun kendi bağımsız bilinci veya karar verme yetisi olmadığını varsayalım. Eğer robotlardan biri aniden sisteme isyan edip üretim bandını durdurursa, fabrikatör "Bu robot özgür iradesiyle sisteme başkaldırdı" diyemez; çünkü robota bağımsız bir bilinç tanımamıştır. O halde bu olay ya mekanik bir elektrik arızasıdır ya da dışarıdan birisi gizlice robota müdahale etmiştir. Butler insanın biyolojik veya bilinçli bir 'özne' olduğunu reddedip onu sadece kültürel tekrarların bir yankısı saydığında; o tekrarları kıran 'isyan' iradesinin nereden çıktığını açıklayamaz hale gelir.
+
 ### 2. Radikal Söylemsel İdealizm ve Bedenin Biyolojik Direncinin Silinmesi
 
 Butler biyolojik cinsiyet ile toplumsal cinsiyeti birbirine karıştırarak tek bir potada eritir:
@@ -76,12 +78,16 @@ Butler biyolojik cinsiyet ile toplumsal cinsiyeti birbirine karıştırarak tek 
 
 **Metodolojik Yarılma:** Anatomik cinsiyetin tamamen heteroseksüel düzenin uydurduğu bir "düzenleyici kurgu" olduğunu iddia etmek, mutlak bir dilsel idealizmdir. Bedenin kültürel sınıflandırılması dilsel olsa da; biyolojik gerçeklik—gamet çift-biçimliliği (sperm/yumurta), kromozomal mimari, endokrin metabolizma, doğum ve emzirme—gramere indirgenemez. Butler biyolojik bedeni kendi iç nedenselliği ve evrimsel direnci olmayan, üzerine her şeyin yazılabileceği pasif bir boş levha (tabula rasa) olarak kurgulamaktadır.
 
+**Kavram ve Somut Örnek (Söylemsel İdealizm / Vekil Sıçraması):** Yerçekimi kavramının Newton tarafından 17. yüzyılda formüle edilmiş tarihsel ve kültürel bir teori olması, yüksek bir kuleden atlayan bir insanın yere düşmeyeceği anlamına gelmez; kavram kültürel olsa bile altındaki yerçekimi fiziksel bir gerçekliktir. Butler, kadın ve erkek cinsiyeti hakkındaki tıbbi ve kültürel tanımların tarih boyunca değiştiğini gösterip buradan "demek ki biyolojik cinsiyetin kendisi de uydurulmuş bir kurgudur" sonucuna sıçrayarak aynı kategori hatasını yapar.
+
 ### 3. Parodi Muğlaklığı: Yıkım mı Yoksa Normun Tahkimi mi?
 
 Butler, drag (karşı cins kılığında gösteri) ve camp parodilerini cinsiyetin doğallık maskesini düşüren yegâne kurtarıcı mekanizma olarak över:
 > *"Drag performansı, icracının anatomisi ile icra edilen cinsiyet arasındaki ayrım üzerinden oynar... Drag, cinsiyeti taklit ederek cinsiyetin bizzat taklitçi yapısını ve olumsallığını açığa çıkarır."* `[P:0206]`, `[P:0218]`
 
 **Metodolojik Yarılma:** Parodinin kendi içinde otomatik olarak özgürleştirici hiçbir doğası yoktur. Antropoloji ve tarih araştırmalarının yüzyıllardır gösterdiği üzere, karnaval ve taklit ritüelleri çoğunlukla egemen düzenin toplumsal gazını alan emniyet sübapları (catharsis) işlevi görür ve alay edilen ataerkil kalıpları daha da pekiştirir. Butler metninde hangi parodinin düzeni yıkıcı (subversif), hangi parodinin ise kadın düşmanı kalıpları tahkim eden gerici bir gösteri olduğunu ayırt edecek hiçbir yanlışlanabilir epistemik ölçüt sunmaz.
+
+**Kavram ve Somut Örnek (Motte-and-Bailey / Güvenlik Supabı):** Bir ortaçağ kalesinde kralın soytarısının sarayda kralın taklidini yapması krallık rejimini yıkmaz; tam aksine halkın gazını alarak saray hiyerarşisinin ömrünü uzatır. Butler, drag ve parodi gösterilerinin sistemi temelden sarsacağını iddia ettiğinde (savunması zor radikal iddia); eleştirilince "ben sadece kimliklerin doğal olmadığını gösteriyorlar dedim" diyerek geri çekilir (kolay savunulan iç kale).
 
 ---
 

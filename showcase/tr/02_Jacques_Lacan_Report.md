@@ -72,6 +72,8 @@ Lacan, formel mantığın niceleyicilerini ($\forall x, \exists x$, olumsuzlama 
 
 **Metodolojik Yarılma:** Formel mantıkta (Frege, Russell, Tarski) niceleyiciler, kesin sınırları çizilmiş bir evrene ve doğruluk değerine sahip olmak zorundadır. Lacan ise bu formülleri öznel ruhsal durumlara, Fransızca ses benzerliklerine (*d'eux/deux*, *l'un/l'autre*, *mot/motus*) ve şairane kelime oyunlarına uygular. Edebi bir metaforu matematik sembolleriyle yazmak, onu bilimsel bir yasa yapmaz; bu durum rasyonel eleştiriyi felç etmek için başvurulmuş sahte-biçimsel bir göz boyamadır.
 
+**Kavram ve Somut Örnek (Sahte-Biçimcilik / Mathemeler):** Bir şairin aşk acısını veya kıskançlığı anlatırken sayfanın ortasına Einstein'ın $E=mc^2$ formülünü veya kuantum mekaniğinin dalga denklemlerini yazıp "Aşkın çekim yasasını matematiksel olarak kesinleştirdim" demesi neyse; Lacan'ın da kadın ve erkek arasındaki karmaşık ruhsal arzuları formel mantığın $\forall x$ ve $\exists x$ sembolleriyle yazarak bilimsel bir kesinlik havası yaratması aynı göz boyamadır.
+
 ### 2. Aşkın Kadın Zevkinin Yanlışlanamazlık ve Gizem Tuzağı
 
 Lacan, kadının fallusun ötesinde ek bir beden zevkine sahip olduğunu öne sürer (`[P:0080]`). Ancak bu zevkin ne olduğu sorulduğunda teolojik bir negatif teolojiye sığınır:
@@ -79,11 +81,15 @@ Lacan, kadının fallusun ötesinde ek bir beden zevkine sahip olduğunu öne s�
 
 **Metodolojik Yarılma:** Eğer bir kavram dille anlatılamıyorsa, onu yaşayan özneler tarafından doğrulanamıyorsa ve tek kanıtı kadınların suskunluğu ya da barok bir heykelin (Bernini'nin Azize Teresa'sı) yüz ifadesiyse (`[P:0082]`, `[P:0083]`), bu kavram **kesinlikle yanlışlanamazdır** (Popper kriterlerine göre sözde-bilim / pseudoscience). *"Kadınlar bunu yaşar ama bilmezler"* demek kısırdöngüsel bir safsatadır: Kadın sussuysa bu zevkin kanıtı sayılır, konuşursa fallik alana teslim olduğu iddia edilir.
 
+**Kavram ve Somut Örnek (Yanlışlanamazlık / Negatif Teoloji):** Bir falcının "Geleceğinizde öyle muazzam bir olay var ki, ne olduğunu ben de bilemem, siz de bilemezsiniz; zaten dille anlatılamaz olduğu için büyüktür" demesi neyse; Lacan'ın da kadın zevkini "kadınlar bunu yaşar ama hakkında hiçbir şey bilmezler ve dille anlatılamaz" diyerek felsefi bir gizem perdesi arkasına saklaması aynı yanlışlanamazlık taktiğidir.
+
 ### 3. Yapısal Eksiklik Kılıfında Yeniden Üretilen Fallusmerkezcilik
 
 Lacan, fallusun fiziksel penis olmadığını, nötr ve simgesel bir eksiklik göstereni olduğunu söyler `[P:0013]`, `[P:0078]`.
 
 **Metodolojik Yarılma:** Bu iddiaya rağmen Seminer boyunca dildeki ve arzulardaki yegâne evrensel düzenleyici ilke yine Fallik İşlev ($\Phi x$) olarak kalır `[P:0013]`, `[P:0086]`. Kadın cinselliğine hiçbir zaman pozitif ve özerk bir ontoloji tanınmaz; kadın daima olumsuzluk üzerinden—"hepsi olmayan", eksik kalan, dili aşan, dilsiz bir artık olarak tanımlanır. Lacan, yapısalcılık maskesi altında kadını anlaşılmaz, dilsiz ve pasif bir gizem ilan eden klasik ataerkil metafiziği yeniden üretir.
+
+**Kavram ve Somut Örnek (Totolojik Döngü):** Bir mimarın "Bu binanın yıkılmaması için tek bir ana kolon şarttır, o kolon olmadan hiçbir şey ayakta kalamaz" dedikten sonra, binada çatlak gören her insana "İşte gördünüz mü, ana kolon olmadığı için çatladı" demesi neyse; Lacan'ın da her psikolojik arzuyu ve hazzı dönüp dolaşıp tek bir imleyen olan "Fallus" eksikliğine bağlaması aynı döngüsel totolojidir.
 
 ---
 
