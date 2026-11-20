@@ -54,6 +54,7 @@ def extract_paragraphs(file_path: str) -> list[str]:
         for page in reader.pages:
             text = page.extract_text()
             if text:
+                text = text.replace('\x00', '')
                 page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
                 paras.extend(page_paras)
         return paras

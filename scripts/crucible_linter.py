@@ -29,6 +29,7 @@ import sys
 import re
 import json
 import hashlib
+import unicodedata
 import argparse
 from datetime import datetime, timezone
 from dataclasses import dataclass, field
@@ -397,6 +398,7 @@ class CrucibleLinter:
                     for page in reader.pages:
                         text = page.extract_text()
                         if text:
+                            text = text.replace('\x00', '')
                             # Genuine paragraphs delimited by double newlines or substantial line breaks
                             page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
                             paras.extend(page_paras)
@@ -758,7 +760,8 @@ class CrucibleLinter:
                     f"the primary audit in '{source_lang.upper()}' and reference it via '**Primary Audit:** <path>' or use '--allow-localized'."
                 )
 
-        source_lower = tr_lower(self.source_full_text)
+        source_dehyphen = re.sub(r'(\w+)-\s*\n\s*(\w+)', r'\1\2', self.source_full_text)
+        source_lower = tr_lower(source_dehyphen)
         source_name = os.path.basename(self.source_path)
         external_marker_re = re.compile(
             r'\[\s*(?:DIŞ\s+KAYNAK|EXTERNAL\s+SOURCE|DIŞ\s+L[İI]TERATÜR|EXTERNAL)\b',
@@ -800,7 +803,9 @@ class CrucibleLinter:
             'ölçümü', 'tarihli', 'tarihi', 'bölümü', 'erken', 'dönem', 'hicri', 'miladi',
             've', 'ile', 'veya', 'and', 'with', 'from', 'group', 'dated',
             'inscription', 'manuscript', 'fragment', 'document', 'archive', 'series',
-            'coin', 'coins', 'text', 'texts', 'codex', 'palimpsest', 'source', 'primary'
+            'coin', 'coins', 'text', 'texts', 'codex', 'palimpsest', 'source', 'primary',
+            'tablo', 'özet', 'bölüm', 'kısım', 'çizelge', 'şekil', 'figür', 'ek',
+            'table', 'abstract', 'section', 'part', 'figure', 'appendix'
         }
 
         for cols in matrix_rows:
@@ -858,12 +863,13 @@ class CrucibleLinter:
 
         for p_str in set(citations):
             p_idx = int(p_str)
-            if max_para > 0 and p_idx >= max_para:
+            if max_para > 0 and p_idx > max_para:
                 self._warn(
                     f"Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
                 )
 
         # 3. Check Verbatim Quotes attached to [P:xxxx] (supporting both before/after anchors and apostrophes)
+        source_normalized = unicodedata.normalize('NFKD', re.sub(r'\s+', ' ', source_lower))
         quote_specs = [
             (r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]([^"”]{20,250})["”]', 1, 2),
             (r'["“]([^"”]{20,250})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
@@ -874,19 +880,19 @@ class CrucibleLinter:
             for qm in re.finditer(q_regex, self.full_text):
                 p_num = int(qm.group(p_grp))
                 quoted_str = qm.group(q_grp).strip()
-                norm_quote = tr_lower(re.sub(r'\s+', ' ', quoted_str))
+                norm_quote = unicodedata.normalize('NFKD', tr_lower(re.sub(r'\s+', ' ', quoted_str)))
 
                 quote_key = (p_num, norm_quote)
                 if quote_key in verified_quotes:
                     continue
                 verified_quotes.add(quote_key)
 
-                if norm_quote in source_lower:
+                if norm_quote in source_normalized:
                     # Check paragraph locality: +/- 1 neighbor window
                     if 1 <= p_num <= len(self.source_paragraphs):
                         w_start = max(0, p_num - 2)
                         w_end = min(len(self.source_paragraphs), p_num + 1)
-                        w_text = tr_lower(" ".join(self.source_paragraphs[w_start:w_end]))
+                        w_text = unicodedata.normalize('NFKD', tr_lower(re.sub(r'\s+', ' ', " ".join(self.source_paragraphs[w_start:w_end]))))
                         if norm_quote in w_text or norm_quote[:35] in w_text:
                             self._info(f"Verified verbatim quote anchor at [P:{p_num}].")
                         else:
