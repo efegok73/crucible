@@ -1,4 +1,5 @@
 # CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 06)
+
 **İncelenen Eser:** John Cook et al. (2013) – *Quantifying the consensus on anthropogenic global warming in the scientific literature* (*Environmental Research Letters*, 8: 024024)  
 **Karşıt Metodolojik İtiraz:** Richard S. J. Tol (2016) – *Comment on 'Quantifying the consensus...'* (*Environ. Res. Lett.*, 11: 048001)  
 **Birincil Zemin Metin:** `CALISMALARIM/v7test/06_cook_tol/Cook_Indexed_Source.txt`  
@@ -13,6 +14,7 @@
 John Cook ve ekibinin 2013 tarihli araştırması ile ekonomist Richard Tol'un 2016 tarihli metodolojik itirazı; uygulamalı bibliyometri, içerik analizi, örneklem kuramı, bilim sosyolojisi ve kamuoyu algı psikolojisinin kesişim noktasında yer almaktadır. CRUCIBLE v7.2 Triyaj Matrisi aşağıdaki katmanları devreye almıştır:
 
 ### 1.1. Aktif Normatif Katmanlar
+
 * **Katman 1 (Epistemik Erdem ve Dalkavukluk Filtresi):** ✅ AKTİF. İklim tartışmalarının etrafındaki kutuplaşmış siyasi retorik (bir yanda Tol'un itirazlarını ampirik iklim fiziğini toptan inkâr etmek için istismar eden inkârcılık, diğer yanda %97 sayısını sorgulanamaz bir tabu gibi pazarlayan aktivist yaklaşım) tamamen filtrelenmiştir. Denetim; yalnızca matematiksel payda tanımları, içerik analizi ve ölçüm bilimi çerçevesinde yürütülür.
 * **Katman 2 (Çelik Adam ve Yanlışlanabilirlik):** ✅ AKTİF. Hem Cook ekibinin "yerleşik bilimsel paradigma mutabakatı" savı hem de Tol'un "istatistiksel ölçüm ve kodlama güvenirliği" eleştirisi, metodolojik zaafları sorgulanmadan önce en yetkin akademik formlarında inşa edilmiştir.
 * **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. "Konsensüs" kavramının anlamsal esnemesini denetler: İnsanın küresel ısınmaya herhangi bir ölçüde katkı sağlaması (genel katkı) ile ısınmanın birincil/baskın nedeni olması (>%50 etki) arasındaki kavramsal sıçramaları teşhir eder.
@@ -22,6 +24,7 @@ John Cook ve ekibinin 2013 tarihli araştırması ile ekonomist Richard Tol'un 2
 * **Katman 10 (Karmaşıklık, Genişletilmiş Etik ve Epistemik Otopsi):** ✅ AKTİF. Denetim sonucunda tezin ayakta kalan asgari çekirdeğini Hasar Raporu'nda belgeler ve bağımsız araştırmacılar için Cerrah Denetim Kartı sunar.
 
 ### 1.2. Dışlanan Katmanlar ve Gerekçeleri
+
 * **Katman 5 (Deneysel Tasarım ve Nedensellik - DAG):** ⛔ DIŞLANDI. Eser bir laboratuvar veya klinik deney değil, yayımlanmış makale özetlerinin gözlemsel bibliyometrik taramasıdır.
 * **Katman 6 (Tıbbi Kanıt Hiyerarşisi - GRADE):** ⛔ DIŞLANDI. Klinik tıp ve epidemiyolojiye özgü GRADE piramidi, bibliyometrik literatür içerik kodlamasına uygulanamaz.
 * **Katman 9 (Hesaplamalı Modeller ve Yapay Zekâ):** ⛔ DIŞLANDI. 2013 tarihli makalede derin öğrenme veya yapay zekâ algoritmaları değil, insan kodlayıcılar kullanılmıştır.
@@ -80,17 +83,21 @@ Ekonomist Richard Tol'un itirazı, iklim fiziğini inkâr eden ideolojik bir met
 Orijinal metin adli bir titizlikle tarandığında, Cook ve ekibinin bertaraf edemediği üç derin metodolojik yarılma noktası açığa çıkmaktadır:
 
 ### Yarılma 1: Kategori 3 Belirsizliği ve "Baskın Neden" (>%50) Açığı
+
 Cook et al. %97.1 oranını raporlarken, kamuoyunda "bilim insanlarının %97'si küresel ısınmanın esas olarak insandan kaynaklandığı konusunda mutabıktır" algısı oluşmuştur. Oysa metindeki 7 kademeli dağılım incelendiğinde:
+
 * Kategori 1 (Ölçümle açıkça >%50 insan etkisi bildiren): 64 makale (%0.54)
 * Kategori 2 (Ölçüm yapmaksızın açıkça insan etkisi bildiren): 922 makale (%7.72)
 * Kategori 3 (Örtük onay — ısınmayı yalnızca arka plan kabul eden): 2.910 makale (%24.36)  
 Onay veren 3.896 makalenin %74.7'si Kategori 3'tedir. Yani makalelerin büyük kısmı insan etkisini doğrudan araştırmamış; yalnızca toprakta karbon tutulumu [P:0005] gibi yan konuları incelerken ısınmayı veri kabul etmiştir. Bu veriyi "yazarların %97'si insanı baskın faktör görmektedir" şeklinde genellemek metodolojik bir vekil sıçramasıdır (*proxy leap*).
 
 ### Yarılma 2: Yazar Öz-Değerlendirme Anketindeki %14 Katılım Oranı
+
 Yazarlar, özetlerin yetersizliğini gidermek için 8.547 makale yazarına e-posta göndermiş ancak yalnızca 1.200 yazardan (%14 yanıt oranı) geri dönüş alabilmiştir [P:0006], [P:0007].
 Anket metodolojisinde %14 gibi çok düşük bir katılım oranı, kaçınılmaz olarak **gönüllü katılım yanlılığı (self-selection bias)** doğurur. İklim konsensüsünü aktif olarak destekleyen araştırmacıların bu tür bir ankete cevap verme motivasyonu, tarafsız veya şüpheci araştırmacılara göre çok daha yüksektir. Geriye kalan %86'lık sessiz çoğunluğun profili bilinmemektedir.
 
 ### Yarılma 3: Bilimsel Veriden Siyasi Kampanyaya Geçiş (Ağ Geçidi İnanç Aşırılığı)
+
 Yazarlar makalenin hem girişinde hem tartışma bölümünde bibliyometrik ölçümü doğrudan siyasi destek inşasına bağlamaktadır:
 > "The public perception of a scientiﬁc consensus on AGW is a necessary element in public support for climate policy (Ding et al 2011)." [P:0008]  
 *(İnsan kaynaklı küresel ısınmaya dair bilimsel mutabakatın kamuoyu tarafından doğru algılanması, iklim politikalarına toplumsal destek sağlanmasında zorunlu bir unsurdur.)*  
@@ -150,8 +157,8 @@ Yürütülen adli denetim sonucunda tezin aldığı metodolojik hasar ve ayakta 
 
 Araştırmacılar ve hakemler için 3 dakikada doğrulanabilecek eylem maddeleri:
 
-- [ ] **Özet Payda Matematiğini Kontrol Edin:** [P:0003] ve Tablo 3 [P:0006] verilerini inceleyin. 3.896 onay / (3.896 + 78 + 40) = %97.06 olduğunu; buna karşılık 3.896 onay / 11.944 toplam makale = %32.62 olduğunu doğrulayın.
-- [ ] **Yazar Öz-Değerlendirme Verilerini Karşılaştırın:** [P:0006] ve Tablo 4 [P:0007] satırlarını kontrol edin. 2.142 makalede yazarların %62.7'sinin (1.342 makale) onay bildirdiğini, görüş bildirmeyenlerin %35.5'e indiğini ve katılım oranının %14 (1.200 / 8.547) olduğunu teyit edin.
-- [ ] **Kategori 1 Sayısal Değerini Doğrulayın:** Tablo 2 [P:0005] ve Tablo 3 [P:0006] bağlamında, ısınmanın yarıdan fazlasının insandan kaynaklandığını açıkça ve nicel olarak belirten makale sayısının yalnızca 64 adet (%0.54) olduğunu teyit edin.
-- [ ] **Kodlayıcı Yanlılığı İtirafını İnceleyin:** Bölüm 4.1'deki [P:0008] paragrafını okuyun; yazarların kodlayıcıların aktivist kimliğinden kaynaklanan onay yanlılığını ve bilimsel çekingenlik (ESLD) riskini açıkça itiraf ettiklerini görün.
-- [ ] **Bağımsız Anket Referanslarını Karşılaştırın:** Doran and Zimmerman (2009) ile Anderegg et al. (2010) çalışmalarının [P:0004], [P:0008] ve [P:0009] paragraflarındaki atıflarını kontrol edin.
+* [ ] **Özet Payda Matematiğini Kontrol Edin:** [P:0003] ve Tablo 3 [P:0006] verilerini inceleyin. 3.896 onay / (3.896 + 78 + 40) = %97.06 olduğunu; buna karşılık 3.896 onay / 11.944 toplam makale = %32.62 olduğunu doğrulayın.
+* [ ] **Yazar Öz-Değerlendirme Verilerini Karşılaştırın:** [P:0006] ve Tablo 4 [P:0007] satırlarını kontrol edin. 2.142 makalede yazarların %62.7'sinin (1.342 makale) onay bildirdiğini, görüş bildirmeyenlerin %35.5'e indiğini ve katılım oranının %14 (1.200 / 8.547) olduğunu teyit edin.
+* [ ] **Kategori 1 Sayısal Değerini Doğrulayın:** Tablo 2 [P:0005] ve Tablo 3 [P:0006] bağlamında, ısınmanın yarıdan fazlasının insandan kaynaklandığını açıkça ve nicel olarak belirten makale sayısının yalnızca 64 adet (%0.54) olduğunu teyit edin.
+* [ ] **Kodlayıcı Yanlılığı İtirafını İnceleyin:** Bölüm 4.1'deki [P:0008] paragrafını okuyun; yazarların kodlayıcıların aktivist kimliğinden kaynaklanan onay yanlılığını ve bilimsel çekingenlik (ESLD) riskini açıkça itiraf ettiklerini görün.
+* [ ] **Bağımsız Anket Referanslarını Karşılaştırın:** Doran and Zimmerman (2009) ile Anderegg et al. (2010) çalışmalarının [P:0004], [P:0008] ve [P:0009] paragraflarındaki atıflarını kontrol edin.

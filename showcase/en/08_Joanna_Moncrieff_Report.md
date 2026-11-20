@@ -1,5 +1,6 @@
 # CRUCIBLE v7.2 — Grounded Forensic Audit Report (Case 08)
-**Target Monograph:** Joanna Moncrieff et al. (2022) – *The serotonin theory of depression: a systematic umbrella review of the evidence* (*Molecular Psychiatry*, 28: 3243–3256; https://doi.org/10.1038/s41380-022-01661-0)  
+
+**Target Monograph:** Joanna Moncrieff et al. (2022) – *The serotonin theory of depression: a systematic umbrella review of the evidence* (*Molecular Psychiatry*, 28: 3243–3256; <https://doi.org/10.1038/s41380-022-01661-0>)  
 **Authors:** Joanna Moncrieff, Ruth E. Cooper, Tom Stockmann, Simone Amendola, Michael P. Hengartner, Mark A. Horowitz  
 **Primary Source Document:** `CALISMALARIM/v7test/08_joanna_moncrieff/Moncrieff_Indexed_Source.txt`  
 **Analytical Standard:** CRUCIBLE v7.2 Grounded Epistemic Architecture (Substrate Parity Gate: English Native Audit)  
@@ -12,6 +13,7 @@
 Given the empirical, epidemiological, and pharmacological nature of this systematic umbrella review, the CRUCIBLE v7.2 Triage Matrix activates 8 canonical layers and excludes 2 layers for methodological reasons:
 
 ### 1.1. Active Normative Layers
+
 * **Layer 1 (Epistemic Virtue, Persona & Sycophancy Elimination):** ✅ ACTIVE. Partisan posturing from both antipsychiatric radicalism (weaponizing Moncrieff to claim all psychotropics are toxic frauds) and institutional guild defense (dismissing the review as unscientific heresy) is strictly barred. The audit operates on cold psychopharmacological rigor, neuroimaging physics, and meta-analytic evidence standards.
 * **Layer 2 (Steelmanning & Dialectics):** ✅ ACTIVE. The authors' thesis is reconstructed in its most formidable academic formulation within the boundaries of umbrella review methodology and 6 biochemical research domains, avoiding popular media caricatures.
 * **Layer 3 (Structural Safeguards & Output Architecture):** ✅ ACTIVE. Strict grounding compliance; all empirical claims and critiques are tethered to deterministic `[P:xxxx]` paragraph citations.
@@ -23,6 +25,7 @@ Given the empirical, epidemiological, and pharmacological nature of this systema
 * **Layer 10 (Epistemic Damage Report & Auto-Falsification):** ✅ ACTIVE. Summarizes the epistemic casualties, surviving core claims, and actionable Surgeon Checklist.
 
 ### 1.2. Excluded Normative Layers
+
 * **Layer 9 (Computational Models & Algorithmic Audit):** ⛔ EXCLUDED. The monograph does not utilize machine learning, neural networks, or algorithmic simulation models.
 * **Layer 10 (Macro Ethics & Complex Systems Theory):** ⛔ EXCLUDED. Formal dynamic systems modeling is absent; clinical ethics are incorporated into Layers 1 and 5.
 
@@ -31,6 +34,7 @@ Given the empirical, epidemiological, and pharmacological nature of this systema
 ## 2. STEELMANNING
 
 ### 2.1. Unassailable Academic Reconstruction of the Thesis
+
 Joanna Moncrieff and colleagues present the first comprehensive **systematic umbrella review** synthesizing the empirical evidence evaluating the long-standing hypothesis that **depression is caused by lowered serotonin concentrations or reduced serotonergic biochemical activity** `[P:0001]`.
 
 Rather than relying on isolated cherry-picked studies, the authors synthesized all available systematic reviews, meta-analyses, and massive genomic biobanks across six principal biochemical research areas (encompassing tens of thousands of participants) `[P:0001]`:
@@ -46,6 +50,7 @@ The authors' primary conclusion is articulated with uncompromising precision:
 > *"The main areas of serotonin research provide no consistent evidence of there being an association between serotonin and depression, and no support for a hypothesis that depression is caused by lowered serotonin activity or concentrations."* `[P:0001]`
 
 ### 2.2. Authors' Scope Limitations and Self-Declared Caveats
+
 In accordance with dialectical steelmanning, the authors did not issue a blanket dismissal of all biological pharmacology; rather, they explicitly acknowledged several severe methodological boundaries:
 
 1. **Clinical Efficacy Not Tested:** The review did not investigate whether antidepressants outperform placebo in reducing depressive symptoms; the authors explicitly noted alternative mechanisms, including emotional blunting and amplified placebo effects `[P:0002]`:
@@ -62,17 +67,20 @@ In accordance with dialectical steelmanning, the authors did not issue a blanket
 Having granted the formidable strength of the steelmanned thesis, three structural fault lines in the monograph must be exposed:
 
 ### 1. Category Error: Static Fluid Concentration vs. Dynamic Neurotransmission
-The authors equate the absence of static metabolite differences (CSF 5-HIAA) and static binding potentials directly to the assertion that *"there is no evidence of lowered serotonin activity"* `[P:0001]`. 
+
+The authors equate the absence of static metabolite differences (CSF 5-HIAA) and static binding potentials directly to the assertion that *"there is no evidence of lowered serotonin activity"* `[P:0001]`.
 
 Peripheral and lumbar fluid metrics do not reflect **phasic vs. tonic neuronal firing rates, post-synaptic second-messenger cascades (cAMP, CREB, BDNF transcription), or micro-circuit synaptic plasticity**. The absence of static concentration deficits does not rule out localized, dynamic functional transmission impairments. Treating the absence of coarse static markers as proof of functional absence constitutes an epistemic category error.
 
 ### 2. Umbrella Filtration and the 15-Year Tryptophan Blind Spot
+
 The monograph is an umbrella review of reviews, not a primary data synthesis. As the authors admit:
 > *"The latest systematic review of tryptophan depletion studies was conducted in 2007, and there has been considerable research produced since then. Hence, we provided a snapshot of the most recent evidence at the time of writing, but this area requires an up to date, comprehensive data synthesis."* `[P:0012]`
 
 Presenting an unsystematic 10-study narrative "snapshot" for a central experimental paradigm across a 15-year gap (2007–2022) introduces severe selection bias risk into an umbrella synthesis claiming comprehensive coverage.
 
 ### 3. The Double-Edged Confounder: Reverse Causality Dilemma
+
 The authors explain potential SERT binding decreases and 5-HIAA variations via pharmacological adaptation:
 > *"Some evidence was consistent with the possibility that long-term antidepressant use reduces serotonin concentration"* `[P:0001]`, `[P:0010]`.
 
@@ -138,10 +146,10 @@ Epistemic damage sustained and the surviving minimal claim core:
 
 Actionable audit items for independent verification within 3 minutes:
 
-- [ ] **Verify Table 1 Genetic Sample:** In `[P:0003]` and `[P:0007]`, confirm the Border et al. (2019) sample size ($N = 443,264$) and null odds ratios.
-- [ ] **Check CSF 5-HIAA Studies:** Verify the Pech et al. (2018) meta-analysis in `[P:0003]` and confirm the authors' note regarding low study quality in `[P:0010]`.
-- [ ] **Audit Tryptophan Rating:** In `[P:0008]` and `[P:0011]`, check why the 10 recent ATD studies received a "Very Low Certainty" GRADE rating.
-- [ ] **Inspect Antidepressant History Note:** Read `[P:0012]` in the Discussion to confirm whether long-term antidepressant downregulation is presented as proven fact or an unproven hypothesis.
+* [ ] **Verify Table 1 Genetic Sample:** In `[P:0003]` and `[P:0007]`, confirm the Border et al. (2019) sample size ($N = 443,264$) and null odds ratios.
+* [ ] **Check CSF 5-HIAA Studies:** Verify the Pech et al. (2018) meta-analysis in `[P:0003]` and confirm the authors' note regarding low study quality in `[P:0010]`.
+* [ ] **Audit Tryptophan Rating:** In `[P:0008]` and `[P:0011]`, check why the 10 recent ATD studies received a "Very Low Certainty" GRADE rating.
+* [ ] **Inspect Antidepressant History Note:** Read `[P:0012]` in the Discussion to confirm whether long-term antidepressant downregulation is presented as proven fact or an unproven hypothesis.
 
 ---
 *CRUCIBLE v7.2 Epistemic Protocol — Grounded Full-Text Native Audit*
