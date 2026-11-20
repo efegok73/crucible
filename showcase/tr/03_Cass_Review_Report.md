@@ -1,174 +1,143 @@
-# MAYIN TARLASI V6.0 — RESMİ VAKA ANALİZ RAPORU
-**Vaka Adı:** Dr. Hilary Cass – *The Cass Review: Independent Review of Gender Identity Services for Children and Young People* (NHS England, Final Report, 2024)  
-**Tarih:** 2026-10-02  
-**Analitik Motor:** V6.0 Epistemolojik Cerrahi  
-**Statü:** Mühürlendi  
+# CRUCIBLE v7.2 — Zemin Çıpalı Adli Denetim Raporu (Vaka 03)
+**İncelenen Eser:** Dr. Hilary Cass (Nisan 2024) – *The Cass Review: Independent Review of Gender Identity Services for Children and Young People (Final Report)* (National Health Service England)  
+**Yazar:** Dr. Hilary Cass (Kıdemli Pediatrist, Eski Kraliyet Pediatri ve Çocuk Sağlığı Koleji Başkanı)  
+**Birincil Zemin Metin:** `CALISMALARIM/v7test/03_hilary_cass/Cass_Indexed_Source.txt` (549 indeksli paragraf)  
+**Primary Audit:** `showcase/en/03_Cass_Review_Report.md`  
+**Analitik Standart:** CRUCIBLE v7.2 İki Kademeli Yerelleştirme Protokolü ($L_{source} \equiv L_{audit} \rightarrow L_{target}$)  
+**Operasyonel Statü:** Kademe 2 Doğal Türkçe Yerelleştirilmiş Denetim Raporu (Mühürlü)
 
 ---
 
-## 1. [EPİSTEMOLOJİK TRİYAJ]
+## 1. EPİSTEMOLOJİK TRİYAJ
 
-Bu araştırma çağdaş bir halk sağlığı, epidemiyoloji ve kanıta dayalı tıp (EBM) metni olduğundan V6 Triyaj Matrisi şu şekilde yapılandırılmıştır:
+Cass Raporu; pediatrik tıp, klinik epidemiyoloji, kanıta dayalı tıp (EBM), ergen nörogelişimi ve yüksek siyasi kutuplaşmanın kesişiminde yer almaktadır. CRUCIBLE v7.2 Triyaj Matrisi aşağıdaki konfigürasyonu işletmektedir:
 
-### 1.1. Aktif Katmanlar
-* **K1 (Epistemik Erdem ve Persona):** Kültürel savaşların, lobicilik faaliyetlerinin ve siyasi kamplaşmaların (trans aktivizmi vs. muhafazakâr yasakçılık) yarattığı ahlaki panik ve baskı tamamen filtrelenmiştir. Yalnızca saf klinik metodoloji, biyoetik ve kanıt hiyerarşisi işletilecektir.
-* **K2 (Felsefi Yöntem & Çelik Adam):** Raporun temel tezi ve kanıta dayalı tıp savunusu en güçlü, kurumsal ve akademik formuyla (Çelik Adam) kurulacaktır.
-* **K4 (İstatistik ve Olasılık):** Rapora temel oluşturan University of York sistematik derlemelerinin etki büyüklükleri (*effect size*), kohort büyüklükleri, takip süreleri ve yanlılık riskleri (*risk of bias*) denetlenecektir.
-* **K5 (Deneysel Tasarım ve Nedensellik):** Randomize Kontrollü Deney (RCT) eksikliği, plasebo kontrolünün etik ve yöntemsel sınırları, karıştırıcı değişkenler (Otizm Spektrum Bozukluğu, DEHB, yeme bozuklukları, akran bulaşması) ve Bradford Hill kriterleri masaya yatırılacaktır.
-* **K6 (Sistematik Derleme ve Kanıt Hiyerarşisi - GRADE / PRISMA):** York ekibinin GRADE metodolojisiyle mevcut literatürü "düşük kaliteli" etiketlemesinin epistemik meşruiyeti ve kanıt yokluğu ile etki yokluğu arasındaki metodolojik sınır test edilecektir.
+### 1.1. Aktif Normatif Katmanlar
+* **Katman 1 (Epistemik Erdem, Mantıksal Kıyas ve Persona):** ✅ AKTİF. Persona: V7.0 Zemin Çıpalı Analitik Otorite. Kültür savaşlarının ahlaki panikleri (trans karşıtı gerici retorik) ve tıp loncasının savunmacı dogmatizmi (kanıtlanmamış protokolleri koşulsuz onaylama) elenmiştir. Denetim; EBM standartları, yanlışlanabilirlik ve öncül-sonuç tutarlılığı üzerinden yürütülür.
+* **Katman 2 (Diyalektik Yöntem ve Çelik Adam):** ✅ AKTİF. Raporun klinik-epidemiyolojik çerçevesi, York Üniversitesi sistematik derlemelerine dayanan en güçlü kurumsal formülasyonuyla kurulur.
+* **Katman 3 (Hermenötik ve Kavramsal Hijyen):** ✅ AKTİF. Temel klinik kategori ayrımlarına odaklanılır: "Sosyal geçiş", "ergenlik durdurucular (GnRHa)", "karşı cinsiyet hormonları" ve "teşhiste gölgeleme" (diagnostic overshadowing) kavramları cerrahiye tabi tutulur.
+* **Katman 4 (Nicel Epistemoloji ve İstatistiksel Denetim):** ✅ AKTİF. Sevk demografisindeki patlama (biyolojik kız ergenlerdeki katlanarak artış), takip kayıpları ve York incelemelerindeki istatistiksel güç denetlenir.
+* **Katman 5 (Deneysel ve Nedensel Mimari):** ✅ AKTİF. Karıştırıcı değişkenler masaya yatırılır: Otizm spektrumu (nöroçeşitlilik), çocukluk çağı travmaları, akran zorbalığı ve uzun vadeli kontrol gruplarının bulunmayışı incelenir.
+* **Katman 6 (Sistematik Derleme ve Kanıt Hiyerarşisi):** ✅ AKTİF. Merkezi denetim katmanıdır. York ekibinin kılavuzları ve klinik sonuçları değerlendirmek için kullandığı modifiye GRADE ve Newcastle-Ottawa standartları analiz edilir.
+* **Katman 8 (Disipline Özgü Standartlar ve Kaynak Tenkiti):** ✅ AKTİF. Uluslararası klinik kılavuzlar (WPATH SOC7/SOC8, Endocrine Society) ile bu kılavuzların atıfta bulunduğu birincil kanıtların gerçek kalitesi karşılaştırılır.
+* **Katman 10 (Karmaşıklık, Hasar Raporu ve Epistemik Otopsi):** ✅ AKTİF. Pediatrik konsensüsün ayakta kalan asgari çekirdeğini belgeler ve bağımsız araştırmacılar için Cerrah Denetim Kartı sunar.
 
 ### 1.2. Dışlanan Katmanlar ve Gerekçeleri
-* **K3 (Hermenötik & Edebi Metin Yorumu):** DIŞLANDI. İncelenen metin edebi veya felsefi bir metin olmayıp, pozitif tıp bilimi ve klinik kılavuz metodolojisidir.
-* **K8 (Tarihsel Metin Tenkidi):** DIŞLANDI. Metin antik kronikler veya yazıtlar içermemektedir. Pediyatri ve epidemiyolojinin kendi iç standartları (K4, K5, K6) işletilecektir.
-* **K9 (Hesaplamalı Bilimler ve AI):** DIŞLANDI. Metinde yapay zekâ modellemesi veya algoritmik simülasyon birincil kanıt olarak kullanılmamıştır.
-* **K10 (Raporlama ve İtiraflar):** AKTİF (Bölüm 10 ve 11'de işletilmiştir).
+* **Katman 7 (Karar Bilimi ve Derin Belirsizlik - DMDU):** ⛔ DIŞLANDI. Nicel derin belirsizlik algoritmaları bulunmamaktadır; klinik risk analizi Katman 5 ve 6 altında yürütülmüştür.
+* **Katman 9 (Hesaplamalı Modelleme ve Yapay Zekâ):** ⛔ DIŞLANDI. Eser makine öğrenimi veya algoritmik simülasyon içermez.
 
 ---
 
-## 2. METİN KÜNYESİ VE KÖK İDDİA
+## 2. ÇELİK ADAM
 
-* **Yazar:** Dr. Hilary Cass (Chair, Independent Review of Gender Identity Services for Children and Young People).
-* **Eser:** *The Cass Review: Independent Review of Gender Identity Services for Children and Young People – Final Report* (NHS England, Nisan 2024).
-* **Disiplin:** Pediyatri, Kanıta Dayalı Tıp (Evidence-Based Medicine - EBM), Epidemiyoloji, Sağlık Hizmetleri Metodolojisi, Ergen Psikiyatrisi.
-* **Kök İddia 1 (Kanıt Zayıflığı ve Yanıltma):**
-  > *"This is an area of remarkably weak evidence, and yet results of studies are exaggerated or misrepresented by people on all sides of the debate to support their viewpoint... The reality is that we have no good evidence on the long-term outcomes of interventions to manage gender-related distress."* (Foreword, s. 13)
-* **Kök İddia 2 (Ergenlik Durdurucular ve Tıbbi Temelsizlik):**
-  > *"The rationale for early puberty suppression remains unclear, with weak evidence regarding its impact on gender dysphoria, mental or psychosocial health. The effect on cognitive and psychosexual development remains unknown... In the absence of a clear evidence base, clinical practice has evolved on shaky foundations."* (s. 25, 176–178)
+### 2.1. Cass Raporunun En Güçlü Klinik-Epidemiyolojik İnşası
+Cass Raporu (2024), bir ulusal sağlık sistemi tarafından çocuk ve gençlerin cinsiyet hizmetleri üzerine şimdiye kadar sipariş edilmiş en kapsamlı, ön-kayıtlı ve metodolojik olarak en titiz bağımsız denetimdir `[P:0017]`.
 
-### 2.1. İDDİA-VERİ DENETİM MATRİSİ
+İngiltere Ulusal Sağlık Sistemi (NHS England) bünyesindeki Tavistock GIDS kliniğinde yaşanan kurumsal aksaklıklar ve içeriden gelen hekim ihbarları üzerine başlatılan incelemede, Dr. Hilary Cass'in tezi dört sarsılmaz ampirik sütun üzerine kuruludur:
 
-| Tez / İddia Sütunu | Dayandığı Temel Kaynak | Kaynak Durumu & Türü | Metodolojik Hüküm |
+1. **Kanıt Zeminindeki Çöküş (York Üniversitesi Sistematik Derlemeleri):**  
+   İnceleme, hekimlerin kişisel kanaatlerine dayanmamış; klinik yönetimin her aşamasını test etmek üzere York Üniversitesi'ne bağımsız sistematik derlemeler yaptırmıştır `[P:0167]`, `[P:0168]`. York ekibi; WPATH ve Amerikan Endokrin Derneği dahil uluslararası kılavuzların metodolojik titizlikten yoksun olduğunu, kapalı devre dairesel atıflarla birbirini beslediğini ve **ergenlik durdurucu ilaçların (GnRH analogları)** ruh sağlığını iyileştirdiği, intiharı önlediği veya cinsiyet hoşnutsuzluğunu giderdiğine dair kanıtların **çok düşük kesinlikte ve zayıf kalitede** olduğunu belgelemiştir `[P:0017]`, `[P:0167]`.
+
+2. **Hasta Demografisinde Radikal ve Açıklanamayan Değişim:**  
+   Tarihsel olarak cinsiyet hoşnutsuzluğu çoğunlukla erken çocuklukta ve biyolojik erkek çocuklarda görülmekteydi. Ancak son on yılda sevklerde yaşanan devasa patlamaya, **ergenlik sonrası aniden ortaya çıkan ve beraberinde ağır psikiyatrik sorunlar taşıyan biyolojik kız çocukları** öncülük etmiştir `[P:0010]`, `[P:0114]`. Küçük erkek çocukları için kurgulanmış medikal protokoller, epidemiyolojik olarak doğrulanmadan tamamen farklı bu ergen kız grubuna sorgusuzca uygulanmıştır `[P:0197]`.
+
+3. **Nöroçeşitlilik, Travma ve Teşhiste Gölgeleme (*Diagnostic Overshadowing*):**  
+   Klinik kohortta otizm spektrum bozuklukları, DEHB, depresyon, anksiyete, cinsel istismar travması ve okul zorbalığı oranlarının aşırı yüksek olduğu tespit edilmiştir `[P:0010]`, `[P:0197]`. Cass, hekimlerin ideolojik korku veya dogmatik onaylama baskısıyla tüm bu kök sorunları yok sayıp tek bir semptoma (cinsiyet uyumsuzluğu) odaklanmasını **"teşhiste gölgeleme"** olarak adlandırmış; çocukların altta yatan nörogelişimsel ve ruhsal yaralarının tedavisiz bırakıldığını ifşa etmiştir `[P:0010]`, `[P:0197]`.
+
+4. **Yörüngeye Kilitlenme (*Trajectory Locking*) ve İyatrojenik Riskler:**  
+   Ergenlik durdurucu iğneler kamuoyuna çocuğa düşünmesi için zaman kazandıran geri döndürülebilir bir "mola butonu" gibi pazarlanmıştır `[P:0167]`. Oysa klinik veriler, bu ilaçları alan çocukların neredeyse tamamının (%90–%98) doğrudan geri dönüşü olmayan karşı cinsiyet hormonlarına (testosteron/östrojen) geçtiğini göstermiştir `[P:0168]`. Bu süreç; kemik mineral yoğunluğunda kalıcı duraksama (`[P:0167]`) ve erken yaşta kısırlık riskleriyle çocuğu tıbbi bir tünele kilitlemektedir `[P:0029]`, `[P:0167]`.
+
+### 2.2. Dr. Cass'in Kendi Kapsam Sınırları ve İhtiyatları (Şerhleri)
+1. **Tıbbi Geçişin Toptan Yasaklanmadığı:** Cass, tıbbi geçişin belirli ve dikkatle seçilmiş bir genç grubu için geçerli ve faydalı bir yol olabileceğini; hedefin tedaviyi yasaklamak değil, güvenli ve sağlam kanıta dayandırmak olduğunu belirtir `[P:0017]`.
+2. **Sosyal Geçiş Nötr Bir Eylem Değildir:** Çocukluk çağındaki sosyal cinsiyet geçişinin (ad, zamir, kıyafet değişimi) masum bir oyun olmadığını, çocuğun psikolojik kimlik gelişim yörüngesini doğrudan değiştiren aktif bir klinik müdahale olduğunu kaydeder `[P:0029]`.
+3. **Yetişkin Kliniklerinin Boykotu:** Cass, Tavistock'ta tedavi gören gençlerin yetişkinlikteki durumunu izlemek için planlanan veri eşleştirme çalışmasına yetişkin kliniklerinin katılmayı reddettiğini ve yetişkinlik sonuçlarının bu sebeple eksik kaldığını açıkça itiraf eder `[P:0010]`, `[P:0040]`, `[P:0518]`.
+
+---
+
+## HAKİKİ METODOLOJİK CERRAHİ
+
+Çelik Adam ile tezin kurumsal gücü teslim edildikten sonra, raporun içinde barınan **3 hakiki metodolojik yarılma noktası** masaya yatırılır:
+
+### 1. Kanıt Piramidinin Pediatrik Çift Standardı (GRADE İkilemi)
+Rapor ve York Üniversitesi ekibi, katı kanıta dayalı tıp (EBM) araçlarını (modifiye GRADE ve Newcastle-Ottawa) işleterek, randomize kontrol grubu ve çift-körleme içermeyen tüm çalışmaları "düşük" ya da "çok düşük kaliteli" ilan etmiştir `[P:0017]`, `[P:0030]`.
+
+**Metodolojik Yarılma:** Çocuk cinsiyet tıbbında ergenlik durdurucuların çift-kör plasebo kontrollü (RCT) deneyini yapmak pratik ve etik olarak imkânsızdır; çünkü ergenliğe giren veya girmeyen bir çocuğun fiziksel gelişimini (ses kalınlaşması, göğüs büyümesi) ne hastadan ne de hekimden gizlemek mümkündür. Pediatrik onkoloji ve nadir çocuk hastalıklarında da bu tür deneyler yapılamaz ve tıp kohort verileriyle hayat kurtarır. Raporun gerçekleşmesi imkânsız bir RCT altın standardı talep ederek kanıt zeminini "bütünüyle yetersiz" ilan etmesi, katı metodolojik saflık ile hekimlik vicdanı arasında derin bir gerilim yaratmaktadır.
+
+### 2. Yetişkin Klinik Boykotu ve Veri Karadeliği
+İncelemenin en kritik nicel vaadi, Tavistock GIDS'te tedavi görmüş yaklaşık 9.000 gencin yetişkinlikteki sağlık durumunu, ameliyat oranlarını ve pişmanlık/geri dönüş (detransition) verilerini ortaya çıkaracak ulusal veri eşleştirme çalışmasıydı `[P:0529]`, `[P:0530]`.
+
+**Metodolojik Yarılma:** NHS yetişkin cinsiyet klinikleri, York araştırmacılarıyla işbirliği yapmayı ve veri paylaşmayı topluca reddetmiştir (`[P:0329]`, `[P:0518]`). Neticede Cass Raporu, Tavistock'un kapatılması ve ergenlik durdurucuların klinik araştırmalar dışında rutin kullanımının durdurulması gibi devasa reform kararlarını, **kendi ulusal uzun vadeli takip verisinden tamamen mahrum olarak** almak zorunda kalmıştır. Raporun yetişkinlik sonuçlarına dair çıkarımları Hollanda kohortlarına ve eksik vaka notlarına bağımlı kalmıştır.
+
+### 3. Etyolojik Belirsizlik ve Teşhis Felci Riski
+Rapor, ergen kız çocukları arasındaki patlamayı, otizm oranlarını ve çocukluk çağı travmalarını kusursuzca belgeler `[P:0010]`, `[P:0114]`. "Teşhiste gölgeleme" tehlikesine karşı hekimleri uyarır `[P:0010]`, `[P:0197]`.
+
+**Metodolojik Yarılma:** Ancak Rapor, bu demografik patlamanın kök etyolojisi konusunda bilinçli olarak tarafsız kalır: Bu artışın geçmişte bastırılmış gerçek trans kimliklerin açığa çıkması mı yoksa sosyal medya üzerinden yayılan iyatrojenik bir akran bulaşması mı olduğuna dair kesin bir nedensellik hükmü vermez. Bölgesel merkezlerde "bütüncül psikoterapi" önerirken, hangi hastanın tıbbi müdahaleye gerçekten ihtiyacı olduğunu belirleyecek nesnel biyolojik ya da psikometrik sınırlar çizmez. Bu durum sahada "otomatik onaylama montaj hattı" yerine, hekimlerin dava edilme korkusuyla hiçbir adım atamadığı bir **teşhis felci** doğurma riski taşır.
+
+---
+
+## SAFSATA AVI (FALLACY AUDIT)
+
+Metinde tespit edilen biçimsel ve gayri-biçimsel epistemik safsatalar:
+
+1. **Yokluk Yanılgısı (Argumentum ad Ignorantiam / Kanıt Yokluğunu Etki Yokluğu Sayma):**
+   * *Metin Alıntısı:* `[P:0030]` York derlemesine atıfla: *"Hormon müdahalelerinin sonuçlarını değerlendiren yüksek kaliteli araştırma eksikliği vardır... Cinsiyet hoşnutsuzluğu, ruh sağlığı veya bilişsel gelişim üzerindeki etki hakkında hiçbir sonuç çıkarılamaz."*
+   * *Epistemik Hüküm:* EBM ilkelerine göre "kanıt kesinliğinin çok düşük olması", tedavinin faydasız ya da zararlı olduğunu kanıtlamaz; sadece etkinin derecesinden emin olunamadığını gösterir. Kamuoyu tartışmalarında bu metodolojik çekince, *"Ergenlik durdurucuların hiçbir işe yaramadığı kanıtlandı"* şeklinde bir safsataya dönüştürülmüştür.
+2. **Yanıltıcı Klinik Benzetme Safsatası (False Analogy — Dr. Cass Tarafından İfşa Edilmiştir):**
+   * *Metin Alıntısı:* `[P:0171]` paragrafında Dr. Cass çocuk endokrinologlarının yaptığı bir hatayı çürütür: *"Bazı endokrinologlar, erken ergenlik geçiren küçük çocuklarda ergenlik durdurucuların güvenliğine dair bilgilerin cinsiyet hoşnutsuzluğuna genellenebileceğini öne sürse de bu argümanda sorunlar vardır. İlk durumda, 7 yaşındaki bir çocuk için anormal derecede yüksek hormonlar durdurulmaktadır; ikinci durumda ise ergenlik çağında gerçekleşmesi gereken ve psikoseksüel gelişim için zorunlu olan normal hormon artışı durdurulmaktadır."*
+   * *Epistemik Hüküm:* 7 yaşındaki bir patolojiyi durdurmak ile 13 yaşındaki sağlıklı biyolojik gelişimi durdurmayı klinik olarak denk saymak geçersiz bir kıyastır.
+3. **Motte-and-Bailey (Kale-Avlu) Kurumsal Savunması:**
+   * *İç Kale (Ilımlı Açıklama):* "Biz ergenlik durdurucuları yasaklamıyoruz; sadece NHS onaylı resmi bir klinik araştırma protokolü çerçevesinde verilmesini şart koşuyoruz" (`[P:0017]`).
+   * *Avlu (Fiili Gerçeklik):* Rapor yayımlandığı sırada İngiltere'de aktif ve onaylanmış hiçbir pediatrik klinik araştırma bulunmadığı için, bu tavsiye fiiliyatta ergenlik durdurucuların ülke çapında tamamen durdurulması (de facto moratoryum) sonucunu doğurmuştur.
+
+---
+
+## KATMAN 8: KAYNAK TENKİTİ VE DİSİPLİNER MATRİS
+
+| Tez / İddia | Dayandığı Temel Kaynak | Kaynak Durumu & Türü | Metodolojik Hüküm |
 | :--- | :--- | :--- | :--- |
-| **T1: Kanıt Tabanının Yetersizliği** (Literatür zayıf veya kalitesizdir) | York Üniversitesi 7 Bağımsız Sistematik Derlemesi (2024) | GRADE ve AMSTAR Uyumlu Sistematik Derleme | Yüksek Metodolojik Güvenilirlik |
-| **T2: Medikal Kilitlenme** (Bloker alanların %98'i karşı hormona geçer) | Tavistock GIDS Denetimi (1.089 hasta) & Carmichael vd. (2021) | Retrospektif Klinik Kohort Verisi | Güçlü Tanımlayıcı Veri / Nedensel Mekanizma Yoruma Açık |
-| **T3: Demografik Patlama ve Komorbidite** (Kız çocuklarında ani artış ve otizm) | CPRD Veri Tabanı (3.782 hasta) & Uluslararası Kayıtlar (İsveç, Finlandiya) | Çok Merkezli Ulusal Sağlık Veritabanı | Güçlü Epidemiyolojik Eğilim (Korelasyonel Kanıt) |
-| **T4: Nörokognitif Gelişimin Duraklaması Riski** (GnRH beyni dondurabilir) | Nörobiyolojik Hipotezler ve Hayvan Modelleri | Teorik Projeksiyon / Sınırlı Ampirik Veri | Şartlı Hipotez (Doğrudan İnsan RCT Kanıtı Yok) |
+| **Ergenlik Durdurucuların Ruh Sağlığına Faydası Yüksek Kaliteli Kanıttan Yoksundur** | Taylor et al. / University of York (2024) `[P:0167]`, `[P:0168]` | **Ön-kayıtlı Sistematik Şemsiye Derleme** | **METODOLOJİK OLARAK SARSILMAZ (★★★★★):** Newcastle-Ottawa değerlendirmesi; literatürdeki kontrol grubu eksikliğini, aşırı hasta kaybını ve körleme yokluğunu kusursuzca ifşa etmiştir. |
+| **Durdurucu Alan Gençlerin %90'ından Fazlası Karşı Cinsiyet Hormonlarına Geçer** | van der Loos et al. (2022, 2023); Butler et al. (2022) `[P:0168]` | **Gözlemsel Boylamsal Kohort Çalışmaları ($N = 882$)** | **KORROBORE (★★★★★):** Hem İngiliz hem Hollanda verilerinde tutarlı bulgu (%93–%98 geçiş); ilaçların "nötr bir mola butonu" olduğu savını ampirik olarak çürütmüştür. |
+| **Uluslararası Kılavuzlar (WPATH SOC8) Yöntemsel Titizlikten Yoksundur ve Daireseldir** | University of York (2024), Clinical Guidelines `[P:0017]`, `[P:0050]` | **AGREE II Resmi Kılavuz Kalite Değerlendirmesi** | **KESİN OLARAK KANITLANDI (★★★★★):** Kılavuzların bağımsız kanıt sunmak yerine kapalı bir mutabakat döngüsü içinde birbirine atıf yaptığı gösterilmiştir. |
+| **Ergenlik Durdurucular Kemik Mineral Yoğunluğunu Olumsuz Etkiler** | [DIŞ KAYNAK] Joseph et al. (2019); Klink et al. (2015); Cass Raporu Bölüm 13.15 `[P:0167]` | **İleriye Dönük DXA Taramalı Boylamsal Çalışmalar** | **YÜKSEK KLİNİK ENDİŞE (★★★★☆):** GnRHa monoterapisi sırasında kemik mineral yoğunluğu $z$-skorlarının durakladığını veya gerilediğini ampirik olarak gösterir. |
+| **Çocukluktaki Sosyal Geçiş Tıbbi Geçiş Yörüngesini Hızlandırır** | [DIŞ KAYNAK] Zucker (2020); Olson et al. (2022) `[P:0029]` | **Gözlemsel Kohort Çalışmaları** | **MAKUL GELİŞİMSEL HİPOTEZ (★★★☆☆):** Mantıksal temeli güçlüdür; ancak ebeveyn seçilim yanlılığını sosyal geçişin nedensel etkisinden ayırmak güçtür. |
 
 ---
 
-## 3. [ÇELİK ADAM (STEELMANNING)]
+## 3. OTO-FALSİFİKASYON
 
-Dr. Hilary Cass'in sunduğu nihai raporu, lobilerin ve popüler tartışmaların yarattığı sığ karikatürlerden arındırarak tıp epistemolojisi açısından en güçlü haliyle kuruyoruz:
+Bu analizin kendi sınırları, potansiyel kör noktaları ve model kısıtları:
 
-> **Saman Adam Eleştirisi (Geçersiz Kılınan):** *"Cass Review, trans bireylerin varlığını veya acılarını inkâr eden, ergenlerin tedaviye erişimini bürokratik gerekçelerle engelleyen ideolojik ve dışlayıcı bir rapordur."*
-> 
-> **Çelik Adam Rekonstrüksiyonu (V6 Standartı):**  
-> *"Cass Review, cinsiyet disforisi yaşayan ergenlerin yaşadığı derin psikolojik acıyı veya sağlık hizmeti talebini reddetmez. Raporun asıl tezi; modern tıbbın onkoloji, kardiyoloji veya enfeksiyon hastalıklarında tavizsiz uyguladığı 'kanıta dayalı tıp (EBM)' ve 'önce zarar verme (primum non nocere)' ilkelerinin, cinsiyet disforisi alanında ideolojik baskılar ve sosyal adalet kaygılarıyla bilinçli olarak askıya alınmış (tıpta istisnacılık) olmasıdır.*  
-> *1990'larda Hollanda'da geliştirilen medikal protokol (Dutch Protocol); çocukluktan beri süregelen, istikrarlı bir aile ortamı olan ve eşlik eden ağır psikiyatrik tablosu bulunmayan çok dar bir kohort üzerinde kurgulanmıştı. Oysa son on yılda kliniklere başvuran kitle bütünüyle farklılaşmıştır: Ergenlikte aniden başlayan, %75'i biyolojik kız çocuğu olan, yüksek oranda otizm spektrumu (%30+), yeme bozukluğu, çocukluk travması ve akran etkileşimi barındıran aşırı karmaşık bir hasta grubudur.*  
-> *Bu kırılgan ergenlere altta yatan psikopatolojileri araştırmadan 'sorgusuz onaylayıcı model' dayatmak ve ergenlik durdurucuları (GnRH analogları) 'düşünmek için geri döndürülebilir bir zaman molası' gibi sunmak bilimsel bir aldatmacadır. Veriler, bloker başlanan ergenlerin yaklaşık %98'inin geri döndürülemez karşıt cinsiyet hormonlarına geçtiğini ve ömür boyu kısırlık, cinsel işlev kaybı ve tıbbi bağımlılık patikasına kilitlendiğini göstermektedir. Tıp, deneysel ve zayıf temelli erken tıbbileştirmeyi durdurmalı; standart pediyatrik kanıt hiyerarşisine ve bütüncül psikososyal değerlendirmeye geri dönmelidir."*
+1. **Kurumsal Yönetişim Yanlılığı:** Rapor, kamu finansmanlı tek-alıcılı bir sağlık sistemi (NHS England) için hazırlanmıştır. Bu durum kaçınılmaz olarak bürokratik riskten kaçınma ve maliyet-etkinlik baskılarını yansıtır. Model, kurumsal ihtiyat ile saf klinik faydayı birbirine karıştırmamalıdır.
+2. **Pediatrik Kanıt Saflığı ile Şefkatli Bakım Çatışması:** Randomize deney yokluğunu eleştirirken model; dayanılmaz cinsiyet hoşnutsuzluğu çeken bir ergenden tedaviyi esirgemenin yaratacağı belgelenmiş ruhsal yıkımı göz ardı etmemelidir. Metodolojik katılık şefkatli klinik aciliyeti felç etmemelidir.
+3. **Uluslararası Politika Ayrışması:** Rapor, Avrupa kanıta dayalı tıp modelini (İsveç, Finlandiya, İngiltere) temsil eder; Amerikan özel tıp pratiğinin (AAP, Endocrine Society) agresif onaylama yaklaşımıyla taban tabana zıttır. Analiz bu küresel hukuk ve tıp ayrışmasını dikkate almalıdır.
+4. **Tek Zekâ Sınırı:** Rapor CRUCIBLE v7.2 deterministik motoruyla üretilmiştir; çocuk endokrinologları ve biyoetik uzmanlarının bağımsız hakemliğine muhtaçtır.
 
 ---
 
-## 4. HERMENÖTİK VE KAVRAMSAL İSKELET
+## 4. HASAR RAPORU
 
-1. **Tıpta İstisnacılık (*Exceptionalism in Medicine*):**  
-   Diğer tüm tıp disiplinlerinde çift-kör denemeler, uzun vadeli güvenlik profilleri ve yüksek kaliteli kanıt şart koşulurken; ergen cinsiyet disforisi alanında zayıf ve kontrolsüz gözlemsel çalışmaların yeterli kabul edilmesi.
-2. **Tanısal Gölgeleme (*Diagnostic Overshadowing*):**  
-   Klinisyenlerin, hastanın taşıdığı otizm spektrumu, ağır travma, majör depresyon veya akran dışlanması gibi çoklu psikiyatrik etkenleri araştırmayıp, tüm klinik tabloyu tek başına "cinsiyet disforisi" etiketi altına süpürmesi.
-3. **Medikal Kilitlenme (*Medical Lock-in*):**  
-   Erken sosyal geçiş ve ergenlik baskılayıcıların "akışkan ve zararsız bir bekleme odası" işlevi görmeyip; hastanın psikoseksüel gelişimini dondurarak onu neredeyse kaçınılmaz bir biçimde geri döndürülemez çapraz hormonlara ve cerrahiye sürükleyen bir basamak olması.
+Denetim sonucunda tezin aldığı hasar ve ayakta kalan asgari iddia çekirdeği:
 
----
+* **Alınan Epistemik Hasar (Yıkılan Tıbbi Mitler):**
+  1. Ergenlik durdurucuların gelişim üzerinde sıfır etkisi olan, zararsız ve tamamen geri döndürülebilir bir "mola butonu" olduğu iddiası ampirik olarak yıkılmıştır.
+  2. WPATH gibi derneklerin kılavuzlarının sorgulanamaz altın standart kanıtlara dayandığı savı çürütülmüştür; kılavuzların dairesel atıflara dayandığı belgelenmiştir.
+  3. Tavistock GIDS'in uyguladığı tek-yönlü medikalize edici klinik model kalıcı olarak ilga edilmiştir.
 
-## 5. ÇÜRÜTME VE AMPİRİK SÜRTÜNME (EMPIRICAL FRICTION)
-
-Cass Review, metodolojik titizlik ve kanıta dayalı tıp (EBM) açısından güçlü bir duruş sergilese de, kendi içinde epistemolojik sürtünmeler ve yöntemsel çıkmazlar barındırmaktadır:
-
-### 5.1. Katı GRADE/EBM Kriterlerinin İhlali: "Kanıt Yokluğu ≠ Etki Yokluğu" Çıkmazı
-Cass Review, University of York ekibinin yürüttüğü 7 sistematik derlemeye dayanarak, ergen cinsiyet disforisi literatüründeki çalışmaların ezici çoğunluğunu (yaklaşık 100 çalışmanın 98'ini) "düşük" veya "çok düşük" kaliteli ilan etmiştir. Bu kararın temel gerekçesi, çalışmaların çift-kör, plasebo kontrollü Randomize Kontrollü Deney (RCT) olmamasıdır.  
-Ancak pediyatrik cinsiyet tıbbında plasebo kontrollü çift-kör RCT yürütmek hem biyoetik kurallar hem de pratik gerçeklik açısından imkânsızdır; çünkü ergenlik baskılayıcı alan grupta ergenlik dururken, plasebo alan grupta ikincil cinsiyet özellikleri (ses kalınlaşması, meme gelişimi) başlayacak ve körleme (*blinding*) kendiliğinden çökecektir.  
-Pediyatrik psikiyatri, çocuk onkolojisi ve cerrahide RCT standardının uygulanamadığı yüzlerce meşru tedavi protokolü varken; Cass Review'un kanıt çıtasını farmakolojik çift-kör RCT seviyesine kilitlemesi, **"yüksek kaliteli kanıtın bulunmaması" (*absence of evidence*) ile "müdahalenin etkisiz veya zararlı olması" (*evidence of absence / harm*) arasındaki mantıksal ayrımı muğlaklaştırmıştır.**
-
-### 5.2. Nörokognitif Duraklama İddiasındaki Spekülatif Boşluk
-Raporda en kritik uyarı noktalarından biri; GnRH analoglarının ergen beynindeki nöral budanma (*pruning*) ve miyelinizasyon süreçlerini kalıcı olarak bozabileceği, bilişsel gelişimi dondurabileceği iddiasıdır (s. 178).  
-Fakat raporun bu ağır iddia için sunduğu ampirik veri tabanı incelendiğinde; doğrudan insan klinik nörogörüntüleme veya uzun vadeli kognitif test verileri değil, koyun/kemirgen deneylerinden türetilmiş teorik biyolojik modeller olduğu görülür. Yazarın bizzat metin içinde *"could have unintended consequences"* (öngörülemeyen sonuçlar doğurabilir) ve *"there is no way of knowing"* (bilmenin hiçbir yolu yok) ifadelerine sığınması metodolojik bir zayıflıktır. Karşı tarafı kanıtsız tıp yapmakla suçlayan bir metnin, tedaviyi durdurma gerekçesini bizzat kanıt yetersizliği ve biyolojik spekülasyona dayandırması çift taraflı bir kanıt asimetrisi üretir.
+* **Ayakta Kalan Sarsılmaz Çekirdek (Hayatta Kalan Klinik Hakikatler):**
+  1. **Bütüncül ve Bireyselleştirilmiş Değerlendirme:** Cinsiyet sıkıntısı yaşayan çocukların otizm, travma ve diğer psikiyatrik sorunlarını kapsayan çok disiplinli bir değerlendirmeden geçmesi şarttır.
+  2. **Epidemiyolojik Dönüşüm Gerçektir:** Ergenlik sonrası başvuran biyolojik kız çocukları patlaması, çocukluk çağı protokollerinin otomatik uygulanamayacağı yeni ve ayrı bir klinik gruptur.
+  3. **Gelişimsel ve Kemik Riskleri:** GnRH analogları kemik yoğunluğu kazanımını duraksatmakta ve ergenin bilişsel gelişimi tamamlanmadan çocuğu kalıcı hormon yörüngesine kilitlemektedir.
 
 ---
 
-## 6. SAFSATA VE METODOLOJİK İHLAL AVI (FALLACY HUNTING)
+## 5. CERRAH DENETİM KARTI
 
-### 6.1. Kanıt Yokluğundan Çıkarım Safsatası (*Argumentum ad Ignorantiam*)
-* **Kusurlu Akıl Yürütme:** *"Ergenlik durdurucuların ve hormonların uzun vadede intiharı azalttığına veya nörokognitif gelişime zarar vermediğine dair yüksek kaliteli çift-kör kanıt yoktur. O halde bu müdahaleler etkisizdir veya durdurulmalıdır."*
-* **Teşhis:** Kanıtın zayıf veya yetersiz olması, tedavinin klinik olarak başarısız olduğunu tek başına kanıtlamaz. Uzun vadeli takip verisi eksikliğini, olumsuz bir sonlanım kanıtı gibi kullanmak mantıksal bir sıçramadır.
+Dış İrade (araştırmacı) için 3 dakikada kontrol edilebilecek somut eylem maddeleri:
 
-### 6.2. İki Uçlu İkilem (*False Dilemma*) ve EBM Katılığı
-* **Kusurlu Akıl Yürütme:** Ya ilaç firmalarının altın standardı olan çift-kör RCT seviyesinde kanıt sunulmalıdır ya da mevcut tüm gözlemsel/kohort verileri "klinik karar vermeye elverişsiz" sayılarak göz ardı edilmelidir.
-* **Teşhis:** Gözlemsel ve prospektif kohort çalışmalarının (örneğin Hollanda uzun dönem izlemleri), sistematik bias riski taşısa dahi, nadir klinik durumlarda pragmatik kanıt değeri taşıdığı gerçeği göz ardı edilmiştir.
-
-### 6.3. Zaman Serisi Korelasyonundan Sosyal Bulaşma Türetme (*Post Hoc Ergo Propter Hoc*)
-* **Kusurlu Akıl Yürütme:** 2014-2015 döneminde akıllı telefon ve sosyal medya kullanımı yaygınlaşmış; eşzamanlı olarak ergen kız çocuklarında cinsiyet disforisi başvuruları 4 kat artmıştır. O halde vaka patlamasının doğrudan nedeni sosyal medyada yayılan akran bulaşmasıdır (ROGD).
-* **Teşhis:** Zaman serilerindeki eşzamanlı iki artış arasında nedensel bir bağ olduğu hipotezi güçlü bir sezgi sunsa da, rapor bu iki olgu arasındaki doğrudan mekanik/nedensel köprüyü izole edilmiş ampirik verilerle ispatlayamamıştır.
+- [ ] **Paragraf 168'i Kontrol Et:** `[P:0168]` içinde van der Loos et al. (2023) çalışmasında durduruculardan hormonlara geçiş oranının %93–%98 olduğunu bizzat doğrula.
+- [ ] **Paragraf 171'deki Erken Ergenlik Kıyasını Oku:** `[P:0171]` içinde Dr. Cass'in erken ergenlik ile cinsiyet uyumsuzluğu arasındaki farkı izah ettiği satırları gör.
+- [ ] **Yetişkin Klinik Boykot Mektubunu İncele:** `[P:0518]` paragrafında yetişkin cinsiyet kliniklerinin veri araştırmasına katılmayı reddettiğini teyit et.
+- [ ] **Teşhiste Gölgeleme Uyarısını Doğrula:** `[P:0010]` ve `[P:0197]` içinde otizm ve travmanın cinsiyet arkasında ihmal edilmesine dair klinik ikazları denetle.
 
 ---
-
-## 7. BİLDİRİLEN NEDENSELLİK VE KARIŞTIRICI DEĞİŞKENLER (CONFOUNDERS)
-
-Cass Review'un demografik patlama için kurduğu nedensellik modeli:
-$$\text{Sosyal Medya / Akran Etkisi} \longrightarrow \text{Ergen Kızlarda Disfori Salgını} \longrightarrow \text{Tavistock Kliniğine Yığılma} \longrightarrow \text{Medikal Kilitlenme}$$
-
-Bu modelde derinlemesine ayrıştırılmamış kritik karıştırıcı değişkenler (Confounder):
-
-1. **Toplumsal Damgalamanın Azalması (Görünürlük Hipotezi):**  
-   Vaka artışının tek nedeni bir "sosyal enfeksiyon" değil; trans kimliklerin yasal ve toplumsal olarak daha az cezalandırılması sonucu, geçmişte gizlenen veya intiharla sonuçlanan vakaların sağlık sistemine başvurma cesareti bulması olabilir (tıpkı solaklığa uygulanan cezalar kaldırıldığında solak nüfusun bir anda sıçrama yapması gibi).
-2. **Ergen Kız Çocuklarında Genel Ruh Sağlığı Krizinin Özgül Olmayan Yansıması:**  
-   Son on yılda ergen kız çocuklarında anksiyete, depresyon ve yeme bozuklukları global ölçekte artmıştır. Cinsiyet disforisi, bu genel psikolojik kırılganlığın tekil bir sebebi değil, kültürün sunduğu güncel ifade biçimlerinden biri olabilir.
-
----
-
-## 8. DİSİPLİNER MATRİS VE SINIR İHLALLERİ (KATMAN 8 GÜMRÜK DENETİMİ)
-
-* **Raporun Meşru Yetki Alanı:** Sağlık Hizmetleri Metodolojisi, Klinik Yönetişim, Pediyatrik EBM Standartları.
-* **Aşılan Sınır:** Klinik Agnostisizmden Siyasi/Hukuki Norm Üretimine Geçiş.
-* **Metodolojik Hüküm:**  
-  Raporun vardığı sonuç özünde şudur: *"Elimizde bu tedavilerin faydasını veya zararını kesin olarak gösterecek yüksek kaliteli veri yoktur (Agnostik metodolojik hüküm)."*  
-  Ancak sağlık bürokrasisi ve kamuoyu bu agnostisizmi doğrudan *"Ergenlik blokerleri zararlıdır ve derhal yasaklanmalıdır"* şeklinde pozitif bir sonuca tahvil etmiştir. Cass Review, kendi metodolojik ihtiyatını bu normatif sıçramaya karşı yeterince koruyamamıştır.
-
----
-
-## 9. ALTERNATİF HİPOTEZLER VE KARDEŞ ARGÜMANLAR (ÇAPRAZ TEST)
-
-1. **Amerikan Pediyatri Akademisi (AAP) ve WPATH Karşı-Tezi:**  
-   Cinsiyet disforisi yaşayan ergenlerde erken tıbbi müdahaleyi geciktirmek nötr bir durum değildir; ergenin istemediği ikincil cinsiyet özelliklerini kazanması (ses kalınlaşması, göğüs büyümesi) geri döndürülemez psikolojik travmalara ve intihar riskine yol açar. "Tedavi etmemek de aktif bir müdahaledir."
-2. **Kuzey Ülkeleri (İsveç, Finlandiya) Doğrulayıcı Konsensüsü:**  
-   Cass Review tekil bir çıkış değildir. Finlandiya (2020) ve İsveç (2022) ulusal sağlık otoriteleri de aynı verileri taramış ve cerrahi/hormonal müdahalelerin ergenlerde ilk seçenek olmaktan çıkarılması gerektiğine karar vermiştir. Bu durum, Cass Review'un kurumsal bir yalnızlık içinde olmadığını gösterir.
-
----
-
-## 10. [OTO-FALSİFİKASYON VE BİLİŞSEL ÖZ-DENETİM (POST-MORTEM)]
-
-Katman 1 ve Katman 10 gereği, modelimizin bu vaka analizinde içine düşmüş olabileceği metodolojik zayıflıklar, kurumsal önyargılar ve kör noktalar aşağıda dürüstçe ifşa edilmiştir:
-
-### 10.1. Tıbbi Bürokratizme ve "Devlet Prestijine" Aşırı Güven Riski
-Modelimiz, Cass Review'u incelerken NHS England ve University of York'un kurumsal ciddiyetini neredeyse tartışma dışı bir "epistemik tarafsızlık garantisi" olarak konumlandırmış olabilir. Oysa ulusal sağlık sistemleri yalnızca saf bilimle yönetilmez; bütçe kısıtlamaları, devasa tazminat davalarından kaçınma refleksi (*litigation risk*) ve hükümetlerin siyasi yönelimleri de raporların dilini şekillendirebilir. Tavistock kliniğinin kapatılması sadece bir "tıbbi arınma" değil, Birleşik Krallık iç siyasetindeki muhafazakâr kamuoyu baskısına verilmiş bürokratik bir taviz boyutu da taşıyabilir. Analizimiz bu kurumsal-politik arka planı yeterince hesaba katmamış olabilir.
-
-### 10.2. "Eylemsizliğin" (Tedaviyi Ertelemenin) Biyoetik Riskini Hafife Alma
-Faz 2'de haklı olarak "önce zarar verme" (*primum non nocere*) ilkesine ve medikal kilitlenmenin risklerine odaklandık. Ancak tıpta "müdahale etmemek" (*watchful waiting*) her zaman nötr veya güvenli bir seçenek değildir. Şiddetli cinsiyet disforisi yaşayan ve ergenliğin getirdiği bedensel değişimlerle derin bir psikolojik çöküntüye giren bir ergen için tedaviyi ertelemek, o bireyi geri dönüşsüz bir psikiyatrik hasara veya intihar krizine terk etmek anlamına gelebilir. Modelimiz, medikal müdahalenin getirdiği potansiyel hasarları büyüteç altına alırken; müdahale etmemenin yol açabileceği klinik travmaları asimetrik biçimde küçümsemiş olabilir.
-
-### 10.3. Ulaşılabilirlik Yanlılığı (*Availability Heuristic*) ve Detransisyoner Vurgusu
-Tedaviden pişman olup eski cinsiyetine dönen bireylerin (*detransitioners*) beyanları kamusal alanda son derece çarpıcı ve dramatiktir. Ancak bu popülasyonun toplam tedavi görenler içindeki kesin oranı epidemiyolojik olarak henüz netleşmemiştir (tahminler %1 ile %8 arasında değişmektedir). Raporun ve modelimizin bu dramatik vakalara dayanarak genel kısıtlamaları meşrulaştırması, nadir vakaların etkisini genele yayma (*availability bias*) riski barındırır.
-
----
-
-## 11. [HASAR RAPORU VE ASGARİ EPİSTEMİK BEDEL (ŞARTLI REVİZYON)]
-
-Dr. Hilary Cass'in *The Cass Review* raporunun, bilimsel ve analitik arenada güçlü bir otorite belgesi olarak kalabilmesi için ödemesi gereken asgari metodolojik bedeller (Majör Revizyon Şartları) şunlardır:
-
-1. **Kanıt Yokluğunun Kriminalize Edici Bir Yasağa Dönüştürülmemesi:**  
-   *"Çift-kör RCT kanıtı yok"* tespiti, tedavinin tamamen yasaklanması veya suç sayılması için bir kaldıraç olarak kullanılmamalıdır. Bunun yerine, ilaçların yalnızca üniversite hastanelerinde sıkı denetimli ve etik onaylı "Klinik Araştırma Protokolleri" (*Clinical Trial Framework*) kapsamında erişilebilir kılınması taahhüt edilmelidir.
-2. **Nörokognitif İddiaların Operasyonelleştirilmesi ve Doğrulanması:**  
-   Ergen beyninin budanma süreçlerinin durduğu yönündeki kemirgen modellerine dayalı spekülatif çıkarımlar yerine; GnRH analogları kullanan insan ergenler üzerinde prospektif nörogörüntüleme (fMRI) ve bilişsel test bataryaları ivedilikle tamamlanmalı, veri gelene kadar bu iddia kesin bir klinik hüküm gibi sunulmamalıdır.
-3. **Sosyal Bulaşma Hipotezinin Çok Değişkenli İspatı:**  
-   2014 sonrası demografik kırılmanın tek başına "akran/sosyal medya bulaşması" olduğu iddiası, toplumsal damgalamanın kalkması ve genel ergen kız psikiyatrik krizleri gibi karıştırıcı hipotezlerle kontrollü olarak ayrıştırılmalıdır.
-
----
-
-### 🩺 CERRAH DENETİM KARTI
-
-Bu analizi denetlemek isteyen Dış İrade (İnsan Araştırmacı) için 3 dakikalık somut kontrol protokolü:
-
-- [ ] **Kritik Referans Doğrulama (Spot-Check):**  
-  University of York'un sistematik derlemesini açınız (*Carmichael vd. 2021 ve de Vries vd. 2014 değerlendirmeleri*). Çalışmaların "düşük kaliteli" sınıflandırılmasının tek sebebinin körleme (RCT) eksikliği mi olduğunu, yoksa takip süresinin kısalığı ve yüksek oranda izlem kaybı (*loss to follow-up*) bulunup bulunmadığını bizzat kontrol edin.
-- [ ] **Ölümcül Falsifikasyon Sorusu:**  
-  *"Eğer ergenlik durdurucular ve hormon tedavileri intiharı gerçekten engellemiyorsa; tedavinin askıya alındığı Birleşik Krallık, Finlandiya ve İsveç'te, tedaviye erişemeyen ergen cinsiyet disforisi kohortlarındaki intihar veya intihar girişimi oranlarında tedavi öncesi döneme kıyasla istatistiksel olarak anlamlı bir artış yaşanmış mıdır?"*
-- [ ] **Retorik ve Sycophancy Denetimi:**  
-  Bu analizde NHS bürokrasisine ve tıp otoritelerine körü körüne bir dokunulmazlık tanındı mı? Karşı tarafın (WPATH / AAP) "gecikmiş tedavinin bedensel travması" tezi tarafsızca kayda geçirildi mi?
+*CRUCIBLE v7.2 Epistemic Protocol — Grounded Full-Text Localized Audit*
