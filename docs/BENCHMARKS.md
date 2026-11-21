@@ -25,6 +25,8 @@
 | 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14 paras | 16.8 | 20.9 | 6 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
 | 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience | 279 paras | 16.8 | 17.0 | 7 | ✅ PASS | 3 | 3 | ✅ | ✅ | EN ➔ TR |
 
+> **Note on Source Indexing:** In Case 04 (Diop), indexing was structured across 18 thematic book sections. In Cases 06 (Cook et al. vs Tol) and 08 (Moncrieff), the audited primary targets were concise, highly dense scientific consensus/umbrella review articles indexed at 9 and 14 major structural paragraph units. In all cases, full text integrity was maintained without lossy summarization.
+
 ### 1.1. Aggregate Statistics
 
 | Metric | Value |

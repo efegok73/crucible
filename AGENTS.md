@@ -13,17 +13,16 @@
 - Yıkıcı terminal komutları (`rm`, `del`, `git reset --hard`, `git clean`) kullanıcı izni olmadan kesinlikle çalıştırılamaz.
 
 ## 3. ANAYASAL DOKUNULMAZLIK VE ÇALIŞMA ALANI DİSİPLİNİ
-- `Ana_Sistem_Dosyalari/` altındaki anayasal belgeler kesinlikle salt-okunurdur ve kullanıcı açıkça revizyon emretmedikçe değiştirilemez.
-- Model, ürettiği vaka analizlerini, karşı-tezleri ve raporları yalnızca `CALISMALARIM/` klasörü altına yazar.
-- Kullanıcı `CALISMALARIM/OZEL_KURALLARIM.md` dosyası tanımlamışsa; model kurucu anayasayla çelişmemek kaydıyla bu özel kuralları ikincil filtre olarak işletir.
+- `docs/` altındaki anayasal belgeler kesinlikle salt-okunurdur ve kullanıcı açıkça revizyon emretmedikçe değiştirilemez.
+- Model, ürettiği analizleri ve raporları proje standartlarına uygun dizinlerde yapılandırır.
 
 ## 4. TEMBEL YÜKLEME (LAZY LOADING) VE TOKEN EKONOMİSİ
 Tüm anayasa katmanlarını her oturumda baştan hafızaya yükleme. Yönlendirmeyi amaca göre yap:
 - **Metin, Tez, Kitap veya Felsefi/Bilimsel İddia Analizinde:**
   Aşağıdaki dosyaları `read_file` ile oku ve kuralları tavizsiz işlet:
-  - `Ana_Sistem_Dosyalari/ANALITIK_YONTEM_ILKELERI_v7.md` (Kanonik 10 Katman İlkeleri)
-  - `Ana_Sistem_Dosyalari/ANALITIK_YONTEM_SENARYOLAR_VE_KAVRAMLAR.md` (Triyaj Matrisi ve Sözlük)
-  - `CALISMALARIM/V7_REFAKTOR_TAKIP_KUTUGU.md` (Kanonik Standartlar)
+  - `docs/tr/01_ANALITIK_YONTEM_ILKELERI_v7.md` veya `docs/en/01_CRUCIBLE_METHODOLOGY_v7.md` (Kanonik 10 Katman İlkeleri)
+  - `docs/tr/02_SENARYOLAR_VE_KAVRAMLAR.md` veya `docs/en/02_TRIAGE_AND_CONCEPTS.md` (Triyaj Matrisi ve Sözlük)
+  - `CHANGELOG.md` (Kanonik Değişiklik ve Sürüm Standartları)
 - **Kodlama, Betik, Git ve Dosya Yönetimi Görevlerinde:**
   Felsefi katmanları belleğe çağırma; salt teknik, doğrudan ve gereksiz laf kalabalığından arındırılmış bir yazılım mühendisi olarak çalış.
 
@@ -44,7 +43,7 @@ Resmi bir araştırma veya metin analizi raporunda, deterministik linter doğrul
 - **Katman 8 Matrisi:** K8 aktifse `| Tez / İddia | Dayandığı Temel Kaynak | Kaynak Durumu & Türü | Metodolojik Hüküm |` somut tablosu zorunludur. Metinde fiilen bulunmayan dış literatür mutlaka `[DIŞ KAYNAK]` etiketi taşımalıdır.
 - **Evrensel Substrat Paritesi Kanunu (L_source = L_audit -> L_target):** Birincil denetim istisnasız kaynak eserin orijinal dilinde (L_source) icra edilir. Hedef dildeki rapor (L_target), birinci kademe mühürlendikten sonra `**Primary Audit:** <yol>` üstverisi ve dual [P:xxxx] çıpalarıyla üretilir. Linter Substrate Parity Gate bunu zorunlu kılar.
 - **Pedagojik Berraklık ve Doğal Dil Kuralı ("Bir Kavram, Bir Somut Örnek"):** Robotik çeviri kalıpları ve edilgen fiil yığınları yasaktır; akıcı, doğal ve anlaşılır bir akademik dil kullanılır. Her teknik eleştiri (motte-and-bailey, vekil sıçraması vb.) hemen ardında somut bir örnek veya analojiyle açılır.
-- **Linter Mühürleme:** Rapor kaydedildiğinde terminalden `python CALISMALARIM/validate_and_convert_v7.py "[rapor_yolu]" --source "[kaynak_yolu]"` çalıştırılır; linter `[PASS]` vermeden rapor teslim edilemez.
+- **Linter Mühürleme:** Rapor kaydedildiğinde terminalden `python scripts/crucible_linter.py "[rapor_yolu]" --source "[kaynak_yolu]"` çalıştırılır; linter `[PASS]` vermeden rapor teslim edilemez.
 
 ## 6. ZORUNLU İNTERAKTİF DURAKLAMA (PHASED EXECUTION)
 Eğer incelenen metin çok disiplinli veya geniş kapsamlıysa, model analizi 3 faza bölmek ve **her fazın sonunda durup Dış İradeden (Kullanıcıdan) 'Devam' onayı beklemek** zorundadır:

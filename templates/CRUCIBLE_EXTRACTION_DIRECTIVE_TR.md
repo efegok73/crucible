@@ -1,6 +1,6 @@
-# CRUCIBLE v7.0 EPİSTEMİK İNDEKS VE YAPI HARİTASI (REGISTRY) PROTOKOLÜ
+# CRUCIBLE v7.2 EPİSTEMİK İNDEKS VE YAPI HARİTASI (REGISTRY) PROTOKOLÜ
 
-**Amaç:** Bu talimat; birincil akademik metinlerden (kitaplar, monografiler, hakemli makaleler) metnin bütünlüğünü bozmadan ve kayıplı özetleme (*lossy compression*) yapmadan, CRUCIBLE v7.0 Grounded denetimi için kesin paragraf çıpalı **Epistemik İndeks ve Yapı Haritası (Registry Dossier)** dosyaları (`CRUCIBLE_TARGET_TEMPLATE_TR.md`) üretilmesini yönetir.
+**Amaç:** Bu talimat; birincil akademik metinlerden (kitaplar, monografiler, hakemli makaleler) metnin bütünlüğünü bozmadan ve kayıplı özetleme (*lossy compression*) yapmadan, CRUCIBLE v7.2 Metne Dayalı denetimi için kesin paragraf çıpalı **Epistemik İndeks ve Yapı Haritası (Registry Dossier)** dosyaları (`CRUCIBLE_TARGET_TEMPLATE_TR.md`) üretilmesini yönetir.
 
 ---
 

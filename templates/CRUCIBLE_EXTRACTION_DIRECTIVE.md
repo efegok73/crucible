@@ -1,6 +1,6 @@
-# CRUCIBLE v7.0 EPISTEMIC INDEX & REGISTRY PROTOCOL
+# CRUCIBLE v7.2 EPISTEMIC INDEX & REGISTRY PROTOCOL
 
-**Purpose:** This directive governs the non-destructive, ground-truth extraction from primary academic texts (books, monographs, peer-reviewed empirical papers) to generate standardized, paragraph-anchored **Epistemic Registry Dossiers** (`CRUCIBLE_TARGET_TEMPLATE.md`) for CRUCIBLE v7.0 Grounded audits, without lossy compression.
+**Purpose:** This directive governs the non-destructive, ground-truth extraction from primary academic texts (books, monographs, peer-reviewed empirical papers) to generate standardized, paragraph-anchored **Epistemic Registry Dossiers** (`CRUCIBLE_TARGET_TEMPLATE.md`) for CRUCIBLE v7.2 Grounded audits, without lossy compression.
 
 ---
 

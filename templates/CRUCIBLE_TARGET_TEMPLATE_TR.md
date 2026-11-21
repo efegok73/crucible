@@ -1,5 +1,5 @@
 # EPİSTEMİK İNDEKS VE YAPI HARİTASI (REGISTRY): [YAZAR / ESER / İDDİA ADI]
-*CRUCIBLE v7.0 Zemin Metin Çıpalı Kütük Formatı*
+*CRUCIBLE v7.2 Metne Dayalı Kütük Formatı*
 
 ## 1. METİN KÜNYESİ VE BAĞLAM
 * **Yazar(lar) / Kurum:** 
@@ -49,8 +49,8 @@ $$\text{Öncül / Doğrudan Neden} \longrightarrow \text{Aracı Mekanizma / Pati
 
 ---
 
-## 6. HAKİKİ METODOLOJİK SÜRTÜNME ALANLARI (CRUCIBLE v7.0 İÇİN)
-*Yazarın kendi şerhleriyle bertaraf edemediği, ampirik veri ile çıkarım arasındaki gerçek 3 yarılma noktası:*
+## 6. HAKİKİ METODOLOJİK SÜRTÜNME ALANLARI (CRUCIBLE v7.2 İÇİN)
+*Yazarın kendi şerhleriyle bertaraf edemediği, ampirik veri ile çıkarım arasındaki gerçek sürtünme alanları (metnin elverdiği ölçüde genelde 1 ila 3 adet; yapay kusur şişirmesi [Critique Inflation] kesinlikle yasaktır):*
 
 ### Sürtünme Noktası 1: Yöntemsel / Ampirik Yarılma
 * **Çıpa:** `[P:xxxx]`

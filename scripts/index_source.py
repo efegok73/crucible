@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CRUCIBLE v7.0 — Deterministic Source Document Paragraph Indexer
+CRUCIBLE v7.2 — Deterministic Source Document Paragraph Indexer
 ===============================================================
 Parses raw primary documents (.pdf, .docx, .txt, .md) and converts them into
 a deterministically anchored text format where every paragraph is prefixed with
@@ -36,6 +36,21 @@ def extract_paragraphs(file_path: str) -> list[str]:
     ext = os.path.splitext(file_path)[1].lower()
 
     if ext == '.pdf':
+        try:
+            import fitz
+            doc = fitz.open(file_path)
+            paras = []
+            for page in doc:
+                text = page.get_text()
+                if text:
+                    text = text.replace('\x00', '')
+                    page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+                    paras.extend(page_paras)
+            if paras:
+                return paras
+        except Exception:
+            pass
+
         reader = None
         try:
             import pypdf
@@ -48,7 +63,7 @@ def extract_paragraphs(file_path: str) -> list[str]:
                 pass
 
         if reader is None:
-            raise ImportError("Neither 'pypdf' nor 'PyPDF2' is installed. Run: pip install pypdf")
+            raise ImportError("Neither 'fitz' (PyMuPDF), 'pypdf', nor 'PyPDF2' is installed. Run: pip install pymupdf or pypdf")
 
         paras = []
         for page in reader.pages:
@@ -94,7 +109,7 @@ def index_paragraphs(paras: list[str]) -> list[str]:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="CRUCIBLE v7.0 — Deterministic Source Document Paragraph Indexer"
+        description="CRUCIBLE v7.2 — Deterministic Source Document Paragraph Indexer"
     )
     parser.add_argument("source", help="Primary source document (.pdf, .docx, .txt, .md)")
     parser.add_argument("-o", "--output", default=None, help="Output file path (default: stdout)")

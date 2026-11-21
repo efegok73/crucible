@@ -1,5 +1,5 @@
 """
-CRUCIBLE v7.1 — Benchmark Metrics Extractor
+CRUCIBLE v7.2 — Benchmark Metrics Extractor
 Extracts quantitative metrics (M1-M8) from showcase reports.
 Outputs: BENCHMARKS.md table
 """
@@ -101,39 +101,14 @@ def find_dossier_file(directory, case_num):
     return None
 
 
-def count_active_layers(text):
-    """M1: Count active normative layers in triage section."""
-    # Find triage section
-    triage_match = re.search(
-        r"(?:##\s*\d*\.?\s*\[?(?:EP[İI]STEMOLOJ[İI]K\s+TR[İI]YAJ|EPISTEMIC\s+TRIAGE)\]?)(.*?)(?=\n##\s+\d|$)",
-        text, re.DOTALL | re.IGNORECASE
-    )
-    if not triage_match:
+def count_active_layers(report_path):
+    """M1: Count active normative layers using single source of truth (CrucibleLinter)."""
+    try:
+        linter = CrucibleLinter(report_path)
+        linter.validate()
+        return len(linter.active_layers)
+    except Exception:
         return 0
-    
-    triage_text = triage_match.group(1)
-    count = 0
-    
-    # Count "Activated" / "AKTİF" / "Primordial" markers
-    activated_patterns = [
-        r"Activated",
-        r"AKT[İI]F",
-        r"Primordial\s+operative",
-        r"PENDING",  # Layer 10 is often listed as PENDING but still considered active
-    ]
-    
-    # Count unique layer references
-    layer_refs = set()
-    for pattern in activated_patterns:
-        for match in re.finditer(pattern, triage_text, re.IGNORECASE):
-            # Find the nearest layer reference
-            context_start = max(0, match.start() - 200)
-            context = triage_text[context_start:match.end()]
-            layer_nums = re.findall(r"(?:Layer|Katman|K)\s*(\d+)", context, re.IGNORECASE)
-            for num in layer_nums:
-                layer_refs.add(int(num))
-    
-    return len(layer_refs) if layer_refs else 0
 
 
 def count_fallacies(text):
@@ -239,7 +214,7 @@ def extract_metrics(case_num, case_name, discipline):
     tr_size = os.path.getsize(tr_path) if tr_path and os.path.exists(tr_path) else 0
     dossier_size = os.path.getsize(dossier_path) if dossier_path and os.path.exists(dossier_path) else 0
     
-    result["m1_active_layers"] = count_active_layers(en_text)
+    result["m1_active_layers"] = count_active_layers(en_path)
     result["m2_volume_kb"] = round(en_size / 1024, 1)
     result["m2_tr_volume_kb"] = round(tr_size / 1024, 1) if tr_size else "—"
     result["m2_dossier_kb"] = round(dossier_size / 1024, 1) if dossier_size else "—"
@@ -264,7 +239,7 @@ def extract_metrics(case_num, case_name, discipline):
 def generate_benchmarks_md(results):
     """Generate the BENCHMARKS.md file."""
     lines = []
-    lines.append("# CRUCIBLE v6.0 — QUANTITATIVE BENCHMARK RESULTS")
+    lines.append("# CRUCIBLE v7.2 — QUANTITATIVE BENCHMARK RESULTS")
     lines.append(f"**Generated:** 2026-10-06  ")
     lines.append(f"**Methodology:** Cross-Model Benchmark Protocol v1.0  ")
     lines.append(f"**Reference:** [`benchmarks/methodology/BENCHMARK_PROTOCOL.md`](../benchmarks/methodology/BENCHMARK_PROTOCOL.md)  ")

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-CRUCIBLE v6.0 Linter Unit Test Suite
+CRUCIBLE v7.2 Linter Unit Test Suite
 ====================================
 Tests all Z1-Z10 epistemic audit checks, hierarchical heading parsing,
-rhetorical hygiene, multilingual detection, and SHA-256 seal verification.
+rhetorical hygiene, multilingual detection, substrate parity, paragraph bounds,
+and SHA-256 seal verification.
 """
 
 import os
@@ -596,6 +597,115 @@ Tezin aldığı asgari epistemik hasar ve geriye kalan sağlam iddia çekirdeği
         res_allowed = linter_allowed.validate()
         self.assertTrue(res_allowed.passed, f"Expected pass with allow_localized, got errors: {res_allowed.errors}")
         self.assertTrue(res_allowed.substrate_parity)
+
+    def test_v7_invalid_paragraph_index_fails(self):
+        """v7.2 Hardening: Out-of-bounds paragraph index produces compile ERROR instead of warning."""
+        source_text = "Birinci paragraf metni burada yer almaktadır.\n\nİkinci paragraf metni de buradadır."
+        source_path = self._create_report(source_text)
+
+        md = f"""# Test Raporu
+## [EPİSTEMOLOJİK TRİYAJ]
+* K1 (Persona): AKTİF
+* K8 (Kaynak Tenkit): AKTİF
+## 2. ÇELİK ADAM
+Burada yazarın savı en güçlü haliyle ele alınmaktadır. İddia edilen sav incelenmektedir.
+[P:9999] "Birinci paragraf metni burada yer almaktadır."
+## 3. OTO-FALSİFİKASYON
+Analizin sınırlarını dürüstçe açıklıyoruz. Model kısıtlarını açıkça belirtiyoruz.
+## 4. HASAR RAPORU
+Tezin aldığı hasar ve asgari epistemik bedel özetlenmektedir.
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Sav Alpha | Birinci paragraf | Primary Source | Verified |
+## 5. CERRAH DENETİM KARTI
+- [ ] Kontrol et.
+""" + ("\n<!-- padding dolgusu -->" * 25)
+
+        report_path = self._create_report(md)
+        linter = CrucibleLinter(report_path, source_path=source_path)
+        result = linter.validate()
+        self.assertFalse(result.passed)
+        self.assertTrue(any("INVALID PARAGRAPH INDEX" in e for e in result.errors))
+
+    def test_v7_page_reference_stripping_in_matrix(self):
+        """v7.2 Hardening: Academic page references [Sayfa 116] or [p. 45] are stripped from matrix artifacts."""
+        source_text = "Önerme 9 Açıklama metni burada açıkça yer almaktadır ve incelenmiştir."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Önerme Savı | Önerme 9 Açıklama [Sayfa 116] | Primary Source | Metodolojik Hüküm |
+"""
+        steelman = (
+            "Bu bölümde yazarın savı en güçlü akademik biçimde yeniden kurulmaktadır. "
+            "Metodolojik öncüller ayrıntılı bir biçimde incelenmiş ve yazarın temel çıkarımları "
+            "zemin metin çıpasıyla doğrulanmıştır. [P:1] \"Önerme 9 Açıklama metni burada açıkça yer almaktadır ve incelenmiştir.\""
+        )
+        md = make_valid_document(steelman_text=steelman, extra_sections=matrix, include_k8_table=False)
+
+        report_path = self._create_report(md)
+        linter = CrucibleLinter(report_path, source_path=source_path, allow_localized=True)
+        result = linter.validate()
+        self.assertTrue(result.passed, f"Expected pass with stripped page ref, got errors: {result.errors}")
+
+    def test_v7_expanded_quote_and_blockquote_range(self):
+        """v7.2 Hardening: Long quotes (>250 chars) and markdown blockquotes (> [P:1] ...) are verified."""
+        long_quote = (
+            "Bilimsel tefekkürün temel gayesi olguları önceden varsayılmış dogmatik şablonlara uydurmak değil, "
+            "tam aksine ampirik gözlemin sunduğu çelişkileri cesaretle göğüsleyerek mevcut kuramsal çerçeveyi "
+            "tavizsiz bir metodolojik teste tabi tutmaktır; zira hakikatin aranması ancak yanılgının ifşasıyla mümkündür."
+        )
+        self.assertGreater(len(long_quote), 250)
+        source_text = f"Giriş paragrafı.\n\n{long_quote}\n\nSonuç paragrafı."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Bilimsel Sav | Giriş paragrafı | Primary Source | Doğrulandı |
+"""
+        steelman_valid = f'Yazarın temel yaklaşımı şu blok alıntıda açıkça görülmektedir:\n\n> [P:2] "{long_quote}"'
+        md_valid = make_valid_document(steelman_text=steelman_valid, extra_sections=matrix, include_k8_table=False)
+
+        report_path_valid = self._create_report(md_valid)
+        linter_valid = CrucibleLinter(report_path_valid, source_path=source_path, allow_localized=True)
+        res_valid = linter_valid.validate()
+        self.assertTrue(res_valid.passed, f"Expected long quote to pass, got: {res_valid.errors}")
+
+        # Fabricated long quote fails
+        fabricated_quote = long_quote.replace("tavizsiz bir metodolojik teste", "tamamen hayali bir kurguya")
+        steelman_invalid = f'Yazarın temel yaklaşımı şu blok alıntıda açıkça görülmektedir:\n\n> [P:2] "{fabricated_quote}"'
+        md_invalid = make_valid_document(steelman_text=steelman_invalid, extra_sections=matrix, include_k8_table=False)
+        report_path_invalid = self._create_report(md_invalid)
+        linter_invalid = CrucibleLinter(report_path_invalid, source_path=source_path, allow_localized=True)
+        res_invalid = linter_invalid.validate()
+        self.assertFalse(res_invalid.passed)
+        self.assertTrue(any("UNVERIFIED QUOTE" in e for e in res_invalid.errors))
+
+    def test_v7_passive_block_collision_prevented(self):
+        """v7.2 Hardening: Generic words (e.g. 'tarihsel') in passive layer descriptions do not remove other active layers."""
+        triage_text = """
+* **Aktif Katmanlar:**
+  * **K1 (Persona):** AKTİF
+  * **K8 (Tarihsel Kaynak Tenkiti):** AKTİF
+* **Pasif Katmanlar:**
+  * **K5 (Deneysel Nedensellik):** DIŞLANDI. Kültürel makro-tarihsel süreçler laboratuvara sokulamaz.
+"""
+        md = make_valid_document(triage_extra=triage_text)
+        report_path = self._create_report(md)
+        linter = CrucibleLinter(report_path)
+        result = linter.validate()
+        self.assertIn("K8", result.active_layers, "K8 should remain active despite 'tarihsel' appearing in K5 passive explanation!")
+        self.assertNotIn("K5", result.active_layers)
+
+    def test_v7_all_layer_artifacts_coverage(self):
+        """v7.2 Hardening: All 10 normative layers are covered in LAYER_ARTIFACTS."""
+        from crucible_linter import LAYER_ARTIFACTS
+        expected_layers = {'K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10'}
+        self.assertEqual(expected_layers, set(LAYER_ARTIFACTS.keys()))
 
 
 if __name__ == '__main__':

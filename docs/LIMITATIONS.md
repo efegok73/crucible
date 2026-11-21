@@ -1,6 +1,6 @@
-# CRUCIBLE v7.1 — SYSTEM LIMITATIONS, FAILURE MODES & GROUNDING ARCHITECTURE
+# CRUCIBLE v7.2 — SYSTEM LIMITATIONS, FAILURE MODES & GROUNDING ARCHITECTURE
 **Document ID:** `LIMITATIONS.md`  
-**Version:** 7.1  
+**Version:** 7.2  
 **Date:** 2026-11-20  
 **Status:** Canonical Reference  
 **Applicability:** All CRUCIBLE Deployments, Audits, and Benchmark Reproductions  

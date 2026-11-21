@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CRUCIBLE v7.0 — Grounded Deterministic Epistemic Audit Linter
+CRUCIBLE v7.2 — Grounded Deterministic Epistemic Audit Linter
 =============================================================
 Parses AI-generated CRUCIBLE analysis reports and enforces
 constitutional compliance through structural, rhetorical,
@@ -10,11 +10,18 @@ Fixes addressed:
 - Z1-Z10 (v6.0: hollow sections, triage group capture, scope leak,
   narrow terms, Turkish word boundaries, lang detection, verification
   seal, testability, sys.exit, MathJax/regex ordering).
-- v7.0 Zero-Vulnerability Grounding:
-  * Primary source cross-checking via --source (docx/txt/md).
-  * Claim-Source Matrix artifact grounding (blocks phantom references like Selme/PERF 558).
-  * Bracketed paragraph citation and quote verification ([P:xxxx]).
+- v7.0-v7.2 Zero-Vulnerability Grounding:
+  * Primary source cross-checking via --source (pdf/docx/txt/md).
+  * PyMuPDF (fitz) priority loading with pypdf / PyPDF2 fallbacks.
+  * Multi-token AND logic for Claim-Source Matrix artifact grounding.
+  * Explicit layer scope isolation preventing passive block collisions.
+  * Bracketed paragraph citation and expanded quote verification ([P:xxxx]).
+  * Hardened citation bounds checking (out-of-bounds index produces compile ERROR).
+  * Academic page reference stripping ([Sayfa 116], [p. 45]).
+  * Multilingual stop-words support (Latin, German, French, Turkish, English).
+  * Full 10-layer artifact coverage (K1 through K10).
   * Segregated external comparison tagging ([DIŞ KAYNAK] / [EXTERNAL]).
+  * Substrate Parity Gate (L_source = L_audit -> L_target).
 
 Usage:
   python crucible_linter.py report.md
@@ -232,6 +239,16 @@ LAYER_ARTIFACTS: Dict[str, dict] = {
         'markers': [r'(?:P[1-9]|Öncül|Premise|Sonuç|Conclusion|modus\s+ponens|modus\s+tollens|syllogism|k[ıi]yas|Persona)'],
         'desc': 'formal logic / persona markers',
     },
+    'K2': {
+        'name': 'Steelmanning & Falsification',
+        'markers': [r'(?:ÇEL[İI]K\s+ADAM|STEELMAN|Falsif|Yanl[ıi][şs]lan|Kar[şs][ıi]-Tez|Counter-Thesis|Aksiyom)'],
+        'desc': 'steelmanning / falsification markers',
+    },
+    'K3': {
+        'name': 'Hermeneutics, Lexical Hygiene & Consistency',
+        'markers': [r'(?:Hermen|Kavramsal\s+Hijyen|Lexical\s+Hygiene|E[şs]seslilik|Equivocation|Motte-and-bailey|Vekil\s+S[ıi][çc]ramas[ıi]|Proxy\s+Leap|Tutarl[ıi]l[ıi]k|Consistency)'],
+        'desc': 'hermeneutic / lexical hygiene markers (equivocation, proxy leap, motte-and-bailey)',
+    },
     'K4': {
         'name': 'Bayesian / Quantitative Statistics',
         'markers': [r'(?:P\s*\(|Bayes|posterior|prior|olasılık|probability|güven\s+aralığı|confidence\s+interval|p[\s-]?değer|p[\s-]?value|etki\s+büyüklüğü|effect\s+size)'],
@@ -241,6 +258,16 @@ LAYER_ARTIFACTS: Dict[str, dict] = {
         'name': 'Causality & Experimental Design',
         'markers': [r'(?:nedensellik|causal|Bradford\s+Hill|DAG|confounder|karıştırıcı|mekanizma|mechanism|korelasyon.*nedensellik|correlation.*causation)'],
         'desc': 'causal analysis markers (Bradford Hill, DAG, confounders)',
+    },
+    'K6': {
+        'name': 'Evidence Hierarchies & Systematic Review',
+        'markers': [r'(?:GRADE|AMSTAR|Kan[ıi]t\s+Hiyerar[şs]isi|Evidence\s+Hierarch|Sistematik\s+Derleme|Systematic\s+Review|Meta-analiz|Meta-analysis|Yal[ıi]n\s+Tekrar|Publication\s+Bias)'],
+        'desc': 'evidence hierarchy markers (GRADE, systematic review, publication bias)',
+    },
+    'K7': {
+        'name': 'Decision Science & Deep Uncertainty (DMDU)',
+        'markers': [r'(?:DMDU|Karar\s+Bilimi|Decision\s+Science|Derin\s+Belirsizlik|Deep\s+Uncertainty|Oyun\s+Kuram[ıi]|Game\s+Theory|A[çc][ıi]k\s+Bilim|Open\s+Science|Pre-registration|Tekrarlanabilirlik|Replicability)'],
+        'desc': 'decision science / DMDU / open science markers',
     },
     'K8': {
         'name': 'Disciplinary Matrix & Source Criticism',
@@ -252,6 +279,16 @@ LAYER_ARTIFACTS: Dict[str, dict] = {
             r'\|\s*.*?(?:Kaynak\s+Durumu|Source\s+Status|Data\s+Type|Epistemic\s+Weight).*?\|',
             r'\|\s*.*?(?:Metodolojik\s+Hüküm|Methodological\s+Verdict|Assessment).*?\|',
         ],
+    },
+    'K9': {
+        'name': 'Computational Models & AI Verification',
+        'markers': [r'(?:Hesaplamal[ıi]|Computational|Sim[üu]lasyon|Simulation|Ajan\s+Bazl[ıi]|Agent-Based|Algoritm|Yapay\s+Zek[aâ]|Machine\s+Learning|LLM)'],
+        'desc': 'computational / algorithmic markers (simulation, agent-based models, AI)',
+    },
+    'K10': {
+        'name': 'Complexity, Extended Ethics & Auto-Falsification',
+        'markers': [r'(?:HASAR\s+RAPORU|DAMAGE\s+REPORT|ASGAR[İI]\s+EP[İI]STEM[İI]K\s+BEDEL|EPISTEMIC\s+TOLL|MINIMAL\s+EPISTEMIC\s+COST|Karma[şs][ıi]kl[ıi]k|Complexity|Geni[şs]letilmi[şs]\s+Etik|Extended\s+Ethics|CERRAH|SURGEON)'],
+        'desc': 'damage report / epistemic toll / surgeon checklist markers',
     },
 }
 
@@ -380,34 +417,53 @@ class CrucibleLinter:
 
         ext = os.path.splitext(self.source_path)[1].lower()
         if ext == '.pdf':
-            # PDF loader with pypdf / PyPDF2 fallback
+            # PDF loader with PyMuPDF (fitz) priority, falling back to pypdf / PyPDF2
+            loaded = False
             try:
-                reader = None
-                try:
-                    import pypdf
-                    reader = pypdf.PdfReader(self.source_path)
-                except ImportError:
-                    try:
-                        import PyPDF2
-                        reader = PyPDF2.PdfReader(self.source_path)
-                    except ImportError:
-                        pass
-
-                if reader is not None:
-                    paras = []
-                    for page in reader.pages:
-                        text = page.extract_text()
-                        if text:
-                            text = text.replace('\x00', '')
-                            # Genuine paragraphs delimited by double newlines or substantial line breaks
-                            page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
-                            paras.extend(page_paras)
+                import fitz
+                doc = fitz.open(self.source_path)
+                paras = []
+                for page in doc:
+                    text = page.get_text()
+                    if text:
+                        text = text.replace('\x00', '')
+                        page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+                        paras.extend(page_paras)
+                if paras:
                     self.source_paragraphs = paras
                     self.source_full_text = "\n\n".join(paras)
-                else:
-                    self._error("Cannot load .pdf source (neither pypdf nor PyPDF2 is installed). Please install pypdf: pip install pypdf")
-            except Exception as e:
-                self._error(f"Failed to load .pdf source: {e}")
+                    loaded = True
+            except Exception:
+                pass
+
+            if not loaded:
+                try:
+                    reader = None
+                    try:
+                        import pypdf
+                        reader = pypdf.PdfReader(self.source_path)
+                    except ImportError:
+                        try:
+                            import PyPDF2
+                            reader = PyPDF2.PdfReader(self.source_path)
+                        except ImportError:
+                            pass
+
+                    if reader is not None:
+                        paras = []
+                        for page in reader.pages:
+                            text = page.extract_text()
+                            if text:
+                                text = text.replace('\x00', '')
+                                # Genuine paragraphs delimited by double newlines or substantial line breaks
+                                page_paras = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+                                paras.extend(page_paras)
+                        self.source_paragraphs = paras
+                        self.source_full_text = "\n\n".join(paras)
+                    else:
+                        self._error("Cannot load .pdf source (neither PyMuPDF, pypdf, nor PyPDF2 is installed). Please install pymupdf or pypdf.")
+                except Exception as e:
+                    self._error(f"Failed to load .pdf source: {e}")
         elif ext == '.docx':
             if docx is not None:
                 try:
@@ -599,7 +655,17 @@ class CrucibleLinter:
             line_passive = bool(PASSIVE_MARKERS.search(line_stripped)) or passive_block
             line_active = bool(ACTIVE_MARKERS.search(line_stripped)) or active_block
 
+            # Check if this line is explicitly targeted to a specific layer (e.g. * K5, Katman 5)
+            explicit_layer_match = re.search(r'\b(?:Katman\s*|Layer\s*)?(K10|K[1-9])\b', line_stripped, re.IGNORECASE)
+            explicit_layer = None
+            if explicit_layer_match:
+                raw_id = explicit_layer_match.group(1).upper()
+                explicit_layer = raw_id if raw_id.startswith('K') else f"K{raw_id}"
+
             for layer_id, triggers in LAYER_TRIGGERS.items():
+                if explicit_layer and layer_id != explicit_layer:
+                    # Do not let incidental words in the explanation of another layer remove/add this layer!
+                    continue
                 if any(re.search(trigger, line_stripped, re.IGNORECASE) for trigger in triggers):
                     if line_passive and not bool(ACTIVE_MARKERS.search(line_stripped)):
                         if layer_id in self.active_layers:
@@ -716,10 +782,10 @@ class CrucibleLinter:
                     f"CRUCIBLE V7 mandates active, fluent academic Turkish over mechanical translations."
                 )
 
-    # ── Phase 4: Grounded Source Verification (v7.0) ──
+    # ── Phase 4: Grounded Source Verification (v7.2) ──
 
     def validate_source_grounding(self):
-        """CRUCIBLE v7.0: Grounded Verification against primary source document.
+        """CRUCIBLE v7.2: Grounded Verification against primary source document.
         Ensures zero-hallucination of primary source artifacts and verifies quoted anchors."""
         if not self.source_path or not self.source_full_text:
             self._info("Source grounding check skipped (no --source provided; running in unanchored mode).")
@@ -805,7 +871,11 @@ class CrucibleLinter:
             'inscription', 'manuscript', 'fragment', 'document', 'archive', 'series',
             'coin', 'coins', 'text', 'texts', 'codex', 'palimpsest', 'source', 'primary',
             'tablo', 'özet', 'bölüm', 'kısım', 'çizelge', 'şekil', 'figür', 'ek',
-            'table', 'abstract', 'section', 'part', 'figure', 'appendix'
+            'table', 'abstract', 'section', 'part', 'figure', 'appendix',
+            # Latin / Romance / German academic stopwords
+            'et', 'in', 'de', 'ad', 'ex', 'per', 'cum', 'ab', 'non', 'und', 'der', 'die',
+            'das', 'des', 'dem', 'den', 'von', 'zu', 'mit', 'auf', 'für', 'le', 'la',
+            'les', 'du', 'un', 'une', 'pour', 'sur', 'dans', 'par'
         }
 
         for cols in matrix_rows:
@@ -819,6 +889,7 @@ class CrucibleLinter:
                 continue
 
             clean_source = re.sub(r'\[P:\d+\]', '', source_col)
+            clean_source = re.sub(r'\[\s*(?:Sayfa|sayfa|p\.|pp\.|s\.|ss\.)\s*\d+(?:[-–—]\d+)?\s*\]', '', clean_source, flags=re.IGNORECASE)
             clean_source = re.sub(r'[*_`]', '', clean_source)
             sub_artifacts = [s.strip() for s in re.split(r'[,;]|\bve\b|\band\b', clean_source) if s.strip()]
 
@@ -863,16 +934,18 @@ class CrucibleLinter:
 
         for p_str in set(citations):
             p_idx = int(p_str)
-            if max_para > 0 and p_idx > max_para:
-                self._warn(
-                    f"Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
+            if max_para > 0 and (p_idx > max_para or p_idx <= 0):
+                self._error(
+                    f"[FAIL: INVALID PARAGRAPH INDEX] Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
                 )
 
-        # 3. Check Verbatim Quotes attached to [P:xxxx] (supporting both before/after anchors and apostrophes)
+        # 3. Check Verbatim Quotes attached to [P:xxxx] (supporting before/after anchors, blockquotes, and apostrophes)
         source_normalized = unicodedata.normalize('NFKD', re.sub(r'\s+', ' ', source_lower))
         quote_specs = [
-            (r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]([^"”]{20,250})["”]', 1, 2),
-            (r'["“]([^"”]{20,250})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
+            (r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]([^"”]{15,600})["”]', 1, 2),
+            (r'["“]([^"”]{15,600})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
+            (r'>\s*\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]?([^"”\n\r]{15,600})["”]?', 1, 2),
+            (r'>\s*["“]([^"”\n\r]{15,600})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
         ]
 
         verified_quotes = set()
@@ -1042,11 +1115,11 @@ class CrucibleLinter:
             return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
-            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ MAYIN TARLASI V7.0 — ZEMİN ÇIPALI DETERMINİSTİK DOĞRULAMA MÜHRÜ</span>
-            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] ANAYASAL UYUMLULUK ONAYLANDI (V7.0 ZEMİN ÇIPALI)</span>
+            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ MAYIN TARLASI V7.2 — METNE DAYALI DETERMINİSTİK DOĞRULAMA MÜHRÜ</span>
+            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] ANAYASAL UYUMLULUK ONAYLANDI (V7.2 METNE DAYALI)</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
-            <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.0</code></div>
+            <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.2</code></div>
             <div><strong>Yük (Payload):</strong> {self.result.lines} satır | {self.result.chars:,} karakter</div>
             <div><strong>Retorik Hijyen:</strong> {w_text}</div>
             <div><strong>Aktif Katmanlar:</strong> {layers_text}</div>
@@ -1055,7 +1128,7 @@ class CrucibleLinter:
             <div><strong>Doğrulama Zamanı:</strong> {timestamp}</div>
         </div>
         <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
-            Deterministik Doğrulama Damgası (v7.0) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
+            Deterministik Doğrulama Damgası (v7.2) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
         </div>
     </div>"""
 
@@ -1068,11 +1141,11 @@ class CrucibleLinter:
         return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
-            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ CRUCIBLE v7.0 — GROUNDED DETERMINISTIC VERIFICATION SEAL</span>
-            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] CONSTITUTIONAL COMPLIANCE (V7.0 GROUNDED)</span>
+            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ CRUCIBLE v7.2 — GROUNDED DETERMINISTIC VERIFICATION SEAL</span>
+            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] CONSTITUTIONAL COMPLIANCE (V7.2 GROUNDED)</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
-            <div><strong>Validator:</strong> <code>crucible_linter.py v7.0</code></div>
+            <div><strong>Validator:</strong> <code>crucible_linter.py v7.2</code></div>
             <div><strong>Payload:</strong> {self.result.lines} lines | {self.result.chars:,} chars</div>
             <div><strong>Rhetorical Hygiene:</strong> {w_text}</div>
             <div><strong>Active Layers:</strong> {layers_text}</div>
@@ -1081,17 +1154,26 @@ class CrucibleLinter:
             <div><strong>Verified:</strong> {timestamp}</div>
         </div>
         <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
-            Deterministic Verification Stamp (v7.0) — compiled from verified Markdown via structural heading analysis, regex constraints, and primary source cross-checking. Unverified drafts lack this seal.
+            Deterministic Verification Stamp (v7.2) — compiled from verified Markdown via structural heading analysis, regex constraints, and primary source cross-checking. Unverified drafts lack this seal.
         </div>
     </div>"""
 
     def _build_full_html(self, lang_code: str, html_body: str, seal_html: str) -> str:
-        title_prefix = "Mayın Tarlası V7.0" if lang_code == "tr" else "CRUCIBLE v7.0"
+        title_prefix = "Mayın Tarlası V7.2" if lang_code == "tr" else "CRUCIBLE v7.2"
+        work_match = re.search(
+            r'(?i)\*\*(?:İncelenen Eser|Subject Work|Investigated Work)\s*:\*\*\s*(.+)',
+            self.full_text
+        )
+        if work_match:
+            work_name = work_match.group(1).replace('*', '').strip()
+            page_title = f"{title_prefix} — {work_name}"
+        else:
+            page_title = f"{title_prefix} — {os.path.basename(self.md_path)}"
         return f"""<!DOCTYPE html>
 <html lang="{lang_code}">
 <head>
     <meta charset="utf-8">
-    <title>{title_prefix} — {os.path.basename(self.md_path)}</title>
+    <title>{page_title}</title>
     <style>
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                line-height: 1.8; max-width: 960px; margin: 40px auto; padding: 35px; color: #1e293b; background-color: #f8fafc; }}
@@ -1128,7 +1210,7 @@ class CrucibleLinter:
 def print_report(result: LintResult):
     """Print a formatted terminal report."""
     print("=" * 72)
-    print("🔍 CRUCIBLE v7.0 — GROUNDED DETERMINISTIC AUDIT & LINTER PIPELINE")
+    print("🔍 CRUCIBLE v7.2 — GROUNDED DETERMINISTIC AUDIT & LINTER PIPELINE")
     print(f"📄 Target: {os.path.basename(result.path)}")
     print(f"📊 Lines: {result.lines} | Characters: {result.chars:,}")
     print(f"🌐 Language: {result.detected_language.upper()}")
@@ -1174,7 +1256,7 @@ def print_report(result: LintResult):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='CRUCIBLE v7.0 — Grounded Deterministic Epistemic Audit Linter',
+        description='CRUCIBLE v7.2 — Grounded Deterministic Epistemic Audit Linter',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

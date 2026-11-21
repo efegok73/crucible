@@ -1,4 +1,4 @@
-# CRUCIBLE — BENCHMARK PROTOCOL (v6.0 Baselines & v7.1 Architecture)
+# CRUCIBLE — BENCHMARK PROTOCOL (v6.0 Baselines & v7.2 Architecture)
 **Document ID:** `BENCHMARK_PROTOCOL.md`  
 **Version:** 1.0  
 **Date:** 2026-10-06  

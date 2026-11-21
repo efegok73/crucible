@@ -1,6 +1,6 @@
-# CRUCIBLE v6.0 — BENCHMARK SUITE
+# CRUCIBLE v7.2 — BENCHMARK SUITE
 
-Welcome to the **CRUCIBLE v6.0 Benchmark Suite**. This directory contains the structured target dossiers, methodology protocols, evaluation procedures, and reproducibility tooling used to quantitatively validate the CRUCIBLE epistemic gauntlet across 9 contentious academic and scientific battlefields.
+Welcome to the **CRUCIBLE v7.2 Benchmark Suite**. This directory contains the structured target dossiers, methodology protocols, evaluation procedures, and reproducibility tooling used to quantitatively validate the CRUCIBLE epistemic gauntlet across 9 contentious academic and scientific battlefields.
 
 ---
 

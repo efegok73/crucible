@@ -1,5 +1,5 @@
 # EPISTEMIC REGISTRY DOSSIER: [AUTHOR / WORK / CLAIM NAME]
-*CRUCIBLE v7.0 Grounded Primary-Source Registry Format*
+*CRUCIBLE v7.2 Grounded Primary-Source Registry Format*
 
 ## 1. METADATA & CORPUS SCOPE
 * **Author(s) / Organization:** 
@@ -49,8 +49,8 @@ $$\text{Antecedent / Cause} \longrightarrow \text{Intervening Mechanism} \longri
 
 ---
 
-## 6. GENUINE METHODOLOGICAL FRACTURES (FOR CRUCIBLE v7.0)
-*Identify the 3 genuine fractures between empirical data and theoretical extrapolation that survive the author's own caveats:*
+## 6. GENUINE METHODOLOGICAL FRACTURES (FOR CRUCIBLE v7.2)
+*Identify genuine methodological fractures (typically 1 to 3, strictly as warranted by the text; do NOT force artificial critiques if the argument is sound — avoid Critique Inflation):*
 
 ### Fracture 1: Empirical / Methodological Discordance
 * **Anchor:** `[P:xxxx]`

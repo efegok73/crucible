@@ -5,6 +5,20 @@ All notable changes to the CRUCIBLE framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.2.0] - 2026-11-21
+
+### Fixed & Hardened (Adli Reçete Uygulaması)
+- **Paragraf Sınır Aşımı Sertleştirmesi (`[P:xxxx]`)** — Metinde olmayan veya toplam paragraf sayısını aşan indeksler (`p_idx > max_para` veya `p_idx <= 0`) uyarıdan derlemeyi durduran kesin hataya (`[FAIL: INVALID PARAGRAPH INDEX]`) dönüştürüldü.
+- **Akademik Sayfa Referansı Temizliği** — K8 İddia-Kaynak matrisinde yer alan `[Sayfa 116]`, `[p. 45]`, `[pp. 12-14]` gibi editoryal referanslar otomatik temizlenerek yapay hayalet referans (`[FAIL: UNGROUNDED ARTIFACT]`) hataları önlendi.
+- **Alıntı Doğrulama ve Blok Pasaj Genişletmesi** — Alıntı doğrulama aralığı `15-600` karaktere genişletildi; markdown blok alıntıları (`> [P:xxxx] "..."`) için tam tırnak ve paragraf doğrulama desteği getirildi.
+- **PyMuPDF (`fitz`) Öncelikli Yükleyici** — `load_source` ve `index_source.py` içine PyMuPDF entegre edilerek AES şifreli ve karmaşık dizgili PDF'lerin hasarsız ve bağımlılık hatası üretmeden okunması sağlandı (pypdf/PyPDF2 fallback olarak korundu).
+- **Çok Dilli Akademik Stop-Words Kümesi** — Latince, Almanca ve Fransızca yaygın akademik bağlaç ve edatlar (`et`, `in`, `de`, `ad`, `und`, `der`, `die`, `das`, `le`, `la`, `les` vb.) eklenerek yabancı dildeki kaynak denetimlerinde sahte hayalet referans alarmları engellendi.
+- **Triyaj Pasif Blok Kapsam İzolasyonu** — Dışlanan bir katmanın açıklamasında geçen genel terimlerin (ör. K5 pasif satırında geçen `tarihsel` kelimesi) aktif K8 katmanını sessizce silmesi engellendi; satır bazlı hedef katman tespiti getirildi.
+- **Tüm Katmanlar İçin Kanıt İmzası (`LAYER_ARTIFACTS`)** — K2, K3, K6, K7, K9, K10 katmanları için tanımlayıcı belirteçler eklenerek 10 katmanın tamamı linter denetim ağına alındı.
+- **Tek Doğruluk Kaynağı (`benchmark_extractor.py`)** — Heuristik 200 karakterlik katman sayacı kaldırılarak doğrudan `CrucibleLinter` sınıfına bağlandı; M1 katman sayımı deterministik hale getirildi.
+- **Yekpare Sürüm ve Yol Senkronizasyonu** — `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, `LIMITATIONS.md` ve şablonlar tek bir `v7.2` standardında eşitlendi; hayalet yerel yollar bağımsız repo yapısına uyarlandı.
+- **Genişletilmiş Birim Testleri** — `test_crucible_linter.py` süitine 5 yeni adli güvenlik testi eklendi (toplam 24 test, %100 PASS).
+
 ## [7.1.0] - 2026-11-20
 
 ### Fixed & Hardened

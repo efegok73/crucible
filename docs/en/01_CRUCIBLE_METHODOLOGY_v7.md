@@ -1,4 +1,4 @@
-# CRUCIBLE v7.1 — METHODOLOGICAL CONSTITUTION (MAYIN TARLASI MODEL)
+# CRUCIBLE v7.2 — METHODOLOGICAL CONSTITUTION (MAYIN TARLASI MODEL)
 ### Normative Epistemic Architecture for Autonomous and Centaur Research Systems
 *(Global Nomenclature: **CRUCIBLE** | Canonical Founding Architecture: **Mayın Tarlası [Epistemic Minefield] Model**)*
 

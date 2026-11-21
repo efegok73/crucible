@@ -1,5 +1,9 @@
 # CRUCIBLE v6.0: A Multi-Layer Normative Gauntlet and Deterministic Protocol for Forensic Epistemic Auditing of Academic Literature
 
+> [!IMPORTANT]
+> **ARCHITECTURAL EVOLUTION & DEPRECATION NOTICE (v7.2):**  
+> This whitepaper documents the theoretical foundations and initial benchmarks of **CRUCIBLE v6.0**. Note that the lossy "Two-Stage Target Dossier Extraction Pipeline" described in Section 4.1 has been **formally superseded and deprecated in CRUCIBLE v7.0/v7.2** in favor of **Ground-Truth Immutability (Tam Metin Zemin Çıpalama)** and the deterministic paragraph-indexed cross-checking engine (`--source`). See [`docs/en/01_CRUCIBLE_METHODOLOGY_v7.md`](en/01_CRUCIBLE_METHODOLOGY_v7.md) and [`CHANGELOG.md`](../CHANGELOG.md) for the active v7.2 normative specification.
+
 **Whitepaper & Technical Specification**  
 **Document ID:** `CRUCIBLE-WP-2026-v6.0`  
 **Classification:** Open Source Framework Specification / Preprint Draft (`cs.AI`, `cs.CL`)  

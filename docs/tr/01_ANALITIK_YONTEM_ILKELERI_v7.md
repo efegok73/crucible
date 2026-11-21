@@ -1,5 +1,5 @@
 
-# CRUCIBLE v7.1 METODOLOJİ ANAYASASI (MAYIN TARLASI MODELİ)
+# CRUCIBLE v7.2 METODOLOJİ ANAYASASI (MAYIN TARLASI MODELİ)
 ### 10 Normatif Katman, Epistemolojik Cerrahi ve Diyalektik Stres Testi İlkeleri
 
 > **Kurucu İsimlendirme ve Epistemik Nüans:**  

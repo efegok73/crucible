@@ -1,4 +1,4 @@
-# CRUCIBLE — BLIND TEST PROTOCOL (v7.1 Grounded Architecture)
+# CRUCIBLE — BLIND TEST PROTOCOL (v7.2 Grounded Architecture)
 **Document ID:** `BLIND_TEST_PROTOCOL.md`  
 **Version:** 1.0  
 **Date:** 2026-10-06  
