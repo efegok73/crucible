@@ -127,6 +127,15 @@ def main():
     total_words = sum(len(p.split()) for p in paras)
     total_chars = sum(len(p) for p in paras)
 
+    if total_paras == 0:
+        print(
+            f"Error: 0 paragraphs extracted from '{args.source}'. "
+            "The document appears to be empty, unreadable, or a scanned PDF without an OCR text layer. "
+            "Cannot generate an empty index.",
+            file=sys.stderr
+        )
+        sys.exit(1)
+
     if args.stats:
         print(f"=== CORPUS STATISTICS: {os.path.basename(args.source)} ===")
         print(f"Total Paragraphs: {total_paras:,}")

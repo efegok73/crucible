@@ -58,9 +58,10 @@ Resmi bir araştırma veya metin analizi raporunda, deterministik linter doğrul
 ## 8. KANONİK ÇALIŞMA ZAMANI VE OTONOM İCRA MOTORU (RUNTIME ENGINE)
 Model; kullanıcıdan `"CRUCIBLE analizine al: [yol]"`, `"Mayın tarlasına sok: [yol]"`, `"X dosyasını analiz et"` veya benzeri herhangi bir tetikleme ifadesi aldığında, kullanıcının uzun yönergeler yazmasına gerek kalmaksızın aşağıdaki 5 adımlı deterministik icra motorunu sırasıyla ve koşulsuz olarak işletir:
 
-1. **Adım 1 - Otomatik İndeksleme (Zemin Çıpalama Hazırlığı):**
+1. **Adım 1 - Otomatik İndeksleme & Kapsam Doğrulaması:**
    Model analize başlamadan önce kaynak belgenin bulunduğu dizine derhal `[Dosya_Adi]_indeksli.txt` dosyasını üretir:
    - Terminal komutuyla: `python scripts/index_source.py "[kaynak_yolu]" -o "[kaynak_dizini]/[dosya_adi]_indeksli.txt"` çalıştırır (veya ortamdaki dosya okuyucu araçlarıyla aynı deterministik `[P:xxxx]` algoritmasını işleterek indeksi kaydeder).
+   - **Kapsam Doğrulama Ölçütü:** Üretilen indeks dosyası kesinlikle boş olmamalıdır (0 paragraf = taranmış/OCR'sız PDF veya bozuk dosya hatasıdır). Model, indeks dosyasının en az 1 anlamlı paragraf içerdiğini ve belgenin son bölümlerine kadar uzandığını doğrular. Eğer metin çıkarılamazsa veya indeks boşsa analize BAŞLANAMAZ; kullanıcıya dosyanın taranmış/OCR'sız olduğu açıkça bildirilir ve durulur.
    - Analiz boyunca tüm alıntılar ve `[P:xxxx]` çıpaları bu üretilen indeks dosyasına bağlanır. İndeks üretilmeden ve doğrulanmadan analiz metni yazılamaz.
 2. **Adım 2 - Faz 1 İcrası & Duraklama:**
    Model, Madde 5'teki `## 1. EPİSTEMOLOJİK TRİYAJ` ve `## 2. ÇELİK ADAM` bölümlerini chat çıktısı olarak sunar ve **KESİNLİKLE DURUR**. Dış İradeden (Kullanıcıdan) açık "Devam" veya "Onay" gelmeden Faz 2'ye geçemez.

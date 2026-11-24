@@ -125,9 +125,10 @@ Bu modda dosyaları tek tek kopyalayıp yapıştırmazsınız; klasördeki anaya
    İncelenecek eseri (PDF, Word veya Markdown) çalışma klasörünüze (örneğin `data/` veya `kaynaklar/`) ekleyin.
 3. **Kaynak Metin Dokunulmazlığı (v7.2 Kuralı):**  
    - Eseri asla 20-25 sayfalık parçalara bölmeyin veya özetlemeyin.
-   - İsterseniz önce `python scripts/index_source.py data/eser.pdf -o data/eser_indeksli.txt` komutuyla deterministik `[P:xxxx]` kütüğünü oluşturun.
+   - İndeksleme adımı deterministik çıpalama için zorunludur: Ajan, analiz öncesinde otomatik olarak `python scripts/index_source.py data/eser.pdf -o data/eser_indeksli.txt` komutuyla `[P:xxxx]` kütüğünü oluşturur (veya kullanıcı bunu terminalden kendisi üretebilir).
 4. **Komut Verin:**  
-   > *"Klasördeki `@data/eser.pdf` eserini CRUCIBLE v7.2 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır."*
+   > *"CRUCIBLE analizine al: @data/eser.pdf"*  
+   *(Veya: "Klasördeki `@data/eser.pdf` eserini CRUCIBLE v7.2 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır.")*
 5. **Mühürlü Çıktıyı Alın:**  
    Ajan analizi tamamlar, `scripts/crucible_linter.py` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir.
 

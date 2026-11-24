@@ -94,9 +94,10 @@ An audit is worthless if the researcher cannot immediately grasp the exact metho
 
 1. **Open Workspace:** Open the `crucible` repository in your agentic IDE.
 2. **Place Primary Document:** Put your PDF, Word, or Markdown document in your working directory (e.g., `data/` or `sources/`).
-3. **Ground-Truth Immutability (v7.2 Rule):** Do NOT chunk or summarize. Use `python scripts/index_source.py data/paper.pdf -o data/paper_indexed.txt` to generate deterministic paragraph coordinates.
+3. **Ground-Truth Immutability (v7.2 Rule):** Do NOT chunk or summarize. Deterministic indexing is mandatory: The agent automatically runs `python scripts/index_source.py data/paper.pdf -o data/paper_indexed.txt` to generate `[P:xxxx]` coordinates.
 4. **Issue Command:**
-   > *"Audit `@data/paper.pdf` using CRUCIBLE v7.2. Execute the primary audit in the native substrate language of the paper, then localize with dual anchors and run crucible_linter.py until verified."*
+   > *"CRUCIBLE audit: @data/paper.pdf"*  
+   *(Or: "Audit `@data/paper.pdf` using CRUCIBLE v7.2. Execute the primary audit in the native substrate language of the paper, then localize with dual anchors and run crucible_linter.py until verified.")*
 5. **Inspect Sealed Output:** The agent runs the linter and compiles the final verified HTML monograph with the green verification seal.
 
 ---
