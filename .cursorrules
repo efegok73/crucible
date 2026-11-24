@@ -7,14 +7,15 @@
 
 ## 2. AÇIK KAPI BIRAKMAYAN GÜVENLİK DUVARI (STRICT READ-ONLY SHIELD)
 - **VARSAYILAN MOD KESİNLİKLE SALT-OKUNURDUR (READ-ONLY).**
-- `write_file`, `edit_file` veya benzeri dosya değiştirme araçları; KULLANICI AÇIKÇA "DOSYAYI GÜNCELLE", "KAYDET", "YAZ", "BAŞLA" VEYA "MÜHÜRLE" DEMEDİKÇE ASLA ÇALIŞTIRILAMAZ.
-- Kullanıcı analiz yapıp "raporu mühürle", "kaydet" veya "dosyaya yaz" talimatı verdiğinde; model analizi yalnızca `CALISMALARIM/` klasörü altına yazar ve doğrulayıcı linter'ı çalıştırır.
+- `write_file`, `edit_file` veya benzeri dosya değiştirme araçları; KULLANICI AÇIKÇA "DOSYAYI GÜNCELLE", "KAYDET", "YAZ", "BAŞLA", "MÜHÜRLE" VEYA "CRUCIBLE ANALİZİNE AL" DEMEDİKÇE ASLA ÇALIŞTIRILAMAZ.
+- Kullanıcı analiz yapıp "raporu mühürle", "kaydet" veya "dosyaya yaz" talimatı verdiğinde; model analizi yalnızca `CALISMALARIM/` klasörü altına (veya kaynak dosyanın bulunduğu dizine) yazar ve doğrulayıcı linter'ı çalıştırır.
 - Kendi inisiyatifinle veya "düzeltme yapıyorum" diyerek anayasal dosyaları tahrif etmek kesin kural ihlalidir.
 - Yıkıcı terminal komutları (`rm`, `del`, `git reset --hard`, `git clean`) kullanıcı izni olmadan kesinlikle çalıştırılamaz.
 
 ## 3. ANAYASAL DOKUNULMAZLIK VE ÇALIŞMA ALANI DİSİPLİNİ
 - `docs/` altındaki anayasal belgeler kesinlikle salt-okunurdur ve kullanıcı açıkça revizyon emretmedikçe değiştirilemez.
-- Model, ürettiği analizleri ve raporları proje standartlarına uygun dizinlerde yapılandırır.
+- Model, ürettiği vaka analizlerini, karşı-tezleri ve raporları yalnızca `CALISMALARIM/` klasörü altına (veya kaynak dosyanın bulunduğu bağımsız klasöre) yazar.
+- Kullanıcı `CALISMALARIM/OZEL_KURALLARIM.md` dosyası tanımlamışsa; model kurucu anayasayla çelişmemek kaydıyla bu özel kuralları ikincil filtre olarak işletir.
 
 ## 4. TEMBEL YÜKLEME (LAZY LOADING) VE TOKEN EKONOMİSİ
 Tüm anayasa katmanlarını her oturumda baştan hafızaya yükleme. Yönlendirmeyi amaca göre yap:
@@ -46,10 +47,32 @@ Resmi bir araştırma veya metin analizi raporunda, deterministik linter doğrul
 - **Linter Mühürleme:** Rapor kaydedildiğinde terminalden `python scripts/crucible_linter.py "[rapor_yolu]" --source "[kaynak_yolu]"` çalıştırılır; linter `[PASS]` vermeden rapor teslim edilemez.
 
 ## 6. ZORUNLU İNTERAKTİF DURAKLAMA (PHASED EXECUTION)
-Eğer incelenen metin çok disiplinli veya geniş kapsamlıysa, model analizi 3 faza bölmek ve **her fazın sonunda durup Dış İradeden (Kullanıcıdan) 'Devam' onayı beklemek** zorundadır:
+İncelenen metnin türü veya sayfa hacmi ne olursa olsun, model analizi istisnasız 3 faza bölmek ve **her fazın sonunda durup Dış İradeden (Kullanıcıdan) 'Devam' onayı beklemek** zorundadır. Tek seferde tüm raporu üretip bitirmek kesin kural ihlalidir:
 - **Faz 1:** Triyaj ve Çelik Adam. Rapor taslağını sun ve DUR. Kullanıcıdan onay bekle.
 - **Faz 2 (Onay Sonrası):** Hakiki Cerrahi, Safsata Avı, Kaynak Tenkiti (K8). Raporu ilerlet ve DUR.
 - **Faz 3 (Onay Sonrası):** Oto-Falsifikasyon, Hasar Raporu ve Cerrah Kartı. Analizi mühürle ve linter'ı çalıştır.
 
 ## 7. EPİSTEMİK KARANTİNA
 - `AI_SIZ_ARASTIRMA_SUREC_SEMASI.md` (ve `.html`) doğrudan insan araştırmacıya aittir. Yapay zekâ bu dosyayı okuyamaz veya kurallarına sızamaz.
+
+## 8. KANONİK ÇALIŞMA ZAMANI VE OTONOM İCRA MOTORU (RUNTIME ENGINE)
+Model; kullanıcıdan `"CRUCIBLE analizine al: [yol]"`, `"Mayın tarlasına sok: [yol]"`, `"X dosyasını analiz et"` veya benzeri herhangi bir tetikleme ifadesi aldığında, kullanıcının uzun yönergeler yazmasına gerek kalmaksızın aşağıdaki 5 adımlı deterministik icra motorunu sırasıyla ve koşulsuz olarak işletir:
+
+1. **Adım 1 - Otomatik İndeksleme (Zemin Çıpalama Hazırlığı):**
+   Model analize başlamadan önce kaynak belgenin bulunduğu dizine derhal `[Dosya_Adi]_indeksli.txt` dosyasını üretir:
+   - Terminal komutuyla: `python scripts/index_source.py "[kaynak_yolu]" -o "[kaynak_dizini]/[dosya_adi]_indeksli.txt"` çalıştırır (veya ortamdaki dosya okuyucu araçlarıyla aynı deterministik `[P:xxxx]` algoritmasını işleterek indeksi kaydeder).
+   - Analiz boyunca tüm alıntılar ve `[P:xxxx]` çıpaları bu üretilen indeks dosyasına bağlanır. İndeks üretilmeden ve doğrulanmadan analiz metni yazılamaz.
+2. **Adım 2 - Faz 1 İcrası & Duraklama:**
+   Model, Madde 5'teki `## 1. EPİSTEMOLOJİK TRİYAJ` ve `## 2. ÇELİK ADAM` bölümlerini chat çıktısı olarak sunar ve **KESİNLİKLE DURUR**. Dış İradeden (Kullanıcıdan) açık "Devam" veya "Onay" gelmeden Faz 2'ye geçemez.
+3. **Adım 3 - Faz 2 İcrası & Duraklama:**
+   Kullanıcı onayı sonrası; metinden doğrudan tırnak içi alıntılar ve `[P:xxxx]` çıpalarıyla 3 yarılma noktası, safsata avı ve zorunlu Katman 8 matrisi chat çıktısı olarak sunulur ve **TEKRAR DURUR**. Kullanıcıdan açık "Devam" onayı beklenir.
+4. **Adım 4 - Faz 3 İcrası & Dosya Kaydı:**
+   Son onay alındıktan sonra model `## 3. OTO-FALSİFİKASYON`, `## 4. HASAR RAPORU` ve `## 5. CERRAH DENETİM KARTI` bölümlerini tamamlar. 5 bölümün tamamını birleştirerek kaynak dosyanın bulunduğu klasöre `[Dosya_Adi]_V7_Denetim_Raporu.md` adıyla kaydeder.
+5. **Adım 5 - Deterministik Linter Mühürleme & HTML Üretimi:**
+   Rapor kaydedildikten hemen sonra model terminalden linter'ı tetikler:
+   `python scripts/crucible_linter.py "[rapor_yolu]" --source "[kaynak_yolu]"`
+   - Terminal çıktısında `[PASS] CONSTITUTIONAL COMPLIANCE` damgası alınıncaya kadar rapordaki biçimsel veya çıpasal kusurları kendi kendine düzeltir.
+   - Linter başarıyla geçtiğinde aynı dizinde otomatik olarak `[Dosya_Adi]_V7_Denetim_Raporu.html` mühürlü raporu üretilmiş olur.
+   - Kullanıcıya yalnızca işlem sonucu, linter özeti ve dosya bağlantıları raporlanır.
+6. **İkincil Faz (Opsiyonel Türkçeleştirme):**
+   Birincil rapor mühürlendikten sonra kullanıcı *"Raporu Türkçeleştir"* derse; model Evrensel Substrat Paritesi kurallarına uygun olarak raporu ayrı bir dosya olarak `[Dosya_Adi]_V7_Denetim_Raporu_TR.md` adıyla kaydeder, başlığa `**Primary Audit:** <yol>` üstverisini iliştirir, tüm `[P:xxxx]` çıpalarını korur, linter ile doğrular ve `.html` dosyasını üretir.
