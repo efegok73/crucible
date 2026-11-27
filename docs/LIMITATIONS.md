@@ -1,6 +1,6 @@
-# CRUCIBLE v7.2 — SYSTEM LIMITATIONS, FAILURE MODES & GROUNDING ARCHITECTURE
+# CRUCIBLE v7.3 — SYSTEM LIMITATIONS, FAILURE MODES & GROUNDING ARCHITECTURE
 **Document ID:** `LIMITATIONS.md`  
-**Version:** 7.2  
+**Version:** 7.3  
 **Date:** 2026-11-20  
 **Status:** Canonical Reference  
 **Applicability:** All CRUCIBLE Deployments, Audits, and Benchmark Reproductions  
@@ -86,7 +86,7 @@ Empirical stress-testing across frontier model families reveals systematic model
 
 As codified in [`BENCHMARK_PROTOCOL.md`](../benchmarks/methodology/BENCHMARK_PROTOCOL.md):
 
-1. **Baseline Legacy Distinction:** The 18 historical showcase evaluations (`showcase/`) represent v6.0 Target Dossier baselines maintained strictly for backward regression testing. Genuine v7.1 benchmarks require full-text ground indexing (`index_source.py`).
+1. **v7.3 Full-Text Showcase Refresh & OCR Constraint:** All 18 showcase evaluations (`showcase/`) have now been rebuilt under v7.3 (`Gemini 4 Hydrogen Extra High`) using full-text ground indexing (`index_source.py`) and strict L1–L5 Single-Document Grounding (replacing the earlier v6.0 Target Dossier baselines; the legacy dossier files under `benchmarks/` are retained solely for historical continuity). For image-only PDFs lacking an embedded text layer (such as Case 04, Cheikh Anta Diop's *The African Origin of Civilization*), Tesseract OCR preprocessing (`Diop_OCR_Searchable.pdf`, 345 paragraphs) is required prior to indexing and introduces minor OCR character noise that must be preserved verbatim or flagged via bracketed tolerance.
 2. **Single-Run Determinism vs. Stochastic Variance:** Benchmark metrics (M1–M8) represent validated reference outputs rather than multi-run Monte Carlo samples ($N=30$).
 3. **Gold-Standard Annotation Dependency:** Programmatic metrics (M1–M7) are deterministic; qualitative metrics (M9–M12, such as Fallacy Detection Precision/Recall and Sycophancy Index) await formal multi-annotator inter-rater scoring (Cohen's $\kappa \ge 0.70$).
 4. **Target Selection Bias:** The benchmark cases were selected specifically for their high epistemic friction and contested status. Generalization to routine, uncontroversial scientific reporting has not been formally measured.

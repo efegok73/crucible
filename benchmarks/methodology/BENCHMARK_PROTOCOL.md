@@ -1,4 +1,4 @@
-# CRUCIBLE — BENCHMARK PROTOCOL (v6.0 Baselines & v7.2 Architecture)
+# CRUCIBLE — BENCHMARK PROTOCOL (v7.3 Single-Document Grounded Architecture)
 **Document ID:** `BENCHMARK_PROTOCOL.md`  
 **Version:** 1.0  
 **Date:** 2026-10-06  
@@ -92,21 +92,22 @@ These metrics require a trained human annotator and are included for completenes
 ### 3.1. Core Benchmark Dataset: 9 Showcase Cases
 
 Each case consists of:
-- **Input:** Target Dossier (`benchmarks/en/XX_*.md`) — structured source material
+- **Input:** Full-text indexed primary sources (`index_source.py` on original PDFs; legacy `benchmarks/en/XX_*.md` dossiers retained for v6.0 baseline reference)
+- **Model:** Gemini 4 Hydrogen Extra High (v7.3 Single-Document Grounding `L1–L5`)
 - **Output (EN):** CRUCIBLE audit report (`showcase/en/XX_*_Report.md`)
 - **Output (TR):** CRUCIBLE audit report (`showcase/tr/XX_*_Report.md`)
 
 | # | Case | Discipline | Target Dossier (KB) | EN Report (KB) | TR Report (KB) |
 |:---|:---|:---|:---|:---|:---|
-| 01 | Judith Butler – Gender Trouble | Post-Structuralist Philosophy / Gender Studies | 9.0 | 25.0 | 18.0 |
-| 02 | Jacques Lacan – Encore | Psychoanalysis / Semiotics | 11.3 | 35.2 | 18.0 |
-| 03 | Cass Review – Gender Medicine | Clinical Medicine / Evidence Synthesis | 15.3 | 37.7 | 20.2 |
-| 04 | Cheikh Anta Diop – African Origin | Historiography / Archaeology | 13.0 | 36.1 | 18.6 |
-| 05 | Frank Snowden – Blacks in Antiquity | Classics / Ancient History | 13.9 | 34.8 | 18.3 |
-| 06 | Cook et al. vs Tol – Climate Consensus | Bibliometrics / Climate Science | 11.3 | 45.5 | 20.5 |
-| 07 | Judith Curry – Climate Uncertainty | Climate Science / Decision Theory | 12.7 | 42.5 | 19.8 |
-| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14.1 | 41.8 | 20.3 |
-| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience / Psychometrics | 12.3 | 49.0 | 20.0 |
+| 01 | Judith Butler – Gender Trouble | Post-Structuralist Philosophy / Gender Studies | 9.0 | 35.4 | 36.6 |
+| 02 | Jacques Lacan – Encore | Psychoanalysis / Semiotics | 11.3 | 38.4 | 39.7 |
+| 03 | Cass Review – Gender Medicine | Clinical Medicine / Evidence Synthesis | 15.3 | 48.5 | 49.4 |
+| 04 | Cheikh Anta Diop – African Origin | Historiography / Archaeology | 13.0 | 44.8 | 51.2 |
+| 05 | Frank Snowden – Blacks in Antiquity | Classics / Ancient History | 13.9 | 31.9 | 32.0 |
+| 06 | Cook et al. (2013) – 97% Climate Consensus | Bibliometrics / Climate Science | 11.3 | 31.6 | 31.1 |
+| 07 | Judith Curry – Climate Uncertainty | Climate Science / Decision Theory | 12.7 | 41.3 | 43.5 |
+| 08 | Joanna Moncrieff – Serotonin Theory | Psychiatry / Pharmacology | 14.1 | 37.0 | 36.6 |
+| 09 | Simon Baron-Cohen – Essential Difference | Cognitive Neuroscience / Psychometrics | 12.3 | 40.3 | 42.1 |
 
 ### 3.2. Cross-Model Evidence: V5 Evolution Test
 
@@ -180,3 +181,4 @@ To independently reproduce CRUCIBLE benchmark results:
 | Version | Date | Change |
 |:---|:---|:---|
 | 1.0 | 2026-10-06 | Initial protocol definition. Cross-model methodology adopted; API baseline approach deprecated. |
+| 2.0 | 2026-11-27 | Rebuilt all 18 showcase evaluations on full-text indexed sources under CRUCIBLE v7.3 (`L1–L5` Single-Document Grounding) with `Gemini 4 Hydrogen Extra High`; synchronized case KB volumes and Case 04 OCR grounding. |

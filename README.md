@@ -1,9 +1,9 @@
-# ⚖️ CRUCIBLE (Mayın Tarlası Model v7.2) — Grounded Epistemic Auditing Framework
+# ⚖️ CRUCIBLE (Mayın Tarlası Model v7.3) — Grounded Epistemic Auditing Framework
 
 **Transform frontier AI from a polite summarizer into an uncompromising, source-grounded scientific referee.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-7.2-emerald.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-7.3-emerald.svg)](CHANGELOG.md)
 [![Whitepaper](https://img.shields.io/badge/Whitepaper-Technical_Report-blueviolet.svg)](docs/CRUCIBLE_v7.1_Whitepaper.md)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-9_Cases_Validated-success.svg)](docs/BENCHMARKS.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
@@ -94,10 +94,10 @@ An audit is worthless if the researcher cannot immediately grasp the exact metho
 
 1. **Open Workspace:** Open the `crucible` repository in your agentic IDE.
 2. **Place Primary Document:** Put your PDF, Word, or Markdown document in your working directory (e.g., `data/` or `sources/`).
-3. **Ground-Truth Immutability (v7.2 Rule):** Do NOT chunk or summarize. Deterministic indexing is mandatory: The agent automatically runs `python scripts/index_source.py data/paper.pdf -o data/paper_indexed.txt` to generate `[P:xxxx]` coordinates.
+3. **Ground-Truth Immutability (v7.3 Rule):** Do NOT chunk or summarize. Deterministic indexing is mandatory: The agent automatically runs `python scripts/index_source.py data/paper.pdf -o data/paper_indexed.txt` to generate `[P:xxxx]` coordinates, and enforces strict Single-Document Grounding (routing unverified external literature checks solely to Section 5 as `[EXTERNAL VERIFICATION CANDIDATE]`).
 4. **Issue Command:**
    > *"CRUCIBLE audit: @data/paper.pdf"*  
-   *(Or: "Audit `@data/paper.pdf` using CRUCIBLE v7.2. Execute the primary audit in the native substrate language of the paper, then localize with dual anchors and run crucible_linter.py until verified.")*
+   *(Or: "Audit `@data/paper.pdf` using CRUCIBLE v7.3. Execute the primary audit in the native substrate language of the paper, then localize with dual anchors and run crucible_linter.py until verified.")*
 5. **Inspect Sealed Output:** The agent runs the linter and compiles the final verified HTML monograph with the green verification seal.
 
 ---
@@ -140,15 +140,15 @@ Every benchmark report has passed the deterministic linter:
 
 | # | Discipline | Audited Work | Key Methodological Vulnerability Found | Verdict | Reports |
 |:---:|:---|:---|:---|:---:|:---:|
-| 01 | Philosophy & Gender | **Judith Butler** — *Gender Trouble* (1990) | Semantic equivocation on "performativity"; proxy leap from epistemology to ontology | Major Revision | [English](showcase/en/01_Judith_Butler_Report.html) · [Türkçe](showcase/tr/01_Judith_Butler_Report.html) |
-| 02 | Psychoanalysis | **Jacques Lacan** — *Séminaire XX* (1975) | Pseudo-mathematical topology (mathemes) without formal validation | Major Revision | [English](showcase/en/02_Jacques_Lacan_Report.html) · [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) |
-| 03 | Clinical Epidemiology | **Hilary Cass** — *The Cass Review* (NHS, 2024) | Excessive RCT threshold applied to observational pediatric cohort data | Minor Revision | [English](showcase/en/03_Cass_Review_Report.html) · [Türkçe](showcase/tr/03_Cass_Review_Report.html) |
-| 04 | Historiography | **Cheikh Anta Diop** — *The African Origin* (1974) | Anachronistic racial categories; false linguistic cognates | Rejected | [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) · [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) |
-| 05 | Classical Philology | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Minimization of Greco-Roman physiognomic prejudice and popular stereotyping | Minor Revision | [English](showcase/en/05_Frank_Snowden_Report.html) · [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) |
-| 06 | Bibliometrics | **Cook et al. vs. Tol** — *97% Climate Consensus* (2013) | Denominator manipulation (66.4% neutral abstracts excluded to inflate consensus) | Major Revision | [English](showcase/en/06_Cook_Tol_Report.html) · [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) |
-| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Internal ocean oscillation claims vs. satellite-observed net planetary energy imbalance | Major Revision | [English](showcase/en/07_Judith_Curry_Report.html) · [Türkçe](showcase/tr/07_Judith_Curry_Report.html) |
-| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Proxy leap from biochemical markers (serotonin/5-HIAA) to clinical depression prognosis | Major Revision | [English](showcase/en/08_Joanna_Moncrieff_Report.html) · [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) |
-| 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Failed neonate replication (Connellan 2000); 80% sex overlap ignored | Major Revision | [English](showcase/en/09_Simon_Baron_Cohen_Report.html) · [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) |
+| 01 | Philosophy & Gender | **Judith Butler** — *Gender Trouble* (1990/1999) | Semantic equivocation on "performativity"; proxy leap from epistemology to ontology & unfalsifiable genesis | Major Revision | [English](showcase/en/01_Judith_Butler_Report.html) · [Türkçe](showcase/tr/01_Judith_Butler_Report.html) |
+| 02 | Psychoanalysis | **Jacques Lacan** — *Séminaire XX* (1975) | Unfalsifiable ineffable feminine *jouissance*; unformalized pseudo-mathematics (mathemes/topology) | Major Revision | [English](showcase/en/02_Jacques_Lacan_Report.html) · [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) |
+| 03 | Clinical Epidemiology | **Hilary Cass** — *The Cass Review* (NHS, 2024) | Asymmetric cross-pathway evidence standards; pre-2022 search cutoff (24/50 excluded) & unoperationalized thresholds | Major Revision | [English](showcase/en/03_Cass_Review_Report.html) · [Türkçe](showcase/tr/03_Cass_Review_Report.html) |
+| 04 | Historiography | **Cheikh Anta Diop** — *The African Origin* (1974) | Unpublished mummy melanin curves & missing blood tests; inconsistent linguistic sound-laws (Hamitic critique survives) | Major Revision | [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) · [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) |
+| 05 | Classical Philology | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Leap from absent legal caste barriers to universal "color-blind" antiquity; patristic & prosopographic gaps | Major Revision | [English](showcase/en/05_Frank_Snowden_Report.html) · [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) |
+| 06 | Bibliometrics | **Cook et al.** — *Quantifying Consensus* (2013) | Levels 1–3 pooling conflated in headline 97.1% metric; 16% unquantified disagreement & 14% self-rating shift | Major Revision | [English](showcase/en/06_Cook_Tol_Report.html) · [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) |
+| 07 | Climate Science | **Judith Curry** — *Climate Uncertainty* (2023) | Unilateral cooling clamp (`≤0`); `0.8°C` subtraction error; SSP prosperity vs. IAM & nuclear double standards | Major Revision | [English](showcase/en/07_Judith_Curry_Report.html) · [Türkçe](showcase/tr/07_Judith_Curry_Report.html) |
+| 08 | Psychiatry & EBM | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Modified GRADE `'N/A'` medication-confounding asymmetry; bidirectional *ex juvantibus* iatrogenic leap & exclusion breach | Major Revision | [English](showcase/en/08_Joanna_Moncrieff_Report.html) · [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) |
+| 09 | Evolutionary Psychology | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Live-vs-inanimate neonate stimulus asymmetry & bedside blinding leak; omitted N/d/r/95% CI; Ch. 8 inverted-U paradox | Major Revision | [English](showcase/en/09_Simon_Baron_Cohen_Report.html) · [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) |
 
 📂 Full reports: [`showcase/en/`](showcase/en/) | [`showcase/tr/`](showcase/tr/)  
 📊 Quantitative metrics: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)

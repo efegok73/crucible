@@ -1,9 +1,9 @@
-# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v7.2) — KULLANICI VE METODOLOJİ KILAVUZU
+# ⚖️ CRUCIBLE (Mayın Tarlası Modeli v7.3) — KULLANICI VE METODOLOJİ KILAVUZU
 
 **Yapay zekâyı diplomatik bir metin özetleyicisinden, birincil kaynak metne dayalı, acımasız ve berrak bir bilimsel hakeme dönüştüren açık kaynak denetim çerçevesi.**
 
 [![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-blue.svg)](LICENSE)
-[![Versiyon](https://img.shields.io/badge/Versiyon-7.2-emerald.svg)](CHANGELOG.md)
+[![Versiyon](https://img.shields.io/badge/Versiyon-7.3-emerald.svg)](CHANGELOG.md)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-informational.svg)](https://www.python.org/)
 
 > *Uluslararası Açık Kaynak Adı:* ***CRUCIBLE*** *| Özgün Kurucu Mimari:* ***Mayın Tarlası*** *(Gizli varsayımların ya sınandığı ya da havaya uçtuğu diyalektik stres testi arazisi)*
@@ -123,12 +123,12 @@ Bu modda dosyaları tek tek kopyalayıp yapıştırmazsınız; klasördeki anaya
    IDE'nizi açarak `crucible` reposunu çalışma alanı olarak yükleyin.
 2. **Belgenizi Yerleştirin:**  
    İncelenecek eseri (PDF, Word veya Markdown) çalışma klasörünüze (örneğin `data/` veya `kaynaklar/`) ekleyin.
-3. **Kaynak Metin Dokunulmazlığı (v7.2 Kuralı):**  
+3. **Kaynak Metin Dokunulmazlığı (v7.3 Kuralı):**  
    - Eseri asla 20-25 sayfalık parçalara bölmeyin veya özetlemeyin.
-   - İndeksleme adımı deterministik çıpalama için zorunludur: Ajan, analiz öncesinde otomatik olarak `python scripts/index_source.py data/eser.pdf -o data/eser_indeksli.txt` komutuyla `[P:xxxx]` kütüğünü oluşturur (veya kullanıcı bunu terminalden kendisi üretebilir).
+   - İndeksleme adımı deterministik çıpalama için zorunludur: Ajan, analiz öncesinde otomatik olarak `python scripts/index_source.py data/eser.pdf -o data/eser_indeksli.txt` komutuyla `[P:xxxx]` kütüğünü oluşturur ve yalnızca o tek birincil belgeye odaklanır (doğrulanmamış dış literatür kontrollerini yalnızca 5. Bölüme `[DIŞ DOĞRULAMA ADAYI]` olarak yazar).
 4. **Komut Verin:**  
    > *"CRUCIBLE analizine al: @data/eser.pdf"*  
-   *(Veya: "Klasördeki `@data/eser.pdf` eserini CRUCIBLE v7.2 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır.")*
+   *(Veya: "Klasördeki `@data/eser.pdf` eserini CRUCIBLE v7.3 kurallarıyla analiz et. Kaynak dilde birincil denetimi mühürle, ardından hedef dilde akıcı ve berrak yerelleştirilmiş raporu üretip linter'ı çalıştır.")*
 5. **Mühürlü Çıktıyı Alın:**  
    Ajan analizi tamamlar, `scripts/crucible_linter.py` çalıştırıp `[PASS]` alır ve yayına hazır `.html` raporunu üretir.
 
@@ -174,15 +174,15 @@ Tüm raporlar deterministik linter tarafından doğrulanmış ve mühürlenmişt
 
 | # | Disiplin | İncelenen Eser | Temel Metodolojik Zafiyet | Hüküm | Rapor |
 |:---:|:---|:---|:---|:---:|:---:|
-| 01 | Felsefe & Cinsiyet | **Judith Butler** — *Gender Trouble* (1990) | "Performativite"de anlamsal kaçak; epistemolojiden ontolojiye dayanaksız vekil sıçraması | Ağır Revizyon | [Türkçe](showcase/tr/01_Judith_Butler_Report.html) · [English](showcase/en/01_Judith_Butler_Report.html) |
-| 02 | Psikanaliz | **Jacques Lacan** — *Séminaire XX* (1975) | Formel matematiksel temeli olmayan sahte-topoloji (mathemeler) | Ağır Revizyon | [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) · [English](showcase/en/02_Jacques_Lacan_Report.html) |
-| 03 | Klinik Epidemiyoloji | **Hilary Cass** — *The Cass Review* (2024) | Gözlemsel pediatrik kohort verisine orantısız RCT katılığı uygulanması | Kısmi Revizyon | [Türkçe](showcase/tr/03_Cass_Review_Report.html) · [English](showcase/en/03_Cass_Review_Report.html) |
-| 04 | Tarih Yazımı | **Cheikh Anta Diop** — *The African Origin* (1974) | Anakronik ırk kategorileri; fonetik benzerlikten sahte dilsel köken türetme | Reddedildi | [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) · [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) |
-| 05 | Klasik Filoloji | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Greko-Romen fizyognomik önyargının ve popüler kalıpların hafife alınması | Kısmi Revizyon | [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) · [English](showcase/en/05_Frank_Snowden_Report.html) |
-| 06 | Bibliyometri & İklim | **Cook et al. vs. Tol** — *%97 İklim Konsensüsü* (2013) | Payda manipülasyonu (%66.4 nötr makale analiz dışı bırakılarak yüzde şişirilmiş) | Ağır Revizyon | [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) · [English](showcase/en/06_Cook_Tol_Report.html) |
-| 07 | İklim Modellemesi | **Judith Curry** — *Climate Uncertainty* (2023) | Okyanus içi salınım savları vs. uydulardan gözlenen net gezegensel enerji dengesizliği | Ağır Revizyon | [Türkçe](showcase/tr/07_Judith_Curry_Report.html) · [English](showcase/en/07_Judith_Curry_Report.html) |
-| 08 | Psikiyatri & Tıp | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Biyokimyasal belirteçler (serotonin/5-HIAA) ile klinik depresyon seyri arasındaki vekil sıçraması | Ağır Revizyon | [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) · [English](showcase/en/08_Joanna_Moncrieff_Report.html) |
-| 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Replikasyonu çöken yenidoğan deneyi; %80 cinsiyet örtüşmesinin yok sayılması | Ağır Revizyon | [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) · [English](showcase/en/09_Simon_Baron_Cohen_Report.html) |
+| 01 | Felsefe & Cinsiyet | **Judith Butler** — *Gender Trouble* (1990/1999) | "Performativite"de anlamsal kaçak; epistemolojiden ontolojiye sıçrama & yanlışlanamaz köken savı | Ağır Revizyon | [Türkçe](showcase/tr/01_Judith_Butler_Report.html) · [English](showcase/en/01_Judith_Butler_Report.html) |
+| 02 | Psikanaliz | **Jacques Lacan** — *Séminaire XX* (1975) | Yanlışlanamaz dişil *jouissance*; formel doğrulaması olmayan sahte-topoloji (mathemeler) | Ağır Revizyon | [Türkçe](showcase/tr/02_Jacques_Lacan_Report.html) · [English](showcase/en/02_Jacques_Lacan_Report.html) |
+| 03 | Klinik Epidemiyoloji | **Hilary Cass** — *The Cass Review* (2024) | Klinik yolaklar arası asimetrik kanıt standardı; Nisan 2022 tarama eşiği (24/50 dışlama) | Ağır Revizyon | [Türkçe](showcase/tr/03_Cass_Review_Report.html) · [English](showcase/en/03_Cass_Review_Report.html) |
+| 04 | Tarih Yazımı | **Cheikh Anta Diop** — *The African Origin* (1974) | Yayımlanmamış mumya melanin/kan testleri; tutarsız ses yasaları (Hamit miti eleştirisi ayakta) | Ağır Revizyon | [Türkçe](showcase/tr/04_Cheikh_Anta_Diop_Report.html) · [English](showcase/en/04_Cheikh_Anta_Diop_Report.html) |
+| 05 | Klasik Filoloji | **Frank M. Snowden Jr.** — *Blacks in Antiquity* (1970) | Yasal kast engelinin yokluğundan evrensel "renk-körlüğü" sıçraması; patristik & prosopografik açıklar | Ağır Revizyon | [Türkçe](showcase/tr/05_Frank_Snowden_Report.html) · [English](showcase/en/05_Frank_Snowden_Report.html) |
+| 06 | Bibliyometri & İklim | **Cook et al.** — *%97 İklim Konsensüsü* (2013) | 1–3. düzeylerin harmanlandığı %97.1 ölçütü; %16 ölçülmemiş hakem ayrılığı & %14 öz-derecelendirme kayması | Ağır Revizyon | [Türkçe](showcase/tr/06_Cook_Tol_Climate_Report.html) · [English](showcase/en/06_Cook_Tol_Report.html) |
+| 07 | İklim Modellemesi | **Judith Curry** — *Climate Uncertainty* (2023) | Doğal değişkenliği tek yanlı `≤0` sıkıştırma; `0.8°C` çıkarma hatası; SSP vs. IAM & nükleer çifte standardı | Ağır Revizyon | [Türkçe](showcase/tr/07_Judith_Curry_Report.html) · [English](showcase/en/07_Judith_Curry_Report.html) |
+| 08 | Psikiyatri & Tıp | **Joanna Moncrieff et al.** — *Serotonin Theory* (2022) | Değiştirilmiş GRADE `'N/A'` ilaç karıştırıcısı asimetrisi; çift yönlü *ex juvantibus* iyatrojenik sıçrama | Ağır Revizyon | [Türkçe](showcase/tr/08_Joanna_Moncrieff_Report.html) · [English](showcase/en/08_Joanna_Moncrieff_Report.html) |
+| 09 | Evrimsel Psikoloji | **Simon Baron-Cohen** — *The Essential Difference* (2003) | Canlı-cansız yenidoğan uyaran asimetrisi & beşik körleme sızıntısı; eksik N/d/r/GA; Bölüm 8 ters-U paradoksu | Ağır Revizyon | [Türkçe](showcase/tr/09_Simon_Baron_Cohen_Report.html) · [English](showcase/en/09_Simon_Baron_Cohen_Report.html) |
 
 📂 Mühürlü Raporlar: [`showcase/tr/`](showcase/tr/) (Türkçe) | [`showcase/en/`](showcase/en/) (İngilizce)  
 📊 Sayısal Metrikler: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md)

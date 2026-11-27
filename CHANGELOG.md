@@ -5,6 +5,21 @@ All notable changes to the CRUCIBLE framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.3.0] - 2026-11-27
+
+### Fixed & Hardened (3-Model Stress Test & L1–L5 Audit)
+- **Backtick & Markdown Wrapper Quote Verification (`L1`)** — Expanded `quote_specs` in `crucible_linter.py` to parse backticked paragraph anchors (`` `[P:xxxx]` ``), inline italic/bold quote wrappers, parenthesized anchors, and multi-paragraph range citations `[P:xxxx–yyyy]`, closing the bypass that previously masked fabricated/inverted quotes; added line-break dehyphenation to neighbor-window locality checks.
+- **Matrix Table Header Guard (`L2`)** — Restricted `in_matrix = True` activation in `validate_source_grounding` strictly to genuine Markdown table headers verified by a subsequent `|---|` separator row, preventing Triage or Damage tables from triggering phantom K8 grounding errors.
+- **Triage Conflict Detection & Range Bounds (`L3`)** — Updated `validate_triage` to recognize `Layer 10` / `Katman 10` without literal `K`, attribute-containing subheadings (`Active Normative Layers`), and conflicting dual declarations (`[WARN: TRIAGE CONFLICT]` while preserving active checks); extended `[P:xxxx–yyyy]` range and comma-list validation for `[FAIL: INVALID PARAGRAPH INDEX]`.
+- **Quantitative Audit Depth Guard (`L4`)** — Added `SHALLOW K4 AUDIT` detection (`--strict` error) when `K4` is active on a quantitative primary source without concrete statistical/sample-size extraction (`N=`, `OR=`, `p<`, `g=`, `CI`, `%`) outside the Triage section.
+- **Zero-Paragraph Source Hard Failure (`EMPTY PRIMARY SOURCE`)** — Passing a scanned/empty `--source` document with 0 extractable paragraphs now fails validation deterministically instead of silently bypassing grounding checks.
+- **Zero-Paragraph Indexer Failure (`index_source.py`)** — Exits with non-zero status (`exit 1`) on 0 extracted paragraphs instead of producing empty index files.
+
+### Added & Refined
+- **Autonomous Runtime Engine & Constitutional Parity (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, Web Prompts)** — Codified 5-step execution protocol (mandatory indexing & non-empty scope verification, unconditional 3-phase pauses, sealed outputs, and optional Stage 2 `_TR` translation), **Single-Document External Competency Limits (Class 1 Rules vs. Class 2 Surgeon Verification Candidates)**, and **Anchored Audit Cockpit / Zero-Redundancy** standards (`L5`).
+- **Expanded Unit Tests** — Added 6 hardening regression tests (`L1–L5` + `EMPTY PRIMARY SOURCE`) to `scripts/test_crucible_linter.py` (30 total tests, 100% PASS).
+- **v7.3 Showcase Refresh (`Gemini 4 Hydrogen Extra High`)** — Regenerated all 18 showcase evaluations (`showcase/en/` & `showcase/tr/`) directly against full-text indexed primary sources under strict Single-Document Grounding (`L1–L5`) and updated HTML verification seals (including 345-page Tesseract OCR grounding for Case 04).
+
 ## [7.2.0] - 2026-11-21
 
 ### Fixed & Hardened (Adli Reçete Uygulaması)

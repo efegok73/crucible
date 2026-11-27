@@ -707,6 +707,195 @@ Tezin aldığı hasar ve asgari epistemik bedel özetlenmektedir.
         expected_layers = {'K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10'}
         self.assertEqual(expected_layers, set(LAYER_ARTIFACTS.keys()))
 
+    # ────────────────────────────────────────────────────────────────
+    # v7.3 Hardening Tests (L1-L4)
+    # ────────────────────────────────────────────────────────────────
+
+    def test_v73_l1_backtick_and_markdown_quote_wrappers(self):
+        """v7.3 L1: Fabricated quotes with backticked `[P:x]` and italics cannot bypass quote verification."""
+        source_text = "Randomized controlled trials demonstrated no convincing effects of the depletion intervention."
+        source_path = self._create_report(source_text)
+
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Depletion result | Randomized controlled trials | Primary Data | Verified |
+"""
+        # 1. Valid backticked verbatim quote passes
+        valid_steelman = (
+            'The authors construct their primary empirical claim in this section through rigorous comparison '
+            'and summarize the core experimental result cleanly without distortion across all included clinical samples:\n\n'
+            '* *Verbatim Citation:* *"no convincing effects of the depletion intervention"* `[P:0001]`.\n'
+            'Further dialectical premises remain internally coherent across every proposition examined in this review.'
+        )
+        res_valid = CrucibleLinter(
+            self._create_report(make_valid_document(steelman_text=valid_steelman, extra_sections=matrix, include_k8_table=False)),
+            source_path=source_path,
+            allow_localized=True,
+        ).validate()
+        self.assertTrue(res_valid.passed, f"Valid backticked quote failed unexpectedly: {res_valid.errors}")
+
+        # 2. Inverted / fabricated quote with backticks and blockquote must FAIL
+        bad_steelman = (
+            'The authors supposedly summarize their experimental trial findings while constructing an argument '
+            'and report an inverted empirical claim that reverses the original source wording across clinical subjects:\n\n'
+            '> *"Randomized controlled trials demonstrated mood reducing effects of the depletion intervention"* `[P:0001]`.\n'
+            'Further dialectical premises remain internally coherent across every proposition examined in this review.'
+        )
+        res_bad = CrucibleLinter(
+            self._create_report(make_valid_document(steelman_text=bad_steelman, extra_sections=matrix, include_k8_table=False)),
+            source_path=source_path,
+            allow_localized=True,
+        ).validate()
+        self.assertFalse(res_bad.passed)
+        self.assertTrue(any("UNVERIFIED QUOTE" in e for e in res_bad.errors), f"Expected UNVERIFIED QUOTE, got: {res_bad.errors}")
+
+    def test_v73_l2_triage_data_row_does_not_trigger_k8_matrix(self):
+        """v7.3 L2: Triage row containing 'Claim' and 'Source' must not hijack in_matrix state."""
+        source_text = "Original Text presents clear historical evidence in the primary corpus."
+        source_path = self._create_report(source_text)
+
+        triage_with_claim_and_source = """
+### Layer Matrix
+| Layer | Status | Justification |
+|---|---|---|
+| **K1: Persona & Virtue** | ✅ ACTIVE | Baseline philosophical honesty enforced. |
+| **K8: Disciplinary Matrix & Source Criticism** | ✅ ACTIVE | Audit claim-to-source fidelity in the corpus. |
+| **K10: Complexity & Epistemic Post-Mortem** | ✅ ACTIVE | Damage report and checklist active. |
+"""
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Historical proposition | Original Text | Primary Source | Grounded |
+"""
+        extra = "\n## EXTRA PROTOCOL\nDamage report checklist verified with clinical boundaries.\n"
+        # Build custom report overriding default triage
+        md = make_valid_document(include_k8_table=False, extra_sections=matrix + extra)
+        md = md.replace(
+            "| **K8: Disciplinary Matrix** | ✅ ACTIVE | Interdisciplinary source and textual criticism applied. |",
+            "| **K8: Disciplinary Matrix & Source Criticism** | ✅ ACTIVE | Audit claim-to-source fidelity across cited works. |\n| **K10: Complexity** | ✅ ACTIVE | Damage report and ethical boundary assessment applied. |",
+        )
+        res = CrucibleLinter(self._create_report(md), source_path=source_path, allow_localized=True).validate()
+        self.assertTrue(res.passed, f"Triage K8 data row leaked into matrix parser: {res.errors}")
+        self.assertTrue(res.grounded)
+
+    def test_v73_l3_triage_conflict_and_range_bounds(self):
+        """v7.3 L3: Contradictory 'Layer 10' keeps K10 active with warning; invalid [P:x-y] ranges fail."""
+        source_text = "First paragraph evidence.\n\nSecond paragraph evidence."
+        source_path = self._create_report(source_text)
+
+        triage_conflict = """
+### 1.1. Active Normative Layers
+* **Layer 10 (Damage Report & Epistemic Autopsy):** ✅ ACTIVE. Mandatory closing audit.
+
+### 1.2. Excluded Normative Layers
+* **Layer 10 (Macro Complex Systems):** ⛔ EXCLUDED. No formal dynamical equations used.
+"""
+        steelman_range_oob = (
+            "The author argues with clear premises and cites out-of-bounds range [P:0001–0099] "
+            "while examining first and second paragraphs thoroughly."
+        )
+        md = make_valid_document(triage_extra=triage_conflict, steelman_text=steelman_range_oob)
+        res = CrucibleLinter(self._create_report(md), source_path=source_path, allow_localized=True).validate()
+        self.assertIn("K10", res.active_layers, "Layer 10 must remain active when explicitly declared ACTIVE before partial exclusion")
+        self.assertTrue(any("TRIAGE CONFLICT" in w and "K10" in w for w in res.warnings))
+        self.assertFalse(res.passed)
+        self.assertTrue(any("INVALID PARAGRAPH INDEX" in e for e in res.errors), f"Expected out-of-bounds range error, got: {res.errors}")
+
+    def test_v73_l4_shallow_k4_quantitative_audit_warning(self):
+        """v7.3 L4: Active K4 on a quantitative source without concrete extracted statistics emits SHALLOW K4 AUDIT."""
+        source_text = (
+            "Trial cohort enrolled N = 1,250 participants. Primary outcome showed OR = 1.02, p = 0.78, "
+            "95% CI [0.89, 1.17] with 42.5% follow-up response across groups."
+        )
+        source_path = self._create_report(source_text)
+
+        triage_k4 = "\n| **K4: Statistics & Bayes** | ✅ ACTIVE | Inspect posterior probabilities and sample sizes. |\n"
+        # Prose-only body mentioning Bayes/prior without citing a single number from the quantitative source
+        prose_only_fals = (
+            "In this section we evaluate Bayesian prior and posterior beliefs conceptually. "
+            "Sample size and confidence interval considerations are weighed qualitatively against confirmation biases."
+        )
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Trial claim | Trial cohort | Primary Data | Checked |
+"""
+        md_shallow = make_valid_document(
+            triage_extra=triage_k4,
+            falsification_text=prose_only_fals,
+            include_k8_table=False,
+            extra_sections=matrix,
+        )
+        res_shallow = CrucibleLinter(self._create_report(md_shallow), source_path=source_path, allow_localized=True).validate()
+        self.assertTrue(any("SHALLOW K4 AUDIT" in w for w in res_shallow.warnings),
+                        f"Expected SHALLOW K4 AUDIT warning, got: {res_shallow.warnings}")
+
+        # Strict mode escalates SHALLOW K4 AUDIT to hard error
+        res_strict = CrucibleLinter(self._create_report(md_shallow), source_path=source_path, strict=True, allow_localized=True).validate()
+        self.assertFalse(res_strict.passed)
+        self.assertTrue(any("SHALLOW K4 AUDIT" in e for e in res_strict.errors))
+
+        # Quantitative body extracting real numbers passes with zero shallow-K4 warning
+        quant_fals = prose_only_fals + " Specifically, cohort N = 1,250 yielded OR = 1.02 (95% CI [0.89, 1.17], p = 0.78)."
+        md_quant = make_valid_document(
+            triage_extra=triage_k4,
+            falsification_text=quant_fals,
+            include_k8_table=False,
+            extra_sections=matrix,
+        )
+        res_quant = CrucibleLinter(self._create_report(md_quant), source_path=source_path, allow_localized=True).validate()
+        self.assertFalse(any("SHALLOW K4 AUDIT" in w for w in res_quant.warnings),
+                         f"Unexpected SHALLOW K4 AUDIT warning on quantitative report: {res_quant.warnings}")
+
+    def test_v73_l5_anchored_audit_cockpit_before_triage_passes(self):
+        """v7.3 L5: An anchored Audit Cockpit box above H2 Triage passes with zero triage/header leaks."""
+        source_text = "Randomized trial enrolled N = 1,250 participants demonstrating no primary effect (OR = 1.00, p = 0.95)."
+        source_path = self._create_report(source_text)
+
+        cockpit_header = (
+            "> **Audit Cockpit (Navigation Index — Not Independent Proof):**\n"
+            "> - **Primary Verdict Anchor:** No effect found (`OR = 1.00, p = 0.95`, `N = 1,250`) `[P:0001]`.\n"
+            "> - **Top Fracture Pointer:** Check quantitative metric extraction against K4 rules below.\n\n"
+        )
+        fals_quant = (
+            "Here we evaluate Popperian falsification criteria, statistical power, and empirical disclosures. "
+            "Trial reported N = 1,250 with OR = 1.00 (p = 0.95), confirming null primary findings reliably."
+        )
+        matrix = """
+## CLAIMS-SOURCE AUDIT MATRIX
+| Thesis / Claim | Primary Source | Source Status | Methodological Verdict |
+|---|---|---|---|
+| Trial claim | Randomized trial | Primary Data | Confirmed null |
+"""
+        md = make_valid_document(
+            falsification_text=fals_quant,
+            include_k8_table=False,
+            extra_sections=matrix,
+        ).replace(
+            "| **K4: Statistics & Bayes** | ⛔ EXCLUDED | No quantitative data sets or clinical trials available in text. |",
+            "| **K4: Statistics & Bayes** | ✅ ACTIVE | Inspect OR and p-value metrics. |"
+        ).replace("*Analyst: Persona V6.0*", f"*Analyst: Persona V7.2*\n\n{cockpit_header}")
+
+        res = CrucibleLinter(self._create_report(md), source_path=source_path, allow_localized=True).validate()
+        self.assertTrue(res.passed, f"Audit Cockpit triggered unexpected linter errors: {res.errors}")
+        self.assertEqual(len(res.warnings), 0, f"Audit Cockpit triggered unexpected warnings: {res.warnings}")
+
+    def test_v73_empty_primary_source_fails(self):
+        """v7.3 Hardening: An empty or 0-paragraph --source document must FAIL rather than skip grounding."""
+        empty_source = self._create_report("   \n\n   ")
+        md = make_valid_document()
+        res = CrucibleLinter(self._create_report(md), source_path=empty_source, allow_localized=True).validate()
+        self.assertFalse(res.passed)
+        self.assertFalse(res.grounded)
+        self.assertTrue(
+            any("EMPTY PRIMARY SOURCE" in e for e in res.errors),
+            f"Expected EMPTY PRIMARY SOURCE error, got: {res.errors}",
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

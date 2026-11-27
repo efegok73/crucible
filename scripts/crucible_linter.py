@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CRUCIBLE v7.2 — Grounded Deterministic Epistemic Audit Linter
+CRUCIBLE v7.3 — Grounded Deterministic Epistemic Audit Linter
 =============================================================
 Parses AI-generated CRUCIBLE analysis reports and enforces
 constitutional compliance through structural, rhetorical,
@@ -10,7 +10,7 @@ Fixes addressed:
 - Z1-Z10 (v6.0: hollow sections, triage group capture, scope leak,
   narrow terms, Turkish word boundaries, lang detection, verification
   seal, testability, sys.exit, MathJax/regex ordering).
-- v7.0-v7.2 Zero-Vulnerability Grounding:
+- v7.0-v7.3 Zero-Vulnerability Grounding:
   * Primary source cross-checking via --source (pdf/docx/txt/md).
   * PyMuPDF (fitz) priority loading with pypdf / PyPDF2 fallbacks.
   * Multi-token AND logic for Claim-Source Matrix artifact grounding.
@@ -639,38 +639,62 @@ class CrucibleLinter:
 
         active_block = False
         passive_block = False
+        explicitly_active: Set[str] = set()
+        explicitly_passive: Set[str] = set()
+        conflict_warned: Set[str] = set()
 
         for line in self.triage_body.split('\n'):
             line_stripped = line.strip()
             if not line_stripped:
                 continue
 
-            if re.search(r'(?:aktif|active|d[aâ]hil)\s+katman|active\s+layer', line_stripped, re.IGNORECASE):
+            if re.search(r'(?:aktif|active|d[aâ]hil)(?:\s+\w+)?\s+(?:katman|layer)', line_stripped, re.IGNORECASE):
                 active_block = True
                 passive_block = False
-            elif re.search(r'(?:pasif|passive|excluded|d[ıi][şs]lanan)\s+katman|excluded\s+layer', line_stripped, re.IGNORECASE):
+                continue
+            elif re.search(r'(?:pasif|passive|excluded|d[ıi][şs]lanan)(?:\s+\w+)?\s+(?:katman|layer)', line_stripped, re.IGNORECASE):
                 active_block = False
                 passive_block = True
+                continue
+            elif line_stripped.startswith('#'):
+                # Unrelated subheading in triage resets inherited block state
+                active_block = False
+                passive_block = False
+                continue
 
-            line_passive = bool(PASSIVE_MARKERS.search(line_stripped)) or passive_block
-            line_active = bool(ACTIVE_MARKERS.search(line_stripped)) or active_block
+            has_passive_marker = bool(PASSIVE_MARKERS.search(line_stripped))
+            has_active_marker = bool(ACTIVE_MARKERS.search(line_stripped))
+            line_passive = has_passive_marker or (passive_block and not has_active_marker)
+            line_active = has_active_marker or (active_block and not has_passive_marker)
 
-            # Check if this line is explicitly targeted to a specific layer (e.g. * K5, Katman 5)
-            explicit_layer_match = re.search(r'\b(?:Katman\s*|Layer\s*)?(K10|K[1-9])\b', line_stripped, re.IGNORECASE)
-            explicit_layer = None
-            if explicit_layer_match:
-                raw_id = explicit_layer_match.group(1).upper()
-                explicit_layer = raw_id if raw_id.startswith('K') else f"K{raw_id}"
+            # Match both K1..K10 and "Layer 10" / "Katman 10" without letter K
+            explicit_layer_match = re.search(r'\b(?:K|(?:Katman|Layer)\s*)(10|[1-9])\b', line_stripped, re.IGNORECASE)
+            explicit_layer = f"K{explicit_layer_match.group(1)}" if explicit_layer_match else None
 
             for layer_id, triggers in LAYER_TRIGGERS.items():
                 if explicit_layer and layer_id != explicit_layer:
                     # Do not let incidental words in the explanation of another layer remove/add this layer!
                     continue
                 if any(re.search(trigger, line_stripped, re.IGNORECASE) for trigger in triggers):
-                    if line_passive and not bool(ACTIVE_MARKERS.search(line_stripped)):
-                        if layer_id in self.active_layers:
+                    if line_passive and not has_active_marker:
+                        explicitly_passive.add(layer_id)
+                        if layer_id in explicitly_active:
+                            if layer_id not in conflict_warned:
+                                self._warn(
+                                    f"[WARN: TRIAGE CONFLICT] Layer {layer_id} is marked both ACTIVE and EXCLUDED "
+                                    f"in Triage; keeping {layer_id} active for artifact checks."
+                                )
+                                conflict_warned.add(layer_id)
+                        elif layer_id in self.active_layers:
                             self.active_layers.remove(layer_id)
                     elif line_active:
+                        explicitly_active.add(layer_id)
+                        if layer_id in explicitly_passive and layer_id not in conflict_warned:
+                            self._warn(
+                                f"[WARN: TRIAGE CONFLICT] Layer {layer_id} is marked both EXCLUDED and ACTIVE "
+                                f"in Triage; keeping {layer_id} active for artifact checks."
+                            )
+                            conflict_warned.add(layer_id)
                         self.active_layers.add(layer_id)
 
         self.result.active_layers = sorted(self.active_layers)
@@ -717,6 +741,43 @@ class CrucibleLinter:
                             "Claim-Source table found but has fewer than 3 data columns. "
                             "Expected: | Thesis/Claim | Primary Source | Source Status | Verdict |"
                         )
+
+        # L4: Quantitative / Statistical depth guard when K4 is active
+        if 'K4' in self.active_layers:
+            audit_body = self.full_text
+            if self.triage_body:
+                audit_body = audit_body.replace(self.triage_body, '')
+            audit_body_no_code = re.sub(r'```[\s\S]*?```', '', audit_body)
+
+            quant_metric_re = re.compile(
+                r'(?:\b(?:N|n)\s*[=<>≥≤~]\s*\d|'
+                r'\b(?:OR|RR|HR|SMD|AUC|BF)\s*[=<>≈~:]\s*[-−+]?\d|'
+                r'\bp\s*[<>≤≥=]\s*0?\.\d+|'
+                r'\b(?:g|d|β)\s*=\s*[-−+]?\d+|'
+                r'\b(?:I2|I²|R2|R²)\s*=\s*\d|'
+                r'\b95%\s*(?:CI|GA)\b|'
+                r'\b(?:CI|GA)\s*\[|'
+                r'\d+(?:[.,]\d+)?\s*%|%\d+(?:[.,]\d+)?)',
+                re.IGNORECASE,
+            )
+            bayes_directional_re = re.compile(r'(?:P\s*\([^)]+\)|[↑↓⇑⇓▲▼])')
+
+            body_metrics = quant_metric_re.findall(audit_body_no_code)
+            source_metrics = quant_metric_re.findall(self.source_full_text) if self.source_full_text else []
+
+            if self.source_full_text and len(source_metrics) >= 3 and len(body_metrics) == 0:
+                msg = (
+                    "[WARN: SHALLOW K4 AUDIT] Layer K4 (Quantitative/Statistics) is active on a quantitative source, "
+                    "but the audit body extracts zero concrete sample sizes or statistical metrics "
+                    "(e.g., N=, p=, OR=, g/d=, CI, %)."
+                )
+                self._error(msg) if self.strict else self._warn(msg)
+            elif not self.source_full_text and len(body_metrics) == 0 and not bayes_directional_re.search(audit_body_no_code):
+                msg = (
+                    "[WARN: SHALLOW K4 AUDIT] Layer K4 is active, but the audit body contains neither "
+                    "quantitative statistical metrics nor formal/directional Bayesian updates."
+                )
+                self._error(msg) if self.strict else self._warn(msg)
 
     # ── Phase 3: Rhetorical Hygiene ──
 
@@ -782,13 +843,21 @@ class CrucibleLinter:
                     f"CRUCIBLE V7 mandates active, fluent academic Turkish over mechanical translations."
                 )
 
-    # ── Phase 4: Grounded Source Verification (v7.2) ──
+    # ── Phase 4: Grounded Source Verification (v7.3) ──
 
     def validate_source_grounding(self):
-        """CRUCIBLE v7.2: Grounded Verification against primary source document.
+        """CRUCIBLE v7.3: Grounded Verification against primary source document.
         Ensures zero-hallucination of primary source artifacts and verifies quoted anchors."""
-        if not self.source_path or not self.source_full_text:
+        if not self.source_path:
             self._info("Source grounding check skipped (no --source provided; running in unanchored mode).")
+            return
+        if not self.source_paragraphs or not self.source_full_text.strip():
+            source_name = os.path.basename(self.source_path)
+            if not any("Failed to load" in e or "Cannot load" in e for e in self.result.errors):
+                self._error(
+                    f"[FAIL: EMPTY PRIMARY SOURCE] Primary source '{source_name}' yielded 0 readable paragraphs "
+                    f"(likely a scanned/image-only PDF lacking OCR text)."
+                )
             return
 
         # 0. Substrate Parity Gate (CRUCIBLE Universal Law)
@@ -835,11 +904,13 @@ class CrucibleLinter:
         )
 
         # 1. Parse and verify Claim-Source Audit Matrix (K8 table)
-        # Process line-by-line to strictly isolate the matrix table from subsequent tables
+        # Process line-by-line; only enter matrix mode on genuine markdown table headers (followed by |---| separator)
         in_matrix = False
         matrix_rows = []
+        report_lines = self.full_text.splitlines()
+        md_sep_re = re.compile(r'^\|?(?:\s*:?-{2,}:?\s*\|)+\s*:?-{2,}:?\s*\|?$')
 
-        for line in self.full_text.splitlines():
+        for idx, line in enumerate(report_lines):
             line_s = line.strip()
             # If not a table row or if a section heading, terminate matrix context
             if not line_s.startswith('|') or line_s.startswith('#'):
@@ -850,16 +921,18 @@ class CrucibleLinter:
             if len(cols) < 3:
                 continue
 
-            # Header check
-            if any(re.search(r'(?:Tez|İddia|Thesis|Claim)', c, re.IGNORECASE) for c in cols) and \
-               any(re.search(r'(?:Kaynak|Source)', c, re.IGNORECASE) for c in cols):
-                in_matrix = True
+            # Header check (requires next line to be a valid markdown separator row)
+            if not in_matrix:
+                has_claim_col = any(re.search(r'(?:Tez|İddia|Thesis|Claim)', c, re.IGNORECASE) for c in cols)
+                has_source_col = any(re.search(r'(?:Kaynak|Source)', c, re.IGNORECASE) for c in cols)
+                next_is_sep = (idx + 1 < len(report_lines)) and bool(md_sep_re.match(report_lines[idx + 1].strip()))
+                if has_claim_col and has_source_col and next_is_sep:
+                    in_matrix = True
                 continue
 
-            if in_matrix:
-                if re.match(r'^[\s:\-]+$', cols[0]):
-                    continue
-                matrix_rows.append(cols)
+            if md_sep_re.match(line_s) or re.match(r'^[\s:\-]+$', cols[0]):
+                continue
+            matrix_rows.append(cols)
 
         stop_words = {
             'yazıtı', 'yazıt', 'kitabesi', 'kitabe', 'grubu', 'parşömeni', 'fragmanı',
@@ -928,56 +1001,79 @@ class CrucibleLinter:
                         f"If this is an external comparison, prefix with '[DIŞ KAYNAK]' or '[EXTERNAL]'."
                     )
 
-        # 2. Check Paragraph Citations [P:xxxx]
-        citations = re.findall(r'\[P:(\d+)\]', self.full_text)
+        # 2. Check Paragraph Citations [P:xxxx] (including ranges [P:xxxx-yyyy] and multi-refs [P:x, P:y])
         max_para = len(self.source_paragraphs)
+        for pm in re.finditer(r'\[P:([^\]]+)\]', self.full_text):
+            raw_spec = pm.group(1)
+            for token in re.split(r'[,;]', raw_spec):
+                tok = token.strip()
+                range_m = re.match(r'^(?:P:)?(\d+)\s*[-–—]\s*(?:P:)?(\d+)$', tok)
+                single_m = re.match(r'^(?:P:)?(\d+)$', tok)
+                if range_m:
+                    p_start, p_end = int(range_m.group(1)), int(range_m.group(2))
+                    if p_start > p_end or (max_para > 0 and (p_start <= 0 or p_end > max_para)):
+                        self._error(
+                            f"[FAIL: INVALID PARAGRAPH INDEX] Range citation [P:{raw_spec.strip()}] "
+                            f"is reversed or exceeds source paragraph count ({max_para}) of '{source_name}'."
+                        )
+                elif single_m:
+                    p_idx = int(single_m.group(1))
+                    if max_para > 0 and (p_idx > max_para or p_idx <= 0):
+                        self._error(
+                            f"[FAIL: INVALID PARAGRAPH INDEX] Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
+                        )
 
-        for p_str in set(citations):
-            p_idx = int(p_str)
-            if max_para > 0 and (p_idx > max_para or p_idx <= 0):
-                self._error(
-                    f"[FAIL: INVALID PARAGRAPH INDEX] Citation [P:{p_idx}] exceeds source paragraph count ({max_para}) of '{source_name}'."
-                )
-
-        # 3. Check Verbatim Quotes attached to [P:xxxx] (supporting before/after anchors, blockquotes, and apostrophes)
+        # 3. Check Verbatim Quotes attached to [P:xxxx] (supports backticks, bold/italic wrappers, ranges, blockquotes)
         source_normalized = unicodedata.normalize('NFKD', re.sub(r'\s+', ' ', source_lower))
         quote_specs = [
-            (r'\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]([^"”]{15,600})["”]', 1, 2),
-            (r'["“]([^"”]{15,600})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
-            (r'>\s*\[P:(\d+)\]\s*(?:[:\-]\s*)?(?:[\*_]{1,2})?["“]?([^"”\n\r]{15,600})["”]?', 1, 2),
-            (r'>\s*["“]([^"”\n\r]{15,600})["”]\s*(?:[\*_]{1,2})?\s*\[P:(\d+)\]', 2, 1),
+            # (pattern, p_start_grp, p_end_grp, quote_grp, strip_fallback_markers)
+            (r'`?\[P:(\d+)(?:\s*[-–—]\s*(?:P:)?(\d+))?\]`?(?:\s*[:\-–—]|\s)*[\*_`\s]*["“]([^"”]{15,600})["”]', 1, 2, 3, False),
+            (r'["“]([^"”]{15,600})["”][\*_`]*[\s\(\[]*`?\[P:(\d+)(?:\s*[-–—]\s*(?:P:)?(\d+))?\]`?', 2, 3, 1, False),
+            (r'>\s*`?\[P:(\d+)(?:\s*[-–—]\s*(?:P:)?(\d+))?\]`?(?:\s*[:\-–—]|\s)*[\*_`\s]*["“]?([^"”\n\r]{15,600})["”]?', 1, 2, 3, True),
+            (r'>\s*[\*_`]*["“]([^"”\n\r]{15,600})["”][\*_`]*[\s\(\[]*`?\[P:(\d+)(?:\s*[-–—]\s*(?:P:)?(\d+))?\]`?', 2, 3, 1, False),
         ]
 
         verified_quotes = set()
-        for q_regex, p_grp, q_grp in quote_specs:
+        for q_regex, ps_grp, pe_grp, q_grp, strip_markers in quote_specs:
             for qm in re.finditer(q_regex, self.full_text):
-                p_num = int(qm.group(p_grp))
+                p_start = int(qm.group(ps_grp))
+                p_end = int(qm.group(pe_grp)) if qm.group(pe_grp) else p_start
+                if p_start > p_end:
+                    p_start, p_end = p_end, p_start
+
                 quoted_str = qm.group(q_grp).strip()
+                if strip_markers:
+                    quoted_str = quoted_str.strip('*_` ').strip()
+                if len(quoted_str) < 15:
+                    continue
+
                 norm_quote = unicodedata.normalize('NFKD', tr_lower(re.sub(r'\s+', ' ', quoted_str)))
 
-                quote_key = (p_num, norm_quote)
+                quote_key = (p_start, p_end, norm_quote)
                 if quote_key in verified_quotes:
                     continue
                 verified_quotes.add(quote_key)
 
                 if norm_quote in source_normalized:
-                    # Check paragraph locality: +/- 1 neighbor window
-                    if 1 <= p_num <= len(self.source_paragraphs):
-                        w_start = max(0, p_num - 2)
-                        w_end = min(len(self.source_paragraphs), p_num + 1)
-                        w_text = unicodedata.normalize('NFKD', tr_lower(re.sub(r'\s+', ' ', " ".join(self.source_paragraphs[w_start:w_end]))))
+                    # Check paragraph locality: +/- 1 neighbor window around cited [p_start..p_end]
+                    if 1 <= p_start <= len(self.source_paragraphs) and p_end <= len(self.source_paragraphs):
+                        w_start = max(0, p_start - 2)
+                        w_end = min(len(self.source_paragraphs), p_end + 1)
+                        w_raw = " ".join(self.source_paragraphs[w_start:w_end])
+                        w_dehyphen = re.sub(r'(\w+)-\s*\n\s*(\w+)', r'\1\2', w_raw)
+                        w_text = unicodedata.normalize('NFKD', tr_lower(re.sub(r'\s+', ' ', w_dehyphen)))
                         if norm_quote in w_text or norm_quote[:35] in w_text:
-                            self._info(f"Verified verbatim quote anchor at [P:{p_num}].")
+                            self._info(f"Verified verbatim quote anchor at [P:{p_start}].")
                         else:
                             self._warn(
                                 f"[WARN: PARAGRAPH DRIFT] Quote '{quoted_str[:35]}...' found in source, "
-                                f"but outside declared paragraph [P:{p_num}] (checked P:{w_start+1}-P:{w_end})."
+                                f"but outside declared paragraph [P:{p_start}] (checked P:{w_start+1}-P:{w_end})."
                             )
                     else:
-                        self._info(f"Verified verbatim quote anchor for [P:{p_num}].")
+                        self._info(f"Verified verbatim quote anchor for [P:{p_start}].")
                 else:
                     self._error(
-                        f"[FAIL: UNVERIFIED QUOTE] Quoted text attached to [P:{p_num}] not found in '{source_name}': "
+                        f"[FAIL: UNVERIFIED QUOTE] Quoted text attached to [P:{p_start}] not found in '{source_name}': "
                         f'"{quoted_str[:60]}..."'
                     )
 
@@ -1115,11 +1211,11 @@ class CrucibleLinter:
             return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
-            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ MAYIN TARLASI V7.2 — METNE DAYALI DETERMINİSTİK DOĞRULAMA MÜHRÜ</span>
-            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] ANAYASAL UYUMLULUK ONAYLANDI (V7.2 METNE DAYALI)</span>
+            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ MAYIN TARLASI V7.3 — METNE DAYALI DETERMINİSTİK DOĞRULAMA MÜHRÜ</span>
+            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] ANAYASAL UYUMLULUK ONAYLANDI (V7.3 METNE DAYALI)</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
-            <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.2</code></div>
+            <div><strong>Doğrulayıcı:</strong> <code>crucible_linter.py v7.3</code></div>
             <div><strong>Yük (Payload):</strong> {self.result.lines} satır | {self.result.chars:,} karakter</div>
             <div><strong>Retorik Hijyen:</strong> {w_text}</div>
             <div><strong>Aktif Katmanlar:</strong> {layers_text}</div>
@@ -1128,7 +1224,7 @@ class CrucibleLinter:
             <div><strong>Doğrulama Zamanı:</strong> {timestamp}</div>
         </div>
         <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
-            Deterministik Doğrulama Damgası (v7.2) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
+            Deterministik Doğrulama Damgası (v7.3) — Başlık analizi, anayasal regex süzgeci ve zemin metin çapraz doğrulamasıyla onaylanmış Markdown metninden derlenmiştir. Doğrulanmamış taslaklar bu mührü taşıyamaz.
         </div>
     </div>"""
 
@@ -1141,11 +1237,11 @@ class CrucibleLinter:
         return f"""
     <div style="background:#0f172a;color:#f8fafc;border:2px solid #10b981;border-radius:8px;padding:18px 24px;margin-bottom:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,.12)">
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155;padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap;gap:10px">
-            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ CRUCIBLE v7.2 — GROUNDED DETERMINISTIC VERIFICATION SEAL</span>
-            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] CONSTITUTIONAL COMPLIANCE (V7.2 GROUNDED)</span>
+            <span style="font-weight:700;color:#34d399;font-size:1.1em;letter-spacing:.5px">🛡️ CRUCIBLE v7.3 — GROUNDED DETERMINISTIC VERIFICATION SEAL</span>
+            <span style="background:#059669;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:.9em">[PASS] CONSTITUTIONAL COMPLIANCE (V7.3 GROUNDED)</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:.9em;color:#cbd5e1">
-            <div><strong>Validator:</strong> <code>crucible_linter.py v7.2</code></div>
+            <div><strong>Validator:</strong> <code>crucible_linter.py v7.3</code></div>
             <div><strong>Payload:</strong> {self.result.lines} lines | {self.result.chars:,} chars</div>
             <div><strong>Rhetorical Hygiene:</strong> {w_text}</div>
             <div><strong>Active Layers:</strong> {layers_text}</div>
@@ -1154,12 +1250,12 @@ class CrucibleLinter:
             <div><strong>Verified:</strong> {timestamp}</div>
         </div>
         <div style="margin-top:10px;font-size:.82em;color:#94a3b8;border-top:1px dashed #334155;padding-top:8px">
-            Deterministic Verification Stamp (v7.2) — compiled from verified Markdown via structural heading analysis, regex constraints, and primary source cross-checking. Unverified drafts lack this seal.
+            Deterministic Verification Stamp (v7.3) — compiled from verified Markdown via structural heading analysis, regex constraints, and primary source cross-checking. Unverified drafts lack this seal.
         </div>
     </div>"""
 
     def _build_full_html(self, lang_code: str, html_body: str, seal_html: str) -> str:
-        title_prefix = "Mayın Tarlası V7.2" if lang_code == "tr" else "CRUCIBLE v7.2"
+        title_prefix = "Mayın Tarlası V7.3" if lang_code == "tr" else "CRUCIBLE v7.3"
         work_match = re.search(
             r'(?i)\*\*(?:İncelenen Eser|Subject Work|Investigated Work)\s*:\*\*\s*(.+)',
             self.full_text
@@ -1210,7 +1306,7 @@ class CrucibleLinter:
 def print_report(result: LintResult):
     """Print a formatted terminal report."""
     print("=" * 72)
-    print("🔍 CRUCIBLE v7.2 — GROUNDED DETERMINISTIC AUDIT & LINTER PIPELINE")
+    print("🔍 CRUCIBLE v7.3 — GROUNDED DETERMINISTIC AUDIT & LINTER PIPELINE")
     print(f"📄 Target: {os.path.basename(result.path)}")
     print(f"📊 Lines: {result.lines} | Characters: {result.chars:,}")
     print(f"🌐 Language: {result.detected_language.upper()}")
@@ -1256,7 +1352,7 @@ def print_report(result: LintResult):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='CRUCIBLE v7.2 — Grounded Deterministic Epistemic Audit Linter',
+        description='CRUCIBLE v7.3 — Grounded Deterministic Epistemic Audit Linter',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

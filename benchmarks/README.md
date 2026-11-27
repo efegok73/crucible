@@ -1,6 +1,6 @@
-# CRUCIBLE v7.2 — BENCHMARK SUITE
+# CRUCIBLE v7.3 — BENCHMARK SUITE
 
-Welcome to the **CRUCIBLE v7.2 Benchmark Suite**. This directory contains the structured target dossiers, methodology protocols, evaluation procedures, and reproducibility tooling used to quantitatively validate the CRUCIBLE epistemic gauntlet across 9 contentious academic and scientific battlefields.
+Welcome to the **CRUCIBLE v7.3 Benchmark Suite**. This directory contains the legacy target dossiers, methodology protocols, evaluation procedures, and reproducibility tooling used alongside full-text source PDFs to quantitatively validate the CRUCIBLE epistemic gauntlet across 9 contentious academic and scientific battlefields.
 
 ---
 
@@ -47,13 +47,13 @@ The benchmark suite spans 5 distinct faculties, testing the framework against di
 
 1. **Post-Structuralist Philosophy:** Butler (Performative ontology vs. biological materiality)
 2. **Psychoanalysis / Semiotics:** Lacan (Topological mathemes vs. pseudo-mathematics)
-3. **Clinical Medicine / Epidemiology:** Cass Review (Pediatric cohort evidence grading under NICE standards)
-4. **Historiography / Epigraphy:** Diop (Afrocentric diffusionism vs. Old Kingdom osteology)
+3. **Clinical Medicine / Epidemiology:** Cass Review (Asymmetric cross-pathway grading & April 2022 search cutoff)
+4. **Historiography / Epigraphy:** Diop (Colonial "Hamitic" critique vs. undocumented melanin proofs & flawed linguistics)
 5. **Classics / Ancient History:** Snowden (Greco-Roman somatic aesthetics vs. modern racial constructs)
-6. **Bibliometrics / Climatology:** Cook vs. Tol (Consensus quantification & denominator exclusion)
-7. **Climate Risk / Decision Science:** Curry (Deep uncertainty, ECS bounds vs. IPCC consensus)
-8. **Psychiatry / Evidence-Based Medicine:** Moncrieff (Serotonin deficit hypothesis & the Aspirin Fallacy)
-9. **Cognitive Neuroscience:** Baron-Cohen (Systemizing-Empathizing theory, neonate eye-tracking replication)
+6. **Bibliometrics / Climatology:** Cook et al. (2013) (Levels 1–3 pooling & self-rating sample asymmetry)
+7. **Climate Risk / Decision Science:** Curry (Deep uncertainty DMDU, unilateral cooling clamp & mitigation paradoxes)
+8. **Psychiatry / Evidence-Based Medicine:** Moncrieff (Serotonin hypothesis, modified GRADE asymmetry & iatrogenic inference)
+9. **Cognitive Neuroscience:** Baron-Cohen (Systemizing-Empathizing theory, neonate stimulus/blinding asymmetry & inverted-U paradox)
 
 ---
 

@@ -1,5 +1,5 @@
 """
-CRUCIBLE v7.2 — Benchmark Metrics Extractor
+CRUCIBLE v7.3 — Benchmark Metrics Extractor
 Extracts quantitative metrics (M1-M8) from showcase reports.
 Outputs: BENCHMARKS.md table
 """
@@ -32,7 +32,7 @@ CASES = [
     ("03", "Cass Review – Gender Medicine", "Clinical Medicine"),
     ("04", "Cheikh Anta Diop – African Origin", "Historiography"),
     ("05", "Frank Snowden – Blacks in Antiquity", "Classics / Ancient History"),
-    ("06", "Cook et al. vs Tol – Climate Consensus", "Bibliometrics / Climate Science"),
+    ("06", "Cook et al. (2013) – 97% Climate Consensus", "Bibliometrics / Climate Science"),
     ("07", "Judith Curry – Climate Uncertainty", "Climate Science / Decision Theory"),
     ("08", "Joanna Moncrieff – Serotonin Theory", "Psychiatry / Pharmacology"),
     ("09", "Simon Baron-Cohen – Essential Difference", "Cognitive Neuroscience"),
@@ -239,11 +239,12 @@ def extract_metrics(case_num, case_name, discipline):
 def generate_benchmarks_md(results):
     """Generate the BENCHMARKS.md file."""
     lines = []
-    lines.append("# CRUCIBLE v7.2 — QUANTITATIVE BENCHMARK RESULTS")
-    lines.append(f"**Generated:** 2026-10-06  ")
-    lines.append(f"**Methodology:** Cross-Model Benchmark Protocol v1.0  ")
+    lines.append("# CRUCIBLE v7.3 — QUANTITATIVE BENCHMARK RESULTS")
+    lines.append(f"**Generated:** 2026-11-27  ")
+    lines.append(f"**Audited By (AI Model):** Gemini 4 Hydrogen Extra High  ")
+    lines.append(f"**Methodology:** Cross-Model Benchmark Protocol v1.0 (v7.3 Single-Document Grounded L1–L5)  ")
     lines.append(f"**Reference:** [`benchmarks/methodology/BENCHMARK_PROTOCOL.md`](../benchmarks/methodology/BENCHMARK_PROTOCOL.md)  ")
-    lines.append(f"**Linter:** `scripts/crucible_linter.py` — All 9 showcase reports passed `[PASS]`  ")
+    lines.append(f"**Linter:** `scripts/crucible_linter.py` (`v7.3 --strict`) — All 9 EN showcase reports passed `[PASS]`  ")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -373,7 +374,7 @@ def generate_benchmarks_md(results):
 
 def main():
     print("=" * 72)
-    print("🔬 CRUCIBLE v6.0 — BENCHMARK METRICS EXTRACTOR")
+    print("🔬 CRUCIBLE v7.3 — BENCHMARK METRICS EXTRACTOR")
     print("=" * 72)
     print()
     
